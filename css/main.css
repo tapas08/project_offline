@@ -1,4 +1,9 @@
+body{
+	margin: 0px auto;
+}
+
 article{
+	clear:both;
 	width: 1000px;
 	margin: 0px auto;
 	padding: 5px;
@@ -34,4 +39,53 @@ article{
 
 #sellForm > div > input{
 	width: 50px;
+}
+
+/*input[type="number"]{
+	color: red;
+	width: 60px;
+	border: 2px solid gray;
+}*/
+
+.row{
+	clear: both;
+}
+
+.row > div{
+	/*float: left;*/
+	/*width: 23%;*/
+	margin-bottom: 5px;
+}
+#dummy{
+	clear: both;
+}
+button{
+	clear: both;
+}
+
+.fa-file-excel-o, .fa-user-md{
+	color: #6677ff;
+	font-size: 16px;
+}
+
+.fa-cog{
+	font-size: 19px;
+}
+
+.panel-primary{
+	background: #337ab7;
+}
+
+.name{
+	color: rgba(28, 30, 34, 0.88);
+	font-weight: 600;
+	font-size: 31px;
+}
+
+.fa-database{
+	width: 120px;
+}
+
+#center{
+	margin: 0px auto;
 }

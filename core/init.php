@@ -8,7 +8,11 @@
 				'host' => '127.0.0.1',
 				'username' => 'root',
 				'password' => '',
-				'db' => 'project_offline_db'
+				'db' => 'project_offline_db',
+				'remote_db' => 'sql687707',
+				'remote_host' => 'sql6.freemysqlhosting.net',
+				'remote_password' => 'mD1!qK8*',
+				'remote_username' => 'sql687707'
 				)
 		);
 

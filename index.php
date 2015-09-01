@@ -12,7 +12,7 @@
 		<header><h1>This and That Store</h1></header>
 		<ul>
 			<li><a href="#">Sell</a></li>
-			<li><a href="#">Update Invetory</a></li>
+			<li><a href="inventory.php">Update Inventory</a></li>
 		</ul>
 	</nav>
 
@@ -30,7 +30,7 @@
 						<option>Drug 5</option>
 						<option>Drug 6</option>
 					</select>
-					<input type="number" min=1 max=50 value=1 id=1 onchange="getQuantity('1')" oninput="getQuantity('1')" disabled>
+					<input type="number" min=1 value=0 id=1 onchange="getQuantity('1')" oninput="getQuantity('1')" disabled>
 				</div>
 				<a href="#" id="addMore" onclick="addMore();">Add More...</a>
 			</form>
@@ -63,12 +63,18 @@
 	  						(flag = 1) : (flag = 0);
 	  			},
 	  })
+
+	  if(flag == 1){
+	  	console.log("database connected!");
+	  }else{
+	  	console.log("Database disconnected!");
+	  }
 	  //console.log(flag);
 
-	}, 5*1000);
+	}, 1*1000);
 
     document.getElementById("billButton").onclick = function(){
-    	//console.log(flag);
+    	console.log(flag);
     	if (flag == 1){
     		$.ajax({
     			type: "post",

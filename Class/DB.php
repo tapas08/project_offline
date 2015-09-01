@@ -9,22 +9,32 @@ class DB{
 			$_error = false,
 			$_count = 0;
 
-	private function __construct(){
+	private function __construct($remote_server = false){
 
 		try{
-			$this->_pdo = new PDO('mysql:host='.Config::get('mysql/host').
-									';dbname='.Config::get('mysql/db'),
-									Config::get('mysql/username'),
-									Config::get('mysql/password'));
+			if(!$remote_server){
+				$this->_pdo = new PDO('mysql:host='.Config::get('mysql/host').
+										';dbname='.Config::get('mysql/db'),
+										Config::get('mysql/username'),
+										Config::get('mysql/password'));
+			}else if ($remote_server){
+				$this->_pdo = new PDO('mysql:host='.Config::get('mysql/remote_host').
+									';dbname='.Config::get('mysql/remote_db'),
+									Config::get('mysql/remote_username'),
+									Config::get('mysql/remote_password'));	
+				//print_r($this->_pdo);
+			}
 		}catch(PDOException $e){
 			die($e->getMessage());
 		}
 
 	}
 
-	public static function getInstance(){
+	public static function getInstance($remoteServer = false){
 		if (!isset(self::$_instance)){
-			self::$_instance = new DB();
+			self::$_instance = new DB($remoteServer);
+		}else if(isset($remoteServer)){
+			self::$_instance = new DB($remoteServer);
 		}
 		return self::$_instance;
 	}
@@ -39,14 +49,14 @@ class DB{
 			if (count($params)){
 				foreach ($params as $param){
 					$this->_query->bindValue($x, $param);
-					//echo "x -> ",$x, " : param -> ",$param,"<br>";
 					$x++;
 				}
 			}
-			//print_r($this->_query);
+			
 			if ($this->_query->execute()){
-				$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
+				$this->_results = $this->_query->fetchAll(PDO::FETCH_ASSOC);
 				$this->_count = $this->_query->rowCount();
+
 			}else{
 				$this->_error = true;
 			}
@@ -93,14 +103,14 @@ class DB{
 
 			$sql = "INSERT INTO {$table} (`". implode("`, `", $keys) ."`) VALUES ({$values})";
 
-			if (!$this->query($sql, $fields)->error){
+			if (!$this->query($sql, $fields)->error()){
 				return $this;
 			}
 		}
 		return false;
 	}
 
-	public function update($table, $where, $fields){
+	public function update($table, $where, $fields=array()){
 		$set = '';
 		$x = 1;
 
@@ -112,12 +122,12 @@ class DB{
 			$x++;
 		}
 
-		$sql = "UPDATE {$table} SET {$set} WHERE item = {$where}";
+		$sql = "UPDATE {$table} SET {$set} WHERE `item` = {$where}";
 
 		if (!$this->query($sql, $fields)->error()){
-			echo "Done!";
 			return true;
 		}
+
 		return false;
 	}
 
@@ -131,6 +141,10 @@ class DB{
 
 	public function first(){
 		return $this->results()[0];
+	}
+
+	public function count(){
+		return $this->_count;
 	}
 
 }
