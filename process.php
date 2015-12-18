@@ -2,7 +2,7 @@
 
 require_once 'core/init.php';
 
-if (!DB::getInstance()->error()){
+if (!DB::getInstance(true)->error()){
 	echo "true";
 }else{
 	echo "false";

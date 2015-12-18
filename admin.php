@@ -23,6 +23,16 @@ $db = DB::getInstance(true);
 				<li><a href="#">Home</a></li>
 				<li><a href="updateInventory.php">Update Inventory</a></li>
 				<li><a href="#">Send Mail</a></li>
+				<li role="presentation" class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Inventory <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="database.php?loc=nagpur" id="nagpur">Nagur</a></li>
+						<li><a href="database.php?loc=amravati" id="amravati">Amravati</a></li>
+						<li><a href="database.php?loc=yavatmal" id="yavatmal">Yavatmal</a></li>
+						<li><a href="database.php?loc=pune" id="pune">Pune</a></li>
+					</ul>
+				</li>
 				<li><a href="#">Sing Out</a></li>
 			</ul>
 		</div>
@@ -64,7 +74,7 @@ $db = DB::getInstance(true);
 					<p class="alert alert-success">
 					<?php  
 					$sale = 0;
-					$nagpur = $db->query("SELECT * from nagpur_bill WHERE bill_date >= ? AND bill_number <= ?", array(date('Y-m-1'), date('Y-m-d')));
+					$nagpur = $db->query("SELECT * from amravati_bill WHERE bill_date >= ? AND bill_number <= ?", array(date('Y-m-1'), date('Y-m-d')));
 					$results = $nagpur->results();
 					foreach ($results as $key => $value) {
 						$sale += $value['grand_total'];
@@ -85,7 +95,7 @@ $db = DB::getInstance(true);
 					<p class="alert alert-success">
 					<?php  
 					$sale = 0;
-					$nagpur = $db->query("SELECT * from nagpur_bill WHERE bill_date >= ? AND bill_number <= ?", array(date('Y-m-1'), date('Y-m-d')));
+					$nagpur = $db->query("SELECT * from yavatmal_bill WHERE bill_date >= ? AND bill_number <= ?", array(date('Y-m-1'), date('Y-m-d')));
 					$results = $nagpur->results();
 					foreach ($results as $key => $value) {
 						$sale += $value['grand_total'];
@@ -109,7 +119,7 @@ $db = DB::getInstance(true);
 					<p class="alert alert-success">
 					<?php  
 					$sale = 0;
-					$nagpur = $db->query("SELECT * from nagpur_bill WHERE bill_date >= ? AND bill_number <= ?", array(date('Y-m-1'), date('Y-m-d')));
+					$nagpur = $db->query("SELECT * from pune_bill WHERE bill_date >= ? AND bill_number <= ?", array(date('Y-m-1'), date('Y-m-d')));
 					$results = $nagpur->results();
 					foreach ($results as $key => $value) {
 						$sale += $value['grand_total'];
@@ -122,6 +132,7 @@ $db = DB::getInstance(true);
 			</div>
 		</div>
 </div>
-
+<script type="text/javascript" src="script/jquery-min.js"></script>
+<script type="text/javascript" src="script/bootstrap.min.js"></script>
 </body>
 </html>

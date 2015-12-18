@@ -16,10 +16,10 @@ $queryResults = $selectAll->results();
 
 <!DOCTYPE <html>
 <head>
-	<title>Add product</title>
+	<title>Sell</title>
 	<script src="script/jquery-min.js"></script>
-	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/theme.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/theme.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 </head>
@@ -34,7 +34,7 @@ $queryResults = $selectAll->results();
 		    <div class="navbar-header">
 			    <ul class="nav navbar-nav">
 					<li><a href="bills.php"><i class="fa fa-file-excel-o"></i> show bills</a></li>
-					<li><a href="details.php"><i class="fa fa-user-md"></i> Shops Details</a></li>
+					<li><a href="details.php"><i class="fa fa-user-md"></i> Shop Details</a></li>
 				</ul>
 			</div>
 			<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true" aria-labeledby="myModal-label" role="dialog">
@@ -58,25 +58,25 @@ $queryResults = $selectAll->results();
 	<article>
 		<div class="col-lg-3">
 			<label for="billDate">Date</label>
-			<input type="date" value="<?php echo date('Y-m-d'); ?>" id="billDate" class="form-control" disabled>
+			<input type="date" form="inventoryForm" value="<?php echo date('Y-m-d'); ?>" id="billDate" class="form-control" disabled>
 		</div>
 		<div class="col-lg-3">
 			<label for="billNo">Bill Number</label>
-			<input type="number" class="form-control" id="billNo" value="<?php echo (int)$count+1; ?>" disabled>
+			<input type="number" form="inventoryForm" class="form-control" id="billNo" value="<?php echo (int)$count+1; ?>" disabled>
 		</div>
 		<div class="col-lg-3">
 			<label for="store">Store</label>
-			<input type="text" class="form-control" id="store" placeholder="Select store location" list="store-loc">
+			<input type="text" class="form-control" form="inventoryForm" id="store" placeholder="Select store location" list="store-loc" required>
 			<datalist id="store-loc">
 				<option value="Nagpur"></option>
 				<option value="Amravati"></option>
-				<option value="Wardha"></option>
+				<option value="Yavatmal"></option>
 				<option value="Pune"></option>
 			</datalist>
 		</div>
 		<div class="col-lg-3">
 			<label for="customer_name">Name</label>
-			<input type="text" class="form-control" id="customer_name" placeholder="Customer Name">
+			<input type="text" class="form-control" id="customer_name" form="inventoryForm" placeholder="Customer Name" required>
 		</div>
 	</article>
 
@@ -90,20 +90,20 @@ $queryResults = $selectAll->results();
 			</div>
 			<div class="row">
 				<div id="itemDiv" class="purchase col-lg-3">
-					<select id="drugs_list_1" class="form-control" onchange="getRate('drugs_list_1', 'rate_1');">
-						<option>Select drug</option>
-					<?php 
-						$query = $db->query("SELECT * FROM users");
-						$results = $query->results();
-						
-						foreach ($results as $record) {
-							$itemData[$record['item']] = $record['rate'];
-					?>
-						<option><?php echo $record['item']; ?></option>
-					<?php
-						}
-					 ?>
-				 	</select>
+					<input type="text" class="form-control" placeholder="Select Drug" id="drugs_list_1" list="dynamicOptions_1" oninput="getRate('drugs_list_1', 'rate_1');">
+					<datalist id="dynamicOptions_1">
+						<?php 
+							$query = $db->query("SELECT * FROM inventory_nagpur");
+							$results = $query->results();
+							
+							foreach ($results as $record) {
+								$itemData[$record['item']] = $record['rate'];
+						?>
+							<option value="<?php echo $record['item']; ?>"><?php echo $record['item']; ?></option>
+						<?php
+							}
+						 ?>
+					</datalist>
 				</div>
 				<div id="quantityDiv" class="purchase col-lg-3">
 					<input type="number" class="form-control" id="quantity_1" min=1 value=0 onchange="getTotal('drugs_list_1','quantity_1', 'total_1');" oninput="getTotal('drugs_list_1', 'quantity_1', 'total_1');">
@@ -169,34 +169,20 @@ $queryResults = $selectAll->results();
 
 		<button id="generateBill" onclick="generateBill()" class="btn btn-warning" data-target="#myBill" data-toggle="modal" disabled>Generate Bill</button>
 	</article>
-	<div>
-		<input type="hidden" id="drugsList" list="dynamicOptions">
-		<datalist id="dynamicOptions">
-			<?php 
-				$query = $db->query("SELECT * FROM users");
-				$results = $query->results();
-				
-				foreach ($results as $record) {
-					$itemData[$record['item']] = $record['rate'];
-			?>
-				<option value="<?php echo $record['item']; ?>"></option>
-			<?php
-				}
-			 ?>
-		</datalist>
-	</div>
 	<script src="script/bootstrap.min.js"></script>
 	<script type="text/javascript" src="script/create.js"></script>
 	<script type="text/javascript">
+		//var i = 1;
 		var itemData = <?php echo json_encode($itemData) ?>;
 		var x = 2;
 		var list = {};
 		var rate;
 		var grandTotal = 0, tempTotal;
 		function getRate(value_id, display_id){
+			console.log(value_id);
 			delete rate;
 			var item = document.getElementById(value_id).value;
-			document.getElementById(display_id).innerHTML = itemData[item];
+			document.getElementById(display_id).innerHTML = (itemData[item] != undefined ? itemData[item] : 0);
 			rate = itemData[item];
 		}
 
@@ -226,34 +212,48 @@ $queryResults = $selectAll->results();
 				data: {dataArray : list, name : customer_name, date : billdate, store : location, number : billNo},
 				success: function(data){
 					window.location.reload();
-					//console.log(data);
 				}
 			});
-			localStorage.updateValues = JSON.stringify(list);
+			if(localStorage.length >= 1){
+				var index = localStorage.length;
+				localStorage["updateValues_"+(index+1)]	 = JSON.stringify(list);
+			}else{
+				localStorage["updateValues_1"]	 = JSON.stringify(list);
+			}
+			
+			
 		}
 
 		function updateDB(){
+			var i = 1;
 			//$('#spinner').addClass("fa-spin");
 			document.getElementById("updateBtn").innerHTML = "<i class='fa fa-cog fa-spin'></i> Syncing Data";
 			//if(localStorage.updateValues){
-				var updatedList = JSON.parse(localStorage.updateValues);
-				//console.log(updatedList);
-				$.ajax({
+				$.each(localStorage, function(){
+					var updatedList = JSON.parse(localStorage['updateValues_'+i]);
+					console.log(updatedList);
+					$.ajax({
 
-					type: "post",
-					url: "sync.php",
-					data: {update: updatedList},
-					success: function(data){
-						if(data == "false"){
-							localStorage.clear();
-							$('#myModal').modal('show');
-							document.getElementById("updateBtn").innerHTML = "<i class='fa fa-cog'></i> Sync Data";
-						}else{
-							console.log(data);
+						type: "post",
+						url: "sync.php",
+						data: {update: updatedList},
+						success: function(error){
+							if(error == "false"){
+								//console.log(data);
+								
+								$('#myModal').modal('show');
+								document.getElementById("updateBtn").innerHTML = "<i class='fa fa-cog'></i> Sync Data";
+								//i=1;
+							}else{
+								console.log(error);
+							}
 						}
-					}
 
+					});
+					delete updatedList;
+					i++;
 				});
+				localStorage.clear();
 			// }else{
 			// 	console.log("NOthing to post!");
 			// }
@@ -313,6 +313,17 @@ $queryResults = $selectAll->results();
 			})
 
 		}
+
+		// setInterval(function(){
+		// 	$.ajax({
+		// 		url: 'process.php',
+		// 		success: function(data){
+		// 			if(data == "true"){
+		// 				updateDB();
+		// 			}
+		// 		}
+		// 	});
+		// }, 1000);
 
 	</script>
 </body>

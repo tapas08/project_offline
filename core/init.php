@@ -17,5 +17,9 @@
 		);
 
 	spl_autoload_register(function($class){
-		require_once 'Class/'. $class .'.php';
+		if (getcwd() !== '/opt/lampp/htdocs/series/project_offline'){
+			require_once '../Class/'. $class .'.php';
+		}else{
+			require_once 'Class/'. $class .'.php';
+		}
 	});

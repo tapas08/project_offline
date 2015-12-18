@@ -23,32 +23,47 @@ function addMoreFields(){
 	option_div_class.value = "purchase col-lg-3";
 	option_div.setAttributeNode(option_div_class);
 
-	//creating select element
-	var select = document.createElement("select");
+	//creating input element
+	var select = document.createElement("input");
 	var select_id = document.createAttribute("id");
 	select_id.value = "drugs_list_"+x;
 	select.setAttributeNode(select_id);
-	var select_onchange = document.createAttribute("onchange");
-	select_onchange.value = "getRate('drugs_list_"+x+"', 'rate_"+x+"')";
-	select.setAttributeNode(select_onchange);
+	var select_oninput = document.createAttribute("oninput");
+	select_oninput.value = "getRate('drugs_list_"+x+"', 'rate_"+x+"')";
+	select.setAttributeNode(select_oninput);
 	/* class attribute to be added to every form elements */
 	var attribClass = document.createAttribute("class");
 	attribClass.value = "form-control";
 	select.setAttributeNode(attribClass);
+	/* placeholder for input field */
+	var placeholder = document.createAttribute("placeholder");
+	placeholder.value = "Select Drug";
+	select.setAttributeNode(placeholder);
+	/* list attribute for input field */
+	var list = document.createAttribute("list");
+	list.value = "dynamicOptions_"+x;
+	select.setAttributeNode(list);
+
+	/* Datalist element to create list of drugs */
+	var datalist = document.createElement("datalist");
+	var datalist_id = document.createAttribute("id");
+	datalist_id.value = "dynamicOptions_"+x;
+	datalist.setAttributeNode(datalist_id);
 
 	//creating options
 	var option = document.createElement("option");
-	var value = document.createTextNode("Select drug");
-	option.appendChild(value);
-	select.appendChild(option);
+	// var value = document.createTextNode("Select drug");
+	// option.appendChild(value);
+	// select.appendChild(option);
 	//creating dynamically the list of drugs
 	$.each(itemData, function(key, value){
 		var options = document.createElement("option");
 		var text =document.createTextNode(key);
 		options.appendChild(text);	
-		select.appendChild(options);
+		datalist.appendChild(options);
 	});
 	//appended the select element to its resp. div
+	option_div.appendChild(datalist);
 	option_div.appendChild(select);
 
 	//creating div to hold quantity input field

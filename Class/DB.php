@@ -101,7 +101,7 @@ class DB{
 				$x++;
 			}
 
-			$sql = "INSERT INTO {$table} (`". implode("`, `", $keys) ."`) VALUES ({$values})";
+			echo $sql = "INSERT INTO {$table} (`". implode("`, `", $keys) ."`) VALUES ({$values})";
 
 			if (!$this->query($sql, $fields)->error()){
 				return $this;
@@ -110,7 +110,7 @@ class DB{
 		return false;
 	}
 
-	public function update($table, $where, $fields=array()){
+	public function update($table, $where=array(), $fields=array()){
 		$set = '';
 		$x = 1;
 
@@ -122,10 +122,23 @@ class DB{
 			$x++;
 		}
 
-		$sql = "UPDATE {$table} SET {$set} WHERE `item` = {$where}";
+		if (count($where) == 3){
+			$operators = array('=', '<', '>', '!=', '<=', '>=');
 
-		if (!$this->query($sql, $fields)->error()){
-			return true;
+			$field = $where[0];
+			$operator = $where[1];
+			$value = $where[2];
+
+			if (in_array($operator, $operators)){
+				$sql = "UPDATE {$table} SET {$set} WHERE {$field} {$operator} ?";
+
+				array_push($fields, $value);
+
+				if (!$this->query($sql, $fields)->error()){
+					return true;
+				}
+
+			}
 		}
 
 		return false;

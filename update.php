@@ -49,7 +49,7 @@ $store = $_POST['store'];
 $bill_no = $_POST['number'];
 
 foreach($array as $list){
-	$result = $db->query("UPDATE users SET quantity = quantity - ? WHERE item = ?", array($list['quantity'], $list['name']));
+	$result = $db->query("UPDATE inventory_nagpur SET quantity = quantity - ? WHERE item = ?", array($list['quantity'], $list['name']));
 }
 
 if(!$result->error()){
