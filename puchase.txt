@@ -1,0 +1,82 @@
+
+*************** PHARMA-SOFT ***************
+
+
+/*************************************************
+
+		FORM CONNECTIONS
+
+***************************************************/
+purchase-form
+	-new marketedByForm
+
+		-> suggesstion form
+			(this will include 3 fields)
+			// Each will open resp. suggestion forms
+
+			* Comapany Name
+			* Stockist Name
+			
+				-> add newStockistForm
+			
+			* Stockist Priority
+
+	-new manufacturedByForm
+
+	-new mainCategoryForm
+
+		-> pass new value
+
+	-new subCategoryForm
+
+		-> pass new value
+
+	-new productTypeForm
+
+		-> productType master
+			-> modify form
+			-> delete form
+
+	-new drugContentForm
+
+		-> Drug Master
+			-> update form
+			-> delete form
+
+
+
+
+/**********************************************
+
+	DATABASE TABLE ENTRY FOR NEW DRUG
+
+***********************************************/
+
+Database Schema
+
+Columns for Purchase Master
+
+id 				=>	int
+marketedBy		=>	varchar[255]
+manufacturedBy 	=>	varchar[255]
+packSize 		=>	varchar[5]
+purchaseSize 	=>	int
+mainCategory 	=>	varchar[20]
+subCategory 	=>	varchar[20]
+productType 	=>	varchar[20]
+productGroup 	=>	varchar[20]
+MRP				=>	float
+tax				=> 	float
+VAT				=>	float
+RACK			=>	varchar[20]
+reorderLvl		=>	varchar[20]
+orderQuantity	=>	varchar[20]
+drugContent		=>	text
+
+
+/*******************************
+* COLOR RANGE FOR DIFFERENT PRODUCT TYPE
+********************************/
+
+NARCOTIC - RED
+SCHEDULE-H	- BLUE

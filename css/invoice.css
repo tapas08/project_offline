@@ -1,0 +1,43 @@
+section > div > div > h2{
+	margin-top: 0;
+}
+
+#invoiceForm{
+	border-top: inset 2px #e4e4e4;
+	padding-top: 10px;
+	margin-top: 15px;
+}
+
+#productEntry{
+	height: 400px;
+	border: 1px solid #e3e3e3;
+	overflow-y: auto;
+}
+
+.container-fluid > div > div{
+	margin-right: -25px;
+}
+
+tbody > tr > td{
+	padding-right: 2px !important;
+	padding-left: 2px !important;
+}
+
+tbody > tr >td:nth-child(6){
+	width: 9%;
+}
+
+tbody > tr > td > input{
+	padding: 5px 0 5px 4px !important;
+}
+
+tbody > tr > td:first-child{
+	width: 24.5%;
+}
+
+#otherEntries{
+	margin-top: 20px;
+	padding: 10px 5px;
+	background: #e3e3e3;
+}
+
