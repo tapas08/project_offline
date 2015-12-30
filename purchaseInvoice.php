@@ -1,31 +1,52 @@
 <?php
 	require_once('core/init.php');
 
+	$message = [];
+
 	if (Input::exists()){
 		$db = DB::getInstance();
 		for($i = 1; $i<(int)$_POST['counter']; $i++){
 			$insert = $db->insert('purchaseBills', array(
-					'invoiceNumber' => $_POST["invoiceNumber"],
-					'bType' => $_POST['billType'],
-					'supplier' => $_POST['stockist_name'],
-					'date' => $_POST['billDate'],
-					'productName' => $_POST["productName_"+$i],
-					'productQuantity' => $_POST["productQuantity_"+$i],
-					'productSize' => $_POST["productSize_"+$i],
-					'productFree' => $_POST["productFree_"+$i],
-					'tabQuantity' => $_POST["tabQuantity_"+$i],
-					'batchNo' => $_POST["batchNo_"+$i],
-					'expiryDate' => $_POST["exDate_"+$i],
-					'purchaseRate' => $_POST["purchaseRate_"+$i],
-					'discount' => $_POST["discount_"+$i],
-					'vatAmount' => $_POST["VAT_"+$i],
-					'VAT' => $_POST["vatPer_"+$i],
-					'CST' => $_POST["CST_"+$i],
-					'MRP' => $_POST["MRP_"+$i],
-					'purchaseAmount' => $_POST["productAmount_"+$i]
+					'invoiceNumber' 	=> $_POST["invoiceNumber"],
+					'bType' 			=> $_POST['billType'],
+					'supplier' 			=> $_POST['stockist_name'],
+					'date' 				=> $_POST['billDate'],
+					'productName' 		=> $_POST["productName_"+$i],
+					'productQuantity' 	=> $_POST["productQuantity_"+$i],
+					'productSize' 		=> $_POST["productSize_"+$i],
+					'productFree' 		=> $_POST["productFree_"+$i],
+					'tabQuantity' 		=> $_POST["tabQuantity_"+$i],
+					'batchNo' 			=> $_POST["batchNo_"+$i],
+					'expiryDate' 		=> $_POST["exDate_"+$i],
+					'purchaseRate' 		=> $_POST["purchaseRate_"+$i],
+					'discount' 			=> $_POST["discount_"+$i],
+					'vatAmount' 		=> $_POST["VAT_"+$i],
+					'VAT' 				=> $_POST["vatPer_"+$i],
+					'CST' 				=> $_POST["CST_"+$i],
+					'MRP' 				=> $_POST["MRP_"+$i],
+					'purchaseAmount' 	=> $_POST["productAmount_"+$i]
 				));
+
+			if ($insert){
+				$stock = $db->get('items', array("productName_{$i}", '=', Input::get('product')))->first()['stock'];
+
+				$revisedStock = (int)$stock + (int)Input::get("productSize_{$i}");
+
+				$updateStock = $db->update('items', array(
+						'productName', '=', Input::get("productName_"+$i)
+					), array(
+						'stock', '=', $revisedStock
+					));
+
+				if (!$updateStock){
+					$message[] = "Error! There was problem updating the stock.";
+				}
+			}else{
+				$message[] = "Error inserting " + Input::get("productName_{$i}") + " in the database!";
+			}	
+
 		}
-		$insertInvoice = $db->insert('purchaseBills', array(
+		$insertInvoice = $db->insert('purchaseInvoice', array(
 				'invoiceNumber' => $_POST['invoiceNumber'],
 				'purchaseEntry' => $_POST['purchaseEntry'],
 				'billDate' => $_POST['billDate'],
@@ -38,6 +59,10 @@
 				'VAT' => $_POST['totalVat'],
 				'netAmount' => $_POST['netAmnt']
 			));
+
+		if ($insertInvoice){
+			$message[] = "Error! Couldn't insert invoice details.";
+		}
 	}
 ?>
 <!doctype html>
@@ -59,14 +84,24 @@
 	<?php include('templates/header.php'); ?>
 
 	<section class="container">
-		<div class="col-md-12">
+		<div class="col-md-12 top-menu">
+			
+			<?php
+				if (count($message) > 0){
+					foreach ($message as $msg){
+						echo "<p class='alert alert-warning'>{$msg}</p>";
+					}
+				}
+			?>
+
 			<div class="col-md-6">
 				<h2>Purchase Invoice / Delivery Memo</h2>
+				<input type="data" id="datePicker" name="datePicker" style="visibility:hidden;">
 			</div>
 			<div class="col-md-6">
 				<input type="reset" form="invoiceForm" id="reset" name="reset" class="btn btn-primary" value="Cancel">
-				<input type="button" id="impBill" name="impBill" class="btn btn-primary" value="Imp Bill">
-				<input type="button" id="pendingDM" name="pendingDM" class="btn btn-primary" value="Pending DM">
+				<input type="button" id="impBill" name="impBill" class="btn btn-primary" onclick="importBills();" value="Imp Bill">
+				<input type="button" id="pendingDM" name="pendingDM" class="btn btn-primary" onclick="checkPendingDM();" value="Pending DM">
 				<input type="button" id="convDM" name="convDM" class="btn btn-primary" value="Conv DM">
 				<input type="submit" form="invoiceForm" id="saveInvoice" name="saveInvoice" onclick="checkAndSave();" class="btn btn-primary" value="Save">
 				<a href="#" id="exit" name="exit" class="btn btn-primary">Exit</a>
@@ -266,6 +301,38 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="billsDates" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<h4>Please Select Date of the bill</h4>
+					<input type="date" id="bill_date" class="form-control" name="bill_date" autofocus>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="importBills();">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="pendingBillsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h2>PharmaSoft</h2>
+				</div>
+				<div class="modal-body">
+					<h3>There are no pending DM's of this supplier!</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<script src="script/generateFields.js"></script>
 	<script src="script/common.js"></script>
@@ -420,6 +487,8 @@
 
 			getTotal(counter);
 
+			$('#productName_'+counter).focus();
+
 			counter++;
 			$('#counter').val(counter);
 
@@ -571,6 +640,60 @@
 			if(supplier !== ''){
 				$('#creditModal').modal();
 			}
+		}
+
+		function checkPendingDM(){
+
+			if ($('#stockist_name').val() !== ''){
+
+				$.ajax({
+					type: 'post',
+					url: 'functions/otherFunctions.php',
+					data: {option: 'DM', supplier: $('#stockist_name').val()},
+					success: function(data){
+						if (data == 0){
+							alert("There are no pending DM's");
+						}else{
+							$('#pendingBillsModal div div .modal-body').html(data);
+						}
+					}
+				});
+			}else{
+				alert("Please provide supplier name!");
+			}
+		}
+
+		function importBills(){
+			//import previous saved bills
+			
+			var count = 1;
+			var supplierName = $('#stockist_name').val();
+			
+			if (supplierName != ''){
+				
+				$('#billsDates').modal();
+				
+				if ($('#bill_date').val() !== ''){
+					$.ajax({
+						type: 'post',
+						url: 'functions/otherFunctions.php',
+						//dataType: 'JSON',
+						data: {supplier: supplierName, date: $('#bill_date').val(), option: 'importBills'},
+						success: function(data){
+							if (data == 0){
+								$('#pendingBillsModal').modal();
+							}else{
+								$('tbody').html(data);
+								counter = <?php echo $GLOBALS['counter']; ?>;
+								console.log(counter);
+							}
+						}
+					});
+				}
+			}else{
+				alert("Enter supplier name");
+			}
+
 		}
 
 

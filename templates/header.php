@@ -7,8 +7,8 @@
 			<li><a href="purchaseInvoice.php">Purchase Invoice</a></li>
 			<li><a href="#" data-toggle="modal" data-target=".modal-newCustSupp">New Customer</a></li>
 			<li><a href="#" data-toggle="modal" data-target=".modal-newCustSupp">New Supplier</a></li>
-			<li><a href="#">Send Mail</a></li>
-			<li><a href="#">Sing Out</a></li>
+			<li><a href="purchaseOrder.php">Purchase Order</a></li>
+			<li><a href="purchaseReturn.php">Purchase Return</a></li>
 		</ul>
 	</div>
 </nav>

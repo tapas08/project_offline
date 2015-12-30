@@ -18,7 +18,7 @@ function getList(id, list, drug, insertData){
 			document.getElementById(list).innerHTML = data;
 			if (id == 'stockist_name'){
 				if ( document.getElementById('productMarketedBy') !== null){
-					document.getElementById('productMarketedBy').value = document.getElementById('stockist_name').value;
+					document.getElementById('productMarketedBy').value = document.getElementById('company_name').value;
 				}
 				if ( document.getElementById('productManftr') !== null ){
 					document.getElementById('productManftr').value = document.getElementById('company_name').value;
