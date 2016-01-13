@@ -37,20 +37,33 @@ function save(){
 	if (Input::exists()){
 		$db = DB::getInstance();
 
-		$save = $db->insert('Account', array(
-				'acType' => Input::get('type'),
-				'name' => Input::get('name'),
-				'city' => Input::get('city'),
-				'address' => Input::get('address'),
-				'phone' => Input::get('phone'),
-				'debitLimit' => Input::get('debit_limit'),
-				'daysLimit' => Input::get('days_limit'),
-				'email' => Input::get('email'),
-				'vat_tin_no' => Input::get('vat_tin_no'),
-				'LBTNo' => Input::get('lbtNo'),
-				'openingBalance' => Input::get('openingBalance'),
-				'CR_or_DR' => Input::get('onoffswitch')
+		$table;
+
+		if (Input::get('acType') == "Customer"){
+			$table = 'customer';
+		}else if (Input::get('acType') == "Supplier"){
+			$table = "stockist_name";
+			$stockist = $db->insert('stockist_name', array(
+					'abbreviation' => abrevate(Input::get('name')),
+					'name' => Input::get('name')
+				));
+		}
+
+		$save = $db->insert('account', array(
+				'acType'		=> Input::get('type'),
+				'name' 			=> Input::get('name'),
+				'city' 			=> Input::get('city'),
+				'address' 		=> Input::get('address'),
+				'phone' 		=> Input::get('phone'),
+				'debitLimit' 	=> Input::get('debit_limit'),
+				'daysLimit' 	=> Input::get('days_limit'),
+				'email' 		=> Input::get('email'),
+				'vat_tin_no' 	=> Input::get('vat_tin_no'),
+				'LBTNo' 		=> Input::get('lbtNo'),
+				'openingBalance'=> Input::get('openingBalance'),
+				'CR_or_DR' 		=> Input::get('onoffswitch')
 			));
+
 
 		if ($save){
 			echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
@@ -111,12 +124,37 @@ function saveOrUpdate(){
 
 function checkDM(){
 	$db = DB::getInstance();
+	
+	$DM = $db->query("SELECT * FROM purchaseBills WHERE `bType` = ? AND `supplier` = ?", array('DM', Input::get('supplier')));
 
-	$DM = $db->query("SELECT * FROM purchaseBills WHERE bType = ? AND supplier = ?", array('DM', Input::get('supplier')));
 	if ($DM->count() > 0){
-		return $DM->results();
+		$invoiceNumber = 0;
+
+		echo "<table class='table table-bordered'>";
+		echo "<thead>";
+		echo "<td>Inv No.</td>";
+		echo "<td>Supplier</td>";
+		echo "<td>Date</td>";
+		echo "<td>Total</td>";
+		echo "</thead>";
+		echo "<tbody>";
+
+		foreach ($DM->results() as $result => $bill){
+			if ($invoiceNumber != $bill['invoiceNumber']){
+				echo "<tr>";
+				$invoiceNumber = $bill['invoiceNumber'];
+				$dmData = $db->get('purchaseInvoice', array('invoiceNumber', '=', $invoiceNumber));
+				echo "<td>$invoiceNumber</td>";
+				echo "<td>".$bill['supplier']."</td>";
+				echo "<td>".$bill['date']."</td>";
+				echo "<td>".$dmData->first()['netAmount']."</td>";
+				echo "</tr>";
+			}
+		}
+		echo "</tbody>";
+		echo "</table>";
 	}else{
-		return 0;
+		return "0";
 	}
 }
 
@@ -231,4 +269,13 @@ function purchaseTable(){
 			echo "0";
 		}
 	}
+}
+
+function abrevate($name){
+	$abr = '';
+	for ($i = 0; $i < 3; $i++){
+		$abr .= substr($name, rand($i, strlen($name)));
+	}
+
+	return $abr;
 }

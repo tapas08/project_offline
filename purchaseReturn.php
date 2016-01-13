@@ -127,7 +127,7 @@
 			<div class="row col-md-12 return-form">
 				<div class="form-group col-md-4">
 					<span class="col-md-3"><label for="product" class="control-label">Product</label></span>
-					<span class="col-md-8"><input type="text" id="product" name="product" list="product_list" class="form-control" oninput="getProduct('product', 'product_list')" autofocus></span>
+					<span class="col-md-8"><input type="text" id="product" name="product" list="product_list" class="form-control" oninput="getProduct('product', 'product_list', true, true)" autofocus></span>
 					<datalist id="product_list"></datalist>
 				</div>
 			</div>

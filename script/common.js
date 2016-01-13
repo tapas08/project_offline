@@ -3,8 +3,6 @@ function getList(id, list, drug, insertData){
 	
 	id = (id.substr(7) == "MarketedBy") ? id.substr(7) : (id.substr(7) == "Manftr" ? 'company_name' : id);
 
-	console.log(drug+"  "+insertData);
-
 	$.ajax({
 		url: 'functions/purchaseFunctions.php',
 		type: 'post',
@@ -14,11 +12,11 @@ function getList(id, list, drug, insertData){
 			access:  (drug == true) ? 'getDrug' : 'getList',
 		},
 		success: function(data){
-			console.log(data);
 			document.getElementById(list).innerHTML = data;
 			if (id == 'stockist_name'){
 				if ( document.getElementById('productMarketedBy') !== null){
 					document.getElementById('productMarketedBy').value = document.getElementById('company_name').value;
+					checkPendingDM();
 				}
 				if ( document.getElementById('productManftr') !== null ){
 					document.getElementById('productManftr').value = document.getElementById('company_name').value;

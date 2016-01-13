@@ -1,8 +1,6 @@
 <?php 
 
 require_once('../core/init.php');
-//print_r($db);
-
 if (Input::exists()){
 	$functionName = Input::get('access');
 

@@ -5,62 +5,65 @@
 
 	if (Input::exists()){
 		$db = DB::getInstance();
+		
 		for($i = 1; $i<(int)$_POST['counter']; $i++){
+			
 			$insert = $db->insert('purchaseBills', array(
 					'invoiceNumber' 	=> $_POST["invoiceNumber"],
 					'bType' 			=> $_POST['billType'],
 					'supplier' 			=> $_POST['stockist_name'],
 					'date' 				=> $_POST['billDate'],
-					'productName' 		=> $_POST["productName_"+$i],
-					'productQuantity' 	=> $_POST["productQuantity_"+$i],
-					'productSize' 		=> $_POST["productSize_"+$i],
-					'productFree' 		=> $_POST["productFree_"+$i],
-					'tabQuantity' 		=> $_POST["tabQuantity_"+$i],
-					'batchNo' 			=> $_POST["batchNo_"+$i],
-					'expiryDate' 		=> $_POST["exDate_"+$i],
-					'purchaseRate' 		=> $_POST["purchaseRate_"+$i],
-					'discount' 			=> $_POST["discount_"+$i],
-					'vatAmount' 		=> $_POST["VAT_"+$i],
-					'VAT' 				=> $_POST["vatPer_"+$i],
-					'CST' 				=> $_POST["CST_"+$i],
-					'MRP' 				=> $_POST["MRP_"+$i],
-					'purchaseAmount' 	=> $_POST["productAmount_"+$i]
+					'productName' 		=> $_POST["productName_$i"],
+					'productQuantity' 	=> $_POST["productQuantity_$i"],
+					'purchaseSize' 		=> $_POST["productSize_$i"],
+					'productFree' 		=> $_POST["productFree_$i"],
+					'tabQuantity' 		=> $_POST["tabQuantity_$i"],
+					'batchNo' 			=> $_POST["batchNo_$i"],
+					'expiryDate' 		=> $_POST["exDate_$i"],
+					'purchaseRate' 		=> $_POST["purchaseRate_$i"],
+					'discount' 			=> $_POST["discount_$i"],
+					'vatAmount' 		=> $_POST["VAT_$i"],
+					'VAT' 				=> $_POST["vatPer_$i"],
+					'CST' 				=> $_POST["CST_$i"],
+					'MRP' 				=> $_POST["MRP_$i"],
+					'purchaseAmount' 	=> $_POST["productAmount_$i"]
 				));
 
 			if ($insert){
-				$stock = $db->get('items', array("productName_{$i}", '=', Input::get('product')))->first()['stock'];
+				$stock = $db->get('items', array("productName", '=', Input::get("productName_$i")))->first()['stock'];
 
-				$revisedStock = (int)$stock + (int)Input::get("productSize_{$i}");
+				$revisedStock = (int)$stock + (int)Input::get("productSize_$i");
 
 				$updateStock = $db->update('items', array(
-						'productName', '=', Input::get("productName_"+$i)
+						'productName', '=', Input::get("productName_$i")
 					), array(
-						'stock', '=', $revisedStock
+						'stock' => $revisedStock
 					));
 
 				if (!$updateStock){
 					$message[] = "Error! There was problem updating the stock.";
 				}
 			}else{
-				$message[] = "Error inserting " + Input::get("productName_{$i}") + " in the database!";
+				$message[] = "Error inserting " + Input::get("productName_$i") + " in the database!";
 			}	
 
 		}
+		
 		$insertInvoice = $db->insert('purchaseInvoice', array(
-				'invoiceNumber' => $_POST['invoiceNumber'],
-				'purchaseEntry' => $_POST['purchaseEntry'],
-				'billDate' => $_POST['billDate'],
-				'supplier' => $_POST['stockist_name'],
+				'invoiceNumber'  => $_POST['invoiceNumber'],
+				'purchaseEntry'  => $_POST['purchaseEntry'],
+				'billDate' 		 => $_POST['billDate'],
+				'supplier'		 => $_POST['stockist_name'],
 				'cash_or_credit' => $_POST['cash_or_credit'],
-				'creditNote' => $_POST['creditNote'],
-				'debitNote' => $_POST['debitNote'],
-				'discountPer' => $_POST['overallDisc'],
-				'discount' => $_POST['totalDiscount'],
-				'VAT' => $_POST['totalVat'],
-				'netAmount' => $_POST['netAmnt']
+				'creditNote' 	 => $_POST['creditNote'],
+				'debitNote' 	 => $_POST['debitNote'],
+				'discountPer' 	 => $_POST['overallDisc'],
+				'discount' 		 => $_POST['totalDiscount'],
+				'VAT' 			 => $_POST['vatOnBill'],
+				'netAmount' 	 => $_POST['netAmnt']
 			));
 
-		if ($insertInvoice){
+		if (!$insertInvoice){
 			$message[] = "Error! Couldn't insert invoice details.";
 		}
 	}
@@ -96,6 +99,7 @@
 
 			<div class="col-md-6">
 				<h2>Purchase Invoice / Delivery Memo</h2>
+				<?php echo substr('ajay supplier', 0, 3); ?>
 				<input type="data" id="datePicker" name="datePicker" style="visibility:hidden;">
 			</div>
 			<div class="col-md-6">
@@ -190,7 +194,10 @@
 						<label for="purchaseEntry" class="control-label">
 							PurEntryNo.
 						</label>
-						<input type="number" id="purchaseEntry" name="purchaseEntry" class="form-control">
+						<?php
+							$purchaseEntry = DB::getInstance()->query("SELECT * FROM purchaseInvoice")->count();
+						?>
+						<input type="number" id="purchaseEntry" name="purchaseEntry" class="form-control" value="<?php echo $purchaseEntry; ?>">
 					</div>
 					<!-- <div class="col-md-2">
 						<label for="shelf" class="control-label">
@@ -323,7 +330,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h2>PharmaSoft</h2>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body display_dm">
 					<h3>There are no pending DM's of this supplier!</h3>
 				</div>
 				<div class="modal-footer">
@@ -355,7 +362,7 @@
 			for (var i = 0; i < month.length; i++) {
 			    month[i].addEventListener('keyup', function (e) {
 			        var reg = /[0-9]/;
-			        if (this.value.length == 2 && reg.test(this.value)) this.value = this.value + "-"; //Add colon if string length > 2 and string is a number 
+			        if (this.value.length == 2 && reg.test(this.value)) this.value = this.value + "/"; //Add colon if string length > 2 and string is a number 
 			        if (this.value.length > 5) this.value = this.value.substr(0, this.value.length - 1); //Delete the last digit if string length > 5
 			    });
 			};
@@ -525,8 +532,10 @@
 		}
 
 
+
 		function getData(id){
 			var drug = $('#productName'+id).val();
+
 			console.log(drug);
 			$.ajax({
 				type: 'post',
@@ -645,16 +654,17 @@
 		function checkPendingDM(){
 
 			if ($('#stockist_name').val() !== ''){
-
+				console.log($('#stockist_name').val());
 				$.ajax({
 					type: 'post',
 					url: 'functions/otherFunctions.php',
 					data: {option: 'DM', supplier: $('#stockist_name').val()},
 					success: function(data){
-						if (data == 0){
+						if (data == "0"){
 							alert("There are no pending DM's");
 						}else{
-							$('#pendingBillsModal div div .modal-body').html(data);
+							$('.display_dm').html(data);
+							$('#pendingBillsModal').modal();
 						}
 					}
 				});

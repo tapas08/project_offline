@@ -110,7 +110,7 @@ class DB{
 		return false;
 	}
 
-	public function update($table, $where=array(), $fields=array()){
+	public function update($table, $where, $fields=array()){
 		$set = '';
 		$x = 1;
 
