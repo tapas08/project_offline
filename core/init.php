@@ -19,7 +19,7 @@
 	$GLOBALS['counter'] = 1;
 
 	spl_autoload_register(function($class){
-		if (getcwd() !== '/opt/lampp/htdocs/series/project_offline'){
+		if (!file_exists('functions')){
 			require_once '../Class/'. $class .'.php';
 		}else{
 			require_once 'Class/'. $class .'.php';

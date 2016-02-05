@@ -26,6 +26,10 @@ if (Input::exists()){
 			insertToTable();
 			break;
 		
+		case 'save_stockist_company':
+			save_stockist_company();
+			break;
+
 		default:
 			# code...
 			break;
@@ -278,4 +282,19 @@ function abrevate($name){
 	}
 
 	return $abr;
+}
+
+function save_stockist_company(){
+	if (Input::exists()){
+		$db = DB::getInstance();
+
+		$from = Input::get('from');
+		$to = $table = Input::get('to');
+		$abr = Input::get('abr');
+
+		// Insert data to respective table
+		if (Input::get('stockist') == '1'){
+			
+		}
+	}
 }

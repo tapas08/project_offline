@@ -1,7 +1,7 @@
 <?php
 	require_once('core/init.php');
 
-	$message = [];
+	$message = [];	
 
 	if (Input::exists()){
 		$db = DB::getInstance();
@@ -30,6 +30,13 @@
 				));
 
 			if ($insert){
+
+				/*
+				 * If no errors calculate the new amount 
+				 * of stock and update the inventory stored
+				 * in "items" table
+				*/
+
 				$stock = $db->get('items', array("productName", '=', Input::get("productName_$i")))->first()['stock'];
 
 				$revisedStock = (int)$stock + (int)Input::get("productSize_$i");
@@ -99,7 +106,7 @@
 
 			<div class="col-md-6">
 				<h2>Purchase Invoice / Delivery Memo</h2>
-				<?php echo substr('ajay supplier', 0, 3); ?>
+					
 				<input type="data" id="datePicker" name="datePicker" style="visibility:hidden;">
 			</div>
 			<div class="col-md-6">
@@ -340,6 +347,7 @@
 		</div>
 	</div>
 
+	<?php require_once 'templates/modals.php'; ?>
 
 	<script src="script/generateFields.js"></script>
 	<script src="script/common.js"></script>
