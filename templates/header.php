@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
 	<div class="navbar-brand">Medical Shop</div>
 	<div class="navbar-header">
-		<ul class="nav navbar-nav">
+		<ul class="nav navbar-nav top-menu">
 			<li><a href="#">Home</a></li>
 			<li><a href="purchase.php">Update Inventory</a></li>
 			<li><a href="purchaseInvoice.php">Purchase Invoice</a></li>

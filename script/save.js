@@ -1,6 +1,6 @@
-function save(from, to){
+function saveEntry(from, to){
 	$.ajax({
-		url: 'functions/otherFunction.php',
+		url: 'functions/otherFunctions.php',
 		type: 'post',
 		data: {
 			table: to,
@@ -11,6 +11,7 @@ function save(from, to){
 		},
 		success: function(data){
 			// TODO
+			$('#message').html(data);
 			console.log(data);
 		}
 	})

@@ -157,5 +157,6 @@ if (Input::exists() && Input::get('submitUpdate') != null){
 	document.getElementById('productVat').value = vatArray[document.getElementById('productGroup').value];
 </script>
 <script type="text/javascript" src="script/common.js"></script>
+<script src="script/save.js"></script>
 </body>
 </html>

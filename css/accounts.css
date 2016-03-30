@@ -1,0 +1,36 @@
+.form-group{
+	margin-bottom: 0px;
+}
+
+hr{
+	margin: 10px 0 5px 0;
+}
+
+.invoice-details{
+	padding: 2px;
+	height: 461.5px;
+	overflow: auto;
+}
+
+.options{
+	padding-top: 5px;
+}
+
+.options > div > input{
+	padding: 2px 8px;
+	margin-bottom: 2px;
+	width: 120px;
+	margin-right: -5px;
+}
+
+.top-menu > li{
+	padding: 0;
+}
+
+.top-menu  > li > a{
+	padding: 15px 10px;
+}
+
+.payment-form{
+	padding: 5px;
+}

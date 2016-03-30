@@ -167,7 +167,7 @@
 						<td>MRP</td>
 						<td>Amnt</td>
 					</thead>
-					<tbody>
+					<tbody id="billContent">
 						<tr>
 							<td>
 								<input type="text" name="productName_1" id="productName_1" class="form-control" list="drugList_1" oninput="getList('productName_1', 'drugList_1', true, true);">
@@ -352,6 +352,7 @@
 	<script src="script/generateFields.js"></script>
 	<script src="script/common.js"></script>
 	<script src="script/bootstrap.min.js"></script>
+	<script src="script/save.js"></script>
 
 	<script>
 

@@ -85,9 +85,55 @@ function deleteType(){
 }
 
 function saveDrugContent(){
-	alert("Under Construction!");
+	var drug_content = $('#drug_content').val();
+	var sub_Cat = $('#sub_category').val();
+	$.ajax({
+		url: 'functions/otherFunctions.php',
+		type: 'post',
+		data: {
+			drug_content: drug_content,
+			sub_category: sub_Cat,
+			option: 'insert_or_update_drugcontent'
+		},
+		success: function(data){
+			console.log(data);
+		}
+	});
 }
 
 function deleteDrugContent(){
-	alert("Under Construction!");
+	var drug_content = $('#drug_content').val();
+	var sub_Cat = $('#sub_category').val();
+	$.ajax({
+		url: 'functions/otherFunctions.php',
+		type: 'post',
+		data: {
+			drug_content: drug_content,
+			sub_category: sub_Cat,
+			option: 'delete_drugcontent'
+		},
+		success: function(data){
+			console.log(data);
+		}
+	});
+}
+
+function convert_to_INV(inv_no){
+	//console.log(inv_no);
+	$.ajax({
+		url: 'functions/otherFunctions.php',
+		type: 'post',
+		dataType: 'JSON',
+		data: {
+			invNo: inv_no,
+			option: 'convert_to_INV'
+		},
+		success: function(data){
+			console.log(data);
+			$('#billContent').html(data.bill);
+			$('#invoiceNumber').val(inv_no);
+			$('#billDate').val(data.billDate);
+			calculate(data.count);
+		}
+	});
 }

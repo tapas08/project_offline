@@ -17,7 +17,7 @@
 	</div>
 	<div class="col-xs-8">
 		<input type="reset" name="clear" id="clear" value="Clear" class="btn btn-primary">
-		<input type="button" name="save" id="save" value="Save" class="btn btn-primary" onclick="save();">
+		<input type="button" name="save" id="save" value="Save" class="btn btn-primary" onclick="saveEntry('stockist_name', 'company_name');">
 		<input type="button" name="exit" id="exit" class="btn btn-warning" data-dismiss="modal" value="Exit">
 	</div>
 	<div class="col-xs-12" id="entry_msg"></div>

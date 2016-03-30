@@ -1,0 +1,9 @@
+.heads, .date, 
+.discription, .calculation{
+	border-top: 2px solid black;
+}
+
+.heads{
+	padding: 10px 0;
+}
+
