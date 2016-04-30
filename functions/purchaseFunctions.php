@@ -25,7 +25,7 @@ if (Input::exists()){
 
 function getDrug(){
 	$db = DB::getInstance();
-	$searchTerm = Input::get('searchTerm');
+	$searchTerm = strtoupper(Input::get('searchTerm'));
 	$searchTerm = "%$searchTerm%";
 
 	$get = $db->query("SELECT * FROM items WHERE `productName` LIKE ?", array($searchTerm));
@@ -124,15 +124,14 @@ function getList($table){
 	if (Input::exists()){
 		$db = DB::getInstance();
 
-		$searchTerm = Input::get('searchTerm');
+		$searchTerm = strtoupper(Input::get('searchTerm'));
 		$searchTerm = "%$searchTerm%";
 
-		$get = $db->query("SELECT * FROM {$table} WHERE `name` = ?", array($searchTerm));
-		print_r($get);
+		$get = $db->query("SELECT * FROM {$table} WHERE `name` LIKE ?", array($searchTerm));
 
 		if (!$get->error() && $get->count() > 0){
 			foreach ($get->results() as $key => $value) {
-				echo "<option value='",$value['abbreviation'],"'>{$value['abbreviation']}  {$value['name']}</option>";
+				echo "<option>{$value['name']}</option>";
 			}
 		}
 	}

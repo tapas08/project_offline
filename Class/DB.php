@@ -7,7 +7,8 @@ class DB{
 			$_pdo,
 			$_results,
 			$_error = false,
-			$_count = 0;
+			$_count = 0,
+			$_city;
 
 	private function __construct($remote_server = false){
 
@@ -142,6 +143,20 @@ class DB{
 		}
 
 		return false;
+	}
+
+	public function tables(){
+		return $this->_pdo->query('SHOW TABLES')->fetchAll(PDO::FETCH_COLUMN);
+	}
+
+	public function create_table($table_name){
+		return $this->_pdo->query("CREATE TABLE IF NOT EXISTS {$table_name}_copy AS SELECT * FROM $table_name")->execute();
+	}
+
+	public function update_remote_table($table_name){
+		$city = file_get_contents("../city.txt");
+		return $this->_pdo->query("REPLACE INTO {$table_name} SELECT * FROM $table_name");
+		fclose("../city.txt");
 	}
 
 	public function error(){

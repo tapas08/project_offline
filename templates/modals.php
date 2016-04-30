@@ -14,8 +14,8 @@
  				<?php include('forms/customer_stockist.php'); ?>
  				<div class="form-group col-md-6">
  					<input type="reset" id="cancel" name="cancel" class="btn btn-primary">
- 					<input type="button" id="modifyCustSuppDisabled" name="modifyCustSuppDisabled" value="Modify" class="btn btn-primary" disabled>
- 					<input type="button" id="deleteCustSupp" name="deleteCustSupp" value="Delete" class="btn btn-primary" disabled>
+ 					<input type="button" id="modifyCustSuppDisabled" name="modifyCustSuppDisabled" value="Modify" class="btn btn-primary">
+ 					<input type="button" id="deleteCustSupp" name="deleteCustSupp" value="Delete" class="btn btn-primary">
 					<button id="saveChanges" name="saveChanges" class="btn btn-primary" onclick="saveStockistCustomer();">(F10) Save</button>
 					<button id="exitForm" name="exitForm" class="btn btn-primary" data-dismiss="modal">(Esc) Exit</button>
 				</div>

@@ -13,7 +13,15 @@ function getList(id, list, drug, insertData){
 		},
 		success: function(data){
 			document.getElementById(list).innerHTML = data;
+			
 			if (id == 'stockist_name'){
+				$('#stockist_name').on('input', function(){
+				    var options = $('datalist')[0].options;
+				    for (var i=0;i<options.length;i++){
+				       if (options[i].value == $(this).val()) 
+				         {checkPendingDM(false); break;}
+				    }
+				});
 				if ( document.getElementById('productMarketedBy') !== null){
 					document.getElementById('productMarketedBy').value = document.getElementById('company_name').value;
 					checkPendingDM();
@@ -51,6 +59,11 @@ function saveStockistCustomer(){
 		},
 		success: function(data){
 			document.getElementById('msgCstSupp').innerHTML = data;
+			console.log(data);
+			$('input[type=text]').val("");
+			$('input[type=number]').val("");
+			$('input[type=email]').val("");
+			$('textarea').val("");
 		}
 	});
 }

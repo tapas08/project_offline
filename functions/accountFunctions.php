@@ -60,11 +60,11 @@ function getInvoice(){
 						$data['row'].="</tr>";
 
 						$total += $invoice['netAmount'];
+						$x++;
 					}
 				}
 			}
 			$from = date('Y-m-d', strtotime('+1 day', strtotime($from)));
-			$x++;
 		endwhile;
 		$data['total'] = $total;
 
@@ -114,7 +114,7 @@ function makePayment(){
 		if ($pay){
 			echo "<p class='text-success'>Transaction Completed</p>";
 		}else{
-			echo "<p class='text-danger'>Transaction Failed! Please try again.</p>"
+			echo "<p class='text-danger'>Transaction Failed! Please try again.</p>";
 		}
 	}
 }

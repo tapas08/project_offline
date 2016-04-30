@@ -149,6 +149,7 @@
 				access: 'getInvoice'
 			},
 			success: function(data){
+				//console.log(data);
 				$('tbody').html(data.row);
 				$('#total_amount').val(data.total);
 				console.log(data);

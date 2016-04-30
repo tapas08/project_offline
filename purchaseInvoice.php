@@ -112,8 +112,8 @@
 			<div class="col-md-6">
 				<input type="reset" form="invoiceForm" id="reset" name="reset" class="btn btn-primary" value="Cancel">
 				<input type="button" id="impBill" name="impBill" class="btn btn-primary" onclick="importBills();" value="Imp Bill">
-				<input type="button" id="pendingDM" name="pendingDM" class="btn btn-primary" onclick="checkPendingDM();" value="Pending DM">
-				<input type="button" id="convDM" name="convDM" class="btn btn-primary" value="Conv DM">
+				<input type="button" id="pendingDM" name="pendingDM" class="btn btn-primary" onclick="checkPendingDM(true);" value="Pending DM">
+				<!-- <input type="button" id="convDM" name="convDM" class="btn btn-primary" value="Conv DM"> -->
 				<input type="submit" form="invoiceForm" id="saveInvoice" name="saveInvoice" onclick="checkAndSave();" class="btn btn-primary" value="Save">
 				<a href="#" id="exit" name="exit" class="btn btn-primary">Exit</a>
 			</div>
@@ -202,9 +202,9 @@
 							PurEntryNo.
 						</label>
 						<?php
-							$purchaseEntry = DB::getInstance()->query("SELECT * FROM purchaseInvoice")->count();
+							$purchaseEntry = DB::getInstance()->query("SELECT * FROM purchaseInvoice")->count() + 1;
 						?>
-						<input type="number" id="purchaseEntry" name="purchaseEntry" class="form-control" value="<?php echo $purchaseEntry; ?>">
+						<input type="number" id="purchaseEntry" name="purchaseEntry" class="form-control" value="<?php echo $purchaseEntry; ?>" oninput="">
 					</div>
 					<!-- <div class="col-md-2">
 						<label for="shelf" class="control-label">
@@ -514,7 +514,7 @@
 
 
 		//Check the Net Amount on invoice and Net Amount on purchase entry
-		function checkAndSave(){
+		$('#invoiceForm').submit(function(e){
 			var netAmount = parseFloat($('#netAmnt').val());
 			var amountToCheck = parseFloat($('#net').val());
 
@@ -527,9 +527,10 @@
 				alert('Saving Invoice!');
 			}else{
 				alert('Amounts do not match!');	
+				return false;
 			}
 			
-		}
+		});
 
 		//function that will update discount value in every row of inputs
 
@@ -589,8 +590,20 @@
 
 			//calculating VAT
 			var VAT = ( parseFloat($('#vatPer_'+count).val()) / 100 ) 
-						* ( (parseFloat($('#productQuantity_'+count).val()) * parseFloat($('#purchaseRate_'+count).val())) - discount );
+						* ( (parseFloat($('#productSize_'+count).val()) * parseFloat($('#purchaseRate_'+count).val())) - discount );
 			//console.log("VAT -> "+VAT);
+
+
+			// Calculate total amount after each entry
+			var grandTotal = 0;
+			for (var i = 1; i < counter; i++){
+				// Calculate total amount minus the discount
+				grandTotal += parseFloat($('#purchaseRate_'+i).val()) * parseFloat($('#productSize_'+i).val());
+				console.log("total amount"+grandTotal);
+			}
+
+			$('#totalAmnt').val(grandTotal.toFixed(2));
+
 			$('#VAT_'+count).val(VAT.toFixed(2));
 
 			$('#tabQuantity_'+count).val(tabs);
@@ -607,16 +620,6 @@
 			var totalDiscount = parseFloat($('#totalDiscount').val());
 			$('#discount_'+counter).val(totalDiscount.toFixed(2));
 			
-			//Once the fields are generated, add the
-			//total amount of current item and the net amount of 
-			//all the items till now!
-
-			total = parseFloat($('#purchaseRate_'+(counter-1)).val()) * parseFloat($('#productQuantity_'+(counter-1)).val());
-
-			$('#totalAmnt').val(total.toFixed(2));
-
-			//console.log(netAmnt +"  "+ total);
-
 			//calculate total amount of VAT upon purchased item
 			//and total amount of Discount
 
@@ -628,7 +631,7 @@
 			netAmnt = 0;
 
 			for(var i = 1; i < counter; i++){
-				
+
 				//Calculate total amount
 				netAmnt += parseFloat($('#productAmount_'+i).val());
 
@@ -640,13 +643,16 @@
 				totalVat += parseFloat($('#VAT_'+i).val());
 
 				totalDiscount += (parseFloat($('#discount_'+i).val()) / 100) 
-							* (parseFloat($('#productQuantity_'+i+'').val()) * parseFloat($('#purchaseRate_'+i).val()));
+							* (parseFloat($('#productSize_'+i+'').val()) * parseFloat($('#purchaseRate_'+i).val()));
 
 				console.log(totalVat+"  "+totalDiscount);
 			}
 
 			$('#totalDiscount').val(totalDiscount.toFixed(2));
 			$('#vatOnBill').val(totalVat.toFixed(2));
+
+			netAmnt = (netAmnt - totalDiscount) + totalVat;
+
 			$('#netAmnt').val(netAmnt.toFixed(2));
 			
 		}
@@ -660,7 +666,7 @@
 			}
 		}
 
-		function checkPendingDM(){
+		function checkPendingDM(check){
 
 			if ($('#stockist_name').val() !== ''){
 				console.log($('#stockist_name').val());
@@ -670,7 +676,7 @@
 					data: {option: 'DM', supplier: $('#stockist_name').val()},
 					success: function(data){
 						if (data == "0"){
-							alert("There are no pending DM's");
+							(check == true) ? alert("There are no pending DM's") : false;
 						}else{
 							$('.display_dm').html(data);
 							$('#pendingBillsModal').modal();

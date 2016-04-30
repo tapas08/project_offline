@@ -80,7 +80,8 @@ function save(){
 				'CR_or_DR' 		=> Input::get('onoffswitch')
 			));
 
-
+		//print_r($save);
+		echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
 		if ($save){
 			echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
 		}else{
@@ -171,7 +172,7 @@ function checkDM(){
 		echo "</tbody>";
 		echo "</table>";
 	}else{
-		return "0";
+		echo "0";
 	}
 }
 
@@ -335,12 +336,19 @@ function save_stockist_company(){
 	}
 }
 
-function convert_to_INV(){
+function convert_to_INV($purEntry = -1){
 	$data = [];
 	if (Input::exists()){
 		$db = DB::getInstance();
+
+		$invNo = Input::get('invNo');
+
+		if ($purEntry > -1){
+			$getInv = DB::getInstance()->get('purchaseInvoice', array("invoiceNumber", "=", $purEntry));
+			$invNo = $getInv->first()['invoiceNumber'];
+		}
 		
-		$getDM = $db->get('purchaseBills', array('invoiceNumber', '=', Input::get('invNo')));
+		$getDM = $db->get('purchaseBills', array('invoiceNumber', '=', $invNo));
 		$i = 1;
 		$data['count'] = $getDM->count();
 		$data['billDate'] = $getDM->first()['date'];
