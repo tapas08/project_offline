@@ -47,18 +47,21 @@ function insertData(){
 	$db = DB::getInstance();
 	$drug = Input::get('drug');
 	$details = $db->get("items", array('productName', '=', $drug));
+	$invoiceDetails = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName = ? AND batchNo = ?", array($drug, Input::get('batchNo')));
 
 	if ($details){
 		$data = [];
 		$data['marketedBy'] = $details->first()['marketedBy'];
 		$data['manufacturedBy'] = $details->first()['manufacturer'];
 		$data['packSize'] = $details->first()['packSize'];
+		$data['batchNo'] = $invoiceDetails->first()['batchNo'];
+		$data['expiryDate'] = $invoiceDetails->first()['expiryDate'];
 		$data['quantity'] = $details->first()['quantity'];
 		$data['mainCategory'] = $details->first()['mainCategory'];
 		$data['subCategory'] = $details->first()['subCategory'];
 		$data['productType'] = $details->first()['productType'];
 		$data['productGroup'] = $details->first()['productGroup'];
-		$data['purchaseRate'] = $details->first()['productRate'];
+		$data['purchaseRate'] = $invoiceDetails->first()['purchaseRate'];
 		$data['MRP'] = $details->first()['MRP'];
 		$data['Tax'] = $details->first()['Tax'];
 		$data['VAT'] = $details->first()['VAT'];

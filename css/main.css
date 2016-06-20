@@ -172,3 +172,11 @@ option{
 	margin-bottom: -10px;
 }
 
+
+.highlight{
+	background: #006699;
+}
+
+.focus{
+	background-color: #e3e3e3;
+}

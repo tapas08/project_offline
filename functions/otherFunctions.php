@@ -35,11 +35,31 @@ if (Input::exists()){
 			break;
 
 		case 'convert_to_INV':
-			convert_to_INV();
+			convert_to_INV(Input::get('purEntry'));
 			break;
 
 		case 'insert_or_update_drugcontent':
 			insert_or_update_drugcontent();
+			break;
+
+		case 'product_details';
+			product_details();
+			break;
+
+		case 'checkCredit':
+			check_credit();
+			break;
+
+		case 'purchaseTable':
+			purchaseTable();
+			break;
+
+		case 'show_return_products':
+			show_return_products();
+			break;
+
+		case 'recreate_return_bill':
+			recreate_return_bill();
 			break;
 
 		default:
@@ -66,7 +86,7 @@ function save(){
 		}
 
 		$save = $db->insert('account', array(
-				'acType'		=> Input::get('type'),
+				'acType'		=> Input::get('acType'),
 				'name' 			=> Input::get('name'),
 				'city' 			=> Input::get('city'),
 				'address' 		=> Input::get('address'),
@@ -79,6 +99,7 @@ function save(){
 				'openingBalance'=> Input::get('openingBalance'),
 				'CR_or_DR' 		=> Input::get('onoffswitch')
 			));
+
 
 		//print_r($save);
 		echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
@@ -230,39 +251,65 @@ function importBills(){
 function insertToTable(){
 	if (Input::exists()){
 		$db = DB::getInstance();
-		$product = $db->get('purchaseBills', array('productName', '=', Input::get('product')));
-
+		$data = [];
+		$product = $db->query("SELECT * FROM purchaseBills WHERE productName = ? AND batchNo = ?", array(Input::get('product'), Input::get('batchNo')));
 		if ($product->count() > 0){
+			//echo Input::get('return_type');
+			$data['count'] = $count = $product->count();
 			$id = Input::get('count');
-			foreach ($product->resulst() as $drugs => $drug){
-				$dateArray = explode('-', $drug['expiryDate']);
-				if ((int)$dateArray[0] <= (int)date('n')){
-
-					if ((int)$dateArray[1] <= (int)date('y')){
+			$data['list'] = '';
+			foreach ($product->results() as $drugs => $drug){
+				$dateArray = explode('/', $drug['expiryDate']);
+				if ((int)$dateArray[1] <= (int)date('y') && Input::get('return_type') == 'Expiry'){					
+					if ((int)$dateArray[0] <= (int)date('n') && Input::get('return_type') == 'Expiry'){
 
 						// calculation of some stuffs
 						$amnt = (int)$drug['purchaseRate'] * (int)$drug['purchaseSize'];
-
-						echo "<td id='mfg_",$id,"'>-</td>";
-						echo "<td id='name_",$id,"'>{$drug['productName']}</td>";
-						echo "<td id='pack_",$id,"'>{$drug['productQuantity']}</td>";
-						echo "<td id='batch_",$id,"'>{$drug['batchNo']}</td>";
-						echo "<td id='qty_",$id,"'>{$drug['purchaseSize']}</td>";
-						echo "<td id='pr_",$id,"'>{$drug['purchaseRate']}</td>";
-						echo "<td id='mrp_",$id,"'>{$drug['MRP']}</td>";
-						echo "<td id='dsc_",$id,"'>{$drug['discount']}</td>";
-						echo "<td id='amnt_",$id,"'>{$amnt}</td>";
-						echo "<td id='schm_",$id,"'>-</td>";
-						echo "<td id='vatAmnt_",$id,"'>{$drug['vatAmount']}</td>";
-						echo "<td id='vat_",$id,"'>{$drug['VAT']}</td>";
-						echo "<td id='scode_",$id,"'>-</td>";
+						$data['list'].= "<tr>";
+						$data['list'].= "<td id='name_".$id."'><input type='text' class='form-control' id='name_".$id."' name='name_".$id."' value='".$drug['productName']."' readonly></td>";
+						$data['list'].= "<td id='mfg_".$id."'><input type='text' class='form-control' id='mfg_".$id."' name='mfg_".$id."' value='' readonly></td>";
+						$data['list'].= "<td id='name_".$id."'><input type='number' step='any' class='form-control' name='sendQuantity_".$id."' id='sendQuantity_".$id."' oninput='calculate(".$id.")' /></td>";
+						$data['list'].= "<td id='pack_".$id."'><input type='number' class='form-control' id='pack_".$id."' name='pack_".$id."' value='".$drug['productQuantity']."' readonly></td>";
+						$data['list'].= "<td id='batch_".$id."'><input type='text' class='form-control' id=batch_".$id."' name='batch_".$id."' value='".$drug['batchNo']."' readonly></td>";
+						$data['list'].= "<td id='qty_".$id."'><input type='number' class='form-control' id='qty_".$id."' name='qty_".$id."' value='".$drug['purchaseSize']."' readonly></td>";
+						$data['list'].= "<td id='pr_".$id."'><input type='number' class='form-control' step='any' id='pr_".$id."' name='pr_".$id."' value='".$drug['purchaseRate']."' readonly ></td>";
+						$data['list'].= "<td id='mrp_".$id."'><input type='number' class='form-control' id='mrp_".$id."' name='mrp_".$id."' value='".$drug['MRP']."' readonly></td>";
+						$data['list'].= "<td id='exp_".$id."'><input type='text' class='form-control' id='exp_".$id."' name='exp_".$id."' value='".$drug['expiryDate']."' readonly></td>";
+						$data['list'].= "<td id='dsc_".$id."'><input type='text' class='form-control' id='dsc_".$id."' name='dsc_".$id."' value='".$drug['discount']."' readonly></td>";
+						$data['list'].= "<td id='schm_".$id."'><input type='text' class='form-control' id='schm_".$id."' name='schm_".$id."' value='' readonly></td>";
+						$data['list'].= "<td id='amnt_".$id."'><input type='text' class='form-control' id='amnt_".$id."' name='amnt_".$id."' value='".(($drug['purchaseRate'] * $drug['purchaseSize']) + $drug['vatAmount'])."' readonly></td>";
+						$data['list'].= "<td id='vatAmnt_".$id."'><input type='text' class='form-control' id='vatAmnt_".$id."' name='vatAmnt_".$id."' value='".$drug['vatAmount']."' readonly></td>";
+						$data['list'].= "<td id='vat_".$id."'><input type='text' class='form-control' id='vat_".$id."' name='vat_".$id."' value='".$drug['VAT']."' readonly></td>";
+						$data['list'].= "<td id='scode_".$id."'><input type='text' class='form-control' id='scode_".$id."' name='scode_".$id."' value='' readonly></td>";
+						$data['list'].= "</tr>";
 					}
-
+				}else{
+					// calculation of some stuffs
+					$amnt = (int)$drug['purchaseRate'] * (int)$drug['purchaseSize'];
+					$data['list'].= "<tr>";
+					$data['list'].= "<td id='name_".$id."'><input type='text' class='form-control' id='name_".$id."' name='name_".$id."' value='".$drug['productName']."' readonly></td>";
+					$data['list'].= "<td id='mfg_".$id."'><input type='text' class='form-control' id='mfg_".$id."' name='mfg_".$id."' value='' readonly></td>";
+					$data['list'].= "<td id='name_".$id."'><input type='number' step='any' class='form-control' name='sendQuantity_".$id."' id='sendQuantity_".$id."' oninput='calculate(".$id.")' /></td>";
+					$data['list'].= "<td id='pack_".$id."'><input type='number' class='form-control' id='pack_".$id."' name='pack_".$id."' value='".$drug['productQuantity']."' readonly></td>";
+					$data['list'].= "<td id='batch_".$id."'><input type='text' class='form-control' id=batch_".$id."' name='batch_".$id."' value='".$drug['batchNo']."' readonly></td>";
+					$data['list'].= "<td id='qty_".$id."'><input type='number' class='form-control' id='qty_".$id."' name='qty_".$id."' value='".$drug['purchaseSize']."' readonly></td>";
+					$data['list'].= "<td id='pr_".$id."'><input type='number' class='form-control' step='any' id='pr_".$id."' name='pr_".$id."' value='".$drug['purchaseRate']."' readonly ></td>";
+					$data['list'].= "<td id='mrp_".$id."'><input type='number' class='form-control' id='mrp_".$id."' name='mrp_".$id."' value='".$drug['MRP']."' readonly></td>";
+					$data['list'].= "<td id='exp_".$id."'><input type='text' class='form-control' id='exp_".$id."' name='exp_".$id."' value='".$drug['expiryDate']."' readonly></td>";
+					$data['list'].= "<td id='dsc_".$id."'><input type='text' class='form-control' id='dsc_".$id."' name='dsc_".$id."' value='".$drug['discount']."' readonly></td>";
+					$data['list'].= "<td id='schm_".$id."'><input type='text' class='form-control' id='schm_".$id."' name='schm_".$id."' value='' readonly></td>";
+					$data['list'].= "<td id='amnt_".$id."'><input type='text' class='form-control' id='amnt_".$id."' name='amnt_".$id."' value='".(($drug['purchaseRate'] * $drug['purchaseSize']) + $drug['vatAmount'])."' readonly></td>";
+					$data['list'].= "<td id='vatAmnt_".$id."'><input type='text' class='form-control' id='vatAmnt_".$id."' name='vatAmnt_".$id."' value='".$drug['vatAmount']."' readonly></td>";
+					$data['list'].= "<td id='vat_".$id."'><input type='text' class='form-control' id='vat_".$id."' name='vat_".$id."' value='".$drug['VAT']."' readonly></td>";
+					$data['list'].= "<td id='scode_".$id."'><input type='text' class='form-control' id='scode_".$id."' name='scode_".$id."' value='' readonly></td>";
+					$data['list'].= "</tr>";
 				}
+				$id++;
 			}
 		}else{
 			echo "0";
 		}
+		echo json_encode($data);
 	}
 }
 
@@ -290,12 +337,11 @@ function purchaseTable(){
 }
 
 function abrevate($name){
-	$abr = '';
-	for ($i = 0; $i < 3; $i++){
+	$abr = substr($name, 0, 1);
+	for ($i = 0; $i < 1; $i++){
 		$abr .= substr($name, rand($i, strlen($name)));
 	}
-
-	return $abr;
+	return substr($abr, 0, 3);
 }
 
 function save_stockist_company(){
@@ -337,21 +383,25 @@ function save_stockist_company(){
 }
 
 function convert_to_INV($purEntry = -1){
+	//echo "I am here!";
 	$data = [];
 	if (Input::exists()){
 		$db = DB::getInstance();
 
 		$invNo = Input::get('invNo');
+		$data['purEntry'] = $purEntry;
 
 		if ($purEntry > -1){
-			$getInv = DB::getInstance()->get('purchaseInvoice', array("invoiceNumber", "=", $purEntry));
+			$getInv = DB::getInstance()->get('purchaseInvoice', array("id", "=", $purEntry));
 			$invNo = $getInv->first()['invoiceNumber'];
+			$data['purEntry'] = $getInv->first()['id'];
 		}
 		
 		$getDM = $db->get('purchaseBills', array('invoiceNumber', '=', $invNo));
 		$i = 1;
 		$data['count'] = $getDM->count();
 		$data['billDate'] = $getDM->first()['date'];
+		$data['supplier'] = $getDM->first()['supplier'];
 		$data['bill'] = '';
 		foreach ($getDM->results() as $content => $dm){
 			$data['bill'] .= "<tr>";
@@ -378,6 +428,8 @@ function convert_to_INV($purEntry = -1){
 		}
 		echo json_encode($data);
 	}
+	//TODO 
+	/* Update purchaseBills : change DM to Inv */
 }
 
 function insert_or_update_drugcontent(){
@@ -413,4 +465,139 @@ function delete_drugcontent(){
 			echo "<p class='text-warning'>Error! Please try again.</p>";
 		}
 	}
+}
+
+function product_details(){
+	if (Input::exists()){
+
+		$searchTerm = Input::get('input');
+		$searchTerm = strtoupper("%{$searchTerm}%");
+
+		$db = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName LIKE ?", array($searchTerm));
+
+		if ($db->count() > 0){
+			$x = 1;
+			echo "<table class='table table-bordered table-condensed'>";
+			echo "<thead>";
+			echo "<td>MFG</td>";
+			echo "<td>Product Name</td>";
+			echo "<td>Batch No</td>";
+			echo "<td>Pack Size</td>";
+			echo "<td>Expiry Date</td>";
+			echo "<td>MRP</td>";
+			echo "<td>Rack</td>";
+			echo "<td>Stock</td>";
+			echo "<td>Tax</td>";
+			echo "<td>CAT</td>";
+			echo "</thead>";
+			echo "<tbody id='product_list_table'>";
+			foreach($db->results() as $data => $product){
+				echo "<tr>";
+				echo "<td>{$product['supplier']}</td>";
+				echo "<td>{$product['productName']}</td>";
+				echo "<td>{$product['batchNo']}</td>";
+				echo "<td>{$product['productQuantity']}</td>";
+				echo "<td>{$product['expiryDate']}</td>";
+				echo "<td>{$product['MRP']}</td>";
+				echo "<td>Shelf</td>";
+				echo "<td>{$product['tabQuantity']}</td>";
+				echo "<td>{$product['VAT']}</td>";
+				echo "<td>category</td>";
+				echo "</tr>";
+
+				$x++;
+			}
+			echo "</tbody>";
+			echo "</table>";
+		}else{
+			echo 0;
+		}
+	}
+}
+
+
+function check_credit(){
+	// TODO
+}
+
+
+function show_return_products(){
+	if (Input::exists()){
+		$db = DB::getInstance();
+
+		$purchase_return = $db->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')));
+		if ($purchase_return->count() > 0){
+			foreach (json_decode($purchase_return->first()['product_details'], true) as $return_bill => $return) {
+				$purchaseBills = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE batchNo = ? AND productName = ?", array($return['batchNo'], $return_bill));
+				echo "<tr>";
+				echo "<td>$return_bill</td>";
+				echo "<td>".$purchaseBills->first()['productQuantity']."</td>";
+				echo "<td>".$return['batchNo']."</td>";
+				echo "<td>".$purchaseBills->first()['purchaseRate']."</td>";
+				echo "<td>".$purchaseBills->first()['MRP']."</td>";
+				echo "<td>".$return['return_value']."</td>";
+				echo "<td>".$purchase_return->first()['amount']."</td>";
+				echo "<td>0</td>";
+				echo "<td>".$purchase_return->first()['invoiceDate']."</td>";
+				echo "<tr>";
+			}
+		}
+	}
+}
+
+
+function recreate_return_bill(){
+	if (Input::exists()){
+		$db = DB::getInstance();
+
+		$data = [];
+
+		$return_bill  = $db->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')));
+		$data['supplier'] = $return_bill->first()['supplier'];
+		$data['bType'] = $return_bill->first()['bType'];
+		$data['invNo'] = $return_bill->first()['invoiceNo'];
+		$data['date'] = $return_bill->first()['invoiceDate'];
+		$data['loss'] = $return_bill->first()['loss'];
+		$data['status'] = $return_bill->first()['status'];
+		$data['narration'] = $return_bill->first()['narration'];
+		// Print the required details in the tabular format
+		if ($return_bill->count()){
+			$data['list'] = '';
+			$id = 1;
+			foreach (json_decode($return_bill->first()['product_details'], true) as $product => $details){
+				//var_dump($details);
+				$drug = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE batchNo = ? AND productName = ?", array($details['batchNo'], $product))->first();
+
+				$data['list'].= "<tr>";
+				$data['list'].= "<td id='name_".$id."'><input type='text' class='form-control' id='name_".$id."' name='name_".$id."' value='".$product."' readonly></td>";
+				$data['list'].= "<td id='mfg_".$id."'><input type='text' class='form-control' id='mfg_".$id."' name='mfg_".$id."' value='".get_mfg($drug['supplier'])."' readonly></td>";
+				$data['list'].= "<td id='name_".$id."'><input type='number' step='any' class='form-control' name='sendQuantity_".$id."' id='sendQuantity_".$id."' oninput='calculate(".$id.")' value='".$details['return_value']."' /></td>";
+				$data['list'].= "<td id='pack_".$id."'><input type='number' class='form-control' id='pack_".$id."' name='pack_".$id."' value='".$drug['productQuantity']."' readonly></td>";
+				$data['list'].= "<td id='batch_".$id."'><input type='text' class='form-control' id=batch_".$id."' name='batch_".$id."' value='".$drug['batchNo']."' readonly></td>";
+				$data['list'].= "<td id='qty_".$id."'><input type='number' class='form-control' id='qty_".$id."' name='qty_".$id."' value='".$drug['purchaseSize']."' readonly></td>";
+				$data['list'].= "<td id='pr_".$id."'><input type='number' class='form-control' step='any' id='pr_".$id."' name='pr_".$id."' value='".$drug['purchaseRate']."' readonly ></td>";
+				$data['list'].= "<td id='mrp_".$id."'><input type='number' class='form-control' id='mrp_".$id."' name='mrp_".$id."' value='".$drug['MRP']."' readonly></td>";
+				$data['list'].= "<td id='exp_".$id."'><input type='text' class='form-control' id='exp_".$id."' name='exp_".$id."' value='".$drug['expiryDate']."' readonly></td>";
+				$data['list'].= "<td id='dsc_".$id."'><input type='text' class='form-control' id='dsc_".$id."' name='dsc_".$id."' value='".$drug['discount']."' readonly></td>";
+				$data['list'].= "<td id='schm_".$id."'><input type='text' class='form-control' id='schm_".$id."' name='schm_".$id."' value='' readonly></td>";
+				$data['list'].= "<td id='amnt_".$id."'><input type='text' class='form-control' id='amnt_".$id."' name='amnt_".$id."' value='".$return_bill->first()['amount']."' readonly></td>";
+				$data['list'].= "<td id='vatAmnt_".$id."'><input type='text' class='form-control' id='vatAmnt_".$id."' name='vatAmnt_".$id."' value='".$drug['vatAmount']."' readonly></td>";
+				$data['list'].= "<td id='vat_".$id."'><input type='text' class='form-control' id='vat_".$id."' name='vat_".$id."' value='".$drug['VAT']."' readonly></td>";
+				$data['list'].= "<td id='scode_".$id."'><input type='text' class='form-control' id='scode_".$id."' name='scode_".$id."' value='' readonly></td>";
+				$data['list'].= "</tr>";
+			}
+			$id++;
+		}
+		$data['count'] = $id - 1;
+		echo json_encode($data);
+	}
+}
+
+function get_mfg($supplier){
+	$company_code = DB::getInstance()->get('stockist_name', array('name', '=', $supplier));
+	$mfg = DB::getInstance()->get('company_name', array('id', '=', $company_code->first()['company_id']));
+	if ($mfg->count()){
+		return $mfg->first()['abbreviation'];
+	}
+	return 'NA';
 }

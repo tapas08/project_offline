@@ -52,5 +52,13 @@ tbody > tr > td:first-child{
 
 #product_return_list{
 	height: 350px;
+	overflow: auto;
 }
 
+.highlight{
+	background: #006699;
+}
+
+.focus{
+	background-color: #e3e3e3;
+}

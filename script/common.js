@@ -131,14 +131,15 @@ function deleteDrugContent(){
 	});
 }
 
-function convert_to_INV(inv_no){
-	//console.log(inv_no);
+function convert_to_INV(inv_no, purEntry){
+	console.log(purEntry);
 	$.ajax({
 		url: 'functions/otherFunctions.php',
 		type: 'post',
 		dataType: 'JSON',
 		data: {
 			invNo: inv_no,
+			purEntry: purEntry > 0 ? purEntry : -1,
 			option: 'convert_to_INV'
 		},
 		success: function(data){
@@ -146,7 +147,36 @@ function convert_to_INV(inv_no){
 			$('#billContent').html(data.bill);
 			$('#invoiceNumber').val(inv_no);
 			$('#billDate').val(data.billDate);
+			$('#stockist_name').val(data.supplier);
+			$('#purchaseEntry').val(data.purEntry)
 			calculate(data.count);
+			getTotal(data.count+1);
+			console.log(data.count);
+			$('#pendingBillsModal').modal('hide');
+			$('#productName_1').focus();
 		}
 	});
 }
+
+$('#purchaseEntry').keydown(function(e){
+	if (e.which == 13){
+		convert_to_INV(0, $('#purchaseEntry').val());
+		getDetails();
+	}
+});
+
+
+// function getDetails(){
+// 	$.ajax({
+// 		url: 'getDetails.php',
+// 		type: 'post',
+// 		dataType: 'JSON',
+// 		data: {
+// 			id: $('#patientID').val()
+// 		},
+// 		success: function(data){
+// 			$('#first_name').val(data.first_name);
+// 			...
+// 		}
+// 	});
+// }

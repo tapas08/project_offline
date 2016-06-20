@@ -26,8 +26,6 @@ if (Input::exists() && Input::get('submitUpdate') != null){
 			'drugContent' 	=> Input::get('productContent')
 		));
 
-	print_r($_POST);
-
 	if ($insert){
 		$message[] = "New Product Saved";
 	}else{
@@ -158,5 +156,6 @@ if (Input::exists() && Input::get('submitUpdate') != null){
 </script>
 <script type="text/javascript" src="script/common.js"></script>
 <script src="script/save.js"></script>
+<script src="script/navigate.js"></script>
 </body>
 </html>

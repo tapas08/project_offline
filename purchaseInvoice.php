@@ -1,13 +1,14 @@
 <?php
 	require_once('core/init.php');
-
+	
 	$message = [];	
 
 	if (Input::exists()){
+		
 		$db = DB::getInstance();
 		
-		for($i = 1; $i<(int)$_POST['counter']; $i++){
-			
+		for($i = 1; $i < Input::get('counter'); $i++){
+		
 			$insert = $db->insert('purchaseBills', array(
 					'invoiceNumber' 	=> $_POST["invoiceNumber"],
 					'bType' 			=> $_POST['billType'],
@@ -53,7 +54,6 @@
 			}else{
 				$message[] = "Error inserting " + Input::get("productName_$i") + " in the database!";
 			}	
-
 		}
 		
 		$insertInvoice = $db->insert('purchaseInvoice', array(
@@ -80,14 +80,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Purchase Invoice / Delivery Memo</title>
-	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/invoice.css">
 	
-	<script src="script/jquery-min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-	<script src="script/jquery.mtz.monthpicker.js"></script>
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>-->
+	<!--<script src="script/jquery.mtz.monthpicker.js"></script>-->
 
+	<!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">-->
 </head>
 <body>
 		
@@ -107,10 +106,10 @@
 			<div class="col-md-6">
 				<h2>Purchase Invoice / Delivery Memo</h2>
 					
-				<input type="data" id="datePicker" name="datePicker" style="visibility:hidden;">
+				<input type="date" id="datePicker" name="datePicker" style="visibility:hidden">
 			</div>
 			<div class="col-md-6">
-				<input type="reset" form="invoiceForm" id="reset" name="reset" class="btn btn-primary" value="Cancel">
+				<a href="<?php echo $_SERVER['PHP_SELF']; ?>" form="invoiceForm" id="reset" name="reset" class="btn btn-primary">Cancel</a>
 				<input type="button" id="impBill" name="impBill" class="btn btn-primary" onclick="importBills();" value="Imp Bill">
 				<input type="button" id="pendingDM" name="pendingDM" class="btn btn-primary" onclick="checkPendingDM(true);" value="Pending DM">
 				<!-- <input type="button" id="convDM" name="convDM" class="btn btn-primary" value="Conv DM"> -->
@@ -123,7 +122,7 @@
 			<div class="row col-md-12 form-top">
 				<div class="form-group col-md-4">
 					<span class="col-md-3"><label for="stockist_name" class="control-label">Supplier</label></span>
-					<span class="col-md-9"><input type="text" id="stockist_name" name="stockist_name" list="stockist_list" class="form-control" oninput="getList('stockist_name', 'stockist_list')" autofocus></span>
+					<span class="col-md-9"><input type="text" id="stockist_name" name="stockist_name" list="stockist_list" class="form-control" oninput="getList('stockist_name', 'stockist_list')" autofocus required></span>
 					<datalist id="stockist_list"></datalist>
 				</div>
 				<div class="form-group col-md-1" id="cr/dr">
@@ -153,9 +152,9 @@
 				<table class="table table-bordered">
 					<thead>
 						<td>Product Name</td>
-						<td>Qty</td>
+						<td>Pack Size</td>
 						<td>Free</td>
-						<td>PrSize</td>
+						<td>Quantity</td>
 						<td>Tab Qty</td>
 						<td>Batch</td>
 						<td>Expiry</td>
@@ -170,7 +169,7 @@
 					<tbody id="billContent">
 						<tr>
 							<td>
-								<input type="text" name="productName_1" id="productName_1" class="form-control" list="drugList_1" oninput="getList('productName_1', 'drugList_1', true, true);">
+								<input type="text" name="productName_1" id="productName_1" class="form-control" list="drugList_1" oninput="detailsModal('productName_1');"> 	<!-- getList('productName_1', 'drugList_1', true, true); -->
 									<datalist id="drugList_1"></datalist>
 								</input>
 							</td>
@@ -204,7 +203,7 @@
 						<?php
 							$purchaseEntry = DB::getInstance()->query("SELECT * FROM purchaseInvoice")->count() + 1;
 						?>
-						<input type="number" id="purchaseEntry" name="purchaseEntry" class="form-control" value="<?php echo $purchaseEntry; ?>" oninput="">
+						<input type="number" id="purchaseEntry" name="purchaseEntry" class="form-control" value="<?php echo $purchaseEntry; ?>">
 					</div>
 					<!-- <div class="col-md-2">
 						<label for="shelf" class="control-label">
@@ -271,7 +270,7 @@
 							<label for="debitNote">Debit Note :</label>
 						</span>
 						<span class="col-md-7">
-							<input type="number" step="any" id="debitNote" name="debitNote" class="form-control">
+							<input type="number" value=0.0 step="any" id="debitNote" name="debitNote" class="form-control" oninput="addDebit();">
 						</span>
 					</div>
 					<div class="col-md-12">
@@ -348,13 +347,24 @@
 	</div>
 
 	<?php require_once 'templates/modals.php'; ?>
+	<?php require_once 'templates/productList.php'; ?>
 
+
+	<script src="script/jquery-min.js"></script>
 	<script src="script/generateFields.js"></script>
-	<script src="script/common.js"></script>
 	<script src="script/bootstrap.min.js"></script>
 	<script src="script/save.js"></script>
+	<script src="script/navigate.js"></script>
+	<script src="script/common.js"></script>
 
 	<script>
+
+		// $('#purchaseEntry').focus({
+		// 	$('#purchaseEntry').on('keypress', function(e){
+		// 		if(e.which == 13)
+		// 			convert_to_INV(0, $('#purchaseEntry'.val()));
+		// 	});
+		// })
 
 		var counter = 2;
 		var netAmnt =0, total=0;
@@ -389,7 +399,7 @@
 					'name': 'productName',
 					'list': 'drugList_'+counter,
 					'class': 'form-control',
-					'oninput': "getList('productName_"+counter+"', 'drugList_"+counter+"', true, true);"
+					'oninput': "detailsModal('productName_"+counter+"');"
 				}],
 				'2': [{
 					'tag': 'input',
@@ -534,38 +544,47 @@
 
 		//function that will update discount value in every row of inputs
 
-		function changeDiscount(){
+		window.changeDiscount = function(){
 			for(var i=1; i < counter; i++){
 				$('#discount_'+i).val(parseFloat($('#overallDisc').val()).toFixed(2));
-				console.log(i);
+				//console.log(i);
 			}
-		}
+		};
 
 
 
-		function getData(id){
-			var drug = $('#productName'+id).val();
+		window.getData = function(id, drug, batchNo){
+			console.log("Drug"+drug);
+			//var drug = $('#productName'+id).val();
+			var drug = drug;
 
-			console.log(drug);
 			$.ajax({
 				type: 'post',
 				url: 'functions/purchaseFunctions.php',
 				dataType: 'json',
 				data: {
 					drug: drug,
+					batchNo: batchNo,
 					access: 'insertData'
 				},
 				success: function(data){
+					console.log(data);
 					$('#productQuantity'+id).val(data.quantity);
 					$('#purchaseRate'+id).val(data.purchaseRate);
-					//$('#tax'+id).val(data.Tax);
+					$('#batchNo'+id).val(data.batchNo);
+					$('#exDate'+id).val(data.expiryDate);
 					$('#vatPer'+id).val(data.VAT);
 					$('#MRP'+id).val(data.MRP);
+					console.log(data.batchNo);
 				}
 			});
 		}
 
-		function calculate(count){
+		window.calculate = function(count){
+			var temp = counter;
+			if (count){
+				counter = count;
+			}
 			
 			var quantity = $('#productQuantity_'+count+'').val();
 			var productSize = $('#productSize_'+count+'').val();
@@ -576,27 +595,33 @@
 			//console.log(quantity + " " + productSize);
 			var tabs = parseInt(quantity) * parseInt(productSize);
 			//console.log(tabs);
-
-			//calculating discount
-			var discount = (parseFloat($('#discount_'+count).val()) / 100) 
-							* (parseFloat($('#productQuantity_'+count).val()) * parseFloat($('#purchaseRate_'+count).val()));
-			//console.log("DISCOUNT -> "+discount);
-
-			if (discount == NaN){
+			var discount = $('#discount_'+count).val();
+			if (discount == ""){
+				console.log("yes");
 				discount = 0.0;
 			}
 
+			console.log("Discount "+ discount);
+
+			//calculating discount
+			discount = (parseFloat(discount) / 100) 
+							* (parseFloat($('#productQuantity_'+count).val()) * parseFloat($('#purchaseRate_'+count).val()));
+			//console.log("DISCOUNT -> "+discount);
+
+			
+			console.log("Discount "+ discount);
 			productAmount = (parseFloat($('#purchaseRate_'+count).val()) * parseFloat(productSize));
 
 			//calculating VAT
+			console.log("vAT PER"+parseFloat($('#vatPer_'+count).val()) / 100);
 			var VAT = ( parseFloat($('#vatPer_'+count).val()) / 100 ) 
 						* ( (parseFloat($('#productSize_'+count).val()) * parseFloat($('#purchaseRate_'+count).val())) - discount );
-			//console.log("VAT -> "+VAT);
+			console.log("VAT -> "+VAT);
 
 
 			// Calculate total amount after each entry
 			var grandTotal = 0;
-			for (var i = 1; i < counter; i++){
+			for (var i = 1; i <= counter; i++){
 				// Calculate total amount minus the discount
 				grandTotal += parseFloat($('#purchaseRate_'+i).val()) * parseFloat($('#productSize_'+i).val());
 				console.log("total amount"+grandTotal);
@@ -609,12 +634,12 @@
 			$('#tabQuantity_'+count).val(tabs);
 
 			$('#productAmount_'+count).val(productAmount.toFixed(2));
+			console.log("counter = "+temp);
+			getTotal(temp);
+			counter = temp;
+		};
 
-			getTotal(counter);
-
-		}
-
-		function getTotal(counter){
+		window.getTotal = function(counter){
 
 			//Insert the discount value to the newly created row
 			var totalDiscount = parseFloat($('#totalDiscount').val());
@@ -641,8 +666,11 @@
 
 
 				totalVat += parseFloat($('#VAT_'+i).val());
-
-				totalDiscount += (parseFloat($('#discount_'+i).val()) / 100) 
+				var discount = $('#discount_'+i).val();
+				if (discount == ""){
+					discount = 0.0;
+				}
+				totalDiscount += (parseFloat(discount) / 100) 
 							* (parseFloat($('#productSize_'+i+'').val()) * parseFloat($('#purchaseRate_'+i).val()));
 
 				console.log(totalVat+"  "+totalDiscount);
@@ -651,18 +679,34 @@
 			$('#totalDiscount').val(totalDiscount.toFixed(2));
 			$('#vatOnBill').val(totalVat.toFixed(2));
 
-			netAmnt = (netAmnt - totalDiscount) + totalVat;
+			var debit = parseFloat($('#debitNote').val()).toFixed(2);
+			console.log(debit);
 
-			$('#netAmnt').val(netAmnt.toFixed(2));
+			netAmnt = parseFloat(netAmnt - totalDiscount) + parseFloat(totalVat);
+			//console.log(netAmnt);
+			netAmnt += parseFloat(debit);
+
+
+			$('#netAmnt').val(parseFloat(netAmnt).toFixed(2));
 			
-		}
+		};
 
-		//Function to check if there are any due on the supplier
-		//if yes display a modal with credit details
+		// Function to check if there are any due on the supplier
+		// if yes display a modal with credit details
 		function checkCredit(){
 			var supplier = $('#stockist_name').val();
 			if(supplier !== ''){
-				$('#creditModal').modal();
+				$.ajax({
+					url: 'functions/otherFunctions.php',
+					type: 'post',
+					data: {
+						supplier: $('#stockist_name').val(),
+						option: 'checkCredit'
+					},
+					success: function(data){
+						console.log("I am messing!"+data);
+					}
+				});
 			}
 		}
 
@@ -721,8 +765,18 @@
 
 		}
 
-
+		window.addDebit = function(){
+			var debit = parseFloat($('#debitNote').val());
+			if ($('#debitNote').val() == ''){
+				debit = 0.0;
+				getTotal(counter);
+			}
+			getTotal(counter);
+			/*var netAmnt = parseFloat($('#netAmnt').val());
+			var total = debit + netAmnt;
+			$('#netAmnt').val(total.toFixed(2));*/
+		}
 	</script>
-
+	<script src="script/detailsModal.js"></script>
 </body>
 </html>
