@@ -1,11 +1,3 @@
-// (function ( $ ){
-// 	$.fn.generateFields = function(){
-// 		return this.each(function(){
-
-// 		})
-// 	};
-// })( jQuery );
-
 function generateFields(parentId, arrayOfOptions){
 	if (arrayOfOptions.length !== 'undefined'){
 		var x = counter;

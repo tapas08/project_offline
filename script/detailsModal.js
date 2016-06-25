@@ -1,3 +1,7 @@
+// Global Variables for credit bills
+// Without these the function won't calculate total correctly
+var credit_total = 0;
+
 window.detailsModal = function(id){
 	var input = $('#'+id).val();
 	//console.log(input.length);
@@ -46,7 +50,7 @@ function list_modal_details(){
 
 
 /**************************************************
-******************<<Handle table>>*******************
+******************<<Handle table>>*****************
 ****************************************************/
 
 function highlight(tableIndex) {
@@ -66,8 +70,7 @@ function highlight(tableIndex) {
         $('.details-table table tbody tr:eq('+tableIndex+')').addClass('focus');
     
         // Check if the event is on purchase return page
-        if ($('#return_bills').val() == 'return_invoice'){
-        	console.log($('.details-table table tbody tr.focus').index());
+        if ($('#return_bills').val() == 'return_invoice' || $('#credit_show').val() == 'true'){
         	show_return_products($('.details-table table tbody tr.focus').index());
         }
     }
@@ -103,15 +106,17 @@ $(document).keydown(function (e) {
             $('#goto_next').trigger('click');
             break;
         case 32:
-        	console.log("spacebar pressed");
         	selected($('.details-table table tbody tr.focus').index());
         	break;
 
-        // case 13:
-        // 	if($('#return_bills').val() == 'return_invoice'){
-        // 		get_purchase_return_bills();
-        // 	}
-        // 	break;
+        case 13:
+        	if($('#credit_show').val() == 'true'){
+        		add_credit_note();
+        	}
+        	break;
+
+        //case 9:
+
     }
 
  });
@@ -142,8 +147,12 @@ function selected(row){
 			// insertToTable($(row[2]).html());
 			return false;
 		}
-		console.log("Now here!");
+		
 		insertToTable(batch);
+	}else if($('#credit_show').val() == "true"){
+		
+		$('#bill_checked_'+(row+1)).attr('checked', 'checked');
+		
 	}else{
 		$('#productName_'+(counter-1)).val(data).focus();
 		getData('_'+(counter-1), data, batch);	
@@ -176,17 +185,20 @@ function show_return_products(row){
 	//console.log(tuple[row].cells);
 	var td = $(tuple[row].cells);
 	
-	var invoiceNo = $(td[0]).html();
+	var invoiceNo = $('#credit_show').val() == 'true' ? $(td[1]).html() : $(td[0]).html();
 
 	$.ajax({
 		url: 'functions/otherFunctions.php',
 		type: 'post',
 		data: {
 			invoiceNo: invoiceNo,
+			credit_note: $('#credit_show').val() == 'true' ? 'true' : 'false',
 			option: 'show_return_products'
 		},
 		success: function(data){
+			$('#return_products_list').html("");
 			$('#return_products_list').html(data);
+			//console.log(data);
 		}
 	});
 }
@@ -227,7 +239,53 @@ function recreate_return_bill(invoiceNo){
 			// And set the form action to update page
 			$('#purchaseReturnForm').attr('action', 'update_purchase_return.php');
 
-			console.log(data);
+			//console.log(data);
 		}
 	});
+}
+
+function add_credit_note(){
+	// TODO
+	// Get return value of each products of each bill
+	// Calculate the total amount 
+	// Add that amount to net amount of the invoice
+	var total_checked_bills = $('.credit-bills input[type="checkbox"]:checked').length;
+
+	var bill_no = [], total = 0;
+
+	$('#creditNote').val(total);
+
+	$.each($('.credit-bills input[type="checkbox"]:checked'), function(){
+		bill_no.push($(this).val());
+	});
+	var this_total = 0;
+	for (var i = 0; i < total_checked_bills; i++){
+		$.ajax({
+			url: 'functions/otherFunctions.php',
+			type: 'post',
+			data: {
+				invoiceNo: bill_no[i],
+				option: 'get_return_bill_amount'
+			},
+			success: function(data){
+				credit_total += parseInt(data);
+				$('#creditNote').val(credit_total);
+				this_total = credit_total;
+				console.log("TOTAL in loop "+this_total);
+			}
+		});
+		total = this_total;
+	}
+
+	$.each($('#return_products_list input[type="checkbox"]:checked'), function(){
+		credit_total += parseInt($(this).val());
+		console.log(credit_total);
+	});
+	$('#creditNote').val((credit_total + parseInt(credit_total)));
+
+	// Get the products selected and calculate the final total amount 
+	console.log("total -> "+credit_total);
+	getTotal(counter);
+	$('#creditModal').modal('hide');
+	
 }

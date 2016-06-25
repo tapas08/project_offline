@@ -33,7 +33,7 @@
 				 						<label for="company_name" class="control-label col-md-4">Company Name :</label>
 				 						<span class="col-md-6"><input type="text" class="form-control" name="company_name" list="company_list" id="company_name" oninput="getList('company_name', 'company_list');"></span>
 				 						<datalist id="company_list"></datalist>
-				 						<span class="col-md-2"><input type="text" class="form-control" name="shortName" id="shortName"></span>
+				 						<span class="col-md-2"><input type="text" class="form-control" name="shortName" id="shortName" oninput="getList('company_name', 'company_list');"></span>
 				 					</div>
 				 					<div class="form-group col-md-12">
 				 						<label for="stockist_name" class="control-label col-md-4">Stockist Name</label>
@@ -53,7 +53,7 @@
 			 						<td>Stockist Name</td>
 			 						<td>PO_Priority</td>
 			 					</thead>
-			 					<tbody>
+			 					<tbody id="stockist_list_table">
 			 						
 			 					</tbody>
 			 				</table>

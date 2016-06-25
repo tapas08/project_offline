@@ -11,7 +11,8 @@
 			$data[Input::get("name_$i")] = array(
 					'batchNo' => $_POST["batch_$i"],
 					'expiry_date' => Input::get("exp_$i"),
-					'return_value' => Input::get("sendQuantity_$i")
+					'return_value' => Input::get("sendQuantity_$i"),
+					'amount' => Input::get("amnt_$i")
 				);
 		}
 
@@ -276,6 +277,15 @@
 				},
 				success: function(data){
 					if(data !== '0'){
+						var flag = true;
+						if ($('#stockist_name') != data.supplier){					
+							flag = confirm("The product is not from the selected supplier");
+						}
+
+						if (flag == false){
+							return false;
+						}
+
 						$("tbody").append(data.list);
 						$('#product').val("");
 						$('#product').focus();
@@ -315,6 +325,7 @@
 		function show_previous_return(){
 			// Display previous purchase return invoice within a modal
 			// Open selected invoice to modify
+			$('#return_bills').val("return_invoice");
 			$('#return_invoice').modal();
 		}
 

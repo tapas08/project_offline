@@ -62,6 +62,10 @@ if (Input::exists()){
 			recreate_return_bill();
 			break;
 
+		case 'get_return_bill_amount':
+			get_return_bill_amount();
+			break;
+
 		default:
 			# code...
 			break;
@@ -258,6 +262,7 @@ function insertToTable(){
 			$data['count'] = $count = $product->count();
 			$id = Input::get('count');
 			$data['list'] = '';
+			$data['supplier'] = $product->first()['supplier'];
 			foreach ($product->results() as $drugs => $drug){
 				$dateArray = explode('/', $drug['expiryDate']);
 				if ((int)$dateArray[1] <= (int)date('y') && Input::get('return_type') == 'Expiry'){					
@@ -517,29 +522,63 @@ function product_details(){
 
 
 function check_credit(){
-	// TODO
+	if (Input::exists()){
+		$db = DB::getInstance();
+
+		$credit_list = $db->query("SELECT * FROM purchaseReturn WHERE supplier = ? AND status = ?", array(Input::get('supplier'), 'Creditable'));
+
+		if ($credit_list->count() > 0){
+			$i = 1;
+			foreach ($credit_list->results() as $return_bill => $bill){
+				if ($bill['balance'] > 0){
+					echo "<tr>";
+					echo "<td><input type='checkbox' id='bill_checked_".$i."' name='bill_checked[]' value=".$bill['invoiceNo']."></td>";
+					echo "<td>{$bill['invoiceNo']}</td>";
+					echo "<td>{$bill['invoiceDate']}</td>";
+					echo "<td>{$bill['amount']}</td>";
+					echo "<td>{$bill['balance']}</td>";
+					echo "<td>{$bill['loss']}</td>";
+					echo "<td>{$bill['bType']}</td>";
+					echo "<td>".((date('Y', strtotime($bill['invoiceDate'])) == date('Y')) ? 'CY' : 'LY')."</td>";
+					echo "<td>{$bill['narration']}</td>";
+					echo "</tr>";
+				}
+				$i++;
+			}
+		}
+
+	}
 }
 
 
 function show_return_products(){
 	if (Input::exists()){
 		$db = DB::getInstance();
-
+		$i = 1;
 		$purchase_return = $db->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')));
 		if ($purchase_return->count() > 0){
 			foreach (json_decode($purchase_return->first()['product_details'], true) as $return_bill => $return) {
 				$purchaseBills = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE batchNo = ? AND productName = ?", array($return['batchNo'], $return_bill));
 				echo "<tr>";
+				if (Input::get('credit_note') == 'true'){
+					echo "<td>".get_mfg($purchase_return->first()['supplier'])."</td>";
+				}
 				echo "<td>$return_bill</td>";
 				echo "<td>".$purchaseBills->first()['productQuantity']."</td>";
 				echo "<td>".$return['batchNo']."</td>";
 				echo "<td>".$purchaseBills->first()['purchaseRate']."</td>";
 				echo "<td>".$purchaseBills->first()['MRP']."</td>";
 				echo "<td>".$return['return_value']."</td>";
-				echo "<td>".$purchase_return->first()['amount']."</td>";
+				echo "<td>".$return['amount']."</td>";
 				echo "<td>0</td>";
-				echo "<td>".$purchase_return->first()['invoiceDate']."</td>";
+				if (Input::get('credit_note') == 'true'){
+					$value = $return['amount'];
+					echo "<td><input type=\"checkbox\" id=\"product_selected_$i\" name='product_return_value[]' value=\"$value\"></td>";
+				}else{
+					echo "<td>".$purchase_return->first()['invoiceDate']."</td>";
+				}
 				echo "<tr>";
+				$i++;
 			}
 		}
 	}
@@ -600,4 +639,11 @@ function get_mfg($supplier){
 		return $mfg->first()['abbreviation'];
 	}
 	return 'NA';
+}
+
+function get_return_bill_amount(){
+	if (Input::exists()){
+		//echo Input::get('invoiceNo');
+		echo DB::getInstance()->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')))->first()['amount'];
+	}
 }

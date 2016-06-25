@@ -1,3 +1,9 @@
+/*
+	Global variables for checking and saving company name
+*/
+
+var new_company = false;
+
 function getList(id, list, drug, insertData){
 	var value = document.getElementById(id).value;
 	
@@ -180,3 +186,99 @@ $('#purchaseEntry').keydown(function(e){
 // 		}
 // 	});
 // }
+
+
+/*
+	Script for new item entry
+*/
+
+$('#company_name').keydown(function(e){
+	//console.log(e);
+	if (e.which == 13){
+		console.log("Enter");
+		$.ajax({
+			url: 'functions/purchaseFunctions.php',
+			type: 'post',
+			//dataType: 'json',
+			data: {
+				company_name: $('#company_name').val(),
+				save: 'false',
+				access: 'check_and_save_company'
+			},
+			success: function(data){
+				console.log(data);
+				if (data == "00"){
+					new_company = confirm("Company name not found. Save new Company?");
+					$('#shortName').focus();
+				}else{
+					var list = data.split('/');
+					$('#company_name').val(list[0]);
+					$('#shortName').val(list[1]);
+				}
+			}
+		});
+	}
+});
+
+$('#shortName').keydown(function(e){
+	// Save the new company name
+	if (e.which == 13){
+		$.ajax({
+			url: 'functions/purchaseFunctions.php',
+			type: 'post',
+			data: {
+				company_name: $('#company_name').val(),
+				abr: $('#shortName').val(),
+				save: 'true',
+				access: 'check_and_save_company'
+			},
+			success: function(data){
+				console.log(data);
+				if (data == 'saved'){
+					$('stockist_name').focus();
+					$('#productMarketedBy').val($('#shortName').val());
+					$('#productManftr').val($('#shortName').val());
+				}
+			}
+		});
+	}
+
+});
+
+
+$('#stockist_name').keydown(function(e){
+	if (e.which == 13){
+		$('stockist_priority').focus();
+	}
+});
+
+// Keep the stockist name in the list
+// and save the stockist names in the stockist table
+// along with the company's code
+
+$('#stockist_priority').keydown(function(e){
+	// Append the stockist name and priority in the table
+	// Save the data to stockist table
+	console.log("HERER");
+	if (e.which == 13){
+		if ($('stockist_name').val() == ""){
+			alert("Please enter stockist name");
+		}else{
+			$.ajax({
+				url: 'functions/purchaseFunctions.php',
+				type: 'post',
+				data: {
+					stockist_name: $('#stockist_name').val(),
+					priority: $('#stockist_priority').val(),
+					company_name: $('#company_name').val(),
+					access: 'save_stockist'
+				},
+				success: function(data){
+					// Append to table
+					console.log(data);
+					$('#stockist_list_table').append(data);
+				}
+			});
+		}
+	}
+});

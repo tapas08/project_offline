@@ -19,7 +19,8 @@ if (Input::exists()){
 		$data[Input::get("name_$i")] = array(
 				'batchNo' => $_POST["batch_$i"],
 				'expiry_date' => Input::get("exp_$i"),
-				'return_value' => Input::get("sendQuantity_$i")
+				'return_value' => Input::get("sendQuantity_$i"),
+				'amount' => Input::get("amnt_$i")
 			);	
 	}
 

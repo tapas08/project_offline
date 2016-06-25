@@ -297,18 +297,46 @@
 	</section>
 
 	<div class="modal fade" id="creditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog modal-lg container" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				</div>
 				<div class="modal-body">
-				...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Purchase Return Bills</h4>
+
+					<input type="hidden" id="credit_show" name="credit_show" />
+					<div class="container col-md-12 details-table">
+						<table class="table table-bordered table-condensed">
+							<thead>
+								<td>Select</td>
+								<td>Inv No.</td>
+								<td>Date</td>
+								<td>Amnt</td>
+								<td>Balance</td>
+								<td>Loss</td>
+								<td>Btype</td>
+								<td>Year</td>
+								<td>Narration</td>								
+							</thead>
+							<tbody class="credit-bills"></tbody>
+						</table>
+					</div>
+					<div class="return_product_table">
+						<table class="table table-bordered table-condensed">
+							<thead>
+								<td>MFG</td>
+								<td>Product</td>
+	 							<td>Pack</td>
+	 							<td>Batch</td>
+	 							<td>Pr Rate</td>
+	 							<td>MRP</td>
+	 							<td>QTY</td>
+	 							<td>Amnt</td>
+	 							<td>PinvNo</td>
+	 							<td>Select</td>
+							</thead>
+							<tbody id="return_products_list"></tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -695,6 +723,7 @@
 		// if yes display a modal with credit details
 		function checkCredit(){
 			var supplier = $('#stockist_name').val();
+			$('#credit_show').val("true");
 			if(supplier !== ''){
 				$.ajax({
 					url: 'functions/otherFunctions.php',
@@ -704,7 +733,9 @@
 						option: 'checkCredit'
 					},
 					success: function(data){
-						console.log("I am messing!"+data);
+						$('.credit-bills').html(data);
+						$('#return_products_list').html("");
+						$('#creditModal').modal();
 					}
 				});
 			}

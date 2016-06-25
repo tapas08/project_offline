@@ -20,15 +20,21 @@ if (Input::exists()){
 		case 'getList':
 			getList(Input::get('table'));
 			break;
+		case 'check_and_save_company':
+			check_and_save_company();
+			break;
+		case 'save_stockist':
+			save_stockist();
+			break;
 	}
 }
 
 function getDrug(){
 	$db = DB::getInstance();
 	$searchTerm = strtoupper(Input::get('searchTerm'));
-	$searchTerm = "%$searchTerm%";
+	$searchTerm = strtoupper("%$searchTerm%");
 
-	$get = $db->query("SELECT * FROM items WHERE `productName` LIKE ?", array($searchTerm));
+	$get = $db->query("SELECT * FROM purchaseBills WHERE `productName` LIKE ?", array($searchTerm));
 
 	if (!$get->error()){
 		// if($get->count() > 0){
@@ -46,7 +52,7 @@ function getDrug(){
 function insertData(){
 	$db = DB::getInstance();
 	$drug = Input::get('drug');
-	$details = $db->get("items", array('productName', '=', $drug));
+	$details = $db->get("purchaseBills", array('productName', '=', $drug));
 	$invoiceDetails = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName = ? AND batchNo = ?", array($drug, Input::get('batchNo')));
 
 	if ($details){
@@ -134,8 +140,75 @@ function getList($table){
 
 		if (!$get->error() && $get->count() > 0){
 			foreach ($get->results() as $key => $value) {
-				echo "<option>{$value['name']}</option>";
+				if ($table == 'company_name'){
+					echo "<option value='"+$value['name']+"'>[ {$value['abbreviation']} ] - {$value['name']}</option>";
+				}else{
+					echo "<option>{$value['name']}</option>";
+				}
 			}
 		}
 	}
+}
+
+function check_and_save_company(){
+	if (Input::exists()){
+		$db = DB::getInstance();
+		$data = [];
+		$company = $db->get('company_name', array('name', '=', Input::get('company_name')));
+		//echo $company->count();
+		if (Input::get('save') == 'false'){
+			if ($company->count() == 0){
+				echo "0";
+			}else{
+				echo $company->first()['name']."/".$company->first()['abbreviation'];
+			}
+		}else{
+			$save = $db->insert('company_name', array(
+					'name' => Input::get('company_name'),
+					'abbreviation' => Input::get('abr')
+				));
+
+			if ($save){
+				echo "saved";
+			}else{
+				echo "Fail";
+			}
+		}
+
+	}
+}
+
+function save_stockist(){
+	if (Input::exists()){
+		$db = DB::getInstance();
+
+		print_r($_POST);
+
+		//Get company's id
+		$company_id = $db->get('company_name', array('name', '=', Input::get('company_name')))->first()['id'];
+
+		//Save data to stockist_name table
+		$save_stockist = $db->insert('stockist_name', array(
+				'abbreviation' => abrevate(Input::get('stockist_name')),
+				'name' => Input::get('stockist_name'),
+				//'priority' => Input::get('priority'),
+				'company_id' => $company_id
+			));
+
+		if ($save_stockist){
+			echo "<tr>";
+			echo "<td>"+Input::get('stockist_name')+"</td>";
+			echo "<td>"+Input::get('priority')+"</td>";
+			echo "</tr>";
+		}
+	}
+}
+
+
+function abrevate($name){
+	$abr = substr($name, 0, 1);
+	for ($i = 0; $i < 1; $i++){
+		$abr .= substr($name, rand($i, strlen($name)));
+	}
+	return substr($abr, 0, 3);
 }

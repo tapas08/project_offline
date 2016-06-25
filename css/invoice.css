@@ -62,3 +62,8 @@ tbody > tr > td:first-child{
 .focus{
 	background-color: #e3e3e3;
 }
+
+.details-table tbody > tr > td:first-child, 
+.return_product_table tbody > tr > td:first-child{
+	width: auto;
+}
