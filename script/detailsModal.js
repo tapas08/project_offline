@@ -1,6 +1,40 @@
 // Global Variables for credit bills
 // Without these the function won't calculate total correctly
-var credit_total = 0;
+var credit_total = 0, i = 1;
+
+// function get_new_data(source){
+// 	console.log(source);
+// 	var id = $(source).attr('id');
+// 	//alert(id);
+// 	if (source.which == 13){
+// 		id = id.split('_');
+// 		console.log("ENTER HIT");
+// 		getData('_'+id[1], '', '', 'new');
+// 		return;
+// 	}
+// }
+
+/*$('#productName_1').keydown('.product_names', function(e){
+	console.log(e);
+	if (e.which == 13){
+		console.log("Enter pressed");
+	}
+});*/
+
+// $("input[name^='productName_']").keydown('.product_names', function(e){
+// 	console.log("here");
+// 	var id = $(this).attr('id');
+// 	console.log($(this).attr('class'));
+// 	console.log("productname_"+i);
+// 	if (e.which == 13){
+// 		console.log(id);
+// 		id = id.split('_');
+// 		console.log("ENTER HIT");
+// 		getData('_'+id[1], '', '', 'new');
+// 		i++;
+// 		return;
+// 	}
+// });
 
 window.detailsModal = function(id){
 	var input = $('#'+id).val();
@@ -18,6 +52,12 @@ window.detailsModal = function(id){
 
 		// }
 		list_modal_details();
+		// var flag = list_modal_details();
+		// if (flag == false){
+		// 	console.log("row => "+flag);
+		// 	getList('productName_'+(counter-1), 'drugList_'+(counter-1), true, true);
+		// 	//$('#productName_'+(counter-1)).attr('onkeydown',"get_new_data(this)");
+		// }
 	}
 }
 
@@ -34,12 +74,15 @@ function list_modal_details(){
 				option: 'product_details'
 			},
 			success: function(data){
+				console.log("data "+data);
 				if (data == 0){
 					$('.modal-details').modal('hide');
 					getList('productName_'+(counter-1), 'drugList_'+(counter-1), true, true);
+					return false;
 				}else{
-					$('.details-table').html(data);
+					$('.product-list').html(data);
 					$('#modal_input').focus();
+					return true;
 				}
 				
 				//console.log(data);
@@ -54,7 +97,11 @@ function list_modal_details(){
 ****************************************************/
 
 function highlight(tableIndex) {
-	
+	var tuple = $('.details-table table tbody tr.focus');
+	var td = $(tuple.cells);
+
+	var data = $(td[1]).html();
+	//console.log(tuple);
     // Just a simple check. If .highlight has reached the last, start again
     if( (tableIndex+1) > $('.details-table table tbody tr').length ){
         tableIndex = 0;
@@ -63,11 +110,24 @@ function highlight(tableIndex) {
     // Element exists?
     if($('.details-table table tbody tr:eq('+tableIndex+')').length > 0)
     {
+    	//console.log("herehraok");
         // Remove other highlights
-        $('.details-table table tbody tr').removeClass('focus');
+        if ($('#credit_show').val() == 'true'){
+        	$('.credit-bills-div table tbody tr').removeClass('focus');	
+        }else if ($('#return_bills').val() == 'return_invoice'){
+			$('.details-table table tbody tr').removeClass('focus');
+		}else{
+        	$('.details-table.product-list table tbody tr').removeClass('focus');
+        }
         
         // Highlight your target
-        $('.details-table table tbody tr:eq('+tableIndex+')').addClass('focus');
+        if ($('#credit_show').val() == 'true'){
+        	$('.credit-bills-div table tbody tr:eq('+tableIndex+')').addClass('focus');
+        }else if ($('#return_bills').val() == 'return_invoice'){
+			$('.details-table table tbody tr:eq('+tableIndex+')').addClass('focus');
+		}else{
+        	$('.details-table.product-list table tbody tr:eq('+tableIndex+')').addClass('focus');
+        }
     
         // Check if the event is on purchase return page
         if ($('#return_bills').val() == 'return_invoice' || $('#credit_show').val() == 'true'){
@@ -82,16 +142,39 @@ $('#goto_first').click(function() {
 });
 
 $('#goto_prev').click(function() {
-    highlight($('.details-table table tbody tr.focus').index() - 1);
+	if($('#credit_show').val() == 'true'){
+		var next = parseInt($('credit-bills-div table tbody tr.focus').index()) - 1;
+    	highlight(next);
+	}else if ($('#return_bills').val() == 'return_invoice'){
+		highlight($('.details-table table tbody tr.focus').index() - 1);	
+	}else{
+		highlight($('.details-table.product-list table tbody tr.focus').index() - 1);	
+	}
+    
 });
 
 $('#goto_next').click(function() {
-	var next = parseInt($('.details-table table tbody tr.focus').index()) + 1;
-    highlight(next);
+	if($('#credit_show').val() == 'true'){
+		var next = parseInt($('credit-bills-div table tbody tr.focus').index()) + 1;
+    	highlight(next);
+	}else if ($('#return_bills').val() == 'return_invoice'){
+		highlight($('.details-table table tbody tr.focus').index() + 1);	
+	}else{
+		// console.log('here');
+		// console.log(parseInt($('product-list table tbody tr.focus').index()));
+		var next = parseInt($('.product-list table tbody tr.focus').index()) + 1;
+    	highlight(next);
+    }
 });
 
 $('#goto_last').click(function() {
-    highlight($('.details-table table tbody tr:last').index());
+	if($('#credit_show').val() == 'true'){
+		highlight($('.credit-bills-div table tbody tr:last').index());
+	}else if ($('#return_bills').val() == 'return_invoice'){
+		highlight($('.details-table table tbody tr.focus').index());	
+	}else{
+    	highlight($('.details-table table tbody tr:last').index());
+    }
 });
 
 $(document).keydown(function (e) {
@@ -136,6 +219,7 @@ function selected(row){
 	var path = $(location).attr('href');
 	path = path.split("/");
 	path = path[path.length - 1].split(".");
+	console.log(path);
 	if (path[0] == "purchaseReturn"){
 		$('#product').val(data).focus();
 		if($('#return_bills').val() == 'return_invoice'){
@@ -147,15 +231,27 @@ function selected(row){
 			// insertToTable($(row[2]).html());
 			return false;
 		}
-		
 		insertToTable(batch);
 	}else if($('#credit_show').val() == "true"){
 		
 		$('#bill_checked_'+(row+1)).attr('checked', 'checked');
 		
+	}else if (path[0] == "purchase"){
+		var tuple = $('.product-list table tbody tr');
+		var td = $(tuple[row].cells);
+		$('#productName').val($(td[1]).html());
+		insertDetails();
 	}else{
+		var tuple = $('.product-list table tbody tr');
+		var td = $(tuple[row].cells);
+		var batch = '';
+		var data = $(td[1]).html();
+		if ($('#state').val() == 'old'){
+			batch = $(td[2]).html();	
+		}
+		
 		$('#productName_'+(counter-1)).val(data).focus();
-		getData('_'+(counter-1), data, batch);	
+		getData('_'+(counter-1), data, batch, $('#state').val());
 	}
 	
 	$('.modal-details').modal('hide');
@@ -272,6 +368,7 @@ function add_credit_note(){
 				$('#creditNote').val(credit_total);
 				this_total = credit_total;
 				console.log("TOTAL in loop "+this_total);
+				$('#credit_show').val("");
 			}
 		});
 		total = this_total;

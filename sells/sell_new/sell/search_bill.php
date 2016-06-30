@@ -9,7 +9,7 @@ $result_bill = $bills->select($bills->table);
 <!DOCTYPE html>
 <head>
 	<title>Sell</title>
-	<script src="script/jquery-min.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="css/theme.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -54,7 +54,7 @@ $result_bill = $bills->select($bills->table);
 
 	<div class="conatainer col-md-12">
 
-        <form method="post" id="addForm" action="" autocomplete="off">
+        <form method="post" id="addForm"  autocomplete="off" >
 
 			<div class="row">
 				<div class="col-md-2">
@@ -120,15 +120,25 @@ $result_bill = $bills->select($bills->table);
 								<input type="text" id="Name" class="form-control" name="Name" placeholder="name"  oninput="searchByName();" />
 							</span>
 						</div>
+						</br>
 						
 						<div class="form-group col-md-6">
-							<span class="col-md-4"><label for="searchByProduct">By product</label></span>
-							<span class="col-md-8"><input type="text" id="Product" class="form-control" name="Product" placeholder="product name" oninput="searchByProduct();"></span>
+							<span class="col-md-4">
+							
+							<label for="searchByProduct">By product</label>
+							</span>
+							<span class="col-md-8">
+							<input type="text" id="Product" class="form-control" name="Product" placeholder="product name" >
+							</span>
+						
 						</div>
 
 						<div class="form-group col-md-6">
+							<input type="button" name="change"  value="Change" onclick="sbill();" class="btn btn-success">
 							<input type="reset" name="reset" value="Cancel" class="btn btn-success">
 							<input type="submit" name="submit"  value="Exit" class="btn btn-success">
+							
+	
 						</div>
 					</div>
 					<div class="col-md-offset-1 col-md-5" style="padding-left:0px;height:300px; overflow:auto;">
@@ -172,33 +182,36 @@ $result_bill = $bills->select($bills->table);
 		</div>
 	</div>
 
+		<script src="script/jquery-min.js"></script>
+		<script src="script/searchBills.js"></script>
+		<script src="js/jquery.js"></script>
 
-		<script src="js/searchBills.js"></script>
+	
 		<script type="text/javascript">
-			$('document').ready(function(){
-			//$('#resultdata').load('sell.php');
-				//alert('Page Ready');
-				//$('.textbox').hide();
-				//$('.save').hide();
-				
-				
-				$('#searchby').change(function(){
-					
-					var datas =$(this).val();
-					//alert(datas);
-				
+				function sbill()
+				{
+					console.log("getdata!!!");
+					var from =  $('#sdate').val();
+					console.log(from);
+					var to   = $('#edate').val();
+					console.log(to);
+					var product = $('#Product').val();
+					console.log(product);
 					$.ajax({
-					url: 'show_search_bill.php',
-					type: 'get',
-					cache: false,
-					data: {datas : datas},
-					success: function(res) {
-					$('#resultdata').append(res);}
-	      
-	   				});
-				});
-			});
-		</script>	
+						type  : 'post',
+						url  : 'functions/searchBills.php',
+						data : {
+								from : from, 
+								to  : to,
+								prod : product,
+								access :"searchBillp"
+								},
+						success: function (data) {
+							console.log(data);
+						$('#bill_table').html(data);						}
+					});
+				} 
+					</script>	
 				
 </body>
 </html>	

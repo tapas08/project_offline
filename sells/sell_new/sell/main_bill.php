@@ -82,7 +82,7 @@
 		
 	
 	
-		$getbill = DB::getInstance()->query("select * from patients where bill_no='".$_POST['billNo']."' ");
+		 $getbill = DB::getInstance()->query("SELECT * FROM patients WHERE `bill_no` LIKE ?",array($_POST['billNo']));
 		if($getbill->count()> 0)
 		{
 		 $insert = $db->update('patients',array('bill_no', '=',$_POST['billNo'] ), array(
@@ -96,6 +96,7 @@
 				'doctor_city' => $_POST['doctor_city'],
 				'cash-or-credit' => $_POST['cash_or_credit'],
 				'bill' => $bill,
+				'total' => $_POST['total'],
 				'total_amt' => $_POST['totalAmt'],
 				'paid_amt' => $_POST['paid_amt'],
 				'discount' => $_POST['discount'],
@@ -115,13 +116,14 @@
 				'doctor_city' => $_POST['doctor_city'],
 				'cash-or-credit' => $_POST['cash_or_credit'],
 				'bill' => $bill,
+				'total'=> $_POST['total'],
 				'total_amt' => $_POST['totalAmt'],
 				'paid_amt' => $_POST['paid_amt'],
 				'discount' => $_POST['discount'],
 				'totalDiscount' => $_POST['totalDiscount'],
 				'bal_amt' => $_POST['bal_amt']
 			));
-		}
+		} 
 	
 ?>
 <!DOCTYPE html>
@@ -214,7 +216,7 @@
 		</tr>
 		
 		
-	<?php $srno=1;$no=1;for($i = 1; $i<(int)$_POST['counter']; $i++){ ?>
+	<?php $srno=1;$no=0;for($i = 1; $i<(int)$_POST['counter']; $i++){ ?>
 	<tr>
 			<td><?php echo $_POST["shelf_$i"] ?></td>
 			<td><?php echo $_POST["productName_$i"] ?></td>
@@ -225,7 +227,7 @@
 			<td><?php echo $_POST["quantity_$i"] ?></td>
 			<td style="background-color:#C3D9A8;"><?php echo $_POST["productRate_$i"] ?></td>
 	</tr>
-	<?php $no = $srno-$no;$srno++; }?>
+	<?php $no++;$srno++; }?>
 		
 		</table>
 	</div>
@@ -248,9 +250,10 @@
 		<div class="foot-base1"><center >
 		</br><?php echo $no; ?></br>No.of items</center ></div>
 		<div class="foot-base2"></br></br>signature of Q.P</div>
-		<div class="foot-base3"><center ></br>
-		<!--Discount :<?php // echo $_POST["totalDiscount"] ?></br>-->
-		TOTAL :<?php echo $_POST["paid_amt"] ?></center></div>
+		<div class="foot-base3"><center >
+		<h6 style="color:red;">Balance Amount:<?php  echo $_POST["bal_amt"] ?></h6>
+		Paid Amount:<?php  echo $_POST["paid_amt"] ?> <br>
+		TOTAL :<?php echo $_POST["totalAmt"] ?></center></div>
 
 		
 	</div>

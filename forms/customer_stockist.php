@@ -8,7 +8,8 @@
 	</div>
 	<div class="form-group col-md-4">
 		<label for="name" class="label-control">Name</label>
-		<input type="text" name="name" id="name" class="form-control">
+		<input type="text" name="name" id="name" list="name_list" class="form-control" oninput="getStockistName();">
+		<datalist id="name_list"></datalist>
 	</div>
 	<div class="form-group col-md-4">
 		<label for="city" class="label-control">City</label>

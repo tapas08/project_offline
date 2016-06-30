@@ -1,5 +1,5 @@
 function detailsModal(id){
-	console.log(id);
+		console.log(id);
 	var input = $('#'+id).val();
 	//alert(input);
 	if (input.length == 3){
@@ -36,8 +36,8 @@ function list_modal_details(){
 ******************<<Handle table>>*******************
 ****************************************************/
 
-function highlight(tableIndex) {
-	
+function highlight_2(tableIndex) {
+	console.log("hereme..");
     // Just a simple check. If .highlight has reached the last, start again
     if( (tableIndex+1) > $('.details-table table tbody tr').length ){
         tableIndex = 0;

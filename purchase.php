@@ -147,6 +147,8 @@ if (Input::exists() && Input::get('submitUpdate') != null){
  	</div>
 </div>
 
+<?php require_once 'templates/productList.php'; ?>
+
 <script type="text/javascript" src="script/jquery-min.js"></script>
 <script type="text/javascript" src="script/bootstrap.min.js"></script>
 <script type="text/javascript" src="script/purchase.js"></script>
@@ -157,5 +159,6 @@ if (Input::exists() && Input::get('submitUpdate') != null){
 <script type="text/javascript" src="script/common.js"></script>
 <script src="script/save.js"></script>
 <script src="script/navigate.js"></script>
+<script src="script/detailsModal.js"></script>
 </body>
 </html>

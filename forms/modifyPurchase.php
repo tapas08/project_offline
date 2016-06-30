@@ -30,7 +30,7 @@
 
 				<div class="input-group col-lg-12 input-divs">
 					<span class="col-lg-2"><label for="productName"><i class="fa fa-tag"></i> Product Name *</label></span>
-					<span class="col-lg-4"><input type="text" id="productName" class="form-control" name="productName" placeholder="Product Name" list="drugList" oninput="getDrug();" required></span>
+					<span class="col-lg-4"><input type="text" id="productName" class="form-control" name="productName" placeholder="Product Name" list="drugList" oninput="detailsModal('productName');" required></span>
 					<datalist id="drugList"></datalist>
 
 				</div>
@@ -169,7 +169,7 @@
 				</div>
 
 				<div class="input-group col-lg-12 input-divs">
-					<span class="col-lg-2"><label for="productQuantity"><i class="fa fa-plus-square"></i> Quantity *</label></span>
+					<span class="col-lg-2"><label for="productQuantity"><i class="fa fa-plus-square"></i> Purchase Size *</label></span>
 					<span class="col-lg-4"><input type="number" id="productQuantity" class="form-control" name="productQuantity" aria-describedby="sizing-addon6" placeholder="Pack Size" required></span>
 				</div>
 
@@ -282,6 +282,7 @@
 					<input type="button" name="submitUpdate" id="submitUpdate" value="Save" class="btn btn-success col-md-2" onclick="updateData();"><span>&nbsp;</span>
 					<input type="reset" name="reset" id="reset" value="Cancel" class="btn btn-success col-md-2"><span>&nbsp;</span>
 					<a href="?" name="exit" id="exit" class="btn btn-success col-md-2">Exit</a>
+					<input type="hidden" id="where" value="new">
 				</div>
 			</div>
 		</div>

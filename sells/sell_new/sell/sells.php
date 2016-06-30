@@ -1,38 +1,7 @@
-<?php
-	require_once('core/init.php');
-	$message = [];
-	$details = [];
-	$session_id = session_id();
-	$db = DB::getInstance();
-	$bill_data = array();
-	if (Input::exists()){
-	
-	foreach($_POST['selector'] as $demo){
-		//print_r($demo);
-	$bill = explode(",",$demo);
-	$pr[] = $bill[0];
-	//print_r($pr);
-	$sch_bill = $bill[2];
-	 if($sch_bill > 0)
-	 {
-		$getbill = DB::getInstance()->query("select * from patients where bill_no='".$sch_bill."' ");
-		foreach ($getbill->results() as $data => $bill1){
-				$bill_content = json_decode($getbill->first()['bill'], true);
-				$i = 0;
-				$keys = array_keys($bill_content);
-			   foreach ($bill_content as $bill){
-				   if( $keys[$i]==$pr[$i])
-				   {
-					    echo "match";
-				   }	
-			   }
-			   $i++;
-				
-				
-		}		
-	 }
-	}
-	}
+<?php 
+$data1 =[];
+$pr = [];
+$tr = '';
 ?>
 <!--doctype html-->
 <html>
@@ -56,10 +25,18 @@
 		
 	<?php include('templates/header.php'); ?>
 
+	
 	<section class="container">
 		<div class="col-md-12 top-menu">
 			
 			<?php
+			require_once('core/init.php');
+			$message = [];
+	$details = [];
+	$session_id = session_id();
+	$db = DB::getInstance();
+	$bill_data = array();
+	
 				if (count($message) > 0){
 					foreach ($message as $msg){
 						echo "<p class='alert alert-warning'>{$msg}</p>";
@@ -74,16 +51,84 @@
 			<div class="col-md-6">
 				<input type="reset" form="invoiceForm" id="reset" name="reset" class="btn btn-primary" value="Cancel">
 				
-				<input type="button"  name="impBill" class="btn btn-primary"  value="Imp Bill">
+					<a href="bill_1.php"><input type="button"  name="impBill" class="btn btn-primary"  value="Imp Bill"></a>
 				<input type="button" id="pendingDM" name="pendingDM" class="btn btn-primary" onclick="checkPendingDM();" value="Pending DM">
 				<input type="button" form="message" id="message1" name="message1"  class="btn btn-primary" value="Message">
+				<a href="balance_set.php"><input type="button"  name="balance" class="btn btn-primary"  value="Check Balance"></a>
 				
 		
 				<a href="#" id="exit" name="exit" class="btn btn-primary">Exit</a>
 			</div>
 		</div>
 		<br>
+		<?php
+	if (Input::exists()){
+		//if(isset($_POST['selector'])){
+	//$i = 0;
+	print_r($_POST['selector']);
+	$data =array();
+	foreach($_POST['selector'] as $demo){
+		//print_r($demo);
+	$bill = explode(",",$demo);
+	//$pr[] = $bill[0];
+	array_push($pr,$bill[0]);
+	}
+	$sch_bill = $bill[2];
+	 if($sch_bill > 0)
+	 {
+		 
+		$i = 1; 
+		$getbill = DB::getInstance()->query("select * from patients where bill_no='".$sch_bill."' ");
+		foreach ($getbill->results() as $data => $bill1){
+				echo $i;
+			
+		$data1['bill_no'] = $bill1['bill_no'];
+		$data1['billDate'] = $bill1['date'];
+		$data1['patient_name'] = $bill1['patient_name'];
+		$data1['phone_no'] = $bill1['phone_no'];
+		$data1['patient_address'] = $bill1['patient_address'];
+		$data1['patient_city'] = $bill1['patient_city'];
+		$data1['doctor_name'] = $bill1['doctor_name'];
+		$data1['doctor_city'] = $bill1['doctor_city'];
+		$data1['paid_amt'] = $bill1['paid_amt'];
+		$data1['discount'] = $bill1['discount'];
+		$data1['totalDiscount'] = $bill1['totalDiscount'];
+		$data1['bal_amt'] = $bill1['bal_amt'];
+		$data1['total_amt'] = $bill1['total_amt'];
 		
+		
+				$bill = json_decode($bill1['bill'], true);
+				
+				foreach ($bill as $content => $dm){
+		
+			if ($pr[$i-1] == $content ){ //&& $i < count($pr)
+				$tr .= "<tr>";
+				$tr .= "<td><input type=\"text\" name=\"productName_$i\" id=\"productName_$i\" class=\"form-control2\" list=\"drugList_$i\" value=\"{$pr[$i-1]}\">
+							<datalist id=\"drugList_$i\"></datalist>
+							</input>
+						</td>";
+				$tr .= "<td><input type=\"number\" step=\"any\" name=\"quantity_$i\" id=\"quantity_$i\" oninput=\"calculate(".$i.");\" class=\"form-control3\" value=\"{$dm['quantity']}\"></td>";
+				$tr .= "<td><input type=\"number\" step=\"any\" name=\"productRate_$i\" id=\"productRate_$i\" oninput=\"calculate(".$i.");\" class=\"form-control3\" value=\"{$dm['productRate']}\"></td>";
+				$tr .= "<td><input type=\"number\"  step=\"any\" name=\"MRP_$i\" id=\"MRP_$i\" oninput=\"calculate(".$i.");\" class=\"form-control3\" value=\"{$dm['MRP']}\"></td>";
+			$tr .= "<td><input type=\"text\" name=\"batchNo_$i\" id=\"batchNo_$i\" oninput=\"calculate(".$i.");\" class=\"form-control3\" value=\"{$dm['batchNo']}\"></td>";
+			$tr .= "<td><input type=\"number\" name=\"packSize_$i\" id=\"packSize_$i\" class=\"form-control3\" value=\"{$dm['packSize']}\"></td>";
+			$tr .= "<td><input type=\"text\" name=\"expiryDate_$i\" id=\"expiryDate_$i\" class=\"form-control3 month\" value=\"{$dm['expiryDate']}\"></td>";
+			$tr .= "<td><input type=\"text\" name=\"manufacturer_$i\" id=\"manufacturer_$i\" oninput=\"calculate(".$i.")\" class=\"form-control3\" value=\"{$dm['manufacturer']}\"></td>";
+			$tr .= "<td><input type=\"number\"  name=\"Tax_$i\" id=\"Tax_$i\" oninput=\"calculate(".$i.");\" class=\"form-control3\" value=\"{$dm['Tax']}\"></td>";
+			$tr .= "<td><input type=\"number\"  name=\"purchaseSize_$i\" id=\"purchaseSize_$i\" oninput=\"calculate(".$i.")\" class=\"form-control3\" value=\"{$dm['purchaseSize']}\"></td>";
+			$tr .= "<td><input type=\"text\" name=\"shelf_$i\" id=\"shelf_$i\" oninput=\"calculate(".$i.");\" class=\"form-control3\" value=\"{$dm['shelf']}\"></td>";
+			$tr .= "<td><input type=\"text\" step=\"any\" name=\"cost_$i\"   id=\"cost_$i\" class=\"form-control3\" value=\"{$dm['cost']}\"></td>";
+			
+				$tr .= "</tr>";
+				$i++;
+			}
+		}
+				
+	}
+}
+		//}	//print_r($pr);
+	}
+?>
 			
 	
 		<form action="main_bill.php" class="form" id="invoiceForm" method="POST">
@@ -93,11 +138,11 @@
 					<?php
 							$billNo = DB::getInstance()->query("SELECT * FROM patients")->count();
 						?>
-					<span class="col-md-9"><input type="number" class="form-control3" id="billNo" name="billNo" value="<?php echo $billNo+1 ?>"></span>
+					<span class="col-md-9"><input type="number" class="form-control3" id="billNo" name="billNo" value="<?php if(isset($data1['bill_no'])){ echo  $data1['bill_no'] ;}else{echo $billNo+1 ;}?>"></span>
 			</div>
 			<div class="form-group col-md-3">
 					<span class="col-md-2"><label for="billDate" class="control-label">Date</label></span>
-					<span class="col-md-9"><input value="<?php echo date('Y-m-d'); ?>" type="date" id="billDate" class="form-control2"  name="billDate"  /></span>
+					<span class="col-md-9"><input value="<?php if(isset($data1['billDate'])){ echo  $data1['billDate'] ;}else{ echo date('Y-m-d');} ?>" type="date" id="billDate" class="form-control2"  name="billDate"  /></span>
 					
 			</div>
 			<!--<div class="form-group col-md-3">
@@ -131,10 +176,17 @@
 						<td>Rack </td>
 						<td>CST </td>
 					</thead>
+					    
+					
 					<tbody id="billContent">
+						<?php 
+							if (!empty($tr)){
+								echo $tr;
+							}else{
+						?>
 						<tr>
 							<td>
-								<input type="text" name="productName_1" id="productName_1" class="form-control2"  list="drugList_1" oninput="detailsModal('productName_1');" autofocus >
+								<input type="text" name="productName_1" id="productName_1"  class="form-control2"  list="drugList_1" oninput="detailsModal('productName_1');" autofocus >
 									<datalist id="drugList_1"></datalist>
 								</input>
 							</td>
@@ -151,6 +203,9 @@
 						   <td><input type="text"  name="cost_1" id="cost_1"  class="form-control3 each_cost"  ></td>
 						</tr>
 					</tbody>
+					<?php 
+							}
+					?>
 				</table>
 
 			</div>
@@ -167,7 +222,7 @@
 						</span>
 					
 						<span class="col-md-7">
-							<input type="text" name="patient_name" id="patient_name" list="patientList_1" oninput="getList1('patient_name', 'patientList_1', false, true);" class="form-control"   placeholder="Patient Name" autofocus>
+							<input type="text" name="patient_name" id="patient_name" list="patientList_1" value="<?php if(isset($data1['patient_name'])){  echo $data1['patient_name'] ;}?>" oninput="getList1('patient_name', 'patientList_1', false, true);" class="form-control"   placeholder="Patient Name" autofocus>
 							<datalist id="patientList_1"></datalist>
 						</span>
 						
@@ -177,7 +232,7 @@
 							<label for="totalDiscount">PAT. Address </label>
 						</span>
 						<span class="col-md-7">
-							<input type="text"  name="patient_address" id="patient_address" list="stockist_list" class="form-control" placeholder="Patient Address" autofocus>
+							<input type="text"  name="patient_address" id="patient_address" value="<?php if(isset($data1['patient_address'])){  echo $data1['patient_address'] ;}?>" class="form-control" placeholder="Patient Address" autofocus>
 						</span>
 					</div>
 					<div class="col-md-12">
@@ -185,7 +240,7 @@
 							<label for="creditNote">Phone/cell No </label>
 						</span>
 						<span class="col-md-7">
-							<input type="text"  name="phone_no" id="phone_no" list="stockist_list" class="form-control" placeholder="Patient Phone/Cell" autofocus>
+							<input type="text"  name="phone_no" id="phone_no" value="<?php if(isset($data1['phone_no'])){  echo $data1['phone_no'] ;}?>" class="form-control" placeholder="Patient Phone/Cell" autofocus>
 						</span>
 					</div>
 					<div class="col-md-12">
@@ -193,7 +248,7 @@
 							<label for="debitNote">Patient City :</label>
 						</span>
 						<span class="col-md-7">
-							<input type="text"  name="patient_city" id="patient_city" list="stockist_list" class="form-control" placeholder="Patient City" autofocus>
+							<input type="text"  name="patient_city" id="patient_city" value="<?php if(isset($data1['patient_city'])){  echo $data1['patient_city'] ;}?>" class="form-control" placeholder="Patient City" autofocus>
 						</span>
 					</div>
 					
@@ -202,7 +257,7 @@
 							<label for="vatOnBill">Doctor's Name</label>
 						</span>
 						<span class="col-md-7">
-						<input type="text"  name="doctor_name" id="doctor_name" list="doctorList_1"oninput="getList_d('doctor_name', 'doctorList_1', true, true);" list="stockist_list" class="form-control" placeholder="Doctor Name" autofocus>	
+						<input type="text"  name="doctor_name" id="doctor_name" list="doctorList_1" value="<?php if(isset($data1['doctor_name'])){  echo $data1['doctor_name'] ;}?>"oninput="getList_d('doctor_name', 'doctorList_1', true, true);" list="stockist_list" class="form-control" placeholder="Doctor Name" autofocus>	
 						<datalist id="doctorList_1"></datalist>
 
 						</span>
@@ -212,7 +267,7 @@
 							<label for="netAmnt">Doctor City </label>
 						</span>
 						<span class="col-md-7">
-						<input type="text"  name="doctor_city" id="doctor_city" list="stockist_list"						class="form-control" placeholder="Doctor City" autofocus>	
+						<input type="text"  name="doctor_city" id="doctor_city"  value="<?php if(isset($data1['doctor_city'])){  echo $data1['doctor_city'] ;}?>"class="form-control" placeholder="Doctor City" autofocus>	
 						</span>
 					</div>
 					<div class="col-md-12">
@@ -250,7 +305,7 @@
 							<label  for="net" class="control-label" >Total Amount :</label>
 						</span>
 						<span class="col-md-7">
-							<input type="text" step="any" value=0.0 id="total" name="total"  class="form-control3" >
+							<input type="number"  step="any"  id="total" name="total" oninput="calculate(1);" class="form-control3" >
 						</span>
 						
 	
@@ -261,7 +316,7 @@
 							<label for="totalDiscount">Paid Amount :</label>
 						</span>
 						<span class="col-md-7">
-							<input type="number" placeholder="0.0" step="any" id="paid_amt" name="paid_amt" oninput="calculate(1);"  class="form-control3">
+							<input type="number" placeholder="0.0" step="any" id="paid_amt" value="<?php if(isset($data1['paid_amt'])){  echo $data1['paid_amt'] ;}?>" name="paid_amt" oninput="calculate(1);"  class="form-control3">
 						</span>
 					</div></br>
 					<div class="col-md-12">
@@ -270,10 +325,10 @@
 						</span>
 							<span class="col-md-7">
 							<span class="col-md-6">
-							<input type="number"  step="any" id="discount" oninput="calculate(1);" name="discount" class="form-control3" placeholder="%">
+							<input type="number"  step="any" id="discount" oninput="calculate(1);" name="discount" value="<?php if(isset($data1['discount'])){  echo $data1['discount'] ;}?>"class="form-control3" placeholder="%">
 							</span>
 							<span class="col-md-4">
-							<input type="number" value=0.0 step="any" id="totalDiscount" oninput="calculate(1);" name="totalDiscount" class="form-control3">
+							<input type="number"  step="any" id="totalDiscount" oninput="calculate(1);" name="totalDiscount" value="<?php if(isset($data1['totalDiscount'])){  echo $data1['totalDiscount'] ;}?>"class="form-control3">
 							</span>
 							</span>
 					</div></br>
@@ -282,7 +337,7 @@
 							<label for="totalDiscount">Balance Amount :</label>
 						</span>
 						<span class="col-md-7">
-							<input type="number" value=0.0 step="any" id="bal_amt" name="bal_amt" oninput="calculate(1);"  class="form-control3">
+							<input type="number"  step="any" id="bal_amt" name="bal_amt" value="<?php if(isset($data1['bal_amt'])){  echo $data1['bal_amt'] ;}?>"oninput="calculate(1);"  class="form-control3">
 						</span></br>
 						</div></br>
 					<div class="col-md-12" >
@@ -290,7 +345,7 @@
 							<label  for="net" class="control-label" >Net Amount :</label>
 						</span>
 						<span class="col-md-7">
-							<input type="text" step="any" value=0.0 id="totalAmt" name="totalAmt"  class="form-control3" >
+							<input type="text" step="any"  id="totalAmt" name="totalAmt"  value="<?php if(isset($data1['total_amt'])){  echo $data1['total_amt'] ;}?>" class="form-control3" >
 						</span>
 						<span><input type="submit" name="submit" value="Submit"  class="btn btn-primary"  style="margin:5px;border-radius:5px;" /></span>
 	
@@ -303,9 +358,63 @@
 
 		</form>
     </div>
+	<!--End of the search bill-->
+	<?php 
+			
+	?>
 	</section>
+	<!---Message Model-->
+<div class="modal fade" id="creditModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Message of Bill</h4>
+				</div>
+				<div class="modal-body">
+				<?php
+require_once('core/init.php');
+	$db = DB::getInstance();
+	//$get1 = DB::getInstance()->query("SELECT message FROM messages" );
+if(isset($_POST['update'])){
+$insert = $db->update('messages',array('id', '=',4), array(
+					'message' => $_POST["message"],
+					
+				  ));
+				  if(isset($insert)){
+					  header("location:sells");
+				  }
+		}	
+		?>
+<div class="container">
+		<form method="post" id="addForm">
+				<div class="row">
 	
-	<div class="modal fade" id="creditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="titles"><label class="control-label">Message :</label></div>
+					<?php //foreach ($get1->results() as $key => $value){ ?>
+			
+					<div ><input type="textarea" class="form-control" name="message" ></div>
+					<?php //}?>
+					</div>
+				
+				</div>
+				<div class="modal-footer">
+				
+                	<input type="submit" class="btn btn-primary" value="F10 Save" name="update" >
+                	<input type="submit" class="btn btn-primary" value="Esc-Exit"  name="Esc-Exit">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!----******---->
+
+	<!--customer list-->
+	<div class="modal fade modal-patients" id="creditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -313,8 +422,17 @@
 					<h4 class="modal-title" id="myModalLabel">Sell Customer</h4>
 				</div>
 				<div class="modal-body">
+				<div class="col-md-12">
+ 						<div class="col-md-6 form-group">
+ 							<input type="text" id="modal_inputp" name="modal_inputp" class="form-control" oninput="list_modal_detailp();" autofocus>
+ 						</div>
+ 					</div>
+
 				<form Action="$POST">
-				<table class="table table-bordered">
+				<input type="hidden" id="patient_details" name="patient_details">
+				<input type="button" id="goto_prev" value="prev" style="display:none;">
+				<input type="button" id="goto_next" value="next" style="display:none;">
+				<table class="table table-bordered detailp-table" >
 					<thead>
 						<td>Sr No</td>
 						<td>Patient</td>
@@ -325,6 +443,7 @@
 						</thead>
 					<tbody>
 					<?php 
+					
 					$bills = array();
 					$query = $db->query("SELECT * FROM patients");
 		             $results = $query->results();
@@ -350,18 +469,19 @@
 					?>
 						<tr>
 							<td>
-								<?php echo $srno; ?>
+								<?php  echo $srno; ?>
 							</td>
 							<td ><?php echo $record['patient_name']?></td>
-							<td ><?php  echo $temp;?></td>
+							<td ><?php echo $temp;?></td>
 							<td ><?php echo $qty;//$record1['quantity'];?></td>
-							<td><?php echo $record['bill_no']?></td>
-							<td><?php echo $record['total_amt']?></td>
+							<td><?php  echo $record['bill_no']?></td>
+							<td><?php  echo $record['total_amt']?></td>
 							
 							
 						</tr>
 						<?php // }  
-						} $srno++; } ?>
+						} $srno++; 
+						} ?>
 					</tbody>
 				</table>
 
@@ -375,76 +495,6 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<!--<button type="button" class="btn btn-primary">Save changes</button>-->
-				</div>
-			</div>
-		</div>
-	</div>
-<div class="modal fade" id="creditModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Message of Bill</h4>
-				</div>
-				<div class="modal-body">
-				<?php
-require_once('core/init.php');
-	$db = DB::getInstance();
-	//$get1 = DB::getInstance()->query("SELECT message FROM messages" );
-if (Input::exists() && Input::get('submit') != null ){
-$insert = $db->update('messages',array('id', '=',4), array(
-					'message' => $_POST["message"],
-					
-				  ));
-		}	
-	
-	
-	
-?>
-<div class="container">
-		<form method="post" id="addForm">
-				<div class="row">
-	
-					<div class="titles"><label class="control-label">Message :</label></div>
-					<?php //foreach ($get1->results() as $key => $value){ ?>
-			
-			<div ><input type="textarea" class="form-control" name="message" ></div>
-					<?php //}?>
-				</div>
-				
-			<div class="row" style="padding-left:230px;">
-            	<div id="btn">
-                	
-                	               	</div>
-            </div>
-			
-        
-	
-
-		
-				</div>
-				<div class="modal-footer">
-				
-                	<input type="submit" class="btn btn-primary" value="F10 Save" name="submit" >
-                	<input type="submit" class="btn btn-primary" value="Esc-Exit"  name="Esc-Exit">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					
-				</div>
-			</form>
-			</div>
-		</div>
-	</div>
-</div>
-	<div class="modal fade" id="billsDates" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-					<h4>Please Select Date of the bill</h4>
-					<input type="date" id="bill_date" class="form-control" name="bill_date" autofocus>
-				</div>
-				<div class="modal-footer">
-					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="importBills();">Save changes</button>
 				</div>
 			</div>
 		</div>
@@ -465,6 +515,7 @@ $insert = $db->update('messages',array('id', '=',4), array(
 			</div>
 		</div>
 	</div>
+
 <!-- Modal to show detailed list of product -->
 <div class="modal fade modal-details col-md-12" tabindex="-1" role="dialog" aria-labelledby="NewCompanyForm">
  	<div class="modal-dialog">
@@ -480,7 +531,7 @@ $insert = $db->update('messages',array('id', '=',4), array(
  						</div>
  					</div>
  					<br />
- 					<p>Supplier name | Invoice Number | Date</p>
+ 					<p>Product Name | Stock | Date</p>
  					<br />
  					<input type="button" id="goto_prev" value="prev" style="display:none;">
 					<input type="button" id="goto_next" value="next" style="display:none;">
@@ -491,12 +542,12 @@ $insert = $db->update('messages',array('id', '=',4), array(
  		</div>
  	</div>
 </div>
-
 	<script src="script/generateFields.js"></script>
 	<script src="script/searchpatient.js"></script>
 	<script src="script/searchdoctor.js"></script>
 	<script src="script/bootstrap.min.js"></script>
 	<script src="script/detailsModal.js"></script>
+	<script src="script/detailsPatient.js"></script>
 	<script src="script/s_common.js"></script>
 	<script>
 
@@ -669,7 +720,7 @@ $insert = $db->update('messages',array('id', '=',4), array(
 				console.log(i);
 			}
 		}
-     function getData(id){
+    function getData(id){
 			var drug = $('#productName'+id).val();
 		
 			console.log("getdata!!!");
@@ -705,7 +756,7 @@ $insert = $db->update('messages',array('id', '=',4), array(
 			});
 			console.log("getdataend");
 		}
-		
+	
 		
 		function getData1(id){
 			var drug = $('#patient_name').val();
@@ -763,13 +814,14 @@ $insert = $db->update('messages',array('id', '=',4), array(
 
 
 		function calculate(count){
-			
+			//console.log(count);
 			var quantity = $('#quantity_'+count+'').val();
 			var productRate = 0.0;
 			var itemcost = 0.0;
 			var productAmount = 0.0;
 			var temp = [];
 			var discount = parseFloat($('#discount').val());
+			//console.log("MRP"+$('#MRP_'+count+'').val());
 			itemcost = parseFloat(parseFloat($('#quantity_'+count+'').val()) / parseFloat($('#packSize_'+count+'').val()) * parseFloat($('#MRP_'+count+'').val()));
 			temp = itemcost;
 			//alert(itemcost);
@@ -789,21 +841,22 @@ $insert = $db->update('messages',array('id', '=',4), array(
 				totalCost += parseFloat($("#cost_"+i).val());
 				console.log("total cost "+totalCost);
 			} */
-			
+			/* if (count){
+				counter = count;
+			} */
 			getTotal(counter);
 
 		}
 
-		function getTotal(counter){
-	
+		function getTotal(count){
+			console.log(count);
 			//Insert the discount value to the newly created row
-			var bal = parseFloat($('#bal').html());
-			console.log("bal "+bal);
+			var bal = parseFloat($('#bal').val() == '' ? 0.0 : $('#bal').val());
+			//console.log("bal "+bal);
 			
 			var discount = parseFloat($('#discount').val());
 			var paidamt = parseFloat($('#paid_amt').val());
-			//alert(paidamt);
-			//$('#discount_'+counter).val(totalDiscount.toFixed(2));
+			
 			
 			//Once the fields are generated, add the
 			//total amount of current item and the net amount of 
@@ -818,11 +871,12 @@ $insert = $db->update('messages',array('id', '=',4), array(
 
 			 var netAmnt = 0;TAmt=0.0; bal_amt=0;
 
-			for(var i = 1; i < counter; i++){
-				
+			for(var i = 1; i < count; i++){
+				console.log("in loop -> "+ i);
 				//Calculate total amount
+				console.log("Product Rate "+$('#productRate_'+i).val());
 				netAmnt += parseFloat($('#productRate_'+i).val());
-				console.log(netAmnt);
+				console.log("netAmnt"+netAmnt);
 				TAmt =( TAmt + netAmnt );
 				$('#total').val(netAmnt.toFixed(2));
 				//This calculate all the vat values from each fields
@@ -832,11 +886,11 @@ $insert = $db->update('messages',array('id', '=',4), array(
 				//totalVat += parseFloat($('#VAT_'+i).val());
 				//calculate totalDiscount
 				
-				if (discount != 0){
+				if (discount > 0){
 				totalDiscount = parseFloat((discount / 100)* netAmnt);
 				
 					TAmt = netAmnt- totalDiscount;
-					if(bal!=0)
+					if(bal > 0)
 					{
 					var tot = parseFloat(TAmt + bal) ;
 					$('#totalAmt').val(tot.toFixed(2));
@@ -847,11 +901,24 @@ $insert = $db->update('messages',array('id', '=',4), array(
 				//console.log(Total +"  "+T_Amt);
 				}
 				else{
-					$('#totalAmt').val(netAmnt.toFixed(2));
+					//$('#totalAmt').val(netAmnt.toFixed(2));
 					
+				
+				if(bal > 0)
+					{
+					$('#totalAmt').val(netAmnt.toFixed(2));
+					}
+					else
+					{
+					var tot = parseFloat(netAmnt + bal) ;
+					
+					console.log("bal  "+bal);
+
+					$('#totalAmt').val(tot.toFixed(2));		
+					}
 				}
 				// calculate bal amount
-				bal_amt = parseFloat(TAmt - paidamt);
+				bal_amt = parseFloat((parseFloat($('#totalAmt').val())) - paidamt);
 				//alert(bal_amt);
 			//$('#totalAmt').val(Math.round(TAmt.toFixed(2)));
 				//console.log(totalVat+"  "+totalDiscount);
@@ -931,9 +998,11 @@ $insert = $db->update('messages',array('id', '=',4), array(
 	
 
 	$('#sales_img').click(function(){
+		$('#patient_details').val("true");
 		$('#creditModal').modal();
 	});
-$('#message1').click(function(){
+	
+	$('#message1').click(function(){
 		$('#creditModal_1').modal();
 	});
 	
@@ -955,10 +1024,11 @@ function convert_to_bill(bill_no, purEntry){
 		data: {
 			billNo: bill_no,
 			purEntry: purEntry > 0 ? purEntry : -1,
+			products: <?php if(count($pr)){echo json_encode($pr);}else{ echo "0"; } ?>,
 			option: 'convert_to_INV'
 		},
 		success: function(data){
-			console.log(data);
+			//console.log(data);
 			$('#billContent').html(data.bill);
 			$('#billNo').val(data.bill_no);
 			$('#billDate').val(data.billDate);
@@ -972,7 +1042,9 @@ function convert_to_bill(bill_no, purEntry){
 			$('#discount').val(data.discount);
 			$('#bal_amt').val(data.bal_amt);
 			$('#totalAmt').val(data.totalAmt);
-			calculate(data.count);
+			var count = (parseInt(data.count)+1);
+			calculate(count);
+			//getTotal(data.count);
 		}
 	});
 }

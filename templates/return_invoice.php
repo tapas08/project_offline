@@ -10,7 +10,7 @@
  			<div class="modal-body">
  				<div class="container-fluid">
 	 				<input type="hidden" id="return_bills">
-	 				<div class="form-group details-table">
+	 				<div class="form-group details-table return_bill_div">
 	 				<?php
 					require_once 'core/init.php';
 

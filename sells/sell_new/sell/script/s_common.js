@@ -103,7 +103,7 @@ $('#billNo').keydown(function(e){
 		convert_to_bill(0, $('#billNo').val());
 }
 });
-
+/*
 function convert_to_bill(bill_no, purEntry){
 	//alert("oh!");
 	console.log(bill_no);
@@ -124,4 +124,4 @@ function convert_to_bill(bill_no, purEntry){
 			calculate(data.count);
 		}
 	});
-}
+}*/

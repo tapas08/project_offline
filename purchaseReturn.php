@@ -278,7 +278,7 @@
 				success: function(data){
 					if(data !== '0'){
 						var flag = true;
-						if ($('#stockist_name') != data.supplier){					
+						if ($('#stockist_name').val() != data.supplier){					
 							flag = confirm("The product is not from the selected supplier");
 						}
 
@@ -325,6 +325,7 @@
 		function show_previous_return(){
 			// Display previous purchase return invoice within a modal
 			// Open selected invoice to modify
+			$('#return_bill_div table tbody').html("");
 			$('#return_bills').val("return_invoice");
 			$('#return_invoice').modal();
 		}

@@ -1,4 +1,6 @@
-
+// global variable that save current product name
+// to modify
+var product_name = '';
 function getVat(){
 	var type = document.getElementById('productGroup').value;
 
@@ -12,11 +14,15 @@ function insertDetails(){
 		type: 'post',
 		url: 'functions/purchaseFunctions.php',
 		dataType: 'json',
-		data: {drug: drug, access: 'insertData'},
+		data: {
+			drug: drug, 
+			where: 'new',
+			access: 'insertData'
+		},
 		success: function(data2){
-			console.log("I am here");
+			//console.log("I am here");
 			console.log(data2);
-			document.getElementById('productMarketedBy').value = data2.marketedBy;
+			$('#productMarketedBy').val(data2.marketedBy);
 			document.getElementById('productManftr').value = data2.manufacturedBy;
 			document.getElementById('productPackSize').value = data2.packSize;
 			document.getElementById('productQuantity').value = data2.quantity;
@@ -32,6 +38,7 @@ function insertDetails(){
 			document.getElementById('productReorderLvl').value = data2.reorderLvl;
 			document.getElementById('productOrderQuantity').value = data2.orderQuantity;
 			document.getElementById('productContent').value = data2.drugContent;
+			product_name = $('#productName').val();
 		}
 	});
 }
@@ -57,6 +64,7 @@ function updateData(){
 		url: 'functions/purchaseFunctions.php',
 		type: 'post',
 		data: {
+			orignal_name: 			product_name,
 			productName : 			$('#productName').val(),
 			productMarketedBy: 		$('#productMarketedBy').val(),
 			productManftr: 			$('#productManftr').val(),
@@ -77,6 +85,7 @@ function updateData(){
 			access: 'update'
 		},
 		success: function(data){
+			console.log(data);
 			document.getElementById('Message').innerHTML = data;
 		}
 	});

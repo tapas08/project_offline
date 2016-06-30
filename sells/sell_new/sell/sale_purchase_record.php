@@ -1,6 +1,7 @@
 <?php 
 //set_time_limit(999);
 require_once('core/init.php');
+$tmon;
 	$message = [];
 	$detail = [];
 	$details = [];
@@ -68,6 +69,8 @@ require_once('core/init.php');
 					while($s!=$c)
 					{
 					$newmonth = date("m",strtotime($s));
+					//$mon = date("m",strtotime($c));
+
 					//$n = date("m",strtotime($months[(int)$newmonth ]));
 					/*if($newmonth!=$n){
 						echo $tmon = $months[(int)$newmonth ];
@@ -88,13 +91,15 @@ require_once('core/init.php');
 					
 					<?php
 					if ($detail->count() > 0){
-						if($newmonth!=$n){
-						echo $tmon = $months[(int)$newmonth ];
-						$n = date("m",strtotime($tmon));
 						
-						}
 						
-					foreach($detail->results() as $data => $items)//foreach($details->results() as $data => $itms)
+						if($newmonth!= $n){
+						
+							echo $tmon = $months[(int)$newmonth ];
+							$n = date("m",strtotime($tmon));
+
+							}
+						foreach($detail->results() as $data => $items)//foreach($details->results() as $data => $itms)
 					{
 					
 					?>

@@ -6,8 +6,8 @@ var new_company = false;
 
 function getList(id, list, drug, insertData){
 	var value = document.getElementById(id).value;
-	
-	id = (id.substr(7) == "MarketedBy") ? id.substr(7) : (id.substr(7) == "Manftr" ? 'company_name' : id);
+	//console.log(id);
+	id = (id.substr(7) == "MarketedBy" || id.substr(7) == "Manftr") ? 'company_name' : id;
 
 	$.ajax({
 		url: 'functions/purchaseFunctions.php',
@@ -18,6 +18,7 @@ function getList(id, list, drug, insertData){
 			access:  (drug == true) ? 'getDrug' : 'getList',
 		},
 		success: function(data){
+			//console.log(data);
 			document.getElementById(list).innerHTML = data;
 			
 			if (id == 'stockist_name'){
@@ -36,9 +37,27 @@ function getList(id, list, drug, insertData){
 					document.getElementById('productManftr').value = document.getElementById('company_name').value;
 				}
 			}
+			// else if(id == 'company_name'){
+			// 	$.ajax({
+			// 		url: 'functions/purchaseFunctions.php',
+			// 		type: 'post',
+			// 		data: {
+			// 			name: $('#productMarketedBy').val(),
+			// 			access: 'get_company_abr'
+			// 		},
+			// 		success: function(data){
+			// 			console.log(data);
+			// 			if (data != '0'){
+			// 				$('#productMarketedBy').val(data);
+			// 				$('#productManftr').val(data);
+			// 				$('#productPackSize').focus();
+			// 			}
+			// 		}
+			// 	});
+			// }
 
 			if (insertData != null && insertData == true){
-				getData('_'+(counter-1));
+				getData('_'+(counter-1), '', '', 'new');
 			}
 		}
 	});
@@ -61,11 +80,12 @@ function saveStockistCustomer(){
 			lbtNo: $('#lbtNo').val(),
 			openBalance: $('#openBalance').val(),
 			onoffswitch: $('.onoffswitch-inner').val(),
+			status: $('#saveChanges').html(),
 			option: 'save'
 		},
 		success: function(data){
 			document.getElementById('msgCstSupp').innerHTML = data;
-			console.log(data);
+			//console.log(data);
 			$('input[type=text]').val("");
 			$('input[type=number]').val("");
 			$('input[type=email]').val("");
@@ -116,6 +136,7 @@ function saveDrugContent(){
 		},
 		success: function(data){
 			console.log(data);
+			$('#productContent').val(drug_content);
 		}
 	});
 }
@@ -151,15 +172,28 @@ function convert_to_INV(inv_no, purEntry){
 		success: function(data){
 			console.log(data);
 			$('#billContent').html(data.bill);
-			$('#invoiceNumber').val(inv_no);
+			$('#invoiceNumber').val(data.invoiceNo);
 			$('#billDate').val(data.billDate);
 			$('#stockist_name').val(data.supplier);
-			$('#purchaseEntry').val(data.purEntry)
-			calculate(data.count);
+			$('#purchaseEntry').val(data.purEntry);
+			$('#debitNote').val(data.debit_note);
+			//calculate(data.count+1);
+			// Calculate total amount after each entry
+			var grandTotal = 0;
+			for (var i = 1; i <= data.count; i++){
+				// Calculate total amount minus the discount
+				grandTotal += parseFloat($('#purchaseRate_'+i).val()) * parseFloat($('#productSize_'+i).val());
+				//console.log("total amount"+grandTotal);
+			}
+
+			$('#totalAmnt').val(grandTotal.toFixed(2));
 			getTotal(data.count+1);
-			console.log(data.count);
+			console.log("Count = "+data.count);
 			$('#pendingBillsModal').modal('hide');
 			$('#productName_1').focus();
+			$('#modify').val('true');
+			counter = counter+1;
+			$('#counter').val(counter);
 		}
 	});
 }
@@ -207,13 +241,16 @@ $('#company_name').keydown(function(e){
 			},
 			success: function(data){
 				console.log(data);
-				if (data == "00"){
+				if (data == "0"){
 					new_company = confirm("Company name not found. Save new Company?");
 					$('#shortName').focus();
 				}else{
 					var list = data.split('/');
 					$('#company_name').val(list[0]);
 					$('#shortName').val(list[1]);
+					$('#productManftr').val(list[1]);
+					$('#productMarketedBy').val(list[1]);
+					$('#stockist_name').focus();
 				}
 			}
 		});
@@ -248,7 +285,7 @@ $('#shortName').keydown(function(e){
 
 $('#stockist_name').keydown(function(e){
 	if (e.which == 13){
-		$('stockist_priority').focus();
+		$('#stockist_priority').focus();
 	}
 });
 
@@ -259,7 +296,7 @@ $('#stockist_name').keydown(function(e){
 $('#stockist_priority').keydown(function(e){
 	// Append the stockist name and priority in the table
 	// Save the data to stockist table
-	console.log("HERER");
+	//console.log("HERER");
 	if (e.which == 13){
 		if ($('stockist_name').val() == ""){
 			alert("Please enter stockist name");
@@ -277,8 +314,90 @@ $('#stockist_priority').keydown(function(e){
 					// Append to table
 					console.log(data);
 					$('#stockist_list_table').append(data);
+					$('#stockist_name').val('');
+					$('#stockist_priority').val('');
 				}
 			});
 		}
 	}
 });
+
+/*
+	## Add eventlistener to productMarketedBy field
+	## to get the abbreviation of the company name
+	## when hit enter
+*/
+
+$('#productMarketedBy').keydown(function(e){
+	if (e.which == 13){
+		$.ajax({
+			url: 'functions/purchaseFunctions.php',
+			type: 'post',
+			data: {
+				name: $('#productMarketedBy').val(),
+				access: 'get_company_abr'
+			},
+			success: function(data){
+				console.log(data);
+				if (data != '0')
+					$('#productMarketedBy').val(data);
+					$('#productManftr').val(data);
+					$('#productPackSize').focus();
+			}
+		});
+	}
+});
+
+
+// function get_drug_content(){
+// 	$.ajax({
+// 		url: 'functions/purchaseFunctions.php',
+// 		type: 'post',
+
+// 	})	;
+// }
+
+function getStockistName(){
+	console.log($('#type').val());
+	if ($('#type').val() == 'Supplier'){
+		$.ajax({
+			url: 'functions/purchaseFunctions.php',
+			type: 'post',
+			data: {
+				input: $('#name').val(),
+				access: 'get_stockist'
+			},
+			success: function(data){
+				console.log(data);
+				$('#name_list').html(data);
+
+				get_stockist_data();
+			}
+		});
+	}
+}
+
+function get_stockist_data(){
+	console.log("here");
+	$.ajax({
+		url: 'functions/purchaseFunctions.php',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			input: $('#name').val(),
+			access: 'get_stockist_data'
+		},
+		success: function(data){
+			console.log(data);
+			$('#city').val(data.city);
+			$('#address').val(data.address);
+			$('#phone').val(data.phone);
+			$('#debit_limit').val(data.debitLimit);
+			$('#days_limit').val(data.daysLimit);
+			$('#email').val(data.email);
+			$('#vat_tin_no').val(data.vat_tin_no);
+			$('#openBalance').val(data.openingBalance);
+			$('#saveChanges').html("Update");
+		}
+	});
+}

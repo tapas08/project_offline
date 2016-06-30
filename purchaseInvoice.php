@@ -6,72 +6,162 @@
 	if (Input::exists()){
 		
 		$db = DB::getInstance();
+		$check = $db->get('purchaseInvoice', array('invoiceNumber', '=', Input::get('invoiceNumber')));
+		if ($check->count() > 0){
+			if (Input::get('modify') == 'true'){
+				//print_r($_POST);
+				for($i = 1; $i < Input::get('counter'); $i++){
+				$update = $db->query("UPDATE purchaseBills SET 
+						productName 		= ?,
+						productQuantity 	= ?,
+						purchaseSize 		= ?,
+						productFree 		= ?,
+						tabQuantity 		= ?,
+						batchNo 			= ?,
+						expiryDate 		= ?,
+						purchaseRate 		= ?,
+						discount 			= ?,
+						vatAmount 		= ?,
+						VAT 				= ?,
+						CST 				= ?,
+						MRP 				= ?,
+						purchaseAmount 	= ?
+						WHERE invoiceNumber = ? AND batchNo = ?", array(
+								$_POST["productName_$i"],
+								$_POST["productQuantity_$i"],
+								$_POST["productSize_$i"],
+								$_POST["productFree_$i"],
+								$_POST["tabQuantity_$i"],
+								$_POST["batchNo_$i"],
+								$_POST["exDate_$i"],
+								$_POST["purchaseRate_$i"],
+								$_POST["discount_$i"],
+								$_POST["VAT_$i"],
+								$_POST["vatPer_$i"],
+								$_POST["CST_$i"],
+								$_POST["MRP_$i"],
+								$_POST["productAmount_$i"],
+								Input::get("invoiceNumber"),
+								Input::get("batchNo_$i")
+							));	
+				
+				// $update = $db->update('purchaseBills', array('invoiceNumber', '=', Input::get('invoiceNumber')), array(
+				// 		'invoiceNumber' 	=> $_POST["invoiceNumber"],
+				// 		'bType' 			=> $_POST['billType'],
+				// 		'supplier' 			=> $_POST['stockist_name'],
+				// 		'date' 				=> $_POST['billDate'],
+				// 		'productName' 		=> $_POST["productName_$i"],
+				// 		'productQuantity' 	=> $_POST["productQuantity_$i"],
+				// 		'purchaseSize' 		=> $_POST["productSize_$i"],
+				// 		'productFree' 		=> $_POST["productFree_$i"],
+				// 		'tabQuantity' 		=> $_POST["tabQuantity_$i"],
+				// 		'batchNo' 			=> $_POST["batchNo_$i"],
+				// 		'expiryDate' 		=> $_POST["exDate_$i"],
+				// 		'purchaseRate' 		=> $_POST["purchaseRate_$i"],
+				// 		'discount' 			=> $_POST["discount_$i"],
+				// 		'vatAmount' 		=> $_POST["VAT_$i"],
+				// 		'VAT' 				=> $_POST["vatPer_$i"],
+				// 		'CST' 				=> $_POST["CST_$i"],
+				// 		'MRP' 				=> $_POST["MRP_$i"],
+				// 		'purchaseAmount' 	=> $_POST["productAmount_$i"]
+				// 	));
+
+				if ($update){
+
+					/*
+					 * If no errors calculate the new amount 
+					 * of stock and update the inventory stored
+					 * in "items" table
+					*/
+
+					$stock = $db->get('items', array("productName", '=', Input::get("productName_$i")))->first()['stock'];
+
+					$revisedStock = (int)$stock + (int)Input::get("productSize_$i");
+
+					$updateStock = $db->update('items', array(
+							'productName', '=', Input::get("productName_$i")
+						), array(
+							'stock' => $revisedStock
+						));
+
+					if (!$updateStock){
+						$message[] = "Error! There was problem updating the stock.";
+					}
+				}else{
+					$message[] = "Error inserting " + Input::get("productName_$i") + " in the database!";
+				}	
+			}
+			}else{
+				$message[] = "This bill is already saved!";	
+			}
+		}else{
 		
-		for($i = 1; $i < Input::get('counter'); $i++){
-		
-			$insert = $db->insert('purchaseBills', array(
-					'invoiceNumber' 	=> $_POST["invoiceNumber"],
-					'bType' 			=> $_POST['billType'],
-					'supplier' 			=> $_POST['stockist_name'],
-					'date' 				=> $_POST['billDate'],
-					'productName' 		=> $_POST["productName_$i"],
-					'productQuantity' 	=> $_POST["productQuantity_$i"],
-					'purchaseSize' 		=> $_POST["productSize_$i"],
-					'productFree' 		=> $_POST["productFree_$i"],
-					'tabQuantity' 		=> $_POST["tabQuantity_$i"],
-					'batchNo' 			=> $_POST["batchNo_$i"],
-					'expiryDate' 		=> $_POST["exDate_$i"],
-					'purchaseRate' 		=> $_POST["purchaseRate_$i"],
-					'discount' 			=> $_POST["discount_$i"],
-					'vatAmount' 		=> $_POST["VAT_$i"],
-					'VAT' 				=> $_POST["vatPer_$i"],
-					'CST' 				=> $_POST["CST_$i"],
-					'MRP' 				=> $_POST["MRP_$i"],
-					'purchaseAmount' 	=> $_POST["productAmount_$i"]
-				));
-
-			if ($insert){
-
-				/*
-				 * If no errors calculate the new amount 
-				 * of stock and update the inventory stored
-				 * in "items" table
-				*/
-
-				$stock = $db->get('items', array("productName", '=', Input::get("productName_$i")))->first()['stock'];
-
-				$revisedStock = (int)$stock + (int)Input::get("productSize_$i");
-
-				$updateStock = $db->update('items', array(
-						'productName', '=', Input::get("productName_$i")
-					), array(
-						'stock' => $revisedStock
+			for($i = 1; $i < Input::get('counter'); $i++){
+			
+				$insert = $db->insert('purchaseBills', array(
+						'invoiceNumber' 	=> $_POST["invoiceNumber"],
+						'bType' 			=> $_POST['billType'],
+						'supplier' 			=> $_POST['stockist_name'],
+						'date' 				=> $_POST['billDate'],
+						'productName' 		=> $_POST["productName_$i"],
+						'productQuantity' 	=> $_POST["productQuantity_$i"],
+						'purchaseSize' 		=> $_POST["productSize_$i"],
+						'productFree' 		=> $_POST["productFree_$i"],
+						'tabQuantity' 		=> $_POST["tabQuantity_$i"],
+						'batchNo' 			=> $_POST["batchNo_$i"],
+						'expiryDate' 		=> $_POST["exDate_$i"],
+						'purchaseRate' 		=> $_POST["purchaseRate_$i"],
+						'discount' 			=> $_POST["discount_$i"],
+						'vatAmount' 		=> $_POST["VAT_$i"],
+						'VAT' 				=> $_POST["vatPer_$i"],
+						'CST' 				=> $_POST["CST_$i"],
+						'MRP' 				=> $_POST["MRP_$i"],
+						'purchaseAmount' 	=> $_POST["productAmount_$i"]
 					));
 
-				if (!$updateStock){
-					$message[] = "Error! There was problem updating the stock.";
-				}
-			}else{
-				$message[] = "Error inserting " + Input::get("productName_$i") + " in the database!";
-			}	
-		}
-		
-		$insertInvoice = $db->insert('purchaseInvoice', array(
-				'invoiceNumber'  => $_POST['invoiceNumber'],
-				'purchaseEntry'  => $_POST['purchaseEntry'],
-				'billDate' 		 => $_POST['billDate'],
-				'supplier'		 => $_POST['stockist_name'],
-				'cash_or_credit' => $_POST['cash_or_credit'],
-				'creditNote' 	 => $_POST['creditNote'],
-				'debitNote' 	 => $_POST['debitNote'],
-				'discountPer' 	 => $_POST['overallDisc'],
-				'discount' 		 => $_POST['totalDiscount'],
-				'VAT' 			 => $_POST['vatOnBill'],
-				'netAmount' 	 => $_POST['netAmnt']
-			));
+				if ($insert){
 
-		if (!$insertInvoice){
-			$message[] = "Error! Couldn't insert invoice details.";
+					/*
+					 * If no errors calculate the new amount 
+					 * of stock and update the inventory stored
+					 * in "items" table
+					*/
+
+					$stock = $db->get('items', array("productName", '=', Input::get("productName_$i")))->first()['stock'];
+
+					$revisedStock = (int)$stock + (int)Input::get("productSize_$i");
+
+					$updateStock = $db->update('items', array(
+							'productName', '=', Input::get("productName_$i")
+						), array(
+							'stock' => $revisedStock
+						));
+
+					if (!$updateStock){
+						$message[] = "Error! There was problem updating the stock.";
+					}
+				}else{
+					$message[] = "Error inserting " + Input::get("productName_$i") + " in the database!";
+				}	
+			}
+			
+			$insertInvoice = $db->insert('purchaseInvoice', array(
+					'invoiceNumber'  => $_POST['invoiceNumber'],
+					'purchaseEntry'  => $_POST['purchaseEntry'],
+					'billDate' 		 => $_POST['billDate'],
+					'supplier'		 => $_POST['stockist_name'],
+					'cash_or_credit' => $_POST['cash_or_credit'],
+					'creditNote' 	 => $_POST['creditNote'],
+					'debitNote' 	 => $_POST['debitNote'],
+					'discountPer' 	 => $_POST['overallDisc'],
+					'discount' 		 => $_POST['totalDiscount'],
+					'VAT' 			 => $_POST['vatOnBill'],
+					'netAmount' 	 => $_POST['netAmnt']
+				));
+
+			if (!$insertInvoice){
+				$message[] = "Error! Couldn't insert invoice details.";
+			}
 		}
 	}
 ?>
@@ -169,7 +259,7 @@
 					<tbody id="billContent">
 						<tr>
 							<td>
-								<input type="text" name="productName_1" id="productName_1" class="form-control" list="drugList_1" oninput="detailsModal('productName_1');"> 	<!-- getList('productName_1', 'drugList_1', true, true); -->
+								<input type="text" name="productName_1" id="productName_1" class="form-control product_names" list="drugList_1" oninput="detailsModal('productName_1');"> 	<!-- getList('productName_1', 'drugList_1', true, true); -->
 									<datalist id="drugList_1"></datalist>
 								</input>
 							</td>
@@ -193,6 +283,7 @@
 			</div>
 			<input type="button" id="addField" name="addField" class="btn btn-primary" value="Next Entry">
 			<input type="hidden" form="invoiceForm" id="counter" name="counter" value=2>
+			<input type="hidden" id="modify" name='modify' value="false">
 			<br>
 			<div class="container-fluid" id="otherEntries">
 				<div class="col-md-7">
@@ -304,7 +395,7 @@
 					<h4 class="modal-title">Purchase Return Bills</h4>
 
 					<input type="hidden" id="credit_show" name="credit_show" />
-					<div class="container col-md-12 details-table">
+					<div class="container col-md-12 details-table credit-bills-div">
 						<table class="table table-bordered table-condensed">
 							<thead>
 								<td>Select</td>
@@ -426,8 +517,8 @@
 					'id': 'productName',
 					'name': 'productName',
 					'list': 'drugList_'+counter,
-					'class': 'form-control',
-					'oninput': "detailsModal('productName_"+counter+"');"
+					'class': 'form-control product_names',
+					'oninput': "detailsModal('productName_"+counter+"');",
 				}],
 				'2': [{
 					'tag': 'input',
@@ -579,12 +670,11 @@
 			}
 		};
 
-
-
-		window.getData = function(id, drug, batchNo){
-			console.log("Drug"+drug);
+		window.getData = function(id, drug, batchNo, bill){
 			//var drug = $('#productName'+id).val();
-			var drug = drug;
+			var drug = (drug == undefined || drug == '') ? $('#productName'+id).val() : drug;
+			// console.log("Drug "+drug);
+			// console.log($('#productName'+id).val());
 
 			$.ajax({
 				type: 'post',
@@ -593,35 +683,43 @@
 				data: {
 					drug: drug,
 					batchNo: batchNo,
+					where: bill,
 					access: 'insertData'
 				},
 				success: function(data){
-					console.log(data);
+					//console.log(data);
 					$('#productQuantity'+id).val(data.quantity);
 					$('#purchaseRate'+id).val(data.purchaseRate);
 					$('#batchNo'+id).val(data.batchNo);
 					$('#exDate'+id).val(data.expiryDate);
 					$('#vatPer'+id).val(data.VAT);
 					$('#MRP'+id).val(data.MRP);
-					console.log(data.batchNo);
+					//console.log(data.batchNo);
 				}
 			});
 		}
 
 		window.calculate = function(count){
+			console.log("Counter"+counter);
+			console.log("Product Size"+$('#productSize_'+count).val());
 			var temp = counter;
 			if (count){
 				counter = count;
 			}
 			
 			var quantity = $('#productQuantity_'+count+'').val();
+			console.log("Quantity "+ quantity);
 			var productSize = $('#productSize_'+count+'').val();
+			console.log("productSize "+ productSize);
 			var productAmount = 0.0;
 			if ($('#productFree_'+count).val() !== ''){
-				quantity = parseInt(quantity) + parseInt($('#productFree_'+count).val());
+				console.log("here");
+				productSize = parseInt(productSize) + parseInt($('#productFree_'+count).val());
+				//console.log("NEw Quantity "+quantity);
 			}
 			//console.log(quantity + " " + productSize);
-			var tabs = parseInt(quantity) * parseInt(productSize);
+			var tabs = quantity * productSize;
+			console.log(tabs);
 			//console.log(tabs);
 			var discount = $('#discount_'+count).val();
 			if (discount == ""){
@@ -629,7 +727,7 @@
 				discount = 0.0;
 			}
 
-			console.log("Discount "+ discount);
+			//console.log("Discount "+ discount);
 
 			//calculating discount
 			discount = (parseFloat(discount) / 100) 
@@ -637,14 +735,13 @@
 			//console.log("DISCOUNT -> "+discount);
 
 			
-			console.log("Discount "+ discount);
+			//console.log("Discount "+ discount);
 			productAmount = (parseFloat($('#purchaseRate_'+count).val()) * parseFloat(productSize));
 
 			//calculating VAT
 			console.log("vAT PER"+parseFloat($('#vatPer_'+count).val()) / 100);
-			var VAT = ( parseFloat($('#vatPer_'+count).val()) / 100 ) 
-						* ( (parseFloat($('#productSize_'+count).val()) * parseFloat($('#purchaseRate_'+count).val())) - discount );
-			console.log("VAT -> "+VAT);
+			var VAT = ( (parseFloat($('#productSize_'+count).val()) * parseFloat($('#purchaseRate_'+count).val())) - discount ) * ( parseFloat($('#vatPer_'+count).val()) / 100 );
+			//console.log("VAT -> "+VAT);
 
 
 			// Calculate total amount after each entry
@@ -652,7 +749,7 @@
 			for (var i = 1; i <= counter; i++){
 				// Calculate total amount minus the discount
 				grandTotal += parseFloat($('#purchaseRate_'+i).val()) * parseFloat($('#productSize_'+i).val());
-				console.log("total amount"+grandTotal);
+				//console.log("total amount"+grandTotal);
 			}
 
 			$('#totalAmnt').val(grandTotal.toFixed(2));
@@ -662,16 +759,18 @@
 			$('#tabQuantity_'+count).val(tabs);
 
 			$('#productAmount_'+count).val(productAmount.toFixed(2));
-			console.log("counter = "+temp);
+			//console.log("counter = "+temp);
 			getTotal(temp);
 			counter = temp;
 		};
 
 		window.getTotal = function(counter){
-
+			counter = $('#productEntry table tbody tr').length + 1;
+			console.log("getTotal"+counter);
+			$('#counter').val(counter);
 			//Insert the discount value to the newly created row
 			var totalDiscount = parseFloat($('#totalDiscount').val());
-			$('#discount_'+counter).val(totalDiscount.toFixed(2));
+			//$('#discount_'+counter).val(totalDiscount.toFixed(2));
 			
 			//calculate total amount of VAT upon purchased item
 			//and total amount of Discount
@@ -693,7 +792,19 @@
 				//and return a fresh value!
 
 
-				totalVat += parseFloat($('#VAT_'+i).val());
+				//totalVat += parseFloat($('#VAT_'+i).val());
+				// Get productAmount
+				var product_amount = parseFloat($('#productAmount_'+i).val());
+
+				// Get discount
+				var dis = (parseFloat($('#discount_'+i).val()) / 100.00) * product_amount;
+
+				// Get productAmount after discount
+				product_amount = product_amount - dis;
+
+				// Get vat value
+				totalVat += (parseFloat($('#vatPer_'+i).val()) / 100) * product_amount;
+				console.log("productAMount = "+product_amount+" Discout = "+dis+"VAT value = "+totalVat);
 				var discount = $('#discount_'+i).val();
 				if (discount == ""){
 					discount = 0.0;
@@ -701,10 +812,11 @@
 				totalDiscount += (parseFloat(discount) / 100) 
 							* (parseFloat($('#productSize_'+i+'').val()) * parseFloat($('#purchaseRate_'+i).val()));
 
-				console.log(totalVat+"  "+totalDiscount);
+				//console.log(totalVat+"  "+totalDiscount);
 			}
 
 			$('#totalDiscount').val(totalDiscount.toFixed(2));
+			//totalVat = netAmnt - totalDiscount * ($('#'));
 			$('#vatOnBill').val(totalVat.toFixed(2));
 
 			var debit = parseFloat($('#debitNote').val()).toFixed(2);
@@ -713,9 +825,10 @@
 			netAmnt = parseFloat(netAmnt - totalDiscount) + parseFloat(totalVat);
 			//console.log(netAmnt);
 			netAmnt += parseFloat(debit);
+			netAmnt -= parseFloat($('#creditNote').val() != '' ? $('#creditNote').val() : 0.0);
 
 
-			$('#netAmnt').val(parseFloat(netAmnt).toFixed(2));
+			$('#netAmnt').val(Math.round(parseFloat(netAmnt).toFixed(2)));
 			
 		};
 
@@ -723,6 +836,7 @@
 		// if yes display a modal with credit details
 		function checkCredit(){
 			var supplier = $('#stockist_name').val();
+			console.log(supplier);
 			$('#credit_show').val("true");
 			if(supplier !== ''){
 				$.ajax({
@@ -735,6 +849,7 @@
 					success: function(data){
 						$('.credit-bills').html(data);
 						$('#return_products_list').html("");
+						$('#credit-bills-div table tbody').html("");
 						$('#creditModal').modal();
 					}
 				});
@@ -807,6 +922,29 @@
 			var total = debit + netAmnt;
 			$('#netAmnt').val(total.toFixed(2));*/
 		}
+
+		$('#invoiceNumber').keydown(function(e){
+			if (e.which == 13 && $('#modify').val() == 'true'){
+				$.ajax({
+					url: 'functions/otherFunctions.php',
+					type: 'post',
+					data: {
+						supplier: $('#stockist_name').val(),
+						invoice: $('#invoiceNumber').val(),
+						option: 'check_invoice'
+					},
+					success: function(data){
+						if(data == 'true'){
+							alert('Invoice can not be repeated for same supplier');
+							$('#invoiceNumber').val("");
+							$('#invoiceNumber').focus();
+						}
+					}
+				});
+			}else if(e.which == 13 && $('#modify').val() != 'true'){
+				convert_to_INV($('#invoiceNumber').val());
+			}
+		});
 	</script>
 	<script src="script/detailsModal.js"></script>
 </body>

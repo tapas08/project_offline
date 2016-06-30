@@ -167,7 +167,7 @@
 				</div>
 
 				<div class="input-group col-lg-12 input-divs">
-					<span class="col-lg-2"><label for="productQuantity"><i class="fa fa-plus-square"></i> Quantity *</label></span>
+					<span class="col-lg-2"><label for="productQuantity"><i class="fa fa-plus-square"></i> Purchase Size *</label></span>
 					<span class="col-lg-4"><input type="number" id="productQuantity" class="form-control" name="productQuantity" aria-describedby="sizing-addon6" placeholder="Pack Size" required></span>
 				</div>
 

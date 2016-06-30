@@ -66,6 +66,10 @@ if (Input::exists()){
 			get_return_bill_amount();
 			break;
 
+		case 'check_invoice':
+			check_invoice();
+			break;
+
 		default:
 			# code...
 			break;
@@ -81,32 +85,48 @@ function save(){
 
 		if (Input::get('acType') == "Customer"){
 			$table = 'customer';
-		}else if (Input::get('acType') == "Supplier"){
+		}else if (Input::get('acType') == "Supplier" && Input::get('status') !== 'Update'){
 			$table = "stockist_name";
 			$stockist = $db->insert('stockist_name', array(
 					'abbreviation' => abrevate(Input::get('name')),
 					'name' => Input::get('name')
 				));
 		}
+		if (Input::get('status') != 'Update'){
+			$save = $db->insert('account', array(
+					'acType'		=> Input::get('acType'),
+					'name' 			=> Input::get('name'),
+					'city' 			=> Input::get('city'),
+					'address' 		=> Input::get('address'),
+					'phone' 		=> Input::get('phone'),
+					'debitLimit' 	=> Input::get('debit_limit'),
+					'daysLimit' 	=> Input::get('days_limit'),
+					'email' 		=> Input::get('email'),
+					'vat_tin_no' 	=> Input::get('vat_tin_no'),
+					'LBTNo' 		=> Input::get('lbtNo'),
+					'openingBalance'=> Input::get('openingBalance'),
+					'CR_or_DR' 		=> Input::get('onoffswitch')
+				));
 
-		$save = $db->insert('account', array(
-				'acType'		=> Input::get('acType'),
-				'name' 			=> Input::get('name'),
-				'city' 			=> Input::get('city'),
-				'address' 		=> Input::get('address'),
-				'phone' 		=> Input::get('phone'),
-				'debitLimit' 	=> Input::get('debit_limit'),
-				'daysLimit' 	=> Input::get('days_limit'),
-				'email' 		=> Input::get('email'),
-				'vat_tin_no' 	=> Input::get('vat_tin_no'),
-				'LBTNo' 		=> Input::get('lbtNo'),
-				'openingBalance'=> Input::get('openingBalance'),
-				'CR_or_DR' 		=> Input::get('onoffswitch')
-			));
 
-
-		//print_r($save);
-		echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
+			//print_r($save);
+			echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
+		}else if (Input::get('status') == "Update"){
+			$save = $save = $db->update('account', array('name', '=', Input::get('name')), array(
+					'acType'		=> Input::get('acType'),
+					'name' 			=> Input::get('name'),
+					'city' 			=> Input::get('city'),
+					'address' 		=> Input::get('address'),
+					'phone' 		=> Input::get('phone'),
+					'debitLimit' 	=> Input::get('debit_limit'),
+					'daysLimit' 	=> Input::get('days_limit'),
+					'email' 		=> Input::get('email'),
+					'vat_tin_no' 	=> Input::get('vat_tin_no'),
+					'LBTNo' 		=> Input::get('lbtNo'),
+					'openingBalance'=> Input::get('openBalance'),
+					'CR_or_DR' 		=> Input::get('onoffswitch')
+				));
+		}
 		if ($save){
 			echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
 		}else{
@@ -400,6 +420,10 @@ function convert_to_INV($purEntry = -1){
 			$getInv = DB::getInstance()->get('purchaseInvoice', array("id", "=", $purEntry));
 			$invNo = $getInv->first()['invoiceNumber'];
 			$data['purEntry'] = $getInv->first()['id'];
+		}else if ($purEntry == -1){
+			//echo "here!";
+			$getInv = DB::getInstance()->get('purchaseInvoice', array("invoiceNumber", "=", Input::get('invNo')));
+			$data['purEntry'] = $getInv->first()['id'];
 		}
 		
 		$getDM = $db->get('purchaseBills', array('invoiceNumber', '=', $invNo));
@@ -407,6 +431,8 @@ function convert_to_INV($purEntry = -1){
 		$data['count'] = $getDM->count();
 		$data['billDate'] = $getDM->first()['date'];
 		$data['supplier'] = $getDM->first()['supplier'];
+		$data['invoiceNo'] = $invNo;
+		$data['debit_note'] = DB::getInstance()->get('purchaseInvoice', array('invoiceNumber', '=', $invNo))->first()['debitNote'];
 		$data['bill'] = '';
 		foreach ($getDM->results() as $content => $dm){
 			$data['bill'] .= "<tr>";
@@ -415,7 +441,7 @@ function convert_to_INV($purEntry = -1){
 					<datalist id="drugList_'.$i.'"></datalist>
 				</input>
 			</td>';
-			$data['bill'] .= '<td><input type="number" name="productQuantity_" id="productQuantity_'.$i.'" oninput="calculate('.$i.');" class="form-control" value="'.$dm['productQuantity'].'"></td>';
+			$data['bill'] .= '<td><input type="number" name="productQuantity_'.$i.'" id="productQuantity_'.$i.'" oninput="calculate('.$i.');" class="form-control" value="'.$dm['productQuantity'].'"></td>';
 			$data['bill'] .= '<td><input type="number" name="productFree_'.$i.'" id="productFree_'.$i.'" oninput="calculate('.$i.');" class="form-control" value="'.$dm['productFree'].'"></td>';
 			$data['bill'] .= '<td><input type="number" name="productSize_'.$i.'" id="productSize_'.$i.'" oninput="calculate('.$i.');" class="form-control" value="'.$dm['purchaseSize'].'"></td>';
 			$data['bill'] .= '<td><input type="number" name="tabQuantity_'.$i.'" id="tabQuantity_'.$i.'" oninput="calculate('.$i.');" class="form-control" value="'.$dm['tabQuantity'].'"></td>';
@@ -476,7 +502,7 @@ function product_details(){
 	if (Input::exists()){
 
 		$searchTerm = Input::get('input');
-		$searchTerm = strtoupper("%{$searchTerm}%");
+		$searchTerm = strtoupper("{$searchTerm}%");
 
 		$db = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName LIKE ?", array($searchTerm));
 
@@ -498,7 +524,7 @@ function product_details(){
 			echo "<tbody id='product_list_table'>";
 			foreach($db->results() as $data => $product){
 				echo "<tr>";
-				echo "<td>{$product['supplier']}</td>";
+				echo "<td>".get_mfg($product['supplier'])."</td>";
 				echo "<td>{$product['productName']}</td>";
 				echo "<td>{$product['batchNo']}</td>";
 				echo "<td>{$product['productQuantity']}</td>";
@@ -514,8 +540,28 @@ function product_details(){
 			}
 			echo "</tbody>";
 			echo "</table>";
+			echo "<input type='hidden' id='state' name='state' value='old'>";
 		}else{
-			echo 0;
+			$items = DB::getInstance()->query("SELECT * FROM items WHERE productName LIKE ?", array($searchTerm));
+			echo "Count".$items->count();
+			if ($items->count() > 0){
+
+				echo "<table class='table table-bordered table-condensed'>";
+				echo "<thead>";
+				echo "<td>MFG</td>";
+				echo "<td>Product Name</td>";
+				echo "</thead>";
+				echo "<tbody>";
+				foreach ($items->results() as $item => $product){
+					echo "<tr>";
+					echo "<td>".$product['manufacturer']."</td>";
+					echo "<td>".$product['productName']."</td>";
+					echo "</tr>";
+				}
+				echo "</tbody>";
+				echo "</table>";
+				echo "<input type='hidden' id='state' name='state' value='new'>";
+			}
 		}
 	}
 }
@@ -634,10 +680,13 @@ function recreate_return_bill(){
 
 function get_mfg($supplier){
 	$company_code = DB::getInstance()->get('stockist_name', array('name', '=', $supplier));
-	$mfg = DB::getInstance()->get('company_name', array('id', '=', $company_code->first()['company_id']));
-	if ($mfg->count()){
-		return $mfg->first()['abbreviation'];
+	if ($company_code->count() > 0){
+		$mfg = DB::getInstance()->get('company_name', array('id', '=', $company_code->first()['company_id']));
+		if ($mfg->count()){
+			return $mfg->first()['abbreviation'];
+		}	
 	}
+	
 	return 'NA';
 }
 
@@ -645,5 +694,17 @@ function get_return_bill_amount(){
 	if (Input::exists()){
 		//echo Input::get('invoiceNo');
 		echo DB::getInstance()->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')))->first()['amount'];
+	}
+}
+
+function check_invoice(){
+	if (Input::exists()){
+		$db = DB::getInstance()->query("SELECT * FROM purchaseInvoice WHERE invoiceNumber = ? AND supplier = ?", array(Input::get('invoice'), Input::get('supplier')));
+
+		if ($db->count() > 0){
+			echo "true";
+		}else{
+			echo "false";
+		}
 	}
 }

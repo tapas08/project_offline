@@ -44,6 +44,10 @@ if (Input::exists()){
 		case 'product_details';
 			product_details();
 			break;
+		case 'patient_details';
+			patient_details();
+			break;
+
 
 		default:
 			# code...
@@ -339,12 +343,16 @@ function save_stockist_company(){
 
 function convert_to_INV($billNo = -1){
 	//echo "I am here!";
+	//print_r(Input::get('products'));
 	$data = [];
 	if (Input::exists()){
 		$db = DB::getInstance();
 
 		$BillNo = Input::get('bill_no');
-
+		/*if(Input::get('products')!="0"){
+			
+		$product = json_decode(Input::get('products'),true);
+		}*/
 		if ($billNo > -1){
 			$getInv = DB::getInstance()->get('patients', array("bill_no", "=", $billNo));
 			$billNo = $getInv->first()['bill_no'];
@@ -352,7 +360,7 @@ function convert_to_INV($billNo = -1){
 		
 		$getDM = DB::getInstance()->get('patients', array("bill_no", "=", $billNo));
 		$i = 1;
-		$data['count'] = $getDM->count();
+		$data['count'] = count($getDM->results());
 		$data['bill_no'] = $getDM->first()['bill_no'];
 		$data['billDate'] = $getDM->first()['date'];
 		$data['patient_name'] = $getDM->first()['patient_name'];
@@ -373,9 +381,9 @@ function convert_to_INV($billNo = -1){
 					<datalist id="drugList_'.$i.'"></datalist>
 				</input>
 			</td>';
-			$data['bill'] .= '<td><input type="number" name="quantity_'.$i.'" id="quantity_'.$i.'" oninput="calculate('.$i.');" class="form-control3" value="'.$dm['quantity'].'"></td>';
+			$data['bill'] .= '<td><input type="number" step="any" name="quantity_'.$i.'" id="quantity_'.$i.'" oninput="calculate('.$i.');" class="form-control3" value="'.$dm['quantity'].'"></td>';
 			$data['bill'] .= '<td><input type="number" step="any" name="productRate_'.$i.'" id="productRate_'.$i.'" oninput="calculate('.$i.');" class="form-control3" value="'.$dm['productRate'].'"></td>';
-			$data['bill'] .= '<td><input type="number"  step="any" name="MRP_'.$i.'" id="MRP_'.$i.'" oninput="calculate('.$i.');" class="form-control3" value="'.$dm['MRP'].'"></td>';
+			$data['bill'] .= '<td><input type="number"   name="MRP_'.$i.'" id="MRP_'.$i.'" oninput="calculate('.$i.');" class="form-control3" value="'.$dm['MRP'].'"></td>';
 			$data['bill'] .= '<td><input type="text" name="batchNo_'.$i.'" id="batchNo_'.$i.'" oninput="calculate('.$i.');" class="form-control3" value="'.$dm['batchNo'].'"></td>';
 			$data['bill'] .= '<td><input type="number" name="packSize_'.$i.'" id="packSize_'.$i.'" class="form-control3" value="'.$dm['packSize'].'"></td>';
 			$data['bill'] .= '<td><input type="text" name="expiryDate_'.$i.'" id="expiryDate_'.$i.'" class="form-control3 month" value="'.$dm['expiryDate'].'"></td>';
@@ -390,6 +398,9 @@ function convert_to_INV($billNo = -1){
 			$data['bill'] .= "</tr>";
 			$i++;
 		}
+		
+		$data['count'] = $i-1;
+		
 		echo json_encode($data);
 	}
 	//TODO 
@@ -438,6 +449,8 @@ function product_details(){
 		$searchTerm = "%{$searchTerm}%";
 
 		$db = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName LIKE ?", array($searchTerm));
+		$mm = date("m/y",strtotime(date('Y-m-d')));
+					
 
 		if ($db->count() > 0){
 			$x = 1;
@@ -471,7 +484,11 @@ function product_details(){
 			echo "</thead>";
 			echo "<tbody id='product_list_table'>";
 			foreach($db->results() as $data => $product){
+					
 				echo "<tr>";
+				if($product['tabQuantity']>0)
+				{
+				if($product['expiryDate']!=$mm){
 				echo "<td>{$product['supplier']}</td>";
 				echo "<td>{$product['productName']}</td>";
 				echo "<td>{$product['batchNo']}</td>";
@@ -481,9 +498,71 @@ function product_details(){
 				echo "<td>Shelf</td>";
 				echo "<td>{$product['tabQuantity']}</td>";
 				echo "<td>{$product['VAT']}</td>";
-				echo "<td>category</td>";
+				}else
+					{
+						echo "<td colspan='9'>Drugs will be Expired ...!</td>";
+					}
+				}
+				else{
+					echo "<td colspan='9'>Record is out of Stock ...!</td>";
+				}
+				
 				echo "</tr>";
+				$x++;
+			}
+			echo "</tbody>";
+			echo "</table>";
+		}
+	}
+}
+/* patient details*/
 
+function patient_details(){
+	if (Input::exists()){
+		$bills = array();
+		$searchTerm = Input::get('input');
+		$searchTerm = "%{$searchTerm}%";
+
+		$db = DB::getInstance()->query("SELECT * FROM patients WHERE patient_name LIKE ?", array($searchTerm));
+
+		if ($db->count() > 0){
+			$x = 1;
+			echo "<table class='table table-bordered '>";
+			echo "<thead>";
+
+			echo "<td>Srno</td>";
+			echo "<td>Patient Name</td>";
+			echo "<td>Product Name</td>";
+			echo "<td>Quantity</td>";
+			echo "<td>Bill No</td>";
+			
+			echo "<td>Amount</td>";
+			echo "</thead>";
+			echo "<tbody id='product_list_table'>";
+			foreach($db->results() as $data => $product){
+				$bills = json_decode($product['bill'], true); 
+						//print_r($bills);
+						$dt =array();
+						$qty = 0;  
+						$srno =1;
+						foreach($bills as $bill_data => $record1){
+							//print_r($record1);
+							array_push($dt,$bill_data);
+							//$dt[] = $bill_data;
+							//print_r($dt);
+							$qty  = $qty + $record1['quantity'];
+						}
+						$temp = implode(',',$dt);
+				echo "<tr>";
+				echo "<td>".$srno. "</td>";
+				echo "<td>{$product['patient_name']}</td>";
+				echo "<td>".$temp."</td>";
+				echo "<td>".$qty."</td>";
+				echo "<td>{$product['bill_no']}</td>";
+				echo "<td>{$product['total_amt']}</td>";
+				
+				echo "</tr>";
+$srno++;
 				$x++;
 			}
 			echo "</tbody>";

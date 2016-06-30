@@ -26,6 +26,15 @@ if (Input::exists()){
 		case 'save_stockist':
 			save_stockist();
 			break;
+		case 'get_company_abr':
+			get_company_abr();
+			break;
+		case 'get_stockist':
+			get_stockist();
+			break;
+		case 'get_stockist_data':
+			get_stockist_data();
+			break;
 	}
 }
 
@@ -34,7 +43,7 @@ function getDrug(){
 	$searchTerm = strtoupper(Input::get('searchTerm'));
 	$searchTerm = strtoupper("%$searchTerm%");
 
-	$get = $db->query("SELECT * FROM purchaseBills WHERE `productName` LIKE ?", array($searchTerm));
+	$get = $db->query("SELECT * FROM items WHERE `productName` LIKE ?", array($searchTerm));
 
 	if (!$get->error()){
 		// if($get->count() > 0){
@@ -52,39 +61,70 @@ function getDrug(){
 function insertData(){
 	$db = DB::getInstance();
 	$drug = Input::get('drug');
-	$details = $db->get("purchaseBills", array('productName', '=', $drug));
-	$invoiceDetails = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName = ? AND batchNo = ?", array($drug, Input::get('batchNo')));
+	$details = $db->get("items", array('productName', '=', $drug));
+	if (Input::get('where') == 'new'){
+		//echo "HERE to";
+		//print_r($details->first());
+		if ($details){
+			$data = [];
+			$data['marketedBy'] = $details->first()['marketedBy'];
+			$data['manufacturedBy'] = $details->first()['manufacturer'];
+			$data['packSize'] = $details->first()['packSize'];
+			//$data['batchNo'] = $invoiceDetails->first()['batchNo'];
+			//$data['expiryDate'] = $invoiceDetails->first()['expiryDate'];
+			$data['quantity'] = $details->first()['quantity'];
+			$data['mainCategory'] = $details->first()['mainCategory'];
+			$data['subCategory'] = $details->first()['subCategory'];
+			$data['productType'] = $details->first()['productType'];
+			$data['productGroup'] = $details->first()['productGroup'];
+			//$data['purchaseRate'] = $invoiceDetails->first()['purchaseRate'];
+			$data['MRP'] = $details->first()['MRP'];
+			$data['Tax'] = $details->first()['Tax'];
+			$data['VAT'] = $details->first()['VAT'];
+			$data['shelf'] = $details->first()['shelf'];
+			$data['reorderLvl'] = $details->first()['reorderLvl'];
+			$data['orderQuantity'] = $details->first()['orderQuantity'];
+			$data['drugContent'] = $details->first()['drugContent'];
+			echo json_encode($data);
+		}
 
-	if ($details){
-		$data = [];
-		$data['marketedBy'] = $details->first()['marketedBy'];
-		$data['manufacturedBy'] = $details->first()['manufacturer'];
-		$data['packSize'] = $details->first()['packSize'];
-		$data['batchNo'] = $invoiceDetails->first()['batchNo'];
-		$data['expiryDate'] = $invoiceDetails->first()['expiryDate'];
-		$data['quantity'] = $details->first()['quantity'];
-		$data['mainCategory'] = $details->first()['mainCategory'];
-		$data['subCategory'] = $details->first()['subCategory'];
-		$data['productType'] = $details->first()['productType'];
-		$data['productGroup'] = $details->first()['productGroup'];
-		$data['purchaseRate'] = $invoiceDetails->first()['purchaseRate'];
-		$data['MRP'] = $details->first()['MRP'];
-		$data['Tax'] = $details->first()['Tax'];
-		$data['VAT'] = $details->first()['VAT'];
-		$data['shelf'] = $details->first()['shelf'];
-		$data['reorderLvl'] = $details->first()['reorderLvl'];
-		$data['orderQuantity'] = $details->first()['orderQuantity'];
-		$data['drugContent'] = $details->first()['drugContent'];
-		echo json_encode($data);
 	}else{
-		echo "ERROR!";
+		//echo "HERE down";
+		$invoiceDetails = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName = ? AND batchNo = ?", array($drug, Input::get('batchNo')));
+		
+		if ($details){
+			$data = [];
+			//$data['marketedBy'] = $details->first()['marketedBy'];
+			//$data['manufacturedBy'] = $details->first()['manufacturer'];
+			$data['packSize'] = $details->first()['packSize'];
+			$data['batchNo'] = $invoiceDetails->first()['batchNo'];
+			$data['expiryDate'] = $invoiceDetails->first()['expiryDate'];
+			$data['quantity'] = $details->first()['quantity'];
+			//$data['mainCategory'] = $details->first()['mainCategory'];
+			//$data['subCategory'] = $details->first()['subCategory'];
+			//$data['productType'] = $details->first()['productType'];
+			//$data['productGroup'] = $details->first()['productGroup'];
+			$data['purchaseRate'] = $invoiceDetails->first()['purchaseRate'];
+			$data['MRP'] = $details->first()['MRP'];
+			$data['Tax'] = $details->first()['Tax'];
+			$data['VAT'] = $details->first()['VAT'];
+			//$data['shelf'] = $details->first()['shelf'];
+			//$data['reorderLvl'] = $details->first()['reorderLvl'];
+			//$data['orderQuantity'] = $details->first()['orderQuantity'];
+			//$data['drugContent'] = $details->first()['drugContent'];
+			echo json_encode($data);
+		}
+
 	}
+
 }
 
 function updateData(){
 	$db = DB::getInstance();
+	print_r($_POST);
 	if (Input::exists()){
-		$update = $db->update('items', array('productName', '=', Input::get('productName')), array(
+		$update = $db->update('items', array('productName', '=', Input::get('orignal_name')), array(
+				'productName'	=> Input::get('productName'),
 				'marketedBy'	=> Input::get('productMarketedBy'),
 				'manufacturer'	=> Input::get('productManftr'),
 				'productName'	=> Input::get('productName'),
@@ -136,16 +176,19 @@ function getList($table){
 		$searchTerm = strtoupper(Input::get('searchTerm'));
 		$searchTerm = "%$searchTerm%";
 
-		$get = $db->query("SELECT * FROM {$table} WHERE `name` LIKE ?", array($searchTerm));
-
+		$get = $db->query("SELECT * FROM $table WHERE name LIKE ?", array($searchTerm));
+		
 		if (!$get->error() && $get->count() > 0){
 			foreach ($get->results() as $key => $value) {
+				//print_r($get->results());
 				if ($table == 'company_name'){
-					echo "<option value='"+$value['name']+"'>[ {$value['abbreviation']} ] - {$value['name']}</option>";
+					echo "<option value='".$value['name']."'>[ ".$value['abbreviation']." ] - ".$value['name']."</option>";
 				}else{
-					echo "<option>{$value['name']}</option>";
+					echo "<option>".$value['name']."</option>";
 				}
 			}
+		}else{
+			echo "NOthing";
 		}
 	}
 }
@@ -182,12 +225,15 @@ function save_stockist(){
 	if (Input::exists()){
 		$db = DB::getInstance();
 
-		print_r($_POST);
+		//print_r($_POST);
 
 		//Get company's id
 		$company_id = $db->get('company_name', array('name', '=', Input::get('company_name')))->first()['id'];
 
-		//Save data to stockist_name table
+		// Save data to stockist_name table
+
+		// TODO
+		// Instead of insert it should fire update command :/
 		$save_stockist = $db->insert('stockist_name', array(
 				'abbreviation' => abrevate(Input::get('stockist_name')),
 				'name' => Input::get('stockist_name'),
@@ -197,8 +243,8 @@ function save_stockist(){
 
 		if ($save_stockist){
 			echo "<tr>";
-			echo "<td>"+Input::get('stockist_name')+"</td>";
-			echo "<td>"+Input::get('priority')+"</td>";
+			echo "<td>".Input::get('stockist_name')."</td>";
+			echo "<td>".Input::get('priority')."</td>";
 			echo "</tr>";
 		}
 	}
@@ -210,5 +256,57 @@ function abrevate($name){
 	for ($i = 0; $i < 1; $i++){
 		$abr .= substr($name, rand($i, strlen($name)));
 	}
+	echo substr($abr, 0, 3);
 	return substr($abr, 0, 3);
+}
+
+function get_company_abr(){
+	if (Input::exists()){
+		$company_name = DB::getInstance()->get('company_name', array('name', '=', strtoupper(Input::get('name'))));
+		if ($company_name->count() > 0){
+			echo $company_name->first()['abbreviation'];
+		}else{
+			echo "0";
+		}
+	}
+}
+
+function get_stockist(){
+	if (Input::exists()){
+		$db = DB::getInstance();
+
+		$searchTerm = Input::get('input');
+		$searchTerm = strtoupper("%$searchTerm%");
+
+		$stockist_name = $db->query("SELECT * FROM account WHERE name LIKE ? AND acType = ?", array($searchTerm, 'Supplier'));
+
+		if ($stockist_name->count() > 0){
+			foreach ($stockist_name->results() as $data => $supplier){
+				echo "<option>".$supplier['name']."</option>";
+			}
+		}
+	}
+}
+
+function get_stockist_data(){
+	if (Input::exists()){
+		
+		$db = DB::getInstance();
+
+		$supplier = $db->get('account', array('name', '=', Input::get('input')));
+		$data = [];
+		if ($supplier->count() > 0){
+			$data['city'] = $supplier->first()['city'];
+			$data['address'] = $supplier->first()['address'];
+			$data['phone'] = $supplier->first()['phone'];
+			$data['debitLimit'] = $supplier->first()['debitLimit'];
+			$data['daysLimit'] = $supplier->first()['daysLimit'];
+			$data['email'] = $supplier->first()['email'];
+			$data['vat_tin_no'] = $supplier->first()['vat_tin_no'];
+			$data['LBTNo'] = $supplier->first()['LBTNo'];
+			$data['openingBalance'] = $supplier->first()['openingBalance'];
+			
+			echo json_encode($data);
+		}
+	}
 }

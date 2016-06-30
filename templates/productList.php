@@ -17,7 +17,7 @@
  					<br />
  					<input type="button" id="goto_prev" value="prev" style="display:none;">
 					<input type="button" id="goto_next" value="next" style="display:none;">
- 					<div class="col-md-12 details-table">
+ 					<div class="col-md-12 details-table product-list">
  					</div>
  				</div>
  			</div>
