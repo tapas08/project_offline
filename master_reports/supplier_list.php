@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Item List</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 		<h2>MATOSHREE MEDICOSE U/O TS LIFECARE Pvt. Ltd.</h2>
 		<h2>ITEM LIST</h2>
 	</div>
-	<table class="table">
+	<table class="table table-bordered table-condensed">
 		<thead>
 			<td>Customer Name</td>
 			<td>Address</td>
@@ -25,10 +25,10 @@ require_once '../core/init.php';
 
 $db = DB::getInstance();
 
-$supplier_list = $db->get('account', array('ac_type', '=', 'Supplier'));
+$supplier_list = $db->get('account', array('acType', '=', 'Supplier'));
 
-if ($supplier_list->count() > 0){
-	foreach ($supplier_list->result() as $supplier_details => $supplier):
+if ($db->count() > 0){
+	foreach ($supplier_list->results() as $supplier_details => $supplier):
 
 ?>
 			<tr>
@@ -41,7 +41,7 @@ if ($supplier_list->count() > 0){
 
 <?php
 
-	end foreach;
+	endforeach;
 }
 
 ?>

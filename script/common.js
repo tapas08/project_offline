@@ -10,7 +10,7 @@ function getList(id, list, drug, insertData){
 	id = (id.substr(7) == "MarketedBy" || id.substr(7) == "Manftr") ? 'company_name' : id;
 
 	$.ajax({
-		url: 'functions/purchaseFunctions.php',
+		url: '/project_offline/functions/purchaseFunctions.php', // /public_html/tslifecare.com
 		type: 'post',
 		data: {
 			searchTerm: value,
@@ -18,7 +18,7 @@ function getList(id, list, drug, insertData){
 			access:  (drug == true) ? 'getDrug' : 'getList',
 		},
 		success: function(data){
-			//console.log(data);
+			console.log(data);
 			document.getElementById(list).innerHTML = data;
 			
 			if (id == 'stockist_name'){
@@ -401,3 +401,7 @@ function get_stockist_data(){
 		}
 	});
 }
+
+$('.open_heads_modal').click(function(e){
+	$('.modal-heads').modal();
+})

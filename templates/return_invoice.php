@@ -38,7 +38,7 @@
 							echo "<td>".$return['supplier']."</td>";
 							echo "<td>".$return['amount']."</td>";
 							echo "<td>".$return['bType']."</td>";
-							echo "<td>N</td>";
+							echo "<td>".$return['adjusted']."</td>";
 							echo "<td>0</td>";
 							echo "<td>0</td>";
 						}

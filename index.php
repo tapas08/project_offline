@@ -471,30 +471,18 @@
                         <li class=""> 
                             <a href="javascript:;">
                                 <i class="fa fa-sliders"></i>
-                                <span class="title">Forms</span>
+                                <span class="title">Accounts</span>
                                 <span class="arrow "></span>
                             </a>
                             <ul class="sub-menu" >
                                 <li>
-                                    <a class="" href="form-elements.html">Form Elements</a>
+                                    <a class="" href="accounts/cash_receipt.php">Cash Receipt</a>
                                 </li>
                                 <li>
-                                    <a class="" href="form-components.html">Form Components</a>
+                                    <a class="" href="accounts/cash_payment.php">Cash Payment</a>
                                 </li>
                                 <li>
-                                    <a class="" href="form-wizard.html">Form Wizard</a>
-                                </li>
-                                <li>
-                                    <a class="" href="form-validation.html">Form Validations</a>
-                                </li>
-                                <li>
-                                    <a class="" href="form-fileupload.html">File Upload & Dropzone</a>
-                                </li>
-                                <li>
-                                    <a class="" href="form-editors.html">Editors</a>
-                                </li>
-                                <li>
-                                    <a class="" href="form-masks.html">Input Masks</a>
+                                    <a class="" href="accounts/payment.php">Supplier Payment</a>
                                 </li>
                             </ul>
                         </li>

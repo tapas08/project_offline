@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Item List</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
 
@@ -12,7 +12,7 @@
 		<h2>MATOSHREE MEDICOSE U/O TS LIFECARE Pvt. Ltd.</h2>
 		<h2>ITEM LIST</h2>
 	</div>
-	<table class="table">
+	<table class="table table-bordered table-condensed">
 		<thead>
 			<td>Sr. No</td>
 			<td>MFG</td>
@@ -35,7 +35,7 @@ $item_list = $db->query("SELECT * FROM items");
 
 if ($item_list->count() > 0){
 	$x = 1;
-	foreach ($item_list->result() as $item_details => $item):
+	foreach ($item_list->results() as $item_details => $item):
 
 ?>
 			<tr>
@@ -50,7 +50,7 @@ if ($item_list->count() > 0){
 				<td><?php echo $item['productType'] ?></td>
 				<td>
 					<?php 
-						echo $db::getInstance()->query("SELECT * FROM purchaseBills WHERE supplier = ? AND productName = ?", array($item['marketedBy'], $item['productName']))->first()['expiryDate'];
+						echo $db::getInstance()->query("SELECT * FROM purchaseBills")->first()['expiryDate'];
 					?>
 				</td>
 			</tr>
@@ -58,7 +58,7 @@ if ($item_list->count() > 0){
 
 <?php
 
-	end foreach;
+	endforeach;
 }
 
 ?>

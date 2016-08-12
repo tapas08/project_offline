@@ -16,7 +16,8 @@ hr{
 	padding-top: 5px;
 }
 
-.options > div > input{
+.options > div > input, 
+.options > div > a {
 	padding: 2px 8px;
 	margin-bottom: 2px;
 	width: 120px;
@@ -33,4 +34,17 @@ hr{
 
 .payment-form{
 	padding: 5px;
+}
+
+.focus{
+	background: #e3e3e3;
+}
+
+#pagination a{
+	text-decoration: none;
+	font-size: 18px;
+	color: #fff;
+	margin-right: 5px;
+	padding: 8px;
+	background: #000;
 }

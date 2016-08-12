@@ -273,7 +273,7 @@
 					batchNo: batch,
 					return_type: $('#billType').val(),
 					option: 'insertToTable', 
-					count: count
+					count: $('#product_return_list table tbody tr').length > 0 ? $('#product_return_list table tbody tr').length + 1 : count
 				},
 				success: function(data){
 					if(data !== '0'){
@@ -304,10 +304,14 @@
 			var mrpvalue = 0;
 			//console.log($("input[id='pack_"+count+"']").val());
 			var amnt = ( ( parseFloat($("input[id='pack_"+count+"']").val()) * parseInt($("input[id='qty_"+count+"']").val()) ) * parseFloat($("input[id='pr_"+count+"']").val()) ) + parseFloat($("input[id='vatAmnt_"+count+"']").val());
+		
 			var resp_amount  = parseFloat($("input[id='sendQuantity_"+count+"']").val() / ($("input[id='pack_"+count+"']").val() * $("input[id='qty_"+count+"']").val())) * amnt;
+		
 			console.log(resp_amount);
+		
 			$("input[id='amnt_"+count+"']").val(Math.round(resp_amount));
 			count = $('#product_return_list table tbody tr').length;
+			console.log("No of rows"+count);
 			for(var i = 1; i <= count; i++){
 				var amnt = ( ( parseFloat($("input[id='pack_"+i+"']").val()) * parseInt($("input[id='qty_"+i+"']").val()) ) * parseFloat($("input[id='pr_"+i+"']").val()) ) + parseFloat($("input[id='vatAmnt_"+i+"']").val());
 				amount += parseFloat($("input[id='sendQuantity_"+i+"']").val() / ($("input[id='pack_"+i+"']").val() * $("input[id='qty_"+i+"']").val())) * parseFloat(amnt);

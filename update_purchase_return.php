@@ -2,6 +2,7 @@
 require_once('core/init.php');
 
 if (Input::exists()){
+	print_r($_POST);
 	$flag = 0;
 	$db = DB::getInstance();
 
@@ -15,7 +16,7 @@ if (Input::exists()){
 	$msg = [];
 
 	// Get the updated product's details
-	for($i = 1; $i <= Input::get('counter'); $i++){
+	for($i = 1; $i <= 3; $i++){
 		$data[Input::get("name_$i")] = array(
 				'batchNo' => $_POST["batch_$i"],
 				'expiry_date' => Input::get("exp_$i"),
@@ -23,6 +24,8 @@ if (Input::exists()){
 				'amount' => Input::get("amnt_$i")
 			);	
 	}
+
+	echo json_encode($data);
 
 	// Update return bill
 	$update = $db->update('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNumber')), array(
@@ -37,8 +40,8 @@ if (Input::exists()){
 		$i = 1;
 		foreach (json_decode($details['product_details'], true) as $products => $drug){
 
-			$stock = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName = ? AND supplier = ? AND batchNo = ? ", 
-								array($products, $details['supplier'], $drug['batchNo']));
+			$stock = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE productName = ? AND batchNo = ? ", 
+								array($products, $drug['batchNo']));
 			$revisedStock = $drug['return_value'];
 			
 			if ((int)Input::get("sendQuantity_$i") < (int)$previous_value[$i-1]){
@@ -53,8 +56,8 @@ if (Input::exists()){
 			
 			}
 
-			$update_stock = $db->query("UPDATE purchaseBills SET tabQuantity = ? WHERE productName = ? AND supplier = ? AND batchNo = ?", 
-					array($revisedStock, $products, Input::get('stockist_name'), $drug['batchNo']));
+			$update_stock = $db->query("UPDATE purchaseBills SET tabQuantity = ? WHERE productName = ? AND batchNo = ?", 
+					array($revisedStock, $products, $drug['batchNo']));
 			
 			if (!$update_stock){
 				$flag = 0;
@@ -68,7 +71,7 @@ if (Input::exists()){
 		// if ($flag = 1){		
 		// 	$msg[] = "Bill updated!";
 		//$msg[] = "Error! Please try again!";
-		header('Location:purchaseReturn.php?flag='.$flag);
+		//header('Location:purchaseReturn.php?flag='.$flag);
 	}else{
 		$msg[] = "Error! Something Went Wrong. Please Try Again";
 	}

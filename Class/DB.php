@@ -53,6 +53,7 @@ class DB{
 					$x++;
 				}
 			}
+
 			
 			if ($this->_query->execute()){
 				$this->_results = $this->_query->fetchAll(PDO::FETCH_ASSOC);
@@ -157,6 +158,14 @@ class DB{
 		$city = file_get_contents("../city.txt");
 		return $this->_pdo->query("REPLACE INTO {$table_name} SELECT * FROM $table_name");
 		fclose("../city.txt");
+	}
+
+	public function start(){
+		$this->_pdo->beginTransaction();
+	}
+
+	public function rollback(){
+		$this->_pdo->rollBack();
 	}
 
 	public function error(){

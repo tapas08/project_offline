@@ -1,7 +1,8 @@
 <?php
 	require_once('core/init.php');
 	
-	$message = [];	
+	$message = [];
+	$mrp_total = 0;
 
 	if (Input::exists()){
 		
@@ -44,6 +45,8 @@
 								Input::get("invoiceNumber"),
 								Input::get("batchNo_$i")
 							));	
+
+				$mrp_total += $_POST["MRP_$i"];
 				
 				// $update = $db->update('purchaseBills', array('invoiceNumber', '=', Input::get('invoiceNumber')), array(
 				// 		'invoiceNumber' 	=> $_POST["invoiceNumber"],
@@ -118,6 +121,7 @@
 						'MRP' 				=> $_POST["MRP_$i"],
 						'purchaseAmount' 	=> $_POST["productAmount_$i"]
 					));
+				$mrp_total += $_POST["MRP_$i"];
 
 				if ($insert){
 
@@ -156,7 +160,9 @@
 					'discountPer' 	 => $_POST['overallDisc'],
 					'discount' 		 => $_POST['totalDiscount'],
 					'VAT' 			 => $_POST['vatOnBill'],
-					'netAmount' 	 => $_POST['netAmnt']
+					'netAmount' 	 => $_POST['netAmnt'],
+					'balance'		 => ($_POST['cash_or_credit'] == 'C-Cash') ? 0 : $_POST['netAmnt'],
+					'mrp_total'		 => $mrp_total
 				));
 
 			if (!$insertInvoice){
@@ -318,7 +324,7 @@
 						<label for="cash_or_credit" class="control-label">
 							Cash/Credit
 						</label>
-						<input type="text" id="cash_or_credit" name="cash_or_credit" list="option" class="form-control">
+						<input type="text" id="cash_or_credit" name="cash_or_credit" list="option" class="form-control" required>
 						<datalist id="option">
 							<option>C-Cash</option>
 							<option>R-Credit</option>
@@ -687,7 +693,7 @@
 					access: 'insertData'
 				},
 				success: function(data){
-					//console.log(data);
+					console.log(data);
 					$('#productQuantity'+id).val(data.quantity);
 					$('#purchaseRate'+id).val(data.purchaseRate);
 					$('#batchNo'+id).val(data.batchNo);

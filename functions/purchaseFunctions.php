@@ -105,9 +105,9 @@ function insertData(){
 			//$data['productType'] = $details->first()['productType'];
 			//$data['productGroup'] = $details->first()['productGroup'];
 			$data['purchaseRate'] = $invoiceDetails->first()['purchaseRate'];
-			$data['MRP'] = $details->first()['MRP'];
+			$data['MRP'] = $invoiceDetails->first()['MRP'];
 			$data['Tax'] = $details->first()['Tax'];
-			$data['VAT'] = $details->first()['VAT'];
+			$data['VAT'] = $invoiceDetails->first()['VAT'];
 			//$data['shelf'] = $details->first()['shelf'];
 			//$data['reorderLvl'] = $details->first()['reorderLvl'];
 			//$data['orderQuantity'] = $details->first()['orderQuantity'];
@@ -170,6 +170,7 @@ function deleteDrug(){
 }
 
 function getList($table){
+	print_r($_POST);
 	if (Input::exists()){
 		$db = DB::getInstance();
 

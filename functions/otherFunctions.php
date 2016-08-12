@@ -109,6 +109,28 @@ function save(){
 				));
 
 
+			// Get head id
+				$head_id = $db->get('parent_head', array('name', '=', "SUNDRY ACCOUNTS"))->first()['head_id'];
+
+				// Create child id
+				$child_id = $head_id."1";
+				$sub_heads = $db->query("SELECT * FROM child_heads WHERE child_id LIKE ?", array("$head_id%"));
+
+				if ($sub_heads->count()){
+					$last_entry = $sub_heads->count();
+					$child_id = $head_id.($last_entry+1);
+				}
+
+				$save = @$db->insert('child_heads', array(
+					'name' => Input::get('name'),
+					'parent_id' => $head_id,
+					'child_id' => $child_id,
+					'opening_balance' => Input::get('openingBalance'),
+					'closing_balance' => Input::get('openingBalance'),
+					'company_code' => 1
+				));
+
+
 			//print_r($save);
 			echo "<p id='productTypeMsg' class='alert alert-info'>Saved new " + Input::get('acType') + "entry</p>";
 		}else if (Input::get('status') == "Update"){
@@ -273,6 +295,7 @@ function importBills(){
 }
 
 function insertToTable(){
+	//print_r(expression)
 	if (Input::exists()){
 		$db = DB::getInstance();
 		$data = [];
@@ -317,7 +340,7 @@ function insertToTable(){
 					$data['list'].= "<td id='name_".$id."'><input type='number' step='any' class='form-control' name='sendQuantity_".$id."' id='sendQuantity_".$id."' oninput='calculate(".$id.")' /></td>";
 					$data['list'].= "<td id='pack_".$id."'><input type='number' class='form-control' id='pack_".$id."' name='pack_".$id."' value='".$drug['productQuantity']."' readonly></td>";
 					$data['list'].= "<td id='batch_".$id."'><input type='text' class='form-control' id=batch_".$id."' name='batch_".$id."' value='".$drug['batchNo']."' readonly></td>";
-					$data['list'].= "<td id='qty_".$id."'><input type='number' class='form-control' id='qty_".$id."' name='qty_".$id."' value='".$drug['purchaseSize']."' readonly></td>";
+					$data['list'].= "<td id='qty_".$id."'><input type='number' class='form-control' id='qty_".$id."' name='qty_".$id."' value='".$drug['tabQuantity']."' readonly></td>";
 					$data['list'].= "<td id='pr_".$id."'><input type='number' class='form-control' step='any' id='pr_".$id."' name='pr_".$id."' value='".$drug['purchaseRate']."' readonly ></td>";
 					$data['list'].= "<td id='mrp_".$id."'><input type='number' class='form-control' id='mrp_".$id."' name='mrp_".$id."' value='".$drug['MRP']."' readonly></td>";
 					$data['list'].= "<td id='exp_".$id."'><input type='text' class='form-control' id='exp_".$id."' name='exp_".$id."' value='".$drug['expiryDate']."' readonly></td>";
@@ -602,11 +625,15 @@ function show_return_products(){
 		$db = DB::getInstance();
 		$i = 1;
 		$purchase_return = $db->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')));
-		if ($purchase_return->count() > 0){
+		if ($purchase_return->count()){
+			//print_r($purchase_return->first()['product_details']);
 			foreach (json_decode($purchase_return->first()['product_details'], true) as $return_bill => $return) {
 				$purchaseBills = DB::getInstance()->query("SELECT * FROM purchaseBills WHERE batchNo = ? AND productName = ?", array($return['batchNo'], $return_bill));
 				echo "<tr>";
 				if (Input::get('credit_note') == 'true'){
+					if ($purchase_return->first()['adjusted'] == 'Y'){
+						continue;
+					}
 					echo "<td>".get_mfg($purchase_return->first()['supplier'])."</td>";
 				}
 				echo "<td>$return_bill</td>";
@@ -619,7 +646,8 @@ function show_return_products(){
 				echo "<td>0</td>";
 				if (Input::get('credit_note') == 'true'){
 					$value = $return['amount'];
-					echo "<td><input type=\"checkbox\" id=\"product_selected_$i\" name='product_return_value[]' value=\"$value\"></td>";
+					$bill_no = $purchase_return->first()['invoiceNo'];
+					echo "<td><input type=\"checkbox\" id=\"product_selected_$i\" name='product_return_value[]' value=".$value .",". $bill_no ." ". ($return['selected'] == 'y' ? "checked='true' disabled='disabled'": "") ."'></td>";
 				}else{
 					echo "<td>".$purchase_return->first()['invoiceDate']."</td>";
 				}
@@ -670,8 +698,8 @@ function recreate_return_bill(){
 				$data['list'].= "<td id='vat_".$id."'><input type='text' class='form-control' id='vat_".$id."' name='vat_".$id."' value='".$drug['VAT']."' readonly></td>";
 				$data['list'].= "<td id='scode_".$id."'><input type='text' class='form-control' id='scode_".$id."' name='scode_".$id."' value='' readonly></td>";
 				$data['list'].= "</tr>";
+				$id++;
 			}
-			$id++;
 		}
 		$data['count'] = $id - 1;
 		echo json_encode($data);
@@ -692,8 +720,50 @@ function get_mfg($supplier){
 
 function get_return_bill_amount(){
 	if (Input::exists()){
+		$returnBill = DB::getInstance()->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')))->first();
 		//echo Input::get('invoiceNo');
-		echo DB::getInstance()->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')))->first()['amount'];
+		if(!empty(Input::get('amount'))){
+			echo $returnBill['balance'];
+			// Update return bill balance
+			$update_balance = DB::getInstance()->query("UPDATE purchaseReturn SET balance = balance - ? WHERE invoiceNo = ?", array($returnBill['balance'], Input::get('invoiceNo')));	
+		}else{
+			echo $returnBill['balance'];
+
+			$update_balance = DB::getInstance()->query("UPDATE purchaseReturn SET balance = balance - ? WHERE invoiceNo = ?", array($returnBill['balance'], Input::get('invoiceNo')));
+			$returnBill = DB::getInstance()->get('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')))->first();
+			$update = DB::getInstance()->update('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')),
+						array(
+								'adjusted' => 'Y'
+							));
+		}
+		
+		// Update return bill with adjusted to Y
+		if ($returnBill['balance'] == 0 && !empty(Input::get('amount'))){
+			$update = DB::getInstance()->update('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')),
+						array(
+								'adjusted' => 'Y'
+							));
+		}else{
+			$amount = (int)$returnBill['balance'] - (int)Input::get('amount');
+			$update_balance = DB::getInstance()->update('purchaseReturn', array('invoiceNo', '=', Input::get('invoiceNo')), 
+				array(
+						'balance' => $amount
+					));
+
+			// Update the json string to reflect which product amount is paid
+			$db = DB::getInstance()->query(
+				"update purchaseReturn SET common_schema.extract_json_value(purchaseReturn.product_details, '/selected') = ? where common_schema.extract_json_value(purchaseReturn.product_details, '/amount') = ? and invoiceNo = ?", 
+				array('y', Input::get('amount'), Input::get('invoiceNo')));
+
+			// foreach (json_decode($returnBill['product_details'], true) as $details => $product){
+			// 	if ((int)$product['amount'] == (int)Input::get('amount')){
+
+			// 	}
+			// }
+			
+			//echo "Balance Updated";
+		}
+
 	}
 }
 

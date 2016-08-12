@@ -1,6 +1,6 @@
 // Global Variables for credit bills
 // Without these the function won't calculate total correctly
-var credit_total = 0, i = 1;
+var credit_total = 0, i = 1, return_bill = [], return_amount = [];
 
 // function get_new_data(source){
 // 	console.log(source);
@@ -101,10 +101,18 @@ function highlight(tableIndex) {
 	var td = $(tuple.cells);
 
 	var data = $(td[1]).html();
-	//console.log(tuple);
+	console.log("Table lenght => "+$('.credit-bills-div table tbody tr').length);
+	console.log("Table Index => "+ tableIndex)
+	
     // Just a simple check. If .highlight has reached the last, start again
     if( (tableIndex+1) > $('.details-table table tbody tr').length ){
         tableIndex = 0;
+    }
+
+    if ($('#credit_show').val() == 'true'){
+		if( (tableIndex+1) > $('.credit-bills-div table tbody tr').length ){
+        	tableIndex = 0;
+    	}
     }
     
     // Element exists?
@@ -113,6 +121,7 @@ function highlight(tableIndex) {
     	//console.log("herehraok");
         // Remove other highlights
         if ($('#credit_show').val() == 'true'){
+        	console.log("Removing CLass");
         	$('.credit-bills-div table tbody tr').removeClass('focus');	
         }else if ($('#return_bills').val() == 'return_invoice'){
 			$('.details-table table tbody tr').removeClass('focus');
@@ -143,7 +152,7 @@ $('#goto_first').click(function() {
 
 $('#goto_prev').click(function() {
 	if($('#credit_show').val() == 'true'){
-		var next = parseInt($('credit-bills-div table tbody tr.focus').index()) - 1;
+		var next = parseInt($('.credit-bills-div table tbody tr.focus').index()) - 1;
     	highlight(next);
 	}else if ($('#return_bills').val() == 'return_invoice'){
 		highlight($('.details-table table tbody tr.focus').index() - 1);	
@@ -155,7 +164,9 @@ $('#goto_prev').click(function() {
 
 $('#goto_next').click(function() {
 	if($('#credit_show').val() == 'true'){
-		var next = parseInt($('credit-bills-div table tbody tr.focus').index()) + 1;
+		console.log("Current Index => "+$('credit-bills-div table tbody tr.focus').index());
+		var next = parseInt($('.credit-bills-div table tbody tr.focus').index()) + 1;
+    	console.log("NExt => "+next);
     	highlight(next);
 	}else if ($('#return_bills').val() == 'return_invoice'){
 		highlight($('.details-table table tbody tr.focus').index() + 1);	
@@ -223,7 +234,7 @@ function selected(row){
 	if (path[0] == "purchaseReturn"){
 		$('#product').val(data).focus();
 		if($('#return_bills').val() == 'return_invoice'){
-			
+			console.log("REturn bill");
 			$('#product').val(data).focus();
 			var invoiceNo = $(td[0]).html();
 			recreate_return_bill(invoiceNo);
@@ -233,8 +244,15 @@ function selected(row){
 		}
 		insertToTable(batch);
 	}else if($('#credit_show').val() == "true"){
+		if ($('#bill_checked_'+(row+1)).prop('checked') == false){
+			$('#bill_checked_'+(row+1)).attr('checked', 'checked');	
+			return_bill.push(data);
+		}else{
+			$('#bill_checked_'+(row+1)).removeAttr('checked');
+			var removeItem = data;
+			return_bill.splice( $.inArray(removeItem, return_bill) ,1 );
+		}
 		
-		$('#bill_checked_'+(row+1)).attr('checked', 'checked');
 		
 	}else if (path[0] == "purchase"){
 		var tuple = $('.product-list table tbody tr');
@@ -309,6 +327,7 @@ function recreate_return_bill(invoiceNo){
 			option: 'recreate_return_bill'
 		},
 		success: function(data){
+			console.log(data);
 			// TODO
 			// Place the bill to its correct position
 			// Calculate the amount
@@ -334,7 +353,7 @@ function recreate_return_bill(invoiceNo){
 
 			// And set the form action to update page
 			$('#purchaseReturnForm').attr('action', 'update_purchase_return.php');
-
+			$('#return_bills').val("");
 			//console.log(data);
 		}
 	});
@@ -364,10 +383,12 @@ function add_credit_note(){
 				option: 'get_return_bill_amount'
 			},
 			success: function(data){
+				console.log("RETURN BILL = "+data);
+				//return_amount.push(data);
 				credit_total += parseInt(data);
 				$('#creditNote').val(credit_total);
 				this_total = credit_total;
-				console.log("TOTAL in loop "+this_total);
+				// console.log("TOTAL in loop "+ $('#creditNote').val(credit_total));
 				$('#credit_show').val("");
 			}
 		});
@@ -375,14 +396,45 @@ function add_credit_note(){
 	}
 
 	$.each($('#return_products_list input[type="checkbox"]:checked'), function(){
-		credit_total += parseInt($(this).val());
+		var values = $(this).val().split(",");
+		var bill_no = values[1];
 		console.log(credit_total);
+		if ($(this).attr('disabled') != 'disabled'){
+			$.ajax({
+				url: "functions/otherFunctions.php",
+				type: 'post',
+				data: {
+					amount: values[0],
+					invoiceNo: bill_no,
+					option: 'get_return_bill_amount'
+				},
+				success:function(data){
+					return_amount.push(data);
+					console.log("selected Item= "+data);
+					credit_total += data;
+					sum_credit();
+				}
+			});
+		}
 	});
-	$('#creditNote').val((credit_total + parseInt(credit_total)));
+	console.log("After sub addition = "+credit_total);
+	//$('#creditNote').val(parseInt(credit_total));
 
 	// Get the products selected and calculate the final total amount 
-	console.log("total -> "+credit_total);
+	sum_credit();
+	$('#creditNote').val(total);
 	getTotal(counter);
 	$('#creditModal').modal('hide');
+	credit_total = 0;
 	
+}
+
+function sum_credit(){
+	var total = parseInt($('#creditNote').val());
+	console.log("total -> "+total);
+	for (var i = 0; i < return_amount.length; i++){
+		total += parseInt(return_amount[i]);
+		console.log(return_amount[i]);
+	}
+	$('#creditNote').val(total);
 }
