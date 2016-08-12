@@ -17,7 +17,17 @@
 				'remote_host' => 'sql6.freemysqlhosting.net',
 				'remote_password' => 'mD1!qK8*',
 				'remote_username' => 'sql687707'
-				)
+			),
+			'remember' => array(
+				'cookie_name' => 'hash',
+				'cookie_expiry' => 604800
+			),
+			'session' => array(
+				'session_name' => 'user',
+				'token_name' => 'token',
+				'token_reg' => 'Rtoken',
+				'token_login' => 'Ltoken'
+			)
 		);
 
 	$GLOBALS['counter'] = 1;

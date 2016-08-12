@@ -4,10 +4,10 @@
 
 	"default": {
 
-		"host": "ftp.hotelwhiteresidency.in",
+		"host": "ftpes.hotelwhiteresidency.in",
 		"username": "hotel8cr",  // or null for anonymous login
 		"password": "Monty123**",
-		"path": "/home/hotel8cr/public_html/tslifecare.com",
+		"path": "/home/hotel8cr/",
 
 		"upload_on_save": true, // set *false* if you do not want to upload on save!
 
