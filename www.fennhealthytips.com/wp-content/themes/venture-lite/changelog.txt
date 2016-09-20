@@ -1,0 +1,90 @@
+v1.1.7  - Updated TGMPA include for companion plugin
+
+v1.1.6  - Updated TGMPA
+
+v1.1.5  - Exclude banner from home
+
+v1.1.4  - Moved companion plugin templates into unique dir in /partials/
+        - Removed demo logic from social buttons
+        - Changed demo banner in to full featured post/page banner
+        - Added wp_link_pages
+        - Fixed display issue with oversized images
+
+v1.1.3  - Moved landing page features into custom page template
+
+v1.1.2  - Removed userguide link from customizer head
+        - Added userguide section from customizer
+        - Default to partials/loop.php on frontpage.php
+        - Added TGMPA
+        - Removed all frontpage sidebar areas
+        - Removed all custom widgets
+        - Removed all frontpage kirki frontpage options
+        - Added condition to show subpage banner only on frontpage/X/ or subpages
+        - Added pagination to loop.php
+
+v1.1.1  - Fixed Copyright for theme in readme.txt
+        - Sanatized all form ellements in widgets admin
+        - Changed sanitize_key to esc_attr where appropriate
+        - Added a few additional escapes where appropriate
+
+v1.1.0  - Added support for custom logo
+        - Added sanitize and escape for all i/o in widgets
+        - Added escapes on all customizer output
+        - Added download links to all image copyright delerations
+        - Updated licence tags in style.css
+        - Added languages dir.
+        - Added custom sanitize functions to kirki
+        - Fixed all text-domain issues
+        - Updated kirki
+        - Fixed extra echos on _e( functions
+        - Removed all extra upsell messages in customizer
+        - Updated tags in style.css
+
+v1.0.9  - Added NiceScroll
+        - Updated screenshot
+        - Fixed css issues with banner display
+        - Fixed typo in description
+
+v1.0.8  - Fixed some enqueue prefixing
+        - Changed get_home_url(); to esc_url( home_url( '/' ) ) in logo link
+        - Changed mysite to example in demo links
+        - Fixed customizer button class
+        - Added centering classes for better display of some content rows
+        - Fixed testimonial attribution
+        - Added toggle between exerpt and full post on blogs
+        - Fixed pagination display issue on frontpage.php
+
+v1.0.7  - Updated licence info for kirki
+        - Fixed function prefixes
+
+v1.0.6  - Fixed several text domain issues
+
+v1.0.5  - Removed duplicate hard-coded title tags
+        - Fixed function prefixes
+        - Removed wp_register_*
+        - Removed wp_enqueue_script('jquery')
+        - Migrated customizer framework to kirki
+
+v1.0.4  - Added link to documentation
+        - Removed blank translation strings
+        - Prefixed customizer scripts function
+        - Fixed text domain to match name/dir
+        - Removed contact form and all related functions/css/js
+
+v1.0.3  - Added text domain declaration to style.css
+        - Fixed nested zip file in distribution dir
+        - Removed hard-coded script from footer
+        - Fixed: All theme text strings now translatable
+        - Added security esc_ filters on contact form fields
+        - Fixed all licence links to point directly at repo licences
+        - Fixed arrant comma in style.css
+        - Fixed several typos in the theme description
+        - Removed empty media queries
+        - Fixed duplicate menu issue on mobile views
+
+v1.0.2  - Fix body background color issue in safari
+
+v1.0.1  - Modify upsell to approved model
+        - Added missing twitter field in customizer
+
+v1.0.0  - Initial Launch 

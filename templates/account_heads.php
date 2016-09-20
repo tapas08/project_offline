@@ -14,6 +14,7 @@ $heads = $db->query("SELECT * FROM parent_head");
  					<span aria-hidden="true">&times;</span>
  				</button>
  				<center><h4 class="center">Account Heads</h4></center>
+ 				<p class="shortcuts"><b>Shortcuts</b>: <span>[N]</span> : Add New Sub Head | <span>[&#x21E7;&#x21E9;]</span> : To Navigate | <span>Numb Pad [8 2]</span> : To Navigate Sub Heads</p>
  			</div>
  			<div class="modal-body">
  				<div class="container-fluid">

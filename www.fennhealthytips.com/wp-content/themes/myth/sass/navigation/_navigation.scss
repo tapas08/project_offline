@@ -1,0 +1,135 @@
+/* Post navigation. */
+.post-navigation {
+	.nav-next,
+	.nav-previous {
+		min-height: 160px;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
+		background-position: center !important;
+		background-color: $color__background-post-navigation;
+	}
+	a {
+		display: block;
+		width: 100%;
+		min-height: 160px;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		text-decoration: none;
+	}
+	a:hover,
+	a:focus {
+		background: $color__background-overlay-hover;
+	}
+	.meta-nav,
+	.post-title {
+		display: table;
+		padding: 0 4px;
+		color: $color__text-alt-hover;
+		background: $color__background-post-navigation;
+	}
+	.meta-nav {
+		margin-bottom: 0.5em;
+		font-size: 14px;
+	}
+	.post-title {
+		margin-top: 1.5em;
+	}
+	a:hover .meta-nav,
+	a:focus .meta-nav,
+	a:hover .post-title,
+	a:focus .post-title {
+		color: $color__text-alt-hover;
+		background: $color__link-hover;
+	}
+}
+
+/* Comment navigation. */
+#comment-nav-above {
+	padding-top: 0.75em;
+}
+#comment-nav-below {
+	padding-bottom: 0.75em;
+}
+.comment-navigation a {
+	padding: 0 4px;
+	color: $color__text-alt-hover;
+	background: $color__background-widget;
+}
+.comment-navigation a:hover,
+.comment-navigation a:focus {
+	color: $color__text-alt-hover;
+	background: $color__link-hover;
+}
+
+/* Pagination. */
+.pagination .nav-links {
+	margin-top: 24px;
+	margin-top: 1.5rem;
+	margin-bottom: 24px;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-size: 14px;
+	font-size: 0.875rem;
+	.page-numbers {
+		display: inline-block;
+		text-align: center;
+		padding: 2px 8px;
+		height: 26px;
+		min-height: 26px;
+		max-height: 26px;
+		transition: 0.25s;
+		border-radius: 3px;
+		text-decoration: none;
+		color: $color__text-alt;
+		background: $color__background-widget;
+	}
+	.prev {
+		float: left;
+	}
+	.next {
+		float: right;
+	}
+	.prev::before {
+		position: relative;
+		top: 1px;
+		content: '\f430';
+		font-family: Genericons;
+	}
+	.next::after {
+		position: relative;
+		top: 1px;
+		content: '\f429';
+		font-family: Genericons;
+	}
+	.current,
+	.page-numbers:not(.dots):hover,
+	.page-numbers:not(.dots):focus {
+		color: $color__text-alt-hover;
+	}
+	.page-numbers:not(.dots):hover ,
+	.page-numbers:not(.dots):focus{
+		background: $color__link-hover;
+	}
+	.page-numbers.current:hover {
+		background: $color__background-widget;
+	}
+}
+
+.infinite-scroll .pagination {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+@import "links";
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+@import "menus";
+
+/*--------------------------------------------------------------
+## Social
+--------------------------------------------------------------*/
+@import "social";

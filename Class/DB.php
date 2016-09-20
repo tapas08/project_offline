@@ -10,6 +10,7 @@ class DB{
 			$_count = 0,
 			$_city;
 
+	//@overwrite
 	private function __construct($remote_server = false){
 
 		try{
@@ -75,7 +76,7 @@ class DB{
 			$value = $where[2];
 
 			if (in_array($operator, $operators)){
-				$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+				echo $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 
 				if (!$this->query($sql, array($value))->error()){
 					return $this;

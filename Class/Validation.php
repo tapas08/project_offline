@@ -11,9 +11,9 @@
 
 		public function check($source, $items = array()){
 			foreach($items as $item => $rules){
+				
 				foreach($rules as $rule => $rule_value){
-
-					$value = $source[$item];
+					$value = $source[$item]; // $_POST['usersname'];
 
 					if ($rule === 'required' && empty($value)){
 						$this->addErrors("{$item} is required!");
@@ -45,16 +45,10 @@
 								}
 								break;
 
-							case 'room':
-								if($rule_value == $value){
-									$this->addErrors('Please Select Room!');
+							case 'numeric':
+								if (!is_numeric($value)){
+									$this->addErrors("username must be numeric!");
 								}
-								break;
-							case 'value':
-								if($value < $rule_value){
-									$this->addErrors('Please Enter valid rate');
-								}
-								break;
 							
 						}
 

@@ -443,7 +443,7 @@ if (!$user->isLoggedIn()){
 
 
                         <li class="open"> 
-                            <a href="index.php">
+                            <a href="dashboard.php">
                                 <i class="fa fa-dashboard"></i>
                                 <span class="title">Dashboard</span>
                             </a>

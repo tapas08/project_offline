@@ -1,0 +1,147 @@
+.widget {
+	margin: 0 0 1.5em;
+	font-size: 14px;
+	font-size: 0.875em;
+	color: white;
+
+	.widget-title {
+		position: relative;
+		margin: 0;
+		padding-bottom: 12px;
+		color: white;
+		font-size: 1.5em;
+	}
+	ul {
+		margin-left: 2.5em;
+	}
+	ul.sub-menu,
+	ul.children {
+		margin-left: 32px;
+		margin-left: 2rem;
+	}
+	li {
+		margin-top: 8px;
+		margin-top: 0.5rem;
+	}
+	&.myth_widget_recent_comments,
+	&.widget_recent_comments,
+	&.widget_categories,
+	&.widget_archive,
+	&.widget_recent_entries,
+	&.widget_rss,
+	&.widget_meta,
+	&.widget_pages,
+	&.widget_links {
+		ul {
+			margin: 0;
+			padding-left: 0;
+			list-style: none;
+		}
+	}
+	&.widget_categories,
+	&.widget_archive,
+	&.widget_rss,
+	&.widget_meta,
+	&.widget_pages,
+	&.widget_links {
+		li {
+			padding-bottom: 4px;
+		}
+		a {
+			display: inline-block;
+			padding: 4px 12px;
+			border-radius: 14px;
+			color: #999;
+			text-decoration: none;
+			background: $color__background-widget;
+		}
+		a:hover {
+			color: white;
+			background: $color__link-hover;
+		}
+	}
+	&.widget_recent_entries,
+	&.myth_widget_recent_comments {
+		li a {
+			text-decoration: none;
+			font-weight: bold;
+			color: #999;
+			background: $color__background-widget;
+			//box-shadow: inset 0 -0.5em 0 $color__background-widget;
+		}
+		li a:hover {
+			color: white;
+			background: $color__link-hover;
+		}
+		span.post-date,
+		div.comment-widget-author {
+			display: block;
+			font-style: italic;
+			font-size: 12px;
+		}
+		.comment-widget-author-link a {
+			color: white;
+			font-weight: normal;
+			background: transparent;
+		}
+		.comment-widget-author-link a:hover {
+			color: $color__link-hover;
+			background: transparent;
+		}
+	}
+	&.widget_calendar {
+		caption {
+			margin-bottom: 4px;
+		}
+		tbody td {
+			text-align: center;
+		}
+	}
+
+	/* Make sure select elements fit in widgets. */
+	select {
+		max-width: 100%;
+	}
+}
+
+/* Styles for Jetpack widgets. */
+.widget-grofile .widget-title  {
+	padding-bottom: 20px;
+}
+.widget_contact_info {
+	.contact-map {
+		margin-bottom: 20px;
+	}
+	.confit-address,
+	.confit-phone {
+		margin-bottom: 8px;
+	}
+}
+
+#secondary-inner .widget,
+#tertiary-inner .widget {
+	padding-bottom: 1.5rem;
+	margin: 1.5rem 0;
+	border-bottom: 2px solid #171717;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	#secondary-inner .widget:first-child {
+		margin: 0;
+	}
+	#tertiary-inner .widget:last-child {
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+}
+
+@media screen and (min-width: $breakpoint-full) {
+	#tertiary-inner .widget:first-child {
+		margin: 0;
+	}
+
+	#secondary-inner .widget:last-child {
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+}

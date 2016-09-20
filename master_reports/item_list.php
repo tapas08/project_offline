@@ -29,18 +29,23 @@
 <?php 
 require_once '../core/init.php';
 
-$db = DB::getInstance();
+if (Input::exists('get')){
 
-$item_list = $db->query("SELECT * FROM items");
+	$db = DB::getInstance();
 
-if ($item_list->count() > 0){
-	$x = 1;
-	foreach ($item_list->results() as $item_details => $item):
+	// Get the short name of Manufacturer
+	$short_name = DB::getInstance()->get('company_name', array('name', '=', Input::get('mfg')))->first()['abbreviation'];
+
+	$item_list = $db->query("SELECT * FROM items WHERE manufacturer = ? OR manufacturer = ?", array(Input::get('mfg'), $short_name));
+
+	if ($item_list->count() > 0){
+		$x = 1;
+		foreach ($item_list->results() as $item_details => $item):
 
 ?>
 			<tr>
 				<td><?php echo $x ?></td>
-				<td><?php echo $item['manufacturer'] ?></td>
+				<td><?php echo $short_name ?></td>
 				<td><?php echo $item['productName'] ?></td>
 				<td><?php echo $item['packSize'] ?></td>
 				<td><?php echo $item['productRate'] ?></td>
@@ -58,9 +63,9 @@ if ($item_list->count() > 0){
 
 <?php
 
-	endforeach;
+		endforeach;
+	}
 }
-
 ?>
 		</tbody>
 	</table>

@@ -22,7 +22,8 @@
                             <div class="form-group">
     							<label class="control-label span2" for="manufacture">MANUFACT. :-</label>
     							<div class="span10">
-      								<input type="text" class="form-control" placeholder="Manufactured" style="width:90%; height:25px;">
+      								<input type="text" id="mfg" class="form-control" placeholder="Manufactured" list="mfg_list" oninput="getMFGNames();" style="width:90%; height:25px;">
+                      <datalist id="mfg_list"></datalist>
     							</div>
                             </div>
                              <div class="clearfix"></div>

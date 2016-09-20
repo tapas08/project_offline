@@ -1,0 +1,382 @@
+# Copyright (C) 2015 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2016-05-11 13:00+0200\n"
+"PO-Revision-Date: 2016-05-11 13:00+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oops! Questa pagina non è stata trovata."
+
+#: 404.php:21
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Sembra che qui non ci sia ciò che stai cercando. Perché non provare uno di "
+"questi link oppure la ricerca?"
+
+#: 404.php:33
+msgid "Most Used Categories"
+msgstr "Categorie pi&ugrave; utilizzate."
+
+#: 404.php:51
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr "Prova a guardare negli archivi mensili. %1$s"
+
+#: comments.php:29
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgstr "Un pensiero su &ldquo;%2$s&rdquo;"
+
+#: comments.php:40 comments.php:61
+msgid "Comment navigation"
+msgstr "Navigazione commenti"
+
+#: comments.php:43 comments.php:64
+msgid "Older Comments"
+msgstr "Commenti Precedenti"
+
+#: comments.php:44 comments.php:65
+msgid "Newer Comments"
+msgstr "Commenti Recenti"
+
+#: comments.php:82
+msgid "Comments are closed."
+msgstr "Commendi disabilitati."
+
+#: footer.php:21
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: footer.php:21
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: footer.php:23
+#, php-format
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: functions.php:50
+msgid "Primary"
+msgstr "Primario"
+
+#: functions.php:51
+msgid "Secondary"
+msgstr "Secondario"
+
+#: functions.php:96
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:106
+msgid "Footer Sidebar One"
+msgstr "Footer Sidebar Uno"
+
+#: functions.php:108
+msgid "Shows widgets at footer sidebar one."
+msgstr ""
+
+#: functions.php:116
+msgid "Footer Sidebar Two"
+msgstr "Footer Sidebar Due"
+
+#: functions.php:118
+msgid "Shows widgets at footer sidebar two."
+msgstr ""
+
+#: functions.php:126
+msgid "Footer Sidebar Three"
+msgstr "Footer Sidebar Tre"
+
+#: functions.php:128
+msgid "Shows widgets at footer sidebar three."
+msgstr ""
+
+#: header.php:25
+msgid "Skip to content"
+msgstr ""
+
+#: inc/customizer.php:26
+msgid "Documentation"
+msgstr "Documentazione"
+
+#: inc/customizer.php:30
+msgid "Support"
+msgstr "Supporto"
+
+#: inc/customizer.php:34
+msgid "View Demo"
+msgstr "Guarda la Demo"
+
+#: inc/customizer.php:38
+msgid "Rate This Theme"
+msgstr "Vota Questo Tema"
+
+#: inc/customizer.php:49
+msgid "Matata Important Links"
+msgstr "Matata Links Importanti"
+
+#: inc/customizer.php:58
+msgid "Important Links"
+msgstr "Links Importanti"
+
+#: inc/customizer.php:67
+msgid "Panel to update matata theme options"
+msgstr ""
+
+#: inc/customizer.php:69
+msgid "Matata Options"
+msgstr "Opzioni Matata"
+
+#: inc/customizer.php:74
+msgid "Home Slider"
+msgstr ""
+
+#: inc/customizer.php:87
+msgid ""
+"Check to enable Home Slider. In order to see the slider you need to create a "
+"new page and assign it the \"Homepage with Slider\" template. Then set the "
+"page as front page."
+msgstr ""
+"Spunta per abilitare la Home Slider. Per vedere la slider devi creare una "
+"nuova pagina e assegnarle il template \"Homepage with Slider\". Poi modifica "
+"tale pagina come pagina principale."
+
+#: inc/customizer.php:104
+msgid "Slider Category"
+msgstr ""
+
+#: inc/customizer.php:107
+msgid "Select a category for the featured post slider"
+msgstr "Seleziona una categoria specifica per le slide"
+
+#: inc/customizer.php:117
+msgid "Number of slide items"
+msgstr "Numero delle slide"
+
+#: inc/customizer.php:119
+msgid "Enter the number of slide items"
+msgstr "Inserisci il numero delle slide"
+
+#: inc/customizer.php:127
+msgid "Primary Color"
+msgstr "Colore Primario"
+
+#: inc/customizer.php:138
+msgid "Choose a color to match your site"
+msgstr "Scegli il colore che meglio si abbina al tuo sito"
+
+#: inc/customizer.php:146
+msgid "Blog Post Style"
+msgstr ""
+
+#: inc/customizer.php:158
+msgid "Choose if you want to use magazine or normal blog post style."
+msgstr "Scegli se utilizzare lo stile magazine o blog."
+
+#: inc/customizer.php:161
+msgid "Blog"
+msgstr ""
+
+#: inc/customizer.php:162 inc/customizer.php:301
+msgid "Magazine"
+msgstr ""
+
+#: inc/customizer.php:169
+msgid "Default Layout"
+msgstr ""
+
+#: inc/customizer.php:181
+msgid ""
+"Select default layout. This layout will be reflected in whole site archives, "
+"categories, search page etc."
+msgstr ""
+"Seleziona il layout di default. Tale layout modificherà l'intero sito, "
+"archivi, categorie, pagina di ricerca etc."
+
+#: inc/customizer.php:185 inc/customizer.php:332
+msgid "Right Sidebar"
+msgstr "Sidebar Destra"
+
+#: inc/customizer.php:186 inc/customizer.php:333
+msgid "Left Sidebar"
+msgstr "Sidebar Sinistra"
+
+#: inc/customizer.php:187 inc/customizer.php:334
+msgid "No Sidebar Full Width"
+msgstr "No Sidebar Larghezza Intera"
+
+#: inc/customizer.php:188 inc/customizer.php:335
+msgid "No Sidebar Content Centered"
+msgstr "No Sidebar Contenuto Centrato"
+
+#: inc/customizer.php:195
+msgid "Custom CSS"
+msgstr "CSS Personalizzati"
+
+#: inc/customizer.php:206
+msgid "Your Custom CSS"
+msgstr "I tuoi CSS personalizzati"
+
+#: inc/customizer.php:213
+msgid "Social Links Area"
+msgstr ""
+
+#: inc/customizer.php:225
+msgid "Check to activate social links area"
+msgstr "Seleziona per attivare l'area dei social links"
+
+#: inc/customizer.php:233 inc/extras.php:126
+msgid "Facebook"
+msgstr ""
+
+#: inc/customizer.php:238 inc/extras.php:127
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer.php:243 inc/extras.php:128
+msgid "Google-Plus"
+msgstr ""
+
+#: inc/customizer.php:248 inc/extras.php:129
+msgid "Instagram"
+msgstr ""
+
+#: inc/customizer.php:253 inc/extras.php:130
+msgid "Pinterest"
+msgstr ""
+
+#: inc/customizer.php:258 inc/extras.php:131
+msgid "YouTube"
+msgstr ""
+
+#: inc/customizer.php:288
+msgid "Check to show in new tab"
+msgstr "Seleziona per mostrare in una nuova scheda"
+
+#: inc/customizer.php:300
+msgid "Default"
+msgstr ""
+
+#: inc/home-slider.php:54
+msgid "Home Slider is enabled but you have no posts with thumbnails."
+msgstr ""
+"L'opzione Home Slider è abilitata, ma non hai posts con delle miniature."
+
+#: inc/template-tags.php:29 inc/template-tags.php:73 inc/template-tags.php:78
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: inc/template-tags.php:34
+#, php-format
+msgid "by %s"
+msgstr "da %s"
+
+#: inc/template-tags.php:40 inc/template-tags.php:84 inc/template-tags.php:105
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:42 inc/template-tags.php:86 inc/template-tags.php:108
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: inc/template-tags.php:47
+msgid "0"
+msgstr ""
+
+#: inc/template-tags.php:47
+msgid "1"
+msgstr ""
+
+#: inc/template-tags.php:47
+msgid "%"
+msgstr ""
+
+#: inc/template-tags.php:91
+msgid "Leave a comment"
+msgstr "Lascia un commento"
+
+#: inc/template-tags.php:91
+msgid "1 Comment"
+msgstr "1 Commento"
+
+#: inc/template-tags.php:91
+msgid "% Comments"
+msgstr "% Commenti"
+
+#: inc/template-tags.php:115 template-parts/content-page.php:33
+#, php-format
+msgid "Edit %s"
+msgstr "Modifica %s"
+
+#: search.php:19
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Risultati della Ricerca per: %s"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Nessun Risultato"
+
+#: template-parts/content-none.php:21
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Pronto a pubblicare il tuo primo post? <a href=\"%1$s\">Inizia da qui</a>."
+
+#: template-parts/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Spiacenti, ma la tua ricerca non ha prodotto nessun risultato. Riprova con "
+"altre parole chiave."
+
+#: template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Non siamo riusciti a trovare ciò che cerchi. Forse la ricerca può aiutare."
+
+#: template-parts/content-page.php:22 template-parts/content-single.php:34
+#: template-parts/content.php:36
+msgid "Pages:"
+msgstr "Pagine:"
+
+#: template-parts/content.php:40
+msgid "Read More"
+msgstr "Leggi Tutto"
+
+#: template-parts/homepage.php:50
+msgid "&laquo; Older Entries"
+msgstr "&laquo;  Articoli Precedenti"
+
+#: template-parts/homepage.php:51
+msgid "Newer Entries &raquo;"
+msgstr "Articoli Successivi &raquo;"
+
+#~ msgid "Upload logo for your header"
+#~ msgstr "Carica il logo per la tua testata"

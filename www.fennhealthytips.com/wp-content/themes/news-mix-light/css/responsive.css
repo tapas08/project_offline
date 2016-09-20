@@ -1,0 +1,2090 @@
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+.sf-arrows li ul li .sf-with-ul:after {
+	background-image:url(../images/background/menu-arrow@2x.png);
+	background-size:7px 12px;
+}
+.kopa-carousel-widget .carousel-nav .carousel-prev,
+.home-slider .flex-prev,
+.gallery-slider .flex-prev,
+.kopa-single-slider .flex-prev {
+	background-image:url(../images/slider/flex-prev@2x.png);
+	background-size:13px 20px;
+}
+.kopa-carousel-widget .carousel-nav .carousel-next,
+.home-slider .flex-next,
+.gallery-slider .flex-next,
+.kopa-single-slider .flex-next {
+	background-image:url(../images/slider/flex-next@2x.png);
+	background-size:13px 20px;
+}
+.kopa-video-widget ul li .entry-item .entry-content .entry-thumb .play-icon,
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list .play-icon,
+.kp-gallery-carousel .play-icon,
+.kopa-featured-widget .entry-thumb .play-icon,
+.kopa-entry-list-widget .entry-thumb .play-icon {	
+	background-image:url(../images/icons/play-icon@2x.png);
+	background-size:11px 13px;
+}
+.kopa-twitter-widget .tweetList li {
+	background:url(../images/icons/twitter@2x.png) no-repeat 0 0;
+	background-size:35px 35px;
+}
+.widget-area-13 {
+	background:url(../images/background/bottom-sidebar-bg@2x.png) no-repeat 0 0 #0a0a0a;
+	background-size:180px 167px;
+}
+.widget-area-14 {
+	background:url(../images/background/bottom-sidebar-bg-2@2x.png) no-repeat right bottom #0a0a0a;
+	background-size:154px 155px;
+}
+#back-top a {    
+    background-image:url(images/icons/arrow-up@2x.png);
+	background-size:20px 20px;
+}
+.entry-thumb-slider .flex-prev {
+	background-image:url(../images/slider/small-flex-prev@2x.png);
+	background-size:7px 10px;	
+}
+.entry-thumb-slider .flex-next {
+	background-image:url(../images/slider/small-flex-next@2x.png);
+	background-size:7px 10px;	
+}
+.kp-gallery-slider .flex-prev {
+	background-image:url(../images/slider/flex-prev-2@2x.png);
+	background-size:25px 41px;	
+}
+.kp-gallery-slider .flex-next {
+	background-image:url(../images/slider/flex-next-2@2x.png);	
+	background-size:25px 41px;
+}
+.kp-gallery-carousel .flex-prev {
+	background-image:url(../images/slider/small-flex-prev-2@2x.png);
+	background-size:11px 18px;
+}
+.kp-gallery-carousel .flex-next {
+	background-image:url(../images/slider/small-flex-next-2@2x.png);
+	background-size:11px 18px;
+}
+.kp-gallery-carousel .flex-prev:hover {
+	background-image:url(../images/slider/small-flex-prev-2-hover@2x.png);
+	background-size:11px 18px;
+}
+.kp-gallery-carousel .flex-next:hover {
+	background-image:url(../images/slider/small-flex-next-2-hover@2x.png);
+	background-size:11px 18px;
+}
+.kp-gallery-slider .play-icon {
+	background-image:url(../images/icons/big-play-icon@2x.png);
+	background-size:25px 30px;
+}
+
+
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1083px) {
+	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:980px;
+}
+#main-col {
+	width:579px;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:600px;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+
+.kopa-style-full #header-top .kp-headline {
+	width:550px;
+}
+
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:360px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:360px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:170px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:165px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:264px;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:196px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:145px;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background-position:629px 0;
+}
+.widget-area-13 {
+	width:579px;
+}
+.widget-area-14 {
+	width:300px;
+}
+
+.widget-area-13 .textwidget {
+	width:323px;
+}
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:246px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul li {
+	width:269px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:509px;
+}
+#comments .comments-list .children .comment-body {
+    width:439px;
+}
+.kp-l-col {
+	width: 604px;
+}
+
+
+
+}
+
+@media only screen and (min-width: 980px) and (max-width: 1023px) {
+	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:900px;
+}
+#main-col {
+	width:539px;
+	padding-right:15px;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:550px;
+}
+.kopa-style-full #header-top .kp-headline {
+	width:520px;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+#logo-image {
+	margin:15px 0 0 15px;
+}
+.top-banner {
+	margin:15px 15px 0 0;
+}
+#header-middle {
+	height:95px;
+}
+#header-bottom {
+	padding:15px 0 11px;
+}
+#main-menu {
+	display:none;
+}
+#mobile-menu {
+	display:block;
+}
+
+#main-content {
+	padding:15px;
+}
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:340px;
+	padding-right:15px;
+}
+.widget-area-2 {
+	width:168px;
+	padding:0 15px
+}
+.sidebar {
+	padding-left:15px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+.home-slider .flex-direction-nav a {
+	top:56%;
+}
+.kopa-carousel-widget .carousel-nav a {
+	top:50px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:340px;
+	padding-left:15px;
+}
+.widget-area-6 {
+	width:168px;
+	padding-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:170px;
+	margin-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:155px;
+}
+.kp-headline-title {
+	padding:10px 15px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:254px;
+}
+.widget-area-9 {
+	padding-right:15px;
+}
+.widget-area-10 {
+	padding-left:15px;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:186px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:149px;
+	margin-left:15px;
+	padding-left:15px;
+}
+.list-container-2 .tabs-2 li a {
+	padding:0 10px;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background-position:569px 0;
+}
+.widget-area-13 {
+	width:539px;
+	padding:15px;
+}
+.widget-area-14 {
+	width:300px;
+	padding:15px;
+}
+
+.widget-area-13 .textwidget {
+	width:283px;
+}
+
+#footer-menu li {
+	margin:0 0 0 15px;
+}
+
+.kp-gallery-slider .mask {
+	margin:20px 185px;
+	width:500px !important;
+}
+
+.elements-box .kopa-button {
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.article-list li .entry-item .entry-thumb,
+.entry-box .entry-thumb,
+.avatar-thumb {
+	margin-right:15px;
+}
+.kopa-single-slider .flex-caption a {
+	margin:0 15px;
+}
+.about-author-detail {
+	padding:15px 15px 10px;
+}
+
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:226px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul {
+	margin:0 -15px;
+}
+.kopa-related-post ul li {
+	width:254px;
+	margin:10px 15px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:469px;
+}
+#comments .comments-list .children .comment-body {
+    width:399px;
+}
+.kopa-style-full #header-top .kp-headline-title {
+	margin-left:15px;
+}
+.kopa-style-full #header-top .social-search-box {
+	margin-right:15px;
+}
+.kp-l-col {
+	width: 554px;	
+}
+.widget-area-15 {
+	margin-right: 15px;
+}
+
+
+}
+
+@media only screen and (min-width: 800px) and (max-width: 979px) {
+	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:720px;
+}
+#main-col {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:370px;
+}
+.kopa-style-full #header-top .kp-headline {
+	width:340px;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+#logo-image {
+	margin:15px 0 0 15px;
+	width:21.669794%;
+}
+.top-banner {
+	margin:15px 15px 0 0;
+	width:43.902439%;
+}
+#header-middle {
+	height:75px;
+}
+#header-bottom {
+	padding:15px 0 11px;
+}
+#main-menu {
+	display:none;
+}
+#mobile-menu {
+	display:block;
+}
+
+#main-content {
+	padding:15px;
+}
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:476px;
+	padding-right:15px;
+}
+.widget-area-2 {
+	width:183px;
+	padding:0 0 0 15px;
+	border-right:none;
+	margin-right:0;
+}
+.sidebar {
+	padding-left:0px;
+	border-left:none;
+	width:100%;
+	margin-top:25px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+.home-slider .flex-direction-nav a {
+	top:56%;
+}
+.kopa-carousel-widget .carousel-nav a {
+	top:50px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:476px;
+	padding-left:15px;
+}
+.widget-area-6 {
+	width:183px;
+	padding-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:230px;
+	margin-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:230px;
+}
+.kp-headline-title {
+	padding:10px 15px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:329px;
+}
+.widget-area-9 {
+	padding-right:15px;
+}
+.widget-area-10 {
+	padding-left:15px;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:261px;
+}
+
+.kopa-adv-widget {
+	display:none;
+}
+
+.kopa-audio-widget .older-post li a {
+	width:auto;
+	line-height:21px;
+}
+.widget-area-12 .widget .widget-title {
+	font-size:20px;
+}
+.list-container-2 {
+	left:185px;
+}
+.widget-area-12 .widget .widget-title .title-text {
+	padding:9px 5px 7px 15px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:113px;
+	margin-left:15px;
+	padding-left:15px;
+}
+.list-container-2 .tabs-2 li a {
+	padding:0 5px;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background-position:479px 0;
+}
+.widget-area-13 {
+	width:449px;
+	padding:15px;
+}
+.widget-area-14 {
+	width:210px;
+	padding:15px;
+}
+
+.widget-area-13 .textwidget {
+	width:254px;
+}
+.bottom-sidebar .newsletter-form .submit,
+.bottom-sidebar .search-form .submit {
+	font-size:12px;
+	padding:9px 10px 10px;
+}
+.bottom-sidebar .newsletter-form .email,
+.bottom-sidebar .search-form .search-form-field {
+	width:135px;
+}
+
+#footer-menu li {
+	margin:0 0 0 15px;
+}
+
+.kp-gallery-slider .mask {
+	margin:20px 145px;
+	width:400px !important;
+}
+.kp-gallery-caption {
+	padding:10px 15px;
+}
+
+.widget-area-12 .kopa-entry-list-widget .entry-date {
+	font-size:11px;
+}
+
+.widget-area-13 #footer-logo {
+	width:180px;
+	margin-right:15px;
+}
+
+.elements-box .kopa-button {
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.article-list li .entry-item .entry-thumb,
+.entry-box .entry-thumb,
+.avatar-thumb {
+	margin-right:15px;
+}
+.kopa-single-slider .flex-caption a {
+	margin:0 15px;
+}
+.about-author-detail {
+	padding:15px 15px 10px;
+}
+
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:301px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul {
+	margin:0 -15px;
+}
+.kopa-related-post ul li {
+	width:330px;
+	margin:10px 15px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:620px;
+}
+#comments .comments-list .children .comment-body {
+    width:550px;
+}
+
+.kopa-single-2 .entry-comments span, 
+.kopa-single-2 .entry-view span {
+	margin-right:5px;
+}
+.entry-comments {
+	margin:0 10px;
+}
+.kopa-style-full #header-top .kp-headline-title {
+	margin-left:15px;
+}
+.kopa-style-full #header-top .social-search-box {
+	margin-right:15px;
+}
+.widget-area-15 {
+	margin-right: 0;
+}
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 799px) {
+	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:768px;
+}
+#main-col {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:418px;
+}
+.kopa-style-full #header-top .kp-headline {
+	width:388px;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+#logo-image {
+	margin:15px 0 0 15px;
+	width:21.669794%;
+}
+.top-banner {
+	margin:15px 15px 0 0;
+	width:43.902439%;
+}
+#header-middle {
+	height:70px;
+}
+#header-bottom {
+	padding:15px 0 11px;
+}
+#main-menu {
+	display:none;
+}
+#mobile-menu {
+	display:block;
+}
+
+#main-content {
+	padding:15px;
+}
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:524px;
+	padding-right:15px;
+}
+.widget-area-2 {
+	width:183px;
+	padding:0 0 0 15px;
+	border-right:none;
+	margin-right:0;
+}
+.sidebar {
+	padding-left:0px;
+	border-left:none;
+	width:100%;
+	margin-top:25px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+.home-slider .flex-direction-nav a {
+	top:56%;
+}
+.kopa-carousel-widget .carousel-nav a {
+	top:50px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:524px;
+	padding-left:15px;
+}
+.widget-area-6 {
+	width:183px;
+	padding-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:254px;
+	margin-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:254px;
+}
+.kp-headline-title {
+	padding:10px 15px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:353px;
+}
+.widget-area-9 {
+	padding-right:15px;
+}
+.widget-area-10 {
+	padding-left:15px;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:285px;
+}
+
+.kopa-adv-widget {
+	display:none;
+}
+
+.kopa-audio-widget .older-post li a {
+	width:auto;
+	line-height:21px;
+}
+.widget-area-12 .widget .widget-title {
+	font-size:20px;
+}
+.list-container-2 {
+	left:185px;
+}
+.widget-area-12 .widget .widget-title .title-text {
+	padding:9px 5px 7px 15px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:122px;
+	margin-left:15px;
+	padding-left:15px;
+}
+.list-container-2 .tabs-2 li a {
+	padding:0 5px;
+	font-size:11px;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background-position:483px 0;
+}
+.widget-area-13 {
+	width:453px;
+	padding:15px;
+}
+.widget-area-14 {
+	width:254px;
+	padding:15px;
+}
+
+.widget-area-13 .textwidget {
+	width:278px;
+}
+.bottom-sidebar .newsletter-form .submit,
+.bottom-sidebar .search-form .submit {
+	font-size:12px;
+	padding:9px 10px 10px;
+}
+.bottom-sidebar .newsletter-form .email,
+.bottom-sidebar .search-form .search-form-field {
+	width:179px;
+}
+
+#footer-menu li {
+	margin:0 0 0 15px;
+}
+
+.kp-gallery-slider .mask {
+	margin:20px 135px;
+	width:468px !important;
+}
+.kp-gallery-caption {
+	padding:10px 15px;
+}
+
+.widget-area-12 .kopa-entry-list-widget .entry-date {
+	font-size:11px;
+}
+
+.widget-area-13 #footer-logo {
+	width:160px;
+	margin-right:15px;
+}
+
+.elements-box .kopa-button {
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.article-list li .entry-item .entry-thumb,
+.entry-box .entry-thumb,
+.avatar-thumb {
+	margin-right:15px;
+}
+.kopa-single-slider .flex-caption a {
+	margin:0 15px;
+}
+.about-author-detail {
+	padding:15px 15px 10px;
+}
+
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:325px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul {
+	margin:0 -15px;
+}
+.kopa-related-post ul li {
+	width:354px;
+	margin:10px 15px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:668px;
+}
+#comments .comments-list .children .comment-body {
+    width:598px;
+}
+
+.kopa-single-2 .entry-comments span, 
+.kopa-single-2 .entry-view span {
+	margin-right:5px;
+}
+.entry-comments {
+	margin:0 10px;
+}
+
+/* =========================================================
+404 Page
+============================================================ */
+#back-top {
+	display:none !important;
+}
+.kopa-style-full #header-top .kp-headline-title {
+	margin-left:15px;
+}
+.kopa-style-full #header-top .social-search-box {
+	margin-right:15px;
+}
+.kp-l-col {
+	width: 100%;
+}
+.widget-area-15 {
+	margin-right: 0;
+}
+
+
+}
+
+@media only screen and (min-width: 640px) and (max-width: 767px) {
+	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:560px;
+}
+#main-col {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:330px;
+}
+.kopa-style-full #header-top .kp-headline {
+	width:280px;
+}
+.kp-headline-title {
+	display:none;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+#logo-image {
+	margin:15px 0 0 15px;
+	width:21.669794%;
+}
+.top-banner {
+	margin:15px 15px 0 0;
+	width:43.902439%;
+}
+#header-middle {
+	height:70px;
+}
+#header-bottom {
+	padding:15px 0 11px;
+}
+#main-menu {
+	display:none;
+}
+#mobile-menu {
+	display:block;
+}
+
+#main-content {
+	padding:15px;
+}
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:100%;
+	padding-right:0px;
+	margin-right:0;
+	border-right:none;
+	margin-bottom:25px;
+}
+.widget-area-2 {
+	width:100%;
+	padding:0;
+	border-right:none;
+	border-left:none;
+	margin-right:0;
+}
+.sidebar {
+	padding-left:0px;
+	border-left:none;
+	width:100%;
+	margin-top:25px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+.home-slider .flex-direction-nav a {
+	top:56%;
+}
+.kopa-carousel-widget .carousel-nav a {
+	top:50px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:100%;
+	padding-left:0px;
+	border-left:none;
+}
+.widget-area-6 {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+	margin-bottom:25px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:258px;
+	margin-right:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:257px;
+}
+.kp-headline-title {
+	padding:10px 15px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:249px;
+}
+.widget-area-9 {
+	padding-right:15px;
+}
+.widget-area-10 {
+	padding-left:15px;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:181px;
+}
+
+.kopa-adv-widget {
+	display:none;
+}
+
+.kopa-audio-widget .older-post li a {
+	width:auto;
+	line-height:21px;
+}
+.widget-area-12 .widget .widget-title {
+	font-size:18px;
+}
+.list-container-2 {
+	left:160px;
+}
+.widget-area-12 .widget .widget-title .title-text {
+	padding:9px 0px 7px 10px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:81px;
+	margin-left:15px;
+	padding-left:15px;
+}
+.list-container-2 .tabs-2 li a {
+	padding:0 4px;
+	font-size:11px;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background-position:319px 0;
+}
+.widget-area-13 {
+	width:289px;
+	padding:15px;
+}
+.widget-area-14 {
+	width:210px;
+	padding:15px;
+}
+
+.widget-area-13 .textwidget {
+	width:100%;
+}
+.bottom-sidebar .newsletter-form .submit,
+.bottom-sidebar .search-form .submit {
+	font-size:12px;
+	padding:9px 10px 10px;
+}
+.bottom-sidebar .newsletter-form .email,
+.bottom-sidebar .search-form .search-form-field {
+	width:135px;
+}
+
+#footer-menu li {
+	margin:0 0 0 15px;
+}
+
+.kp-gallery-slider .mask {
+	margin:20px 105px;
+	width:320px !important;
+}
+.kp-gallery-caption {
+	padding:10px 15px;
+	display:none;
+}
+
+.widget-area-12 .kopa-entry-list-widget .entry-date {
+	font-size:11px;
+}
+
+.widget-area-13 #footer-logo {
+	width:100%;
+	margin-bottom:15px;
+	margin-right:0;
+}
+
+.elements-box .kopa-button {
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.article-list li .entry-item .entry-thumb,
+.entry-box .entry-thumb,
+.avatar-thumb {
+	margin-right:15px;
+}
+.kopa-single-slider .flex-caption a {
+	margin:0 15px;
+}
+.about-author-detail {
+	padding:15px 15px 10px;
+}
+
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:221px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul {
+	margin:0 -15px;
+}
+.kopa-related-post ul li {
+	width:250px;
+	margin:10px 15px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:460px;
+}
+#comments .comments-list .children .comment-body {
+    width:390px;
+}
+
+.kopa-single-2 .entry-comments span, 
+.kopa-single-2 .entry-view span {
+	margin-right:5px;
+}
+.entry-comments {
+	margin:0 10px;
+}
+
+/* =========================================================
+404 Page
+============================================================ */
+#back-top {
+	display:none !important;
+}
+
+.error-404 .left-col p {
+	font-size:100px;
+}
+.kopa-style-full #header-top .kp-headline-title {
+	margin-left:15px;
+}
+.kopa-style-full #header-top .social-search-box {
+	margin-right:15px;
+}
+.kp-l-col {
+	width: 100%;
+}
+.widget-area-15 {
+	margin-right: 0;
+}
+body {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 639px) {
+
+body {
+	padding:0;
+}	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:400px;
+}
+#main-col {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:180px;
+}
+.kopa-style-full #header-top .kp-headline {
+	width:130px;
+}
+.kp-headline-title {
+	display:none;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+#logo-image {
+	margin:15px;
+	width:370px;
+	text-align:center;
+	float:none;
+}
+.top-banner {
+	margin:15px 15px 0 0;
+	width:43.902439%;
+	display:none;
+}
+#header-middle {
+	height:95px;
+}
+#header-bottom {
+	padding:15px 0 11px;
+}
+#main-menu {
+	display:none;
+}
+#mobile-menu {
+	display:block;
+}
+
+#main-content {
+	padding:15px;
+}
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:100%;
+	padding-right:0px;
+	margin-right:0;
+	border-right:none;
+	margin-bottom:25px;
+}
+.widget-area-2 {
+	width:100%;
+	padding:0;
+	border-right:none;
+	border-left:none;
+	margin-right:0;
+}
+.sidebar {
+	padding-left:0px;
+	border-left:none;
+	width:100%;
+	margin-top:25px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+.home-slider .flex-direction-nav a {
+	top:56%;
+}
+.kopa-carousel-widget .carousel-nav a {
+	top:50px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:100%;
+	padding-left:0px;
+	border-left:none;
+}
+.widget-area-6 {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+	margin-bottom:25px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:100%;
+	margin-right:0px;
+	margin-bottom:25px;
+	border-bottom:1px solid #ebebeb;
+	padding-bottom:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:100%;
+}
+.kp-headline-title {
+	padding:10px 15px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:100%;
+}
+.widget-area-9 {
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+	margin-bottom:25px;
+}
+.widget-area-10 {
+	padding-left:0px;
+	border-left:none;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:302px;
+}
+
+.kopa-adv-widget {
+	display:none;
+}
+
+.kopa-audio-widget .older-post li a {
+	width:auto;
+	line-height:21px;
+}
+.widget-area-12 .widget .widget-title {
+	font-size:18px;
+	margin-bottom:40px;
+}
+.list-container-2 {
+	left:0px;
+	top:50px;
+}
+.widget-area-12 .widget .widget-title .title-text {
+	padding:9px 0px 7px 10px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:100%;
+	border-left:none;
+	margin-left:0px;
+	padding-left:0px;
+}
+.list-container-2 .tabs-2 li a {
+	padding:0 4px;
+	font-size:11px;
+	color:#000;
+}
+.list-container-2 .tabs-2 li.active a, .list-container-2 .tabs-2 li:hover a {
+	color:#e03d3d;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background:none;
+}
+.widget-area-13 {
+	width:370px;
+	padding:15px;
+}
+.widget-area-14 {
+	width:370px;
+	padding:15px;
+}
+
+.widget-area-13 .textwidget {
+	width:100%;
+}
+.bottom-sidebar .newsletter-form .submit,
+.bottom-sidebar .search-form .submit {
+	font-size:12px;
+	padding:9px 10px 10px;
+}
+.bottom-sidebar .newsletter-form .email,
+.bottom-sidebar .search-form .search-form-field {
+	width:295px;
+}
+
+#footer-menu li {
+	margin:0 0 0 15px;
+}
+
+.kp-gallery-slider .mask {
+	margin:20px;
+	width:330px !important;
+}
+.kp-gallery-caption {
+	padding:10px 15px;
+	display:none;
+}
+
+.widget-area-12 .kopa-entry-list-widget .entry-date {
+	font-size:11px;
+}
+
+.widget-area-13 #footer-logo {
+	width:100%;
+	margin-bottom:15px;
+	margin-right:0;
+}
+
+.elements-box .kopa-button {
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.article-list li .entry-item .entry-thumb,
+.entry-box .entry-thumb {
+	margin-right:0px;
+	width:100%;
+	float:none;
+	margin-bottom:15px;
+}
+.avatar-thumb {
+	margin-right:15px;
+}
+.kopa-single-slider .flex-caption a {
+	margin:0 15px;
+}
+.about-author-detail {
+	padding:15px 15px 10px;
+}
+
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:141px;
+	height:177px;
+}
+.tag-box a {
+	padding:6px 15px 8px;
+	margin-bottom:5px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul {
+	margin:0 -15px;
+}
+.kopa-related-post ul li {
+	width:370px;
+	margin:10px 15px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:300px;
+}
+#comments .comments-list .children .comment-body {
+    width:300px;
+}
+#comments .comments-list .children {
+	margin-left:0;
+}
+#comments-form #comment_name, 
+#comments-form #comment_email, 
+#comments-form #comment_url, 
+#contact-form #contact_name, 
+#contact-form #contact_email, 
+#contact-form #contact_url {
+	width:100%;
+}
+
+.kopa-single-2 .entry-comments span, 
+.kopa-single-2 .entry-view span {
+	margin-right:5px;
+}
+.entry-comments {
+	margin:0 10px;
+}
+
+/* =========================================================
+404 Page
+============================================================ */
+#back-top {
+	display:none !important;
+}
+
+.error-404 .left-col p {
+	font-size:70px;
+}
+.error-404 .right-col h1 {
+	font-size:22px;
+}
+
+.kopa-single-slider .flex-caption {
+	font-size:18px;
+	line-height:18px;
+	padding:10px 0;
+}
+#footer-nav {
+	text-align:center;
+}
+#footer-menu {
+	display:inline-block;
+}
+#footer-menu li:first-child {
+	margin:0;
+}
+#page-footer {
+	padding:10px 0 5px;
+}
+.kopa-style-full #header-top .kp-headline-title {
+	margin-left:15px;
+}
+.kopa-style-full #header-top .social-search-box {
+	margin-right:15px;
+}
+.kp-l-col {
+	width: 100%;
+}
+.widget-area-15 {
+	margin-right: 0;
+}
+
+}
+
+
+
+@media only screen and (max-width: 479px) {
+	
+body {
+	padding:0;
+}	
+/* =========================================================
+Colunms
+============================================================ */
+.wrapper{
+    width:320px;
+}
+#main-col {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+}
+
+/* =========================================================
+Header
+============================================================ */
+.kp-headline {
+	width:240px;
+	display:none;
+}
+.kp-headline-title {
+	display:none;
+}
+.kp-headline dd {
+	margin: 0 200px;
+}
+.sb-search-wrapper {
+	width:320px;
+}
+.social-links {
+	margin-bottom:10px;
+}
+#logo-image {
+	margin:15px;
+	width:290px;
+	text-align:center;
+	float:none;
+}
+.top-banner {
+	margin:15px 15px 0 0;
+	width:43.902439%;
+	display:none;
+}
+#header-middle {
+	height:95px;
+}
+#header-bottom {
+	padding:15px 0 11px;
+}
+#main-menu {
+	display:none;
+}
+#mobile-menu {
+	display:block;
+}
+
+#main-content {
+	padding:15px;
+}
+/* =========================================================
+Widget-area-1
+============================================================ */
+.widget-area-1 {
+	width:100%;
+	padding-right:0px;
+	margin-right:0;
+	border-right:none;
+	margin-bottom:25px;
+}
+.widget-area-1 .widget .widget-title {
+	font-size:22px;
+	line-height:16px;
+}
+.widget-area-1 .widget .widget-title .title-text {
+	padding:14px 5px 10px 15px;
+	margin-right:26px;
+}
+.widget-area-1 .widget .widget-title .title-text .triangle-right {
+    border-bottom-width: 40px;
+    border-right-width: 20px;
+    right: -20px;
+}
+.widget-area-1 .widget .widget-title .title-text .triangle-left {
+    border-left-width: 14px;
+    border-top-width: 28px;
+    right: -26px;
+}
+.widget-area-1 .widget .widget-title .title-right {
+	height:28px;
+}
+.widget .home-slider .entry-item .entry-title {
+	font-size:24px;
+	line-height:24px;
+}
+.list-container-1 ul li a {
+	padding:0 8px;
+}
+.kopa-article-list-widget .tab-container-1 ul li .entry-title {
+	font-size:18px;
+}
+.widget .widget-title {
+	font-size:20px;
+	line-height:18px;
+}
+.widget .widget-title .title-line {
+	height:1px;
+	margin-top:0;
+}
+.widget .entry-item .entry-title {
+	font-size:18px;
+	line-height:18px;
+}
+.widget-area-2 {
+	width:100%;
+	padding:0;
+	border-right:none;
+	border-left:none;
+	margin-right:0;
+}
+.sidebar {
+	padding-left:0px;
+	border-left:none;
+	width:100%;
+	margin-top:25px;
+}
+
+.kopa-carousel-widget .carousel-nav .carousel-next {
+	right:13px;
+}
+.home-slider .flex-direction-nav a {
+	top:56%;
+}
+.kopa-carousel-widget .carousel-nav a {
+	top:50px;
+}
+
+/* =========================================================
+Widget-area-7
+============================================================ */
+.widget-area-7 {
+	width:100%;
+	padding-left:0px;
+	border-left:none;
+}
+.widget-area-6 {
+	width:100%;
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+	margin-bottom:25px;
+}
+.widget-area-7 .kopa-entry-list-widget .entry-item {
+	width:100%;
+	margin-right:0px;
+	margin-bottom:25px;
+	border-bottom:1px solid #ebebeb;
+	padding-bottom:15px;
+}
+.widget-area-7 .kopa-entry-list-widget .older-post {
+	width:100%;
+}
+.kp-headline-title {
+	padding:10px 15px;
+}
+.widget-area-1 .widget .widget-title .title-text .triangle-bottom {
+	left:5px;
+}
+
+/* =========================================================
+Widget-area-8
+============================================================ */
+.widget-area-8 .widget .widget-title {
+	font-size:18px;
+}
+.widget-area-8 .widget .widget-title .title-text {
+    margin-right: 16px;
+    padding: 9px 0px 7px 10px;
+}
+.widget-area-8 .widget .widget-title .title-text .triangle-right {
+	border-right-width:10px;
+	right:-10px;
+}
+.widget-area-8 .widget .widget-title .title-text .triangle-left {
+	border-left-width:10px;
+	right:-16px;
+}
+.widget-area-8 .widget .widget-title .title-text .triangle-bottom {
+	left:5px;
+}
+.kopa-twitter-widget .load-more {
+	font-size:11px;
+	top:10px;
+	right:5px;
+}
+
+/* =========================================================
+Widget-area-9
+============================================================ */
+.widget-area-9,
+.widget-area-10 {
+	width:100%;
+}
+.widget-area-9 {
+	padding-right:0px;
+	border-right:none;
+	margin-right:0;
+	margin-bottom:25px;
+}
+.widget-area-10 {
+	padding-left:0px;
+	border-left:none;
+}
+
+.widget-area-9 .kopa-entry-list-widget .older-post li .entry-content,
+.widget-area-10 .kopa-entry-list-widget .older-post li .entry-content {
+	width:222px;
+}
+
+.kopa-adv-widget {
+	display:none;
+}
+
+.kopa-audio-widget .older-post li a {
+	width:257px;
+	line-height:18px;
+}
+.widget-area-12 .widget .widget-title {
+	font-size:18px;
+	margin-bottom:65px;
+}
+.list-container-2 {
+	left:0px;
+	top:50px;
+}
+.widget-area-12 .widget .widget-title .title-text {
+	padding:9px 0px 7px 10px;
+}
+
+/* =========================================================
+Widget area 12
+============================================================ */
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list li {
+	width:100%;
+	border-left:none;
+	margin-left:0px;
+	padding-left:0px;
+}
+.list-container-2 .tabs-2 li a {
+	padding:0 4px;
+	font-size:11px;
+	color:#000;
+}
+.list-container-2 .tabs-2 li.active a, .list-container-2 .tabs-2 li:hover a {
+	color:#e03d3d;
+}
+
+/* =========================================================
+Bottom sidebar
+============================================================ */
+.bottom-sidebar {
+	background:none;
+}
+.widget-area-13 {
+	width:290px;
+	padding:15px;
+}
+.widget-area-14 {
+	width:290px;
+	padding:15px;
+}
+
+.widget-area-13 .textwidget {
+	width:100%;
+}
+.bottom-sidebar .newsletter-form .submit,
+.bottom-sidebar .search-form .submit {
+	font-size:12px;
+	padding:9px 10px 10px;
+}
+.bottom-sidebar .newsletter-form .email,
+.bottom-sidebar .search-form .search-form-field {
+	width:210px;
+}
+
+#footer-menu li {
+	margin:0 0 0 5px;
+	font-size:10px;
+}
+
+.kp-gallery-slider .mask {
+	margin:0px;
+	width:290px !important;
+}
+.kp-gallery-carousel {
+	display:none;
+}
+.kp-gallery-slider.flexslider:hover .flex-next {
+	right:0;
+}
+.kp-gallery-slider.flexslider:hover .flex-prev {
+	left:0;
+}
+.kp-gallery-caption {
+	padding:10px 15px;
+	display:none;
+}
+
+.widget-area-12 .kopa-entry-list-widget .entry-date {
+	font-size:11px;
+}
+.kopa-gallery-page .widget-area-12 .widget .widget-title,
+.kopa-video-page .widget-area-12 .widget .widget-title {
+	margin-bottom:30px;
+}
+
+.widget-area-13 #footer-logo {
+	width:100%;
+	margin-bottom:15px;
+	margin-right:0;
+}
+
+.elements-box .kopa-button {
+	margin-bottom:10px;
+	margin-right:10px;
+}
+.article-list li .entry-item .entry-thumb,
+.entry-box .entry-thumb {
+	margin-right:0px;
+	width:100%;
+	float:none;
+	margin-bottom:15px;
+}
+.avatar-thumb {
+	margin-right:15px;
+}
+.kopa-single-slider .flex-caption a {
+	margin:0 15px;
+}
+.about-author-detail {
+	padding:15px 15px 10px;
+}
+
+.list-container-3 ul li {
+	width:94px;
+}
+
+
+/* =========================================================
+Single page style 1
+============================================================ */
+.entry-box footer p {
+	width:101px;
+	height:140px;
+}
+.entry-box footer p a.article-title {
+	font-size:14px;
+	line-height:18px;
+}
+.entry-box .social-link {
+	padding:10px;
+}
+.entry-box .social-link li {
+	margin-left:5px;
+}
+.tag-box a {
+	padding:6px 15px 8px;
+	margin-bottom:5px;
+}
+
+/*----- Related Article -----*/
+.kopa-related-post ul {
+	margin:0 -15px;
+}
+.kopa-related-post ul li {
+	width:290px;
+	margin:10px 15px;
+}
+
+/*---Comments List---*/
+#comments .comment-body {
+    width:220px;
+}
+#comments .comments-list .children .comment-body {
+    width:220px;
+}
+#comments .comments-list .children {
+	margin-left:0;
+}
+#comments .comment-body .comment-button {
+	margin-top:5px;
+}
+#comments-form #comment_name, 
+#comments-form #comment_email, 
+#comments-form #comment_url, 
+#contact-form #contact_name, 
+#contact-form #contact_email, 
+#contact-form #contact_url {
+	width:100%;
+}
+
+.kopa-single-2 .entry-comments span, 
+.kopa-single-2 .entry-view span {
+	margin-right:5px;
+}
+.entry-comments {
+	margin:0 10px;
+}
+
+/* =========================================================
+404 Page
+============================================================ */
+#back-top {
+	display:none !important;
+}
+.error-404 {
+	margin:0;
+}
+.error-404 .left-col {
+	width:100%;
+	margin:0;
+}
+.error-404 .right-col {
+	width:100%;
+	margin:0;
+	text-align:center;
+}
+.error-404 .left-col p {
+	font-size:70px;
+	text-align:center;
+}
+.error-404 .right-col h1 {
+	font-size:22px;
+}
+
+.kopa-single-slider .flex-caption {
+	display:none;
+	font-size:18px;
+	line-height:18px;
+	padding:10px 0;
+}
+#footer-nav {
+	text-align:center;
+}
+#footer-menu {
+	display:inline-block;
+}
+#footer-menu li:first-child {
+	margin:0;
+}
+#page-footer {
+	padding:10px 0 5px;
+}
+
+.gallery-slider .gallery-caption {
+	font-size:22px;
+	line-height:20px;
+	padding:5px 0;
+}
+.kopa-audio-widget .entry-thumb audio {
+	width:100%;
+}
+.article-list li .entry-item .entry-title {
+	font-size:20px;
+}
+.pagination .page-numbers li {
+	margin-left:10px;
+}
+.pagination .page-numbers li a, .pagination .page-numbers li span {
+	font-size:18px;
+}
+.entry-box .entry-title {
+	font-size:24px;
+	line-height:24px;
+}
+.kopa-carousel-widget .carousel-nav {
+	display:none;
+}
+.kopa-style-full #header-top .kp-headline-title {
+	margin-left:15px;
+}
+.kopa-style-full #header-top .social-search-box {
+	margin-right:0px;
+}
+.kp-l-col {
+	width: 100%;
+}
+.widget-area-15 {
+	margin-right: 0;
+}
+
+}

@@ -674,6 +674,7 @@
 				$('#discount_'+i).val(parseFloat($('#overallDisc').val()).toFixed(2));
 				//console.log(i);
 			}
+			calculate(counter);
 		};
 
 		window.getData = function(id, drug, batchNo, bill){
@@ -693,7 +694,7 @@
 					access: 'insertData'
 				},
 				success: function(data){
-					console.log(data);
+					//console.log(data);
 					$('#productQuantity'+id).val(data.quantity);
 					$('#purchaseRate'+id).val(data.purchaseRate);
 					$('#batchNo'+id).val(data.batchNo);
@@ -930,7 +931,7 @@
 		}
 
 		$('#invoiceNumber').keydown(function(e){
-			if (e.which == 13 && $('#modify').val() == 'true'){
+			if (e.which == 13 && $('#modify').val() == 'false'){
 				$.ajax({
 					url: 'functions/otherFunctions.php',
 					type: 'post',
@@ -947,7 +948,7 @@
 						}
 					}
 				});
-			}else if(e.which == 13 && $('#modify').val() != 'true'){
+			}else if(e.which == 13 && $('#modify').val() == 'true'){
 				convert_to_INV($('#invoiceNumber').val());
 			}
 		});

@@ -1,0 +1,48 @@
+<div id="tab-social-links" class="kopa-content-box tab-content tab-content-1">    
+
+    <div class="kopa-box-head">
+        <?php echo KopaIcon::getIcon('hand-right'); ?>
+        <span class="kopa-section-title"><?php _e('Social Links', kopa_get_domain()); ?></span>
+    </div><!--kopa-box-head-->
+
+    <div class="kopa-box-body">
+
+        <!-- RSS -->
+        <div class="kopa-element-box kopa-theme-options">
+            <span class="kopa-component-title"><?php _e('RSS URL', kopa_get_domain()); ?></span>
+            <p class="kopa-desc"><?php _e('Display the RSS feed button with the default RSS feed or enter a custom feed below. <br><code>Enter <b>"HIDE"</b> if you want to hide it</code>', kopa_get_domain()); ?></p>    
+            <input type="text" value="<?php echo get_option('kopa_theme_options_social_links_rss_url'); ?>" id="kopa_theme_options_social_links_rss_url" name="kopa_theme_options_social_links_rss_url">                                                     
+        </div><!--kopa-element-box-->
+
+        <!-- FACEBOOK -->
+        <div class="kopa-element-box kopa-theme-options">
+            <span class="kopa-component-title"><?php _e('Facebook_URL', kopa_get_domain()); ?></span>
+            <input type="url" value="<?php echo esc_url(get_option('kopa_theme_options_social_links_facebook_url')); ?>" id="kopa_theme_options_social_links_facebook_url" name="kopa_theme_options_social_links_facebook_url">
+        </div>
+
+        <!-- TWITTER -->
+        <div class="kopa-element-box kopa-theme-options">
+            <span class="kopa-component-title"><?php _e('Twitter URL', kopa_get_domain()); ?></span>
+            <input type="url" value="<?php echo esc_url(get_option('kopa_theme_options_social_links_twitter_url')); ?>" id="kopa_theme_options_social_links_twitter_url" name="kopa_theme_options_social_links_twitter_url">
+        </div>
+
+        <!-- Youtube -->
+        <div class="kopa-element-box kopa-theme-options">
+            <span class="kopa-component-title"><?php _e('Youtube URL', kopa_get_domain()); ?></span>
+            <input type="url" value="<?php echo esc_url(get_option('kopa_theme_options_social_links_youtube_url')); ?>" id="kopa_theme_options_social_links_youtube_url" name="kopa_theme_options_social_links_youtube_url">
+        </div>
+
+        <!-- Dribble -->
+        <div class="kopa-element-box kopa-theme-options">
+            <span class="kopa-component-title"><?php _e('Dribbble URL', kopa_get_domain()); ?></span>
+            <input type="url" value="<?php echo esc_url(get_option('kopa_theme_options_social_links_dribbble_url')); ?>" id="kopa_theme_options_social_links_dribbble_url" name="kopa_theme_options_social_links_dribbble_url">
+        </div>
+        
+
+        <!-- Flickr -->
+        <div class="kopa-element-box kopa-theme-options">
+            <span class="kopa-component-title"><?php _e('Flickr URL', kopa_get_domain()); ?></span>
+            <input type="url" value="<?php echo esc_url(get_option('kopa_theme_options_social_links_flickr_url')); ?>" id="kopa_theme_options_social_links_flickr_url" name="kopa_theme_options_social_links_flickr_url">
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,104 @@
+/*
+Theme Name: OS media
+Theme URI: http://www.mariomarino.eu/en/os-media-wordpress-theme/
+Author: mario marino
+Author URI: http://mariomarino.eu
+Description: Twenty Fourteen Child Theme for WordPress to makes your platform a multimedia station for video on-demand 
+Version: 1.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: twentyfourteen
+Tags: two-columns, left-sidebar, responsive-layout, custom-colors
+Text Domain: os_media
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+.sticky {}
+.screen-reader-text {} /* css class is needed in your theme css. See See: the Codex for an example implementation. */
+.gallery-caption {}
+.bypostauthor {}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+
+
+/************************************************************* HEAD ****************************************************************/
+#masthead {}
+	#masthead .header-main {padding-left: 8px} 
+		#masthead .header-main a img {max-width:220px}  /* LOGO */
+
+.site-header { max-width: 1260px; position: relative; width: 100%; z-index: 4; }
+
+.site-logo img{padding:3px;}
+
+
+/************************************************************* SIDEBAR ****************************************************************/
+h2.site-name { margin:3px -3px; padding: 3px -3px; font-size: 1.2em }
+#secondary { padding-top:12px }
+
+
+/************************************************************* CONTENT ****************************************************************/
+#primary { padding:0; margin:0;}
+
+.content-area { padding-top: 10px }
+
+article .hentry { width: 194px; float: left; margin: auto }
+	article .hentry img { margin: 5px 0 0 5px }
+
+
+/*************************************************** FEATURED CONTENT [MM2014] *********************************************************/
+
+.post-thumbnail img { width: 100%; }
+
+/* force featured content dim */
+.grid div.featured-content article.hentry, div.featured-content article.hentry { float:left; padding-left: 0px; width: 207px; height: 249px }
+/* dont wrap img of featured content */
+.grid div.featured-content article.hentry:nth-child( 2n+1 ) { clear: none }
+.grid div.featured-content article.hentry:nth-child( 3n+1 ) { clear: none }	
+
+	.grid  div.featured-content header.entry-header, div.featured-content header.entry-header{ height: 129px; padding: 3px 9px; border:none }
+		.grid div.featured-content header.entry-header p, div.featured-content header.entry-header p { margin:8px 0 0 0; padding:0; font-size:11px; line-height:auto }
+        .featured-content .hentry span.entry_exc, .featured-content .hentry span.excerpt {color:#777; line-height: 16px}
+	
+	.grid div.featured-content header.entry-title, div.featured-content header.entry-title { font-size:16px; line-height:auto; }
+
+.tagcloud a { }

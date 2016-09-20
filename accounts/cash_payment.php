@@ -64,6 +64,7 @@ if (Input::exists()){
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/accounts.css">
 </head>
 <body>
 	<?php require_once 'templates/header.php'; ?>
@@ -171,7 +172,6 @@ if (Input::exists()){
 		$('#head_name').keydown(function(e){
 			if (e.which == 13){
 				e.preventDefault();
-				// TODO
 				// Get the total amount to be paid
 				// Get the table details of last 7 ledgers
 				$.ajax({

@@ -1,6 +1,12 @@
 <?php
-require_once 'core/init.php';
+require_once('core/init.php');
 
+$user = new User();
+
+// if ($user->isLoggedIn()){
+//     $data = $user->data();
+//     //Redirect::to('dashboard.php');
+// }
 //$bcrypt = new Bcrypt;
 
 //echo $bcrypt->hash("ts@1#2#3#");
@@ -38,17 +44,18 @@ if (Input::exists()){
             $validate = new Validation();
 
             $validation = $validate->check($_POST,array(
-                'username' => array('required' => true),
+                'username' => array(
+                    'required' => true
+                    ),
                 'password' => array('required' => true)
             ));
 
             if ($validation->passed()){
                 $user = new User();
-
-                $remember = (Input::get('remember') === 'on') ? true : false;
+                $remember = (Input::get('rememberme') === 'on') ? true : false;
                 $login = $user->login(Input::get('username'), Input::get('password'), $remember);
                 if($login){
-                    Redirect::to("dashboard.php");
+                    //Redirect::to("dashboard.php");
                 }else{
                     echo 'username / password is incorrect!';
                 }
@@ -114,7 +121,7 @@ if (Input::exists()){
             <div id="login" class="login loginpage col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8">
                 <h1><a href="#" title="Login Page" tabindex="-1">Medisoft Admin</a></h1>
 
-                <form name="loginform" id="loginform" method="post" enctype="multipart/form-data">
+                <form name="loginform" id="loginform" action="sample.php" method="post" enctype="multipart/form-data">
                     <p>
                         <label for="user_login">Username<br/>
                             <input type="text" name="username" id="user_login" class="input"  size="20" /></label>
@@ -125,7 +132,7 @@ if (Input::exists()){
                     </p>
                     <input type="hidden" name="token" value="<?php echo Token::generate_for_loginForm(); ?>">
                     <p class="forgetmenot">
-                        <label class="icheck-label form-label" for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" class="skin-square-orange" checked> Remember me</label>
+                        <label class="icheck-label form-label" for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" class="skin-square-orange" checked> Remember me</label>
                     </p>
 
 

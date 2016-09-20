@@ -1,0 +1,32 @@
+.no-sidebar #content,
+.left-sidebar #content,
+.right-sidebar #content {
+	justify-content: center;
+}
+
+.no-sidebar #primary {
+	width: 100%;
+	padding: 0;
+	max-width: 670px;
+}
+
+.right-sidebar #tertiary {
+	display: block;
+	#tertiary-inner .widget:first-child {
+		margin: 0;
+	}
+}
+
+@media screen and (min-width: $breakpoint-full) {
+	.no-sidebar #primary,
+	.left-sidebar #primary,
+	.right-sidebar #primary {
+		max-width: 670px;
+	}
+	.left-sidebar #primary {
+		padding-right: 0;
+	}
+	.right-sidebar #primary {
+		padding-left: 0;
+	}
+}

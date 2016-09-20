@@ -1,0 +1,320 @@
+/* ADMIN BAR
+    -------------------------------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src:url('../../../../fonts/fontawesome-webfont.eot');
+  src:url('../../../../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+      url('../../../../fonts/fontawesome-webfont.woff2') format('woff2'),
+      url('../../../../fonts/fontawesome-webfont.woff') format('woff'),
+      url('../../../../fonts/fontawesome-webfont.ttf') format('truetype'),
+      url('../../../../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+}
+ .ab-top-menu>li#wp-admin-bar-madar-lite-retina:hover>.ab-item{color:#FFF;background:#1B8D71;background:-moz-linear-gradient(top,#1b8d71 1%,#27cda5 100%,#27cda5 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(1%,#1b8d71),color-stop(100%,#27cda5),color-stop(100%,#27cda5));background:-webkit-linear-gradient(top,#1b8d71 1%,#27cda5 100%,#27cda5 100%);background:-o-linear-gradient(top,#1b8d71 1%,#27cda5 100%,#27cda5 100%);background:-ms-linear-gradient(top,#1b8d71 1%,#27cda5 100%,#27cda5 100%);background:linear-gradient(to bottom,#1b8d71 1%,#27cda5 100%,#27cda5 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1B8D71', endColorstr='#27CDA5', GradientType=0)}
+h1.need-help-title:before,
+ #wp-admin-bar-madar-lite-retina .ab-item:before, li#wp-admin-bar-madar-lite-retina a:before {
+  font-family: 'FontAwesome';
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  font-style: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  content: "\f024";
+}
+
+ #wp-admin-bar-madar-lite-retina .ab-item:before, li#wp-admin-bar-madar-lite-retina a:before {
+  padding-right: 0px;
+  top: 2px;
+  color: #FFF;
+}
+
+li#wp-admin-bar-madar-lite-retina a {
+	color: #FFF;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #27CDA5;
+	background-image: -moz-linear-gradient(top, #27CDA5, #1B8D71);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#27CDA5), to(#1B8D71));
+	background-image: -webkit-linear-gradient(top, #27CDA5, #1B8D71);
+	background-image: -o-linear-gradient(top, #27CDA5, #1B8D71);
+	background-image: linear-gradient(to bottom, #27CDA5, #1B8D71);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9db668' , endColorstr='#ff768d44' , GradientType=0);
+	border-color: #1B8D71 #1B8D71 #4B5A2B;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+ .ab-top-menu>li#wp-admin-bar-madar-lite-retina:hover>.ab-item {
+  color: #FFF;
+  background: #1B8D71; /* Old browsers */
+background: -moz-linear-gradient(top,  #1B8D71 1%, #27CDA5 100%, #27CDA5 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#1B8D71), color-stop(100%,#27CDA5), color-stop(100%,#27CDA5)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #1B8D71 1%,#27CDA5 100%,#27CDA5 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #1B8D71 1%,#27CDA5 100%,#27CDA5 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #1B8D71 1%,#27CDA5 100%,#27CDA5 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #1B8D71 1%,#27CDA5 100%,#27CDA5 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1B8D71', endColorstr='#27CDA5',GradientType=0 ); /* IE6-9 */
+}
+.madar-lite-nav-tabs {
+    margin-bottom: 0;
+}
+.madar-lite-nav-tabs:after {
+    clear: both;
+    display: table;
+    content: " ";
+}
+.madar-lite-nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+    display: block;
+}
+.madar-lite-nav-tabs > li > a {
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    display: block;
+    padding: 10px 15px;
+	text-decoration: none;
+}
+.madar-lite-nav-tabs > li.active > a, .madar-lite-nav-tabs > li.active > a:focus, .madar-lite-nav-tabs > li.active > a:hover {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+.madar-lite-nav-tabs > li.madar-lite-w-red-tab > a {
+    color: red;
+    font-weight: bold;
+}
+.madar-lite-tab-content {
+	background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    width: 960px;
+    float: left;
+}
+.madar-lite-tab-content > .tab-pane {
+    display: none;
+}
+.madar-lite-tab-content > .active {
+    display: block;
+}
+
+.madar-lite-tab-pane {
+	padding: 30px;
+}
+.madar-lite-tab-pane {
+    display: none;
+}
+.madar-lite-tab-pane.active {
+    display: block;
+}
+
+#madar-lite-theme-version {
+    font-size: 50%;
+    padding: 10px;
+    background: #ccc;
+}
+#madar-lite-w-screenshot {
+    border: 1px solid #ccc;
+    margin-top: 30px;
+}
+.madar-lite-w-activated {
+    cursor:not-allowed !important;
+}
+.madar-tab-pane-half {
+    width: 45%;
+    float:left;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-top: 15px;
+    padding-right: 20px;
+    margin-bottom: 15px;
+}
+.madar-lite-tab-content img {
+    max-width: 100%;
+}
+.madar-tab-pane-first-half {
+    border-left: none;
+}
+.madar-tab-pane-center {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.madar-lite-welcome-title {
+    font-size: 32px;
+}
+.madar-lite-clear {
+    clear: both;
+}
+.madar-lite-child-theme-container {
+    position: relative;
+}
+.madar-lite-child-theme-description {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0;
+    max-width: 100%;
+    height: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    -webkit-transition-delay: 500ms;
+    -moz-transition-delay: 500ms;
+    -ms-transition-delay: 500ms;
+    -o-transition-delay: 500ms;
+    transition-delay: 500ms;
+}
+
+.madar-lite-child-theme-image-container {
+    position: relative;
+    overflow: hidden;
+}
+.madar-lite-child-theme-image-container img {
+    max-width: 100%;
+}
+.madar-lite-child-theme-details .theme-details {
+    padding: 10px;
+    background: none repeat scroll 0 0 #F1F1F1;
+    font-size: 18px;
+}
+
+.madar-lite-child-theme-details .theme-details.active {
+    background: none repeat scroll 0 0 #2B5F87;
+    color: #fff;
+}
+
+.madar-lite-child-theme-details .theme-details .theme-name {
+    float:left;
+}
+.madar-lite-child-theme-details .theme-details .preview {
+    margin-right: 2px;
+}
+.madar-lite-fre-pro table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.madar-lite-fre-pro table tr {
+    border-bottom: 1px solid #ddd;
+}
+.madar-lite-fre-pro table td {
+    padding: 30px;
+}
+.madar-lite-fre-pro table th {
+    padding-bottom: 30px;
+}
+.madar-lite-fre-pro table td span.dashicons-before:before {
+    font-size: 50px;
+    width: auto;
+    height: auto;
+}
+.madar-lite-fre-pro table td span.dashicons-yes:before {
+    color:green;
+}
+.madar-lite-fre-pro table td span.dashicons-no-alt:before {
+    color:red;
+}
+.madar-lite-fre-pro table tr.madar-lite-text-center {
+    text-align: center;
+}
+.madar-lite-actions-count {
+    padding: 0 6px;
+    display: inline-block;
+    background-color: #d54e21;
+    color: #fff;
+    font-size: 9px;
+    line-height: 17px;
+    font-weight: 600;
+    margin: 1px 0 0 2px;
+    vertical-align: top;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    z-index: 26;
+}
+.madar-action-required-box {
+    position: relative;
+}
+.madar-dismiss-required-action {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    background-color: #D24A4A;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+.madar-dismiss-required-action:hover {
+    background-color: #CC8C8C;
+}
+
+#github.madar-lite-tab-pane {
+  text-align: center;
+}
+
+#github.madar-lite-tab-pane .madar-tab-pane-half {
+  min-height: 160px;
+}
+
+#github.madar-lite-tab-pane .translate-button, #github .github-button {
+  margin-top: 20px;
+}
+
+#github.madar-lite-tab-pane .dashicons {
+  color: #0073aa;
+  font-size: 12px;
+  width: auto;
+}
+
+#github.madar-lite-tab-pane h4 {
+  margin:10px;;
+}
+
+#github.madar-lite-tab-pane p.review-link {
+  margin:0;
+}
+
+#github.madar-lite-tab-pane .madar-tab-pane-half hr {
+  display: none;
+}
+
+/*Breakpoints*/
+
+@media (max-width: 1200px) {
+  .madar-lite-tab-content {
+    width: 98%;
+  }
+  .madar-tab-pane-half {
+    width: 43%;
+  }
+}
+@media (max-width: 782px) {
+  #github.madar-lite-tab-pane .madar-tab-pane-half hr {
+    display:block;
+  }
+
+  .madar-tab-pane-half {
+    width: auto;
+    float: none;
+    border-left: none;
+  }
+  .madar-welcome-title, .madar-lite-tab-content h1 {
+    line-height: 30px;
+  }
+  .madar-lite-fre-pro table td {
+    padding: 30px 10px;
+  }
+}

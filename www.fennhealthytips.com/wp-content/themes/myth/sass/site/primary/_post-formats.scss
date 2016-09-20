@@ -1,0 +1,51 @@
+/* Aside post format. */
+.format-aside {
+	.special-content {
+		padding: 2em 30px;
+		color: white;
+		background: $color__background-aside-post-format;
+	}
+}
+
+/* Quote post format. */
+.format-quote {
+	.special-content {
+		background: $color__background-quote-post-format;
+		blockquote {
+			margin: 0;
+			padding: 2em 30px;
+			border: 0;
+			color: white;
+			font-size: 28px;
+			font-style: normal;
+			letter-spacing: -1px;
+			font-family: $font__headings;
+			background: transparent;
+			cite {
+				font-style: normal;
+				letter-spacing: 0;
+			}
+			a {
+				color: white;
+			}
+			a:hover,
+			a:active,
+			a:focus {
+				background: $color__background-widget;
+			}
+		}
+		p:last-child {
+			margin-bottom: 1em;
+		}
+	}
+}
+
+/* Link post format. */
+.format-link {
+	.special-content {
+		font-size: 22px;
+		padding: 1.0em 30px;
+		letter-spacing: -1px;
+		background: $color__background-link-post-format;
+	}
+}

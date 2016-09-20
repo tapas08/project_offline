@@ -11,6 +11,11 @@
 							include 'includes/errors/404.php';
 							exit();
 							break;
+
+						case 500:
+							echo "Internale server error!";
+							exit();
+							break;
 					}
 				}
 

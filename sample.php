@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		input{
-			box-shadow: inset 1px 2px 1px #000;
-		}
-	</style>
-</head>
-<body>
-	<div id="msg"></div>
-	<input type="text" id="name">
-	<input type="password" id="password">
-	<input type="submit" value="submit" onclick="submit();">
+<?php 
 
-	<script src="script/jquery-min.js"></script>
-	<script>
-	function submit(){
-		$.ajax({
-			url: "get.php",
-			type: "post",
-			data: {
-				username: $('#name').val(),
-				password: $('#password').val(),
-				option: "sqlInjection"
-			},
-			success: function(data){
-				$('#msg').html(data);
-			}
-		});
-	}
-	</script>
-</body>
-</html>
+require_once 'core/init.php';
+
+// $user = new User();
+
+if (Input::exists()){
+    if (Token::check_for_login(Input::get('token'))){
+            $validate = new Validation();
+
+            $validation = $validate->check($_POST,array(
+                'username' => array(
+                	'required' => true,
+                	'min' => 5,
+                	'max' => 10,
+                	'numeric' => true
+                	),
+                'password' => array('required' => true),
+                'c_pass' => array(
+                	'required' => true,
+                	'matches' => 'password'
+                	)
+            ));
+
+           print_r($validation->errors());
+    }
+}
+
+
+
+?>
+
+<form action="" method="POST">
+	<input type="text" name="username">
+	<input type="password" name="password">
+	<input type="password" name="c_pass">
+	<input type="hidden" name="token" value="<?php echo Token::generate_for_loginForm(); ?>">
+	<input type="submit">
+</form>

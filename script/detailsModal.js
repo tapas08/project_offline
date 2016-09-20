@@ -136,6 +136,9 @@ function highlight(tableIndex) {
 			$('.details-table table tbody tr:eq('+tableIndex+')').addClass('focus');
 		}else{
         	$('.details-table.product-list table tbody tr:eq('+tableIndex+')').addClass('focus');
+        	
+        	// Get details of product's purchase history
+        	getProductPurchaseDetails(tableIndex);
         }
     
         // Check if the event is on purchase return page
@@ -360,7 +363,7 @@ function recreate_return_bill(invoiceNo){
 }
 
 function add_credit_note(){
-	// TODO
+	
 	// Get return value of each products of each bill
 	// Calculate the total amount 
 	// Add that amount to net amount of the invoice
@@ -438,3 +441,28 @@ function sum_credit(){
 	}
 	$('#creditNote').val(total);
 }
+
+function getProductPurchaseDetails(row){
+	var tuple = $('.details-table table tbody tr');
+	var td = $(tuple[row].cells);
+
+	var product = $(td[1]).html();
+	var batch = $(td[2]).html();
+
+	$.ajax({
+		url: 'functions/otherFunctions.php',
+		type: 'post',
+		data: {
+			product: product,
+			batch: batch,
+			option: 'getProductPurchaseDetails'
+		},
+		success: function (data){
+			$('.purchase-details').html(data);
+		}
+	})
+}
+
+$('#new_product').click(function (){
+	window.open('http://www.tslifecare.com/purchase.php', '_blank', "toolbar=yes,scrollbars=yes,resizable=yes,fullscreen=yes, width=1200");
+});

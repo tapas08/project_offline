@@ -1,0 +1,15 @@
+.kp-dropcap.color,
+.kopa-carousel-widget .pager a,
+.kopa-video-widget ul li .entry-item .entry-content .entry-thumb .play-icon,
+.widget-area-12 .kopa-entry-list-widget .kopa-entry-list .play-icon,
+.kp-gallery-slider .play-icon,
+.kp-gallery-carousel .play-icon {
+	behavior: url(js/PIE.htc);
+}
+
+.kopa-single-slider .flex-caption,
+.article-list li .entry-item .entry-thumb .meta-box,
+.entry-box .entry-thumb .meta-box {
+	filter: alpha(opacity=80);
+}
+

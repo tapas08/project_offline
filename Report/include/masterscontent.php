@@ -14,10 +14,10 @@
                 <div class="content span12">
     	        	<div class=" span4 pre-scrollable">
 						<ul class="nav nav-stacked">
-							<li><a href="#" onclick="generateMasterReport('customers');">CUSTOMERS LIST</a></li>
-							<li><a href="#" onclick="generateMasterReport('company_name', 'item');">MFG WISE ITEM LIST</a></li>
-							<li><a href="#" onclick="generateMasterReport('stockist_name');">SUPPLIERS LIST</a></li>
-							<li><a href="#" onclick="generateMasterReport('company_name');">MANUFACTURER LIST</a></li>
+							<li><a href="../master_reports/customerList.php">CUSTOMERS LIST</a></li>
+							<li><a href="../master_reports/item_list.php">MFG WISE ITEM LIST</a></li>
+							<li><a href="../master_reports/supplier_list.php">SUPPLIERS LIST</a></li>
+							<li><a href="../master_reports/mfg_list.php">MANUFACTURER LIST</a></li>
 							<li><a href="#">PRODUCT CATEGORY</a></li>
 							<li><a href="#">ITEM SUMMERY</a></li>
 							<li><a href="#">CATEGORY WISE ITEM LIST</a></li>

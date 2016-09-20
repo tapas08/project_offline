@@ -1,0 +1,78 @@
+.background-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	width: 100%;
+	height: 920px;
+	height: 100vh;
+	background-size: cover!important;
+	background-repeat: no-repeat!important;
+	background-position: center!important;
+}
+.background-image::after {
+	content: "";
+	display: block;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 920px;
+	height: 100vh;
+	z-index: 2;
+	background: linear-gradient(to bottom, rgba(18,18,18,0.2) 0%, rgba(18,18,18,0.2) 50%,rgba(18,18,18,1) 100%);
+}
+
+/* Left & right padding of main content. */
+.entry-title,
+.entry-meta,
+.entry-content,
+.entry-footer,
+.nav-previous a,
+.nav-next a,
+.comments-title,
+.comment-list,
+.comment-respond,
+.no-comments,
+.comment-navigation .nav-previous,
+.comment-navigation .nav-next {
+	padding: 0 25px;
+}
+
+/* Backgroundcolor of meta and comments. */
+.entry-header,
+.entry-footer,
+.comment-respond {
+	background: $color__background-article-meta;
+}
+
+/* Transitions. */
+a {
+	transition: color 0.125s;
+}
+button,
+.more-link,
+#colophon a,
+.widget-area a,
+.navigation span,
+.special-content a,
+.comment-navigation a,
+.main-navigation .menu-item a {
+	transition: all 0.125s;
+}
+#social-menu a,
+.post-navigation a {
+	transition: background-color 0.125s;
+}
+
+/* Selection. */
+::selection {
+	color: white;
+	background-color: $color__background-body;
+}
+
+/* Word wrap. */
+.site-content {
+	word-wrap: break-word;
+}

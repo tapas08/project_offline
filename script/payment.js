@@ -79,12 +79,12 @@ $(document).keydown(function (e) {
                 }
                 $('#amount_paid').val(total);
             });
-            if ($('#inv_'+num).attr("checked")){
-                var value = $('#inv_'+num).val().split("/");
-                console.log(value);
-                total += parseInt(value[1]);
-                console.log(total);
-            }
+            // if ($('#inv_'+num).attr("checked")){
+            //     var value = $('#inv_'+num).val().split("/");
+            //     console.log(value);
+            //     total += parseInt(value[1]);
+            //     console.log(total);
+            // }
 
             // console.log($('#inv_'+num).attr("checked"));
             break;

@@ -1,0 +1,1 @@
+<p class="meta h6"><?php  _e('By ', 'venture-lite' ); the_author_posts_link(); _e(' on ', 'venture-lite' ); the_time(get_option('date_format')); ?></p>

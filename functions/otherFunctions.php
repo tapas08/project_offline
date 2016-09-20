@@ -70,6 +70,10 @@ if (Input::exists()){
 			check_invoice();
 			break;
 
+		case 'getProductPurchaseDetails':
+			productPurchaseDetails();
+			break;
+
 		default:
 			# code...
 			break;
@@ -775,6 +779,18 @@ function check_invoice(){
 			echo "true";
 		}else{
 			echo "false";
+		}
+	}
+}
+
+function productPurchaseDetails(){
+	if (Input::exists()){
+		$db = DB::getInstance()->get('purchaseBills', array('batchNo', '=', Input::get('batch')));
+
+		if ($db->count()){
+			echo "<span>[ <b>Supplier</b> : ". $db->first()['supplier'] ." ]</span>  <span>[ <b>INV</b> : ". $db->first()['invoiceNumber'] ." ]</span>  <span>[ <b>Date</b> : ". $db->first()['date'] ." ]</span>";
+		}else{
+			echo "Nothing!";
 		}
 	}
 }

@@ -13,7 +13,15 @@
  						</div>
  					</div>
  					<br />
- 					<p>Supplier name | Invoice Number | Date</p>
+ 					<div class="details">
+ 						<p id="product_extra_details">
+ 							<!-- Supplier name | Invoice Number | Date -->
+ 							<span class="col-md-11 purchase-details"></span>
+ 							<span class="col-md-1 pull-right">
+ 								<input type="button" class="btn btn-primary" id="new_product" value="ADD">
+ 							</span>
+ 						</p>
+ 					</div>
  					<br />
  					<input type="button" id="goto_prev" value="prev" style="display:none;">
 					<input type="button" id="goto_next" value="next" style="display:none;">

@@ -15,4 +15,5 @@ $(document).on('keypress', 'input,select', function (e) {
         if (index >= $canfocus.length) index = 0;
         $canfocus.eq(index).focus();
     }
+    //console.log($canfocus.val());
 });

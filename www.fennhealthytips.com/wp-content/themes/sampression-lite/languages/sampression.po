@@ -1,0 +1,686 @@
+# Sampression Lite Translation Master File
+# License: GNU General Public License v2 or later
+# License URI: http://www.gnu.org/licenses/gpl-2.0.html
+msgid ""
+msgstr ""
+"Project-Id-Version: Sampression Lite\n"
+"POT-Creation-Date: 2016-06-03 17:00+0545\n"
+"PO-Revision-Date: 2016-06-03 17:00+0545\n"
+"Last-Translator: Sampression <themes@sampression.com>\n"
+"Language-Team: Sampression Team <themes@sampression.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:14
+msgid "Oops! Page not found."
+msgstr ""
+
+#: 404.php:15
+msgid "Sorry but the page you looking for cannot be found."
+msgstr ""
+
+#: 404.php:16
+msgid "Better to go"
+msgstr ""
+
+#: 404.php:16
+msgid "home"
+msgstr ""
+
+#: archive.php:24
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: archive.php:26
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: archive.php:28
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: archive.php:30
+msgid "Blog Archives"
+msgstr ""
+
+#: archive.php:39 author.php:45
+msgid "Archives"
+msgstr ""
+
+#: archive.php:50 author.php:55 category.php:33 sidebar-right.php:38 tag.php:31
+msgid "Categories"
+msgstr ""
+
+#: archive.php:74 author.php:79 category.php:64 index.php:39 tag.php:62
+msgid "Nothing Found"
+msgstr ""
+
+#: archive.php:78 author.php:83 category.php:68 index.php:43 tag.php:66
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+
+#: author.php:29
+msgid "Author Archives: "
+msgstr ""
+
+#: category.php:19
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: category.php:40 sidebar-right.php:48 tag.php:38
+msgid "Archive"
+msgstr ""
+
+#: comments.php:19
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:42 comments.php:62
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43 comments.php:63
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:44 comments.php:64
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:74
+msgid "Comments are closed."
+msgstr ""
+
+#: header.php:191
+msgid "Filter By:"
+msgstr ""
+
+#: header.php:194 header.php:217
+msgid "Show All"
+msgstr ""
+
+#: image.php:17 single.php:17
+msgid "Post navigation"
+msgstr ""
+
+#: image.php:18
+msgid "<span class=\"meta-nav\">&larr;</span> Back to Gallery"
+msgstr ""
+
+#: image.php:31 loop.php:34 single.php:41
+#, php-format
+msgid ""
+"<time class=\"col posted-on genericon-day\" datetime=\"2011-09-28\">%2$s</"
+"time> "
+msgstr ""
+
+#: image.php:40 loop.php:44 single.php:51
+msgid "No comments yet"
+msgstr ""
+
+#: image.php:40 loop.php:44 single.php:51
+msgid "1 Comment"
+msgstr ""
+
+#: image.php:40 loop.php:44 single.php:51
+msgid "% Comments"
+msgstr ""
+
+#: image.php:51 includes/functions.php:482 includes/functions.php:521
+#: page.php:41 single.php:68
+msgid "Edit"
+msgstr ""
+
+#: image.php:108
+msgid "<span class=\"meta-nav\">&larr;</span> Previous Image"
+msgstr ""
+
+#: image.php:109
+msgid "Next Image <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: includes/customizer.php:63
+msgid "General Settings"
+msgstr ""
+
+#: includes/customizer.php:64
+msgid ""
+"You can customize general settings of your site like the site's name, "
+"tagline, logo, site icon, copyright text, background image, colour, choice "
+"of font face and color here."
+msgstr ""
+
+#: includes/customizer.php:73
+msgid "Site Identity"
+msgstr ""
+
+#: includes/customizer.php:88
+msgid "Logo"
+msgstr ""
+
+#: includes/customizer.php:92
+msgid "We recommend logo sizes within 220px x 120px."
+msgstr ""
+
+#: includes/customizer.php:107
+msgid "Remove Logo?"
+msgstr ""
+
+#: includes/customizer.php:121
+msgid "Remove Tagline?"
+msgstr ""
+
+#: includes/customizer.php:134
+msgid "Copyright Text"
+msgstr ""
+
+#: includes/customizer.php:148
+msgid "Remove Copyright Text?"
+msgstr ""
+
+#: includes/customizer.php:159
+msgid "Background Image"
+msgstr ""
+
+#: includes/customizer.php:176
+msgid "Use Background as Cover"
+msgstr ""
+
+#: includes/customizer.php:221
+msgid "Typography"
+msgstr ""
+
+#: includes/customizer.php:243
+msgid "Select your desired font for the Title."
+msgstr ""
+
+#: includes/customizer.php:247
+msgid "Header Text Font"
+msgstr ""
+
+#: includes/customizer.php:265
+msgid "Header Text Color"
+msgstr ""
+
+#: includes/customizer.php:289
+msgid "Select your desired font for the body text."
+msgstr ""
+
+#: includes/customizer.php:293
+msgid "Body Text Font"
+msgstr ""
+
+#: includes/customizer.php:311
+msgid "Body Text Color"
+msgstr ""
+
+#: includes/customizer.php:334
+msgid "Link Color"
+msgstr ""
+
+#: includes/customizer.php:346
+msgid "Background Color"
+msgstr ""
+
+#: includes/customizer.php:360
+msgid "Header &amp; Navigation"
+msgstr ""
+
+#: includes/customizer.php:361
+msgid ""
+"You can add/remove social media links, search bar and header image here."
+msgstr ""
+
+#: includes/customizer.php:370
+msgid "Social Media"
+msgstr ""
+
+#: includes/customizer.php:387
+msgid "Facebook link"
+msgstr ""
+
+#: includes/customizer.php:405
+msgid "Twitter link"
+msgstr ""
+
+#: includes/customizer.php:423
+msgid "Youtube link"
+msgstr ""
+
+#: includes/customizer.php:441
+msgid "Google+ link"
+msgstr ""
+
+#: includes/customizer.php:455
+msgid "Tumblr link"
+msgstr ""
+
+#: includes/customizer.php:469
+msgid "Pinterest link"
+msgstr ""
+
+#: includes/customizer.php:483
+msgid "Linkedin link"
+msgstr ""
+
+#: includes/customizer.php:497
+msgid "Github link"
+msgstr ""
+
+#: includes/customizer.php:511
+msgid "Instagram link"
+msgstr ""
+
+#: includes/customizer.php:525
+msgid "Flickr link"
+msgstr ""
+
+#: includes/customizer.php:539
+msgid "Vimeo link"
+msgstr ""
+
+#: includes/customizer.php:552
+msgid "Search Option"
+msgstr ""
+
+#: includes/customizer.php:566
+msgid "Remove Search Box?"
+msgstr ""
+
+#: includes/customizer.php:576
+msgid "Header Image"
+msgstr ""
+
+#: includes/customizer.php:586
+msgid "Custom Code"
+msgstr ""
+
+#: includes/customizer.php:598
+msgid "To insert into Header"
+msgstr ""
+
+#: includes/customizer.php:615
+msgid ""
+"Write/Paste the codes which you want to insert in Header. For eg. custom "
+"styles, scripts, etc. This will be inserted before the  &#060;/head&#062; "
+"tag in the header of the document."
+msgstr ""
+
+#: includes/customizer.php:626
+msgid "To insert into Footer"
+msgstr ""
+
+#: includes/customizer.php:643
+msgid ""
+"Write/Paste the codes which you want to insert in Footer. For eg. custom "
+"styles, scripts, etc. This will be inserted before the  &#060;/body&#062; "
+"tag in the footer of the document."
+msgstr ""
+
+#: includes/customizer.php:654 includes/customizer.php:678
+msgid "Custom CSS"
+msgstr ""
+
+#: includes/customizer.php:681
+msgid "Custom CSS description to users"
+msgstr ""
+
+#: includes/customizer.php:706
+msgid "Theme Documentation"
+msgstr ""
+
+#: includes/customizer.php:707
+msgid "UPGRADE TO PRO"
+msgstr ""
+
+#: includes/customizer.php:708
+msgid "Support Ticket"
+msgstr ""
+
+#: includes/functions.php:115
+msgid "Top Menu"
+msgstr ""
+
+#: includes/functions.php:206
+msgid "Proudly powered by"
+msgstr ""
+
+#: includes/functions.php:206
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: includes/functions.php:206
+msgid "WordPress"
+msgstr ""
+
+#: includes/functions.php:213
+msgid "A theme by"
+msgstr ""
+
+#: includes/functions.php:213
+msgid "http://www.sampression.com/"
+msgstr ""
+
+#: includes/functions.php:213
+msgid "Sampression"
+msgstr ""
+
+#: includes/functions.php:275
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: includes/functions.php:276
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: includes/functions.php:314
+msgid "Read more &#8250;"
+msgstr ""
+
+#: includes/functions.php:399
+msgid "Bottom Widget One"
+msgstr ""
+
+#: includes/functions.php:400
+msgid ""
+"Appears on bottom of the Page - First Widget - Please insert only one widget "
+"for better appearance."
+msgstr ""
+
+#: includes/functions.php:409
+msgid "Bottom Widget Two"
+msgstr ""
+
+#: includes/functions.php:410
+msgid ""
+"Appears on bottom of the Page - Second Widget - Please insert only one "
+"widget for better appearance."
+msgstr ""
+
+#: includes/functions.php:419
+msgid "Bottom Widget Three"
+msgstr ""
+
+#: includes/functions.php:420
+msgid ""
+"Appears on bottom of the Page - Third Widget - Please insert only one widget "
+"for better appearance."
+msgstr ""
+
+#: includes/functions.php:429
+msgid "Inner Sidebar"
+msgstr ""
+
+#: includes/functions.php:430
+msgid ""
+"Appears on right of the Interior Pages - Can use as much widgets as you wish."
+msgstr ""
+
+#: includes/functions.php:482
+msgid "Pingback:"
+msgstr ""
+
+#: includes/functions.php:510
+#, php-format
+msgid "%1$s on %2$s"
+msgstr ""
+
+#: includes/functions.php:516
+#, php-format
+msgid "<span class=\"date-details\">%1$s</span>"
+msgstr ""
+
+#: includes/functions.php:525
+msgid "Reply <span>&darr;</span>"
+msgstr ""
+
+#: includes/functions.php:533
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: includes/functions.php:605
+#, php-format
+msgid ""
+"%3$s <time class=\"col\" datetime=\"2011-09-28\"><span class=\"ico"
+"\">Published on</span>%2$s</time> "
+msgstr ""
+
+#: includes/functions.php:622
+msgid "0"
+msgstr ""
+
+#: includes/functions.php:622
+msgid "1"
+msgstr ""
+
+#: includes/functions.php:622
+msgid "%"
+msgstr ""
+
+#: includes/functions.php:629
+#, php-format
+msgid ""
+"<span class=\"ico\">Categories</span><div class=\"overflow-hidden cat-listing"
+"\">%s</div>"
+msgstr ""
+
+#: includes/theme-page.php:20
+msgid "Sampression Theme"
+msgstr ""
+
+#: includes/theme-page.php:20
+msgid "About Theme"
+msgstr ""
+
+#: includes/theme-page.php:28
+msgid "Welcome to Sampression Lite"
+msgstr ""
+
+#: includes/theme-page.php:29
+msgid ""
+"We hope you will enjoy using Sampression Lite, as much as we enjoyed "
+"creating it."
+msgstr ""
+
+#: includes/theme-page.php:32
+msgid "Getting started"
+msgstr ""
+
+#: includes/theme-page.php:33
+msgid "Customize everything from a single place."
+msgstr ""
+
+#: includes/theme-page.php:34
+msgid ""
+"Using the WordPress Customizer you can easily customize every aspect of the "
+"theme."
+msgstr ""
+
+#: includes/theme-page.php:35
+msgid "Go to Customizer"
+msgstr ""
+
+#: includes/theme-page.php:35
+msgid "Visit"
+msgstr ""
+
+#: includes/theme-page.php:36
+msgid "For further help, please visit our support page at:"
+msgstr ""
+
+#: includes/theme-page.php:39
+msgid "Sampression PRO"
+msgstr ""
+
+#: includes/theme-page.php:40
+msgid ""
+"We also have a paid Pro version of the theme, which offers many more extra "
+"features and options for  customization. Sampression Pro offers additional "
+"following features:"
+msgstr ""
+
+#: includes/theme-page.php:42
+msgid "Custom logo"
+msgstr ""
+
+#: includes/theme-page.php:43
+msgid "You can upload your own logo from the customizer."
+msgstr ""
+
+#: includes/theme-page.php:45
+msgid "Google Fonts"
+msgstr ""
+
+#: includes/theme-page.php:46
+msgid ""
+"Supports fonts that have been provided by Google to enhance every sites "
+"design."
+msgstr ""
+
+#: includes/theme-page.php:48
+msgid "Icons Mind icon set"
+msgstr ""
+
+#: includes/theme-page.php:49
+msgid "Sampression Pro comes bundled with IconsMind iconset worth US$ 79.00."
+msgstr ""
+
+#: includes/theme-page.php:51
+msgid "Typography options"
+msgstr ""
+
+#: includes/theme-page.php:52
+msgid ""
+"Sampression Pro goes even further in its support for various typography "
+"options. Now you can make changes to all and any typography element of your "
+"website e.g. You can choose the font family, size, style, color etc."
+msgstr ""
+
+#: includes/theme-page.php:54
+msgid "Multiple layout options"
+msgstr ""
+
+#: includes/theme-page.php:55
+msgid ""
+"The pro version of Sampression offers various different layout options "
+"including number of columns (one, two, three and four) to be displayed in "
+"home page, option to turn sidebar off/on etc"
+msgstr ""
+
+#: includes/theme-page.php:57
+msgid "Set the number of post/category on home page"
+msgstr ""
+
+#: includes/theme-page.php:58
+msgid ""
+"The Pro version of the theme provides you with control over the number of "
+"posts/categories that you want to display in the home page."
+msgstr ""
+
+#: includes/theme-page.php:60
+msgid "Show hide your meta"
+msgstr ""
+
+#: includes/theme-page.php:61
+msgid ""
+"You can choose to either show or hide the display of meta information from "
+"your posts."
+msgstr ""
+
+#: includes/theme-page.php:63
+msgid "Write your own css in customizer"
+msgstr ""
+
+#: includes/theme-page.php:64
+msgid ""
+"You can further customize the look of your Sampression Pro theme using your "
+"own CSS code."
+msgstr ""
+
+#: includes/theme-page.php:66
+msgid "Custom code"
+msgstr ""
+
+#: includes/theme-page.php:67
+msgid "Add custom codes to Header and Footer easily."
+msgstr ""
+
+#: includes/theme-page.php:71
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: includes/theme-page.php:72
+msgid "Live Theme Demo"
+msgstr ""
+
+#: loop.php:28 page.php:37 single.php:78
+msgid "Pages:"
+msgstr ""
+
+#: loop.php:57
+#, php-format
+msgid "<div class=\"overflow-hidden cat-listing\">%s</div>"
+msgstr ""
+
+#: loop.php:68
+msgid "Edit this post"
+msgstr ""
+
+#: search.php:19
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:37
+msgid "Nothing Found For: "
+msgstr ""
+
+#: search.php:41
+msgid ""
+"Apologies, but no results were found for the requested keyword. Please try "
+"another keywords.."
+msgstr ""
+
+#: searchform.php:13
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:14
+msgid "Search by Keyword"
+msgstr ""
+
+#: sidebar-right.php:18
+msgid "Most Popular"
+msgstr ""
+
+#: single.php:18
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: single.php:19
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: single.php:60
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: tag.php:17
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""

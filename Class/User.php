@@ -16,6 +16,8 @@
 			$this->_sessionName = Config::get('session/session_name');
 			$this->_cookieName = Config::get('remember/cookie_name');
 
+			//$this->_sessionName = 'user';
+
 			if (!$user){
 				if(Session::exists($this->_sessionName)){
 					$user = Session::get($this->_sessionName);
@@ -47,7 +49,7 @@
 				$id = $this->data()->id;
 			}
 
-			if (!$this->_db->update('users', $id, $fields)){
+			if (!$this->_db->update('users', array('id', '=', $id), $fields)){
 				throw new Exception("Error Processing Request");
 				
 			}
@@ -56,6 +58,7 @@
 		public function find($user = null){
 			if($user){
 				$field = is_numeric($user) ? 'id' : 'username';
+				
 				$data = $this->_db->get('users', array($field, '=', $user));
 
 				if ($data->count()){
@@ -71,7 +74,7 @@
 			if (!$username && !$password && $this->exists()){
 
 				Session::put($this->_sessionName, $this->data()->id);
-
+							//(user, 1)
 			}else{
 
 				$user = $this->find($username);
@@ -82,10 +85,11 @@
 
 						if ($remember){
 							$hash = Hash::unique();
-							$haskCheck = $this->_db->get('users_sessions', array('user_id', '=', $this->data()['id']));
+							$haskCheck = $this->_db->get('user_sessions', array('user_id', '=', $this->data()['id']));
 
 							if(!$haskCheck->count()){
-								$this->_db->insert('users_sessions', array(
+								
+								$this->_db->insert('user_sessions', array(
 									'user_id' => $this->data()['id'],
 									'hash' => $hash
 									));

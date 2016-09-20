@@ -1,0 +1,80 @@
+#hidden-header {
+	background: $color__background-hidden-header;
+}
+
+#header-top,
+#header-bottom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#header-top {
+	min-height: 75px;
+}
+
+#header-bottom {
+	flex-wrap: wrap;
+	min-height: 32px;
+}
+
+.site-branding,
+.social-top {
+	display: inline-block;
+}
+
+.site-title {
+	margin: 0;
+	font-size: 32px;
+	font-size: 2rem;
+}
+
+.site-description {
+	display: none;
+}
+
+.site-title a,
+.site-title a:hover,
+.site-title a:visited,
+.site-description {
+	text-decoration: none;
+	color: white;
+}
+
+/* Hide on lower resolutions. */
+#desktop-navigation,
+#desktop-search,
+.search-toggle {
+	display: none;
+}
+
+/* Hide if header image has not been set. */
+.no-header-img #header-middle {
+	display: none;
+}
+
+/* Correct position. */
+.no-header-img #desktop-navigation,
+.no-header-img .search-toggle {
+	margin-top: -25px;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	/* Hide on higher resolutions. */
+	.menu-toggle-container,
+	#mobile-navigation {
+		display: none;
+	}
+
+	/* Reveal on higher resolutions. */
+	#desktop-navigation,
+	#desktop-search,
+	.search-toggle {
+		display: block;
+	}
+	#header-bottom {
+		min-height: 75px;
+	}
+
+}

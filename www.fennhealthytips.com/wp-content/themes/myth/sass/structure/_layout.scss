@@ -1,0 +1,62 @@
+#masthead,
+#content,
+#colophon,
+#desktop-search {
+	@include site-width;
+}
+
+#content {
+	display: flex;
+	flex-direction: column;
+}
+#primary {
+	width: 100%;
+	order: 1;
+}
+#secondary,
+#tertiary {
+	width: 100%;
+}
+#secondary {
+	order: 2;
+}
+#tertiary {
+	order: 3;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	#content {
+		flex-direction: row;
+	}
+	#primary {
+		width: 66.666666%;
+		padding: 0 25px 0 0;
+	}
+	#secondary {
+		width: 33.333333%;
+	}
+	#tertiary {
+		display: none;
+	}
+}
+
+@media screen and (min-width: $breakpoint-full) {
+	#primary {
+		width: 66.666666%;
+		width: 60%;
+		order: 2;
+		padding: 0 25px;
+	}
+	#secondary,
+	#tertiary {
+		width: 16.666666%;
+		width: 20%;
+	}
+	#secondary {
+		order: 1;
+	}
+	#tertiary {
+		display: block;
+		order: 3;
+	}
+}

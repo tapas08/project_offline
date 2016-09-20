@@ -6,9 +6,9 @@
 		<p class="alert alert-success">Enter product details</p>
 		<div class="center" id="center">
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productName"><i class="fa fa-tag"></i> Product Name *</label></span>
-				<span class="col-lg-4"><input type="text" id="productName" class="form-control" name="productName" placeholder="Product Name" required></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productName"><i class="fa fa-tag"></i> Product Name *</label></span>
+				<span class="col-xs-4"><input type="text" id="productName" class="form-control" name="productName" placeholder="Product Name" required></span>
 			</div>
 
 			<!-- 
@@ -69,9 +69,9 @@
 			  -->
 			
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="marketedBy"><i class="fa fa-briefcase"></i> Marketed By *</label></span>
-				<span class="col-lg-4"><input type="text" id="productMarketedBy" class="form-control" name="productMarketedBy" list="marketedByList" aria-describedby="addMarketedBy" placeholder="Product Marketed By" oninput="getList('productMarketedBy', 'marketedByList');" required></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="marketedBy"><i class="fa fa-briefcase"></i> Marketed By *</label></span>
+				<span class="col-xs-4"><input type="text" id="productMarketedBy" class="form-control" name="productMarketedBy" list="marketedByList" aria-describedby="addMarketedBy" placeholder="Product Marketed By" oninput="getList('productMarketedBy', 'marketedByList');" required></span>
 				<datalist id="marketedByList"></datalist>
 				<button type="button" class="btn btn-info" id="addNewMrkBy" data-toggle="modal" data-target=".modal-newMarktBy">Add New</button>
 			</div>
@@ -131,25 +131,25 @@
 			  -->
 
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productManftr"><i class="fa fa-gears"></i> Manufacturer *</label></span>
-				<span class="col-lg-4"><input type="text" id="productManftr" class="form-control" name="productManftr" placeholder="Product Manufacturer" required></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productManftr"><i class="fa fa-gears"></i> Manufacturer *</label></span>
+				<span class="col-xs-4"><input type="text" id="productManftr" class="form-control" name="productManftr" placeholder="Product Manufacturer" required></span>
 				<!-- <button type="button" class="btn btn-info" id="addNewMnftr" data-toggle="modal" data-target=".modal-newManuBy">Add New</button> -->
 			</div>
 		
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label id="productPackSize"><i class="fa fa-plus-square"></i> Pack Size *</label></span>
-				<span class="col-lg-4"><input type="text" id="productPackSize" class="form-control" name="productPackSize" aria-describedby="sizing-addon6" placeholder="Product Quantity (ex: 10S or 500ML)" required></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label id="productPackSize"><i class="fa fa-plus-square"></i> Pack Size *</label></span>
+				<span class="col-xs-4"><input type="text" id="productPackSize" class="form-control" name="productPackSize" aria-describedby="sizing-addon6" placeholder="Product Quantity (ex: 10S or 500ML)" required></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productQuantity"><i class="fa fa-plus-square"></i> Purchase Size *</label></span>
-				<span class="col-lg-4"><input type="number" id="productQuantity" class="form-control" name="productQuantity" aria-describedby="sizing-addon6" placeholder="Pack Size" required></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productQuantity"><i class="fa fa-plus-square"></i> Purchase Size *</label></span>
+				<span class="col-xs-4"><input type="number" id="productQuantity" class="form-control" name="productQuantity" aria-describedby="sizing-addon6" placeholder="Pack Size" required></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productMainCategory"><i class="fa fa-sitemap"></i> Main Category *</label></span>
-				<span class="col-lg-4">
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productMainCategory"><i class="fa fa-sitemap"></i> Main Category *</label></span>
+				<span class="col-xs-4">
 					<input type="text" list="mainCategory" id="productMainCategory" name="productMainCategory" class="form-control" value="SCHEDULE" required>
 					<datalist id="mainCategory">
 						<option class="form-control">SCHEDULE</option>
@@ -159,9 +159,9 @@
 				<!-- <button type="button" class="btn btn-info" id="addNewCat">Add New</button> -->
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productSubCategory"><i class="fa fa-sitemap"></i> Sub Category *</label></span>
-				<span class="col-lg-4">
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productSubCategory"><i class="fa fa-sitemap"></i> Sub Category *</label></span>
+				<span class="col-xs-4">
 					<input type="text" class="form-control" name="productSubCategory" id="productSubCategory" list="subCategory" value="GE" required>
 					<datalist id="subCategory">
 						<option class="form-control">GE</option>
@@ -173,9 +173,9 @@
 				<!-- <button type="button" class="btn btn-info" id="addNewSubCat">Add New</button> -->
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productType"><i class="fa fa-sitemap"></i> Product Type *</label></span>
-				<span class="col-lg-4">
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productType"><i class="fa fa-sitemap"></i> Product Type *</label></span>
+				<span class="col-xs-4">
 					<select id="productType" name="productType" class="form-control" required>
 						<?php
 							$productTypes = $db->query("SELECT * FROM product_type")->results();
@@ -192,9 +192,9 @@
 				<button type="button" class="btn btn-info" id="addNewProdType" data-toggle="modal" data-target=".modal-newProductType">Add New</button>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productGroup"><i class="fa fa-sitemap"></i> Product Group *</label></span>
-				<span class="col-lg-4">
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productGroup"><i class="fa fa-sitemap"></i> Product Group *</label></span>
+				<span class="col-xs-4">
 					<select id="productGroup" name="productGroup" class="form-control" onchange="getVat();" required>
 						<?php 
 							$vat = $db->query("SELECT * FROM vat_category ORDER BY id DESC");
@@ -212,46 +212,46 @@
 				</span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productRate"><i class="fa fa-calendar-plus-o"></i> Purchase Rate</label></span>
-				<span class="col-lg-4"><input type="number" step="any" id="productRate" class="form-control" name="productRate"></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productRate"><i class="fa fa-calendar-plus-o"></i> Purchase Rate</label></span>
+				<span class="col-xs-4"><input type="number" step="any" id="productRate" class="form-control" name="productRate"></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productMRP"><i class="fa fa-calendar-plus-o"></i> M.R.P.</label></span>
-				<span class="col-lg-4"><input type="number" step="any" id="productMRP" class="form-control" name="productMRP"></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productMRP"><i class="fa fa-calendar-plus-o"></i> M.R.P.</label></span>
+				<span class="col-xs-4"><input type="number" step="any" id="productMRP" class="form-control" name="productMRP"></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productTax"><i class="fa fa-calendar-times-o"></i> Tax</label></span>
-				<span class="col-lg-1"><input type="number" step="any" class="form-control" name="productTax" id="productTax"></span>
-				<span class="col-lg-2"><label for="productVat"><i class="fa fa-calendar-times-o"></i> VAT(%)</label></span>
-				<span class="col-lg-1"><input type="number" step="any" class="form-control" name="productVat" id="productVat" value="getVat();" ></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productTax"><i class="fa fa-calendar-times-o"></i> Tax</label></span>
+				<span class="col-xs-1"><input type="number" step="any" class="form-control" name="productTax" id="productTax"></span>
+				<span class="col-xs-2"><label for="productVat"><i class="fa fa-calendar-times-o"></i> VAT(%)</label></span>
+				<span class="col-xs-1"><input type="number" step="any" class="form-control" name="productVat" id="productVat" value="getVat();" ></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productShelf"><i class="fa fa-calendar-times-o"></i> Rack/Shelf</label></span>
-				<span class="col-lg-4"><input type="text" class="form-control" name="productShelf" id="productShelf"></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productShelf"><i class="fa fa-calendar-times-o"></i> Rack/Shelf</label></span>
+				<span class="col-xs-4"><input type="text" class="form-control" name="productShelf" id="productShelf"></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productReorderLvl"><i class="fa fa-calendar-times-o"></i> Reorder Level</label></span>
-				<span class="col-lg-4"><input type="text" class="form-control" name="productReorderLvl" id="productReorderLvl" placeholder="In Tablet Size"></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productReorderLvl"><i class="fa fa-calendar-times-o"></i> Reorder Level</label></span>
+				<span class="col-xs-4"><input type="text" class="form-control" name="productReorderLvl" id="productReorderLvl" placeholder="In Tablet Size"></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productOrderQuantity"><i class="fa fa-calendar-times-o"></i> Order Quantity</label></span>
-				<span class="col-lg-4"><input type="number" class="form-control" name="productOrderQuantity" id="productOrderQuantity" placeholder="In Strip Size"></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productOrderQuantity"><i class="fa fa-calendar-times-o"></i> Order Quantity</label></span>
+				<span class="col-xs-4"><input type="number" class="form-control" name="productOrderQuantity" id="productOrderQuantity" placeholder="In Strip Size"></span>
 			</div>
 
-			<div class="input-group col-lg-12 input-divs">
-				<span class="col-lg-2"><label for="productContent"><i class="fa fa-calendar-times-o"></i> Drug Content</label></span>
-				<span class="col-lg-4"><textarea class="form-control" name="productContent" id="productContent" rows="1" oninput="get_drug_content();"></textarea></span>
+			<div class="input-group col-xs-12 input-divs">
+				<span class="col-xs-2"><label for="productContent"><i class="fa fa-calendar-times-o"></i> Drug Content</label></span>
+				<span class="col-xs-4"><textarea class="form-control" name="productContent" id="productContent" rows="1" oninput="get_drug_content();"></textarea></span>
 				<button type="button" class="btn btn-info" id="addNewCont" data-toggle="modal" data-target=".modal-newDrugContent">New Drug Content</button>
 			</div>
 
 			<br>
-			<div class="input-group col-lg-12">
+			<div class="input-group col-xs-12">
 				<input type="submit" name="submitUpdate" id="submitUpdate" value="Save" class="btn btn-success col-md-2"><span>&nbsp;</span>
 				<input type="reset" name="reset" id="reset" value="Cancel" class="btn btn-success col-md-2"><span>&nbsp;</span>
 				<a href="?modifyPurchase=true" name="modifyPurchase" id="modifyPurchase" class="btn btn-success col-md-2" onclick="loadForm('modifyPurchase');">Modify</a><span>&nbsp;</span>

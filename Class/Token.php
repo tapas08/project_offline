@@ -36,6 +36,7 @@
 
 		public static function check_for_login($token){
 			$tokenName = Config::get('session/token_login');
+			// $tokenName = $_SESSION['Ltoken'];
 
 			if (Session::exists($tokenName) && $token === Session::get($tokenName)){
 				Session::delete($tokenName);

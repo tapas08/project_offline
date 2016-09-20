@@ -1,0 +1,702 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: MH NewsMagazine v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2016-03-15 15:54+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:7
+msgid "Welcome to MH Magazine lite"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:7
+msgid "Theme Info"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:17
+#, php-format
+msgid "Welcome to %1s %2s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:25
+msgid "Important Links:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:27
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:164
+msgid "Theme Info Page"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:30
+msgid "Support Center"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:33
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:92
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:170
+msgid "Rate this theme"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:40
+#, php-format
+msgid "Getting Started with %s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:46
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:166
+msgid "Theme Documentation"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:53
+msgid "Visit Documentation"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:59
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:60
+msgid "Theme Options"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:62
+#, php-format
+msgid ""
+"%s supports the Theme Customizer for all theme settings. Click \"Customize "
+"Theme\" to open the Customizer now."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:66
+msgid "Customize Theme"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:12
+#, php-format
+msgid "1 Comment on %2$s"
+msgid_plural "%1$s Comments on %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:21
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:346
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:363
+msgid "&laquo;"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:21
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:347
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:363
+msgid "&raquo;"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:28
+#, php-format
+msgid "%s Trackbacks & Pingbacks"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:40
+msgid "Comments are closed."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:45
+msgid "Be the first to comment"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:50
+msgid "Leave a Reply"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:51
+msgid "Your email address will not be published."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/comments.php:53
+msgid "Comment"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-author-box.php:12
+#, php-format
+msgid "About %s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-author-box.php:16
+#, php-format
+msgid "More articles written by %s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-author-box.php:17
+#, php-format
+msgid "%s Article"
+msgid_plural "%s Articles"
+msgstr[0] ""
+msgstr[1] ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-none.php:5
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-none.php:9
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-none.php:13
+msgid "Search"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-none.php:18
+msgid "Recent Articles"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/footer.php:30
+#, php-format
+msgid "Copyright &copy; %1$s | WordPress Theme by %2$s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:56
+msgid "Main Navigation"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:114
+msgid "Sidebar"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:114
+msgid "Widget area (sidebar left/right) on single posts, pages and archives."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:115
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:118
+#, php-format
+msgctxt "widget area name"
+msgid "Home %d - 2/3 Width"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:115
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:116
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:117
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:118
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:119
+msgid "Widget area on homepage."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:116
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:117
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:119
+#, php-format
+msgctxt "widget area name"
+msgid "Home %d - 1/3 Width"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:120
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:121
+#, php-format
+msgctxt "widget area name"
+msgid "Posts %d - Advertisement"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:120
+msgid "Widget area above single post content."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:121
+msgid "Widget area below single post content."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:122
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:123
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:124
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:125
+#, php-format
+msgctxt "widget area name"
+msgid "Footer %d - 1/4 Width"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:122
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:123
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:124
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/functions.php:125
+msgid "Widget area in footer."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:103
+#, php-format
+msgctxt "post author"
+msgid "Articles by %s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:115
+msgid "Archives"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:121
+msgid "Page not found (404)"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:123
+#, php-format
+msgid "Search Results for %s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:217
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:222
+msgid "Back to article"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:219
+msgid "Previous image"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:225
+msgid "Previous article"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:232
+msgid "Next image"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:234
+msgid "Next article"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:288
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:294
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:304
+msgid "Edit"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:318
+msgid "Name "
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:319
+msgid "Email "
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-custom-functions.php:320
+msgid "Website"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:64
+msgid "General"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:65
+msgid "Layout"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:80
+msgid "Custom excerpt length in words"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:81
+msgid "Custom excerpt more text"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:82
+msgid "Position of default sidebar"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:82
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:107
+msgid "Left"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:82
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:108
+msgid "Right"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:83
+msgid "Author Box"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:83
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:84
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:109
+msgid "Enable"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:83
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:84
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:110
+msgid "Disable"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:84
+msgid "Post/Attachment Navigation"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:86
+msgid "Scale background image to full size"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:8
+msgctxt "widget name"
+msgid "MH Affiliate Widget"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:9
+msgid ""
+"MH Affiliate Widget to earn money by promoting WordPress themes by MH Themes."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:19
+msgid "Premium Magazine WordPress Themes by MH Themes"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:19
+msgid "MH Magazine WordPress Theme"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:36
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:108
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:79
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-tabbed.php:90
+msgid "Title:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:40
+msgid "Creative Market Username:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:43
+msgid ""
+"With this widget you can earn money by promoting WordPress themes by MH "
+"Themes. If you do not have a Creative Market Username yet, please visit our"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-affiliate.php:43
+msgid "infopage for affiliates"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:8
+msgctxt "widget name"
+msgid "MH Custom Posts [lite]"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:9
+msgid "Custom Posts Widget to display posts based on categories or tags."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:112
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:83
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:98
+msgid "Select a Category:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:114
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:85
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:100
+msgid "All"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:120
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:91
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:106
+msgid "Select a category to display posts from."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:123
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:94
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:109
+msgid "Filter Posts by Tags (e.g. lifestyle):"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:127
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:98
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:113
+msgid "Post Count (max. 50):"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:131
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:102
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:117
+msgid "Skip Posts (max. 50):"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:136
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:122
+msgid "Ignore Sticky Posts"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:139
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:106
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:125
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-tabbed.php:94
+msgid "Info:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:8
+msgctxt "widget name"
+msgid "MH Slider Widget [lite]"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:9
+msgid "Slider widget for use on homepage template."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:161
+msgid "Upgrade to MH Magazine Pro"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:162
+msgid "Theme Related Links:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:168
+msgid "Support Forum"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:49
+#, php-format
+msgid ""
+"Need any help with configuring %s? The documentation for this theme includes "
+"all theme related information that is needed to get your site up and running "
+"in no time. In case you have any additional questions, feel free to reach "
+"out in the theme support forums on WordPress.org."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:72
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:13
+msgid "MH Magazine Pro"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:75
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:16
+msgid ""
+"If you like the free version of this theme, you will LOVE the full version "
+"of MH Magazine which includes unique custom widgets, additional features and "
+"more useful options to customize your website."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:79
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:52
+msgid "Learn more about MH Magazine"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:92
+#, php-format
+msgid "%1s is proudly brought to you by %2s. If you like %3s: %4s."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:19
+msgid "Additional Features:"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:23
+msgid "Options to modify color scheme"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:26
+msgid "Typography options"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:29
+msgid "Several additional widget areas"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:32
+msgid "Additional custom widgets"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:35
+msgid "Extended layout options"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:38
+msgid "Additional custom menu slots"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:41
+msgid "Advanced advertising options"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:44
+msgid "Social buttons, related articles, ..."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:47
+msgid "News ticker and many more..."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/mh-customizer.php:66
+msgid "More Features"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/admin/admin.php:85
+msgid "Theme Screenshot"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/content-large.php:8
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:54
+msgid "No Image"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-custom-posts.php:139
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:106
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-slider.php:125
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-tabbed.php:94
+msgid ""
+"This is the lite version of this widget with basic features. More features "
+"and options are available in the premium version of MH Magazine."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:8
+msgctxt "widget name"
+msgid "MH Posts Large [lite]"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-posts-large.php:9
+msgid ""
+"MH Posts Large widget to display posts (large-sized) including thumbnail "
+"images."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-tabbed.php:8
+msgctxt "widget name"
+msgid "MH Tabbed [lite]"
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-tabbed.php:9
+msgid "MH Tabbed widget showing your latest posts, tags and comments."
+msgstr ""
+
+# @ mh-magazine-lite
+#: /Applications/MAMP/htdocs/wordpress/wp-content/themes/mh-magazine-lite/includes/widgets/mh-tabbed.php:73
+msgid "No comments found"
+msgstr ""

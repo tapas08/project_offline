@@ -30,6 +30,10 @@ switch (Input::get('access')) {
 		updatePayment();
 		break;
 
+	case 'getMFGNames':
+		getMFGNames();
+		break;
+
 	default:
 		# code...
 		break;
@@ -318,9 +322,9 @@ function updatePayment(){
 				$total += DB::getInstance()->get('purchaseInvoice', array('invoiceNumber', '=', $value))->first()['netAmount'];
 			
 				if ($update_invoice){
-					echo "Done Nigga!";
+					echo "OK";
 				}else{
-					return "U messed it up Nigga!";
+					return "Error!";
 				}
 			}
 		}
@@ -337,6 +341,23 @@ function updatePayment(){
 			echo "Shit just got real!";
 		}
 				
+	}
+}
+
+function getMFGNames(){
+	//echo Input::get('name');
+	if (Input::exists()){
+		$db = DB::getInstance();
+		$searchTerm = "%". strtoupper(Input::get('name')) ."%";
+		//echo "SearchTerm = [$searchTerm]";
+		$mfg_list = $db->query('SELECT * FROM company_name WHERE name LIKE ?', array($searchTerm));
+
+		if ($mfg_list->count()){
+			foreach ($mfg_list->results() as $list => $mfg){
+				echo "<option value='". $mfg['name'] ."'>". $mfg['name'] ."</option>";
+			}
+		}
+
 	}
 }
 

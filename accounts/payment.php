@@ -56,7 +56,7 @@ require_once '../core/init.php';
 						<a href="../purchaseReports/all_invoices.php" target="_window" class="btn btn-default">All invoice</a>
 					</div>
 					<div class="col-md-4">
-						<a href="#" id="paid_reports" class="btn btn-default" target="_window">Paid invoice</a>
+						<a href="../purchaseReports/paid_invoices.php" id="paid_reports" class="btn btn-default" target="_window">Paid invoice</a>
 					</div>
 					<div class="col-md-4">
 						<a href="#" taget="_window" id="party_ledger" target="_window" class="btn btn-default">Party Ledger</a>

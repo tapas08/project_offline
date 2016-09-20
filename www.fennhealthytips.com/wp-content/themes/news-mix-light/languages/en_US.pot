@@ -1,0 +1,1072 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: News Mix Light v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-22 12:54+0700\n"
+"PO-Revision-Date: 2014-05-31 02:05:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: Kopatheme <kopasoft@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: 404.php:9
+#@ newmix-1.0.1
+msgid "404"
+msgstr ""
+
+#: 404.php:12
+#@ newmix-1.0.1
+msgid "Page not found..."
+msgstr ""
+
+#: 404.php:13
+#@ newmix-1.0.1
+msgid "We're sorry, but we can't find the page you were looking for. It's probably some thing we've done wrong but now we know about it we'll try to fix it. In the meantime, try one of this options:"
+msgstr ""
+
+#: 404.php:16
+#@ newmix-1.0.1
+msgid "Go back to previous page"
+msgstr ""
+
+#: 404.php:18
+#@ newmix-1.0.1
+msgid "Go to homepage"
+msgstr ""
+
+#: comments.php:97
+#@ newmix-1.0.1
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+#: comments.php:108
+#@ newmix-1.0.1
+msgid "No Comments"
+msgstr ""
+
+#: comments.php:108
+#@ newmix-1.0.1
+msgid "1 Comment"
+msgstr ""
+
+#: comments.php:108
+#@ newmix-1.0.1
+msgid "% Comments"
+msgstr ""
+
+#: comments.php:19
+#@ newmix-1.0.1
+msgid "at"
+msgstr ""
+
+#: comments.php:26
+#@ newmix-1.0.1
+msgid "Edit"
+msgstr ""
+
+#: comments.php:54
+#@ newmix-1.0.1
+msgid "Name <span>(required):</span>"
+msgstr ""
+
+#: comments.php:59
+#@ newmix-1.0.1
+msgid "Email <span>(required):</span>"
+msgstr ""
+
+#: comments.php:64
+#@ newmix-1.0.1
+msgid "Website"
+msgstr ""
+
+#: comments.php:71
+#@ newmix-1.0.1
+msgid "Your comment <span>(required):</span>"
+msgstr ""
+
+#: comments.php:78
+#, php-format
+#@ newmix-1.0.1
+msgid "You must be <a href=\"%1$s\" title=\"Log in\">logged in</a> to post a comment."
+msgstr ""
+
+#: comments.php:79
+#, php-format
+#@ newmix-1.0.1
+msgid "Logged in as <a href=\"%1$s\" title=\"%2$s\">%2$s</a>."
+msgstr ""
+
+#: comments.php:79
+#@ newmix-1.0.1
+msgid "Log out &raquo;"
+msgstr ""
+
+#: comments.php:84
+#@ newmix-1.0.1
+msgid "<span class=\"title-line\"></span><span class=\"title-text\">Leave a comment</span>"
+msgstr ""
+
+#: comments.php:85
+#@ newmix-1.0.1
+msgid "Reply"
+msgstr ""
+
+#: comments.php:86
+#@ newmix-1.0.1
+msgid "<span class=\"title-text\">Cancel</span>"
+msgstr ""
+
+#: comments.php:87
+#@ newmix-1.0.1
+msgid "Post Comment"
+msgstr ""
+
+#: footer.php:35
+#: library/ini.php:73
+#: searchform.php:3
+#: searchform.php:4
+#@ newmix-1.0.1
+msgid "Search"
+msgstr ""
+
+#: footer.php:61
+#@ newmix-1.0.1
+msgid "Back to Top"
+msgstr ""
+
+#: header.php:39
+#: library/includes/cpanel/theme-options/general.php:103
+#@ newmix-1.0.1
+msgid "Breaking News"
+msgstr ""
+
+#: header.php:126
+#@ newmix-1.0.1
+msgid "Enter your search term..."
+msgstr ""
+
+#: header.php:174
+#@ newmix-1.0.1
+msgid "Menu"
+msgstr ""
+
+#: library/front.php:15
+#@ newmix-1.0.1
+msgid "Main Menu"
+msgstr ""
+
+#: library/front.php:16
+#@ newmix-1.0.1
+msgid "Footer Menu"
+msgstr ""
+
+#: library/front.php:287
+#, php-format
+#@ newmix-1.0.1
+msgid "Page %s"
+msgstr ""
+
+#: library/front.php:40
+#@ newmix-1.0.1
+msgid "Flexslider Post Image (Kopatheme)"
+msgstr ""
+
+#: library/front.php:41
+#@ newmix-1.0.1
+msgid "Featured Post Thumbnail (Kopatheme)"
+msgstr ""
+
+#: library/front.php:42
+#@ newmix-1.0.1
+msgid "Carousel Post Thumbnail (Kopatheme)"
+msgstr ""
+
+#: library/front.php:43
+#@ newmix-1.0.1
+msgid "Tabs List Widget Post Thumbnail (Kopatheme)"
+msgstr ""
+
+#: library/front.php:44
+#@ newmix-1.0.1
+msgid "Entry List Widget Post Thumbnail 1 (Kopatheme)"
+msgstr ""
+
+#: library/front.php:45
+#@ newmix-1.0.1
+msgid "Entry List Widget Post Thumbnail 2 (Kopatheme)"
+msgstr ""
+
+#: library/front.php:46
+#@ newmix-1.0.1
+msgid "Flexslider Post Image 2 (Kopatheme)"
+msgstr ""
+
+#: library/front.php:47
+#@ newmix-1.0.1
+msgid "Video, Gallery Post Slider Image (Kopatheme)"
+msgstr ""
+
+#: library/front.php:320
+#: library/front.php:1023
+#: library/front.php:1026
+#: library/ini.php:56
+#@ newmix-1.0.1
+msgid "Home"
+msgstr ""
+
+#: library/front.php:326
+#: library/ini.php:5
+#@ newmix-1.0.1
+msgid "Blog"
+msgstr ""
+
+#: library/front.php:437
+#, php-format
+#@ newmix-1.0.1
+msgid "<span class=\"%1$s\">Your search for \"%2$s\""
+msgstr ""
+
+#: library/front.php:442
+#, php-format
+#@ newmix-1.0.1
+msgid "Posts created by %1$s"
+msgstr ""
+
+#: library/front.php:445
+#@ newmix-1.0.1
+msgid "Page not found"
+msgstr ""
+
+#: library/front.php:500
+#@ newmix-1.0.1
+msgid "Related Articles"
+msgstr ""
+
+#: library/front.php:552
+#@ newmix-1.0.1
+msgid "Posted by:"
+msgstr ""
+
+#: library/front.php:561
+#@ newmix-1.0.1
+msgid "Follow:"
+msgstr ""
+
+#: library/front.php:564
+#: library/front.php:598
+#@ newmix-1.0.1
+msgid "Facebook"
+msgstr ""
+
+#: library/front.php:570
+#: library/front.php:607
+#@ newmix-1.0.1
+msgid "Twitter"
+msgstr ""
+
+#: library/front.php:577
+#@ newmix-1.0.1
+msgid "Google+"
+msgstr ""
+
+#: library/front.php:603
+#@ newmix-1.0.1
+msgid "Please enter your Facebook URL"
+msgstr ""
+
+#: library/front.php:611
+#@ newmix-1.0.1
+msgid "Please enter your Twitter URL"
+msgstr ""
+
+#: library/front.php:615
+#@ newmix-1.0.1
+msgid "Google Plus"
+msgstr ""
+
+#: library/front.php:620
+#@ newmix-1.0.1
+msgid "Please enter your Google Plus URL"
+msgstr ""
+
+#: library/front.php:624
+#@ newmix-1.0.1
+msgid "Flickr"
+msgstr ""
+
+#: library/front.php:629
+#@ newmix-1.0.1
+msgid "Please enter your Flickr URL"
+msgstr ""
+
+#: library/ini.php:12
+#@ newmix-1.0.1
+msgid "Page Right Sidebar"
+msgstr ""
+
+#: library/ini.php:19
+#@ newmix-1.0.1
+msgid "Page Full Width"
+msgstr ""
+
+#: library/ini.php:24
+#@ newmix-1.0.1
+msgid "Page Full Width Widgets"
+msgstr ""
+
+#: library/ini.php:38
+#: library/ini.php:77
+#@ newmix-1.0.1
+msgid "Archive"
+msgstr ""
+
+#: library/ini.php:61
+#@ newmix-1.0.1
+msgid "Post"
+msgstr ""
+
+#: library/ini.php:65
+#@ newmix-1.0.1
+msgid "Page"
+msgstr ""
+
+#: library/ini.php:69
+#@ newmix-1.0.1
+msgid "Taxonomy"
+msgstr ""
+
+#: library/includes/cpanel/theme-options-page.php:21
+#: library/kopa.php:27
+#@ newmix-1.0.1
+msgid "Theme Options"
+msgstr ""
+
+#: library/includes/widgets.php:236
+#: library/includes/widgets.php:654
+#: library/includes/widgets.php:898
+#: library/includes/widgets.php:1108
+#: library/includes/widgets.php:1353
+#@ newmix-1.0.1
+msgid "Title:"
+msgstr ""
+
+#: library/includes/widgets.php:147
+#@ newmix-1.0.1
+msgid "A Posts Slider Widget"
+msgstr ""
+
+#: library/includes/widgets.php:149
+#@ newmix-1.0.1
+msgid "Kopa Flexslider"
+msgstr ""
+
+#: library/includes/widgets.php:209
+#@ newmix-1.0.1
+msgid "Hot News"
+msgstr ""
+
+#: library/includes/widgets.php:241
+#: library/includes/widgets.php:658
+#: library/includes/widgets.php:902
+#: library/includes/widgets.php:1112
+#: library/includes/widgets.php:1357
+#@ newmix-1.0.1
+msgid "Categories:"
+msgstr ""
+
+#: library/includes/widgets.php:243
+#: library/includes/widgets.php:270
+#: library/includes/widgets.php:660
+#: library/includes/widgets.php:687
+#: library/includes/widgets.php:904
+#: library/includes/widgets.php:931
+#: library/includes/widgets.php:1114
+#: library/includes/widgets.php:1359
+#: library/includes/widgets.php:1386
+#@ newmix-1.0.1
+msgid "-- None --"
+msgstr ""
+
+#: library/includes/widgets.php:254
+#: library/includes/widgets.php:671
+#: library/includes/widgets.php:915
+#: library/includes/widgets.php:1370
+#@ newmix-1.0.1
+msgid "Relation:"
+msgstr ""
+
+#: library/includes/widgets.php:258
+#: library/includes/widgets.php:675
+#: library/includes/widgets.php:919
+#: library/includes/widgets.php:1374
+#@ newmix-1.0.1
+msgid "And"
+msgstr ""
+
+#: library/includes/widgets.php:259
+#: library/includes/widgets.php:676
+#: library/includes/widgets.php:920
+#: library/includes/widgets.php:1375
+#@ newmix-1.0.1
+msgid "Or"
+msgstr ""
+
+#: library/includes/widgets.php:268
+#: library/includes/widgets.php:685
+#: library/includes/widgets.php:929
+#: library/includes/widgets.php:1384
+#@ newmix-1.0.1
+msgid "Tags:"
+msgstr ""
+
+#: library/includes/widgets.php:280
+#: library/includes/widgets.php:697
+#: library/includes/widgets.php:941
+#: library/includes/widgets.php:1396
+#@ newmix-1.0.1
+msgid "Number of article:"
+msgstr ""
+
+#: library/includes/widgets.php:284
+#: library/includes/widgets.php:701
+#: library/includes/widgets.php:945
+#: library/includes/widgets.php:1129
+#: library/includes/widgets.php:1400
+#@ newmix-1.0.1
+msgid "Orderby:"
+msgstr ""
+
+#: library/includes/widgets.php:288
+#: library/includes/widgets.php:705
+#: library/includes/widgets.php:949
+#: library/includes/widgets.php:1133
+#: library/includes/widgets.php:1404
+#@ newmix-1.0.1
+msgid "Lastest"
+msgstr ""
+
+#: library/includes/widgets.php:289
+#: library/includes/widgets.php:706
+#: library/includes/widgets.php:950
+#: library/includes/widgets.php:1134
+#: library/includes/widgets.php:1405
+#@ newmix-1.0.1
+msgid "Popular by View Count"
+msgstr ""
+
+#: library/includes/widgets.php:290
+#: library/includes/widgets.php:707
+#: library/includes/widgets.php:951
+#: library/includes/widgets.php:1135
+#: library/includes/widgets.php:1406
+#@ newmix-1.0.1
+msgid "Popular by Comment Count"
+msgstr ""
+
+#: library/includes/widgets.php:291
+#: library/includes/widgets.php:708
+#: library/includes/widgets.php:952
+#: library/includes/widgets.php:1136
+#: library/includes/widgets.php:1407
+#@ newmix-1.0.1
+msgid "Random"
+msgstr ""
+
+#: library/includes/widgets.php:302
+#@ newmix-1.0.1
+msgid "Animation:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:52
+#: library/includes/widgets.php:306
+#@ newmix-1.0.1
+msgid "Fade"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:53
+#: library/includes/widgets.php:307
+#@ newmix-1.0.1
+msgid "Slide"
+msgstr ""
+
+#: library/includes/widgets.php:317
+#@ newmix-1.0.1
+msgid "Direction:"
+msgstr ""
+
+#: library/includes/widgets.php:321
+#@ newmix-1.0.1
+msgid "Horizontal"
+msgstr ""
+
+#: library/includes/widgets.php:331
+#@ newmix-1.0.1
+msgid "Speed of the slideshow cycling:"
+msgstr ""
+
+#: library/includes/widgets.php:336
+#@ newmix-1.0.1
+msgid "Speed of animations:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:72
+#: library/includes/widgets.php:342
+#@ newmix-1.0.1
+msgid "Auto Play"
+msgstr ""
+
+#: library/includes/widgets.php:375
+#: library/includes/widgets.php:1181
+#@ newmix-1.0.1
+msgid "A Featured Articles Widget"
+msgstr ""
+
+#: library/includes/widgets.php:377
+#@ newmix-1.0.1
+msgid "Kopa Articles List"
+msgstr ""
+
+#: library/includes/widgets.php:629
+#: library/includes/widgets.php:1324
+#@ newmix-1.0.1
+msgid "No Posts Found"
+msgstr ""
+
+#: library/includes/widgets.php:635
+#: library/includes/widgets.php:879
+#@ newmix-1.0.1
+msgid "Popular"
+msgstr ""
+
+#: library/includes/widgets.php:717
+#@ newmix-1.0.1
+msgid "Thumbnail Style"
+msgstr ""
+
+#: library/includes/widgets.php:721
+#@ newmix-1.0.1
+msgid "Only show first post thumbnail"
+msgstr ""
+
+#: library/includes/widgets.php:722
+#@ newmix-1.0.1
+msgid "All posts thumbnail with the same size"
+msgstr ""
+
+#: library/includes/widgets.php:753
+#@ newmix-1.0.1
+msgid "An Articles Carousel Widget"
+msgstr ""
+
+#: library/includes/widgets.php:755
+#@ newmix-1.0.1
+msgid "Kopa Articles Carousel"
+msgstr ""
+
+#: library/includes/widgets.php:961
+#@ newmix-1.0.1
+msgid "Scroll Items:"
+msgstr ""
+
+#: library/includes/widgets.php:989
+#@ newmix-1.0.1
+msgid "Display tabs of posts for each selected categories"
+msgstr ""
+
+#: library/includes/widgets.php:991
+#@ newmix-1.0.1
+msgid "Kopa Articles Tabs List"
+msgstr ""
+
+#: library/includes/widgets.php:1093
+#@ newmix-1.0.1
+msgid "Trending Now"
+msgstr ""
+
+#: library/includes/widgets.php:1125
+#@ newmix-1.0.1
+msgid "Number of articles on each tab:"
+msgstr ""
+
+#: library/includes/widgets.php:1145
+#@ newmix-1.0.1
+msgid "Display type"
+msgstr ""
+
+#: library/includes/widgets.php:1149
+#@ newmix-1.0.1
+msgid "Ranking Numbers"
+msgstr ""
+
+#: library/includes/widgets.php:1150
+#@ newmix-1.0.1
+msgid "Thumbnail"
+msgstr ""
+
+#: library/includes/widgets.php:1183
+#@ newmix-1.0.1
+msgid "Kopa Entry List"
+msgstr ""
+
+#: library/includes/widgets.php:1334
+#@ newmix-1.0.1
+msgid "News"
+msgstr ""
+
+#: library/includes/cpanel/theme-options-page.php:10
+#@ newmix-1.0.1
+msgid "General Setting"
+msgstr ""
+
+#: library/includes/cpanel/theme-options-page.php:11
+#@ newmix-1.0.1
+msgid "Blog Slider"
+msgstr ""
+
+#: library/includes/cpanel/theme-options-page.php:12
+#@ newmix-1.0.1
+msgid "Single Post"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:5
+#: library/includes/cpanel/theme-options-page.php:13
+#@ newmix-1.0.1
+msgid "Social Links"
+msgstr ""
+
+#: library/includes/cpanel/theme-options-page.php:25
+#@ newmix-1.0.1
+msgid "Visit author URL:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options-page.php:32
+#: library/includes/cpanel/theme-options-page.php:50
+#@ newmix-1.0.1
+msgid "Save"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:5
+#@ newmix-1.0.1
+msgid "Blog Slider Settings"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:10
+#@ newmix-1.0.1
+msgid "Slider on Blog:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:13
+#: library/includes/cpanel/theme-options/general.php:89
+#: library/includes/cpanel/theme-options/post.php:33
+#@ newmix-1.0.1
+msgid "Show"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:14
+#: library/includes/cpanel/theme-options/general.php:90
+#: library/includes/cpanel/theme-options/post.php:34
+#@ newmix-1.0.1
+msgid "Hide"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:27
+#@ newmix-1.0.1
+msgid "Blog Slider category:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:28
+#@ newmix-1.0.1
+msgid "Choose category to display posts in blog slider"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:42
+#@ newmix-1.0.1
+msgid "Slider Settings"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:47
+#@ newmix-1.0.1
+msgid "Effect"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:62
+#@ newmix-1.0.1
+msgid "Slideshow Speed (milliseconds)"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:67
+#@ newmix-1.0.1
+msgid "Animation Speed (milliseconds)"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:77
+#@ newmix-1.0.1
+msgid "Enable"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/blog-slider.php:78
+#@ newmix-1.0.1
+msgid "Disable"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:44
+#: library/includes/cpanel/theme-options/general.php:55
+#: library/includes/cpanel/theme-options/general.php:60
+#: library/includes/cpanel/theme-options/general.php:66
+#: library/includes/cpanel/theme-options/general.php:72
+#: library/includes/cpanel/theme-options/general.php:151
+#@ newmix-1.0.1
+msgid "Upload"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:16
+#: library/includes/cpanel/theme-options/general.php:22
+#: library/includes/cpanel/theme-options/general.php:28
+#: library/includes/cpanel/theme-options/general.php:34
+#@ newmix-1.0.1
+msgid "px"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:6
+#@ newmix-1.0.1
+msgid "Logo, Favicon, Apple Icon"
+msgstr ""
+
+#: header.php:141
+#@ newmix-1.0.1
+msgid "Logo"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:148
+#@ newmix-1.0.1
+msgid "Upload your own logo."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:13
+#@ newmix-1.0.1
+msgid "Logo margin"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:14
+#@ newmix-1.0.1
+msgid "Top margin:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:20
+#@ newmix-1.0.1
+msgid "Left margin:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:26
+#@ newmix-1.0.1
+msgid "Right margin:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:32
+#@ newmix-1.0.1
+msgid "Bottom margin:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:39
+#@ newmix-1.0.1
+msgid "Favicon"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:41
+#@ newmix-1.0.1
+msgid "Upload your own favicon."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:50
+#@ newmix-1.0.1
+msgid "Apple Icons"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:52
+#@ newmix-1.0.1
+msgid "Iphone (57px - 57px)"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:57
+#@ newmix-1.0.1
+msgid "Iphone Retina (114px - 114px)"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:63
+#@ newmix-1.0.1
+msgid "Ipad (72px - 72px)"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:69
+#@ newmix-1.0.1
+msgid "Ipad Retina (144px - 144px)"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:81
+#@ newmix-1.0.1
+msgid "Header Headline"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:102
+#@ newmix-1.0.1
+msgid "Headline title:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:106
+#@ newmix-1.0.1
+msgid "Headline category:"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:107
+#@ newmix-1.0.1
+msgid "Choose category to display posts in headline"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:127
+#: library/includes/cpanel/theme-options/general.php:133
+#@ newmix-1.0.1
+msgid "Top Banner"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:134
+#@ newmix-1.0.1
+msgid "Paste your Adsense, BSA or other ad code here to show ads on top banner."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:142
+#@ newmix-1.0.1
+msgid "Footer"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:155
+#@ newmix-1.0.1
+msgid "Custom Left Footer"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:156
+#@ newmix-1.0.1
+msgid "Enter the content you want to display in your left footer (e.g. copyright text)."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:161
+#@ newmix-1.0.1
+msgid "Custom Right Footer"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:162
+#@ newmix-1.0.1
+msgid "Enter the content you want to display in your right footer (e.g. newsletter subscription form code)."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:5
+#@ newmix-1.0.1
+msgid "Post Thumbnail Style"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:11
+#@ newmix-1.0.1
+msgid "Small Thumbnail"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:12
+#@ newmix-1.0.1
+msgid "Large Thumbnail"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:27
+#@ newmix-1.0.1
+msgid "About Author"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:48
+#@ newmix-1.0.1
+msgid "Related Posts"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:54
+#@ newmix-1.0.1
+msgid "Get By"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:58
+#@ newmix-1.0.1
+msgid "-- Hide --"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:59
+#@ newmix-1.0.1
+msgid "Tag"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:60
+#@ newmix-1.0.1
+msgid "Category"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/post.php:70
+#@ newmix-1.0.1
+msgid "Limit"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:12
+#@ newmix-1.0.1
+msgid "RSS URL"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:13
+#@ newmix-1.0.1
+msgid "Display the RSS feed button with the default RSS feed or enter a custom feed below. <br><code>Enter <b>\"HIDE\"</b> if you want to hide it</code>"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:19
+#@ newmix-1.0.1
+msgid "Facebook_URL"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:25
+#@ newmix-1.0.1
+msgid "Twitter URL"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:31
+#@ newmix-1.0.1
+msgid "Youtube URL"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:37
+#@ newmix-1.0.1
+msgid "Dribbble URL"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/social-links.php:44
+#@ newmix-1.0.1
+msgid "Flickr URL"
+msgstr ""
+
+#: library/templates/content-single-audio.php:20
+#: library/templates/content-single-gallery.php:28
+#: library/templates/content-single-video.php:32
+#: library/templates/content-single.php:31
+#: library/templates/loop-blog.php:21
+#@ newmix-1.0.1
+msgid "by"
+msgstr ""
+
+#: library/templates/content-single-audio.php:43
+#: library/templates/content-single-gallery.php:49
+#: library/templates/content-single-video.php:50
+#: library/templates/content-single.php:49
+#: library/templates/loop-page.php:12
+#@ newmix-1.0.1
+msgid "Page %"
+msgstr ""
+
+#: library/templates/loop-single.php:11
+#@ newmix-1.0.1
+msgid "Author"
+msgstr ""
+
+#: library/templates/template-pagination.php:19
+#@ newmix-1.0.1
+msgid "Previous"
+msgstr ""
+
+#: library/templates/template-pagination.php:20
+#@ newmix-1.0.1
+msgid "Next"
+msgstr ""
+
+#: library/templates/template-post-navigation.php:16
+#@ newmix-1.0.1
+msgid "Next Article"
+msgstr ""
+
+#: comments.php:79
+#@ newmix-1.0.1
+msgid "Log out of this account"
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:86
+#@ newmix-1.0.1
+msgid "Header headline:"
+msgstr ""
+
+#: library/ini.php:31
+#@ newmix-1.0.1
+msgid "Single"
+msgstr ""
+
+#: library/templates/template-post-navigation.php:6
+#@ newmix-1.0.1
+msgid "Previous Article"
+msgstr ""
+
+#: library/front.php:248
+#@ newmix-1.0.1
+msgid "Submit"
+msgstr ""
+
+#: library/front.php:249
+#@ newmix-1.0.1
+msgid "Sending..."
+msgstr ""
+
+#: library/front.php:252
+#@ newmix-1.0.1
+msgid "Please enter your name."
+msgstr ""
+
+#: library/front.php:253
+#: library/front.php:265
+#@ newmix-1.0.1
+msgid "At least {0} characters required."
+msgstr ""
+
+#: library/front.php:256
+#@ newmix-1.0.1
+msgid "Please enter your email."
+msgstr ""
+
+#: library/front.php:257
+#@ newmix-1.0.1
+msgid "Please enter a valid email."
+msgstr ""
+
+#: library/front.php:260
+#@ newmix-1.0.1
+msgid "Please enter your url."
+msgstr ""
+
+#: library/front.php:261
+#@ newmix-1.0.1
+msgid "Please enter a valid url."
+msgstr ""
+
+#: library/front.php:264
+#@ newmix-1.0.1
+msgid "Please enter a message."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:12
+#, php-format
+#@ newmix-1.0.1
+msgid "Use <a href=\"%s\">custom header</a> to upload logo image and change site title color."
+msgstr ""
+
+#: library/includes/cpanel/theme-options/general.php:147
+#@ newmix-1.0.1
+msgid "Footer logo"
+msgstr ""
+
+#: library/ini.php:123
+#@ newmix-1.0.1
+msgid "Kopa Right Sidebar"
+msgstr ""
+
+#: library/ini.php:124
+#@ newmix-1.0.1
+msgid "Kopa Page Fullwidth Sidebar"
+msgstr ""
+

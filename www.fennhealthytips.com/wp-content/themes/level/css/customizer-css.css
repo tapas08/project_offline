@@ -1,0 +1,107 @@
+/* 
+	Theme: iShop 
+    Author: Sandy
+*/
+h3.accordion-section-title:before {
+color:#0073aa;
+}
+li#accordion-section-header_image > h3.accordion-section-title:before {
+   content: "\f226";
+    font-family: dashicons;
+    padding: 3px;
+	vertical-align: bottom;
+	font-size: 17px;
+    font-weight: normal;}
+li#customize-control-important_links a:before {
+   content: "\f504";
+    font-family: dashicons;
+    padding: 3px;
+	vertical-align: bottom;
+	    font-size: 17px;
+    font-weight: normal;}
+li#customize-control-important_links a{
+line-height: 16px;
+    background: #FF9800;
+    color: #fff;
+    display: block;
+    margin: 15px 0 0;
+    text-align: center;
+    font-weight: 600;
+    padding: 8px 0;
+}
+li#accordion-section-level_important_links > h3.accordion-section-title:before {
+	content: "\f317";
+    font-family: dashicons;
+    padding: 3px;
+	vertical-align: bottom;
+    color: #FF9800;}
+li#accordion-panel-level_panel_advance > h3.accordion-section-title:before {
+   content: "\f111";
+    font-family: dashicons;
+    padding: 3px;
+	vertical-align: bottom;}
+li#accordion-panel-nav_menus > h3.accordion-section-title:before {
+   content: "\f214";
+    font-family: dashicons;
+    padding: 3px;
+	vertical-align: bottom;}
+li#accordion-section-title_tagline > h3.accordion-section-title:before {
+    content: "\f107";
+    font-family: dashicons;
+    padding: 3px;
+	vertical-align: bottom;
+}
+li#accordion-panel-level_panel_design > h3.accordion-section-title:before {
+    content: "\f100";
+    font-family: dashicons;
+	vertical-align: bottom;
+    padding: 3px;
+}
+li#accordion-panel-widgets > h3.accordion-section-title:before {
+    content: "\f479";
+    font-family: dashicons;
+	vertical-align: bottom;
+    padding: 3px;
+}
+li#accordion-section-static_front_page > h3.accordion-section-title:before {
+    content: "\f105";
+    font-family: dashicons;
+	vertical-align: bottom;
+    padding: 3px;
+}
+li#accordion-panel-ishop_panel_social > h3.accordion-section-title:before {
+    content: "\f242";
+    font-family: dashicons;
+    padding: 3px;
+}
+li#accordion-panel-ishop_theme_colorcustomize > h3.accordion-section-title:before {
+    content: "\f111";
+    font-family: dashicons;
+    padding: 3px;
+}
+li#accordion-panel-ishop_slider > h3.accordion-section-title:before {
+    content: "\f105";
+    font-family: dashicons;
+    padding: 3px;
+}
+
+#accordion-section-ishop_theme_navigation > ul > li.customize-section-description-container > p{
+    color: #f00;
+}
+
+#widgets-right > div > a:nth-child(1):hover{
+    opacity: 0.8;
+ 
+  }
+
+#customize-control-custom_css > label > textarea{
+      background-color: #333;
+  color: #fff;
+  font-size: 13px;
+  min-height: 150px;
+}
+
+#accordion-section-ishop_ticker > ul > li.customize-section-description-container > p{
+    
+    color: #f78828;
+}

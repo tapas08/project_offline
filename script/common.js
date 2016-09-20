@@ -6,11 +6,11 @@ var new_company = false;
 
 function getList(id, list, drug, insertData){
 	var value = document.getElementById(id).value;
-	//console.log(id);
+	console.log(id);
 	id = (id.substr(7) == "MarketedBy" || id.substr(7) == "Manftr") ? 'company_name' : id;
 
 	$.ajax({
-		url: '/project_offline/functions/purchaseFunctions.php', // /public_html/tslifecare.com
+		url: 'functions/purchaseFunctions.php', // /public_html/tslifecare.com
 		type: 'post',
 		data: {
 			searchTerm: value,
@@ -294,6 +294,7 @@ $('#stockist_name').keydown(function(e){
 // along with the company's code
 
 $('#stockist_priority').keydown(function(e){
+	console.log(e.which);
 	// Append the stockist name and priority in the table
 	// Save the data to stockist table
 	//console.log("HERER");

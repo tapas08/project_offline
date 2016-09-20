@@ -1,0 +1,13 @@
+// Structure
+$size__site-width: 1200;
+$size__sidebar: 1 / 6 * 100%;
+$size__content: 2 / 3 * 100%;
+$size__max-sidebar: 200px;
+$size__max-content: 800px;
+
+// Breakpoints
+$breakpoint-small: 480px;
+$breakpoint-medium: 800px;
+$breakpoint-large: 1024px;
+$breakpoint-full: $size__site-width + px;
+$breakpoint-special: ( ( $size__site-width / 90 ) * 100 ) + px;

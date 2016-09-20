@@ -10,10 +10,10 @@
 				'password' => '',
 				'db' => 'project_offline_db',
 				// 'host' => 'localhost',
-				// 'username' => 'hotel8cr_admin',
+				// 'username' => 'hotel8cr_root',
 				// 'password' => 'Monty123**',
 				// 'db' => 'hotel8cr_tslifecare',
-				'remote_db' => 'sql687707',
+				// 'remote_db' => 'sql687707',
 				'remote_host' => 'sql6.freemysqlhosting.net',
 				'remote_password' => 'mD1!qK8*',
 				'remote_username' => 'sql687707'
@@ -39,3 +39,10 @@
 			require_once 'Class/'. $class .'.php';
 		}
 	});
+
+
+	// $user = new User();
+	// //echo $_SERVER['PHP_SELF'];
+	// if (!$user->isLoggedIn() && $_SERVER['PHP_SELF'] !== "/project_offline/index.php"){
+	//     Redirect::to('index.php');
+	// }

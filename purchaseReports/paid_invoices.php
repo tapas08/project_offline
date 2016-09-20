@@ -61,7 +61,7 @@ $from_date = $from;
 			$total_discount = 0;
 
 			while ($from != $to){
-				$paid_invoices = $db->query("SELECT * FROM purchaseInvoice WHERE billDate = ? AND supplier = ? AND balance = ?", array($from, $stockist['name'], (float)0));
+				$paid_invoices = $db->query("SELECT * FROM purchaseInvoice WHERE billDate = ? AND supplier = ? AND balance = ?", array($from, $stockist['name'], 0));
 				//print_r($paid_invoices->results());
 				if ($paid_invoices->count()){
 					foreach ($paid_invoices->results() as $invoices => $invoice){

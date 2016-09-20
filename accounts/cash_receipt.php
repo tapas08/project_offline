@@ -34,6 +34,7 @@ if (Input::exists()){
 	<title>Cash Receipt</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/accounts.css">
 </head>
 <body>
 	<?php require_once 'templates/header.php'; ?>

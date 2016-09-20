@@ -1,0 +1,127 @@
+#colophon {
+	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 55px;
+}
+
+.site-info {
+	display: flex;
+	flex-direction: column;
+	order: 2;
+	padding: 1rem 0;
+	font-size: 14px;
+	color: $color__text-alt;
+	.generator {
+		text-align: center;
+	}
+	.sep {
+		display: none;
+		padding: 0 0.25em;
+	}
+}
+
+.site-info a,
+.site-info a:visited {
+	text-decoration: none;
+	color: $color__text-alt;
+	background: $color__background-widget;
+}
+
+.site-info a:hover {
+	color: $color__text-alt-hover;
+	background: $color__link-hover;
+}
+
+.social-bottom {
+	order: 1;
+}
+
+/* Back to top. */
+a.back-to-top:active,
+a.back-to-top:focus {
+	color: white;
+}
+.back-to-top {
+	position: fixed;
+	right: 1.0%;
+	bottom: -7.5%;
+	height: 15px;
+	width: 40px;
+	padding: 3px 5px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #505050;
+	opacity: 0.5;
+	z-index: 3;
+	visibility: hidden;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all 0.25s ease-in-out;
+	background-color: #858585;
+	span {
+		color: white;
+		font-size: 24px;
+	}
+	&:hover,
+	&:focus {
+		opacity: 1;
+		text-decoration: none;
+	}
+	&:focus {
+		outline: white;
+	}
+}
+.back-to-top::before {
+	content: '';
+	position: absolute;
+	left: 0px;
+	top: -20px;
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #858585;
+	z-index: 4;
+}
+.back-to-top::after {
+	content: '';
+	position: absolute;
+	left: 0px;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #505050;
+	z-index: 5;
+}
+.back-to-top:hover {
+	height: 40px;
+	color: #fff;
+}
+.show-back-to-top {
+	display: block;
+	bottom: 1.25%;
+	visibility: visible;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	#colophon,
+	.site-info {
+		flex-direction: row;
+	}
+	.site-info {
+		order: 1;
+		padding: 0;
+		.sep {
+			display: inline;
+		}
+	}
+	.social-bottom {
+		order: 2;
+	}
+}

@@ -1,0 +1,1296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Madar Lite\n"
+"POT-Creation-Date: 2016-06-25 07:51+0100\n"
+"PO-Revision-Date: 2016-06-25 08:33+0100\n"
+"Last-Translator: Abderrezak El-Mahdi <abderrezak31@gmail.com>\n"
+"Language-Team: Abderrezak El-Mahdi <abderrezak31@gmail.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:6
+msgid "Error"
+msgstr "خطأ"
+
+#: 404.php:6
+msgid "Not Found"
+msgstr "غير موجود"
+
+#: 404.php:7
+msgid ""
+"Apologies, but the page you requested could not be found. Perhaps options "
+"below will help."
+msgstr "عذرا، الصفحة المطلوبة لا يمكن العثور عليها."
+
+#: 404.php:13 front-page.php:143
+msgid "Category"
+msgstr "التصنيف"
+
+#: 404.php:17
+msgid "Tags"
+msgstr "الوسوم "
+
+#: 404.php:24
+msgid "Monthly Archive"
+msgstr "الأرشيف الشهري"
+
+#: 404.php:28
+msgid "Recent Post"
+msgstr "اخر المقالات"
+
+#: archive.php:11
+msgid "Daily Archives"
+msgstr "الأرشيف اليومي"
+
+#: archive.php:13
+msgid "Monthly Archives"
+msgstr "الأرشيف الشهري "
+
+#: archive.php:15
+msgid "Yearly Archives"
+msgstr "الأرشيف السنوي"
+
+#: archive.php:17
+msgid "Blog Archives"
+msgstr "أرشيف الاخبار"
+
+#: archive.php:27 category.php:17 functions.php:247
+#: template-parts/content-search.php:17
+msgid "Written on "
+msgstr "مكتوب في"
+
+#: archive.php:27 category.php:17 functions.php:247 tag.php:20
+#: template-parts/content-search.php:17
+msgid ", by "
+msgstr "بقلم:"
+
+#: archive.php:32 category.php:22 front-page.php:81 tag.php:25
+#: template-parts/content-search.php:19
+msgid "Read more"
+msgstr "قراءة المزيد"
+
+#: archive.php:35 category.php:25 functions.php:229 tag.php:28
+#: template-parts/content-search.php:20
+msgid "No Comments"
+msgstr "بدون تعليقات"
+
+#: archive.php:35 category.php:25 functions.php:229 functions.php:410
+#: tag.php:28 template-parts/content-search.php:20
+msgid "Comment"
+msgstr "التعليق"
+
+#: archive.php:35 category.php:25 functions.php:229 functions.php:376
+#: functions.php:407 tag.php:28 template-parts/content-search.php:20
+msgid "Comments"
+msgstr "التعليقات "
+
+#: archive.php:36 category.php:26 functions.php:230 tag.php:29
+#: template-parts/content-search.php:20
+msgid "Categories: "
+msgstr "التصنيفات:"
+
+#: archive.php:42 category.php:33 functions.php:260 tag.php:35
+msgid "There has been an error."
+msgstr "صادفنا مشكلة."
+
+#: archive.php:43 category.php:34 functions.php:261 tag.php:36
+msgid ""
+"We apologize for any inconvenience, please hit back on your browser or use "
+"the search form below."
+msgstr ""
+"نعتذر على الازعاج، رجاءً الضغط على  زر العودة بمتصفحك او استخدم البحث في "
+"الاسفل."
+
+#: category.php:8
+msgid "Category Archives:"
+msgstr "أرشيف القسم:"
+
+#: comments.php:3
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr "هذه التدوينة محمية بكلمة مرور. أدخل كلمة المرور لمشاهدة أي تعليقات."
+
+#: comments.php:12
+msgid "No comments"
+msgstr "لا تعليقات"
+
+#: comments.php:12
+msgid "One comment"
+msgstr ""
+"\n"
+"تعليق واحد"
+
+#: comments.php:12
+msgid "comments"
+msgstr "تعليقات"
+
+#: comments.php:17
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr "<span class=\"meta-nav\">&larr;</span> تعليقات اقدم"
+
+#: comments.php:18
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr "تعليقات احدث <span class=\"meta-nav\">&rarr;</span>"
+
+#: comments.php:45
+msgid "Name"
+msgstr "الاسم "
+
+#: comments.php:47
+msgid "Email"
+msgstr "البريد الالكتروني :"
+
+#: comments.php:49
+msgid "Website"
+msgstr "موقع الكتروني"
+
+#: comments.php:52
+msgid " Required fields are marked"
+msgstr "الحقول الإلزامية مشار إليها"
+
+#: comments.php:56
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "يتوجب عليك <a href=“%1$s”>تسجيل الدخول</a> لكتابة تعليق."
+
+#: comments.php:57
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+"متصل تحت إسم <a href=« %1$s »>%2$s</a>. <a href=« %3$s » title=« تسجيل "
+"الخروج من الحساب »>هل تريد تسجل الخروج?</a>"
+
+#: comments.php:58
+msgid "Your email address will not be published."
+msgstr "لن يتم نشر بريدك الإلكتروني"
+
+#: comments.php:59
+msgid "Leave a Reply"
+msgstr "أضف تعليقك "
+
+#: comments.php:60
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "اترك ردا ل %s"
+
+#: comments.php:61
+msgid "Cancel reply"
+msgstr "إلغاء الرد"
+
+#: comments.php:62
+msgid "Post Comment"
+msgstr "انشر تعليق"
+
+#: footer.php:38
+msgid "Switch to Desktop"
+msgstr "التحويل إلى الشاشة؟\""
+
+#: footer.php:40
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#: footer.php:40
+#, php-format
+msgid "Proudly powered by %s"
+msgstr "مشغل بفخر من خلال"
+
+#: footer.php:42
+#, php-format
+msgid "Theme: %2$s by %1$s."
+msgstr "القالب: %1$s بواسطة %2$s."
+
+#: front-page.php:141
+msgid "Read All"
+msgstr "قراءة الجميع"
+
+#: front-page.php:143
+msgid "No Posts for"
+msgstr "لا يوجد مقالات ل"
+
+#: functions.php:63
+msgid "Top Menu"
+msgstr "القائمة العلوية"
+
+#: functions.php:64
+msgid "Primary Menu"
+msgstr "القائمة الأساسية"
+
+#: functions.php:65
+msgid "Footer Menu"
+msgstr "القائمة السفلى"
+
+#: functions.php:77
+msgid "Madar Lite Panel"
+msgstr "لوحة تحكم مدار "
+
+#: functions.php:91
+msgid "Sidebar"
+msgstr "الشريط الجانبي"
+
+#: functions.php:100
+msgid "Footer Position 1"
+msgstr "موقف تذييل الصفحة 1"
+
+#: functions.php:102 functions.php:113 functions.php:124 functions.php:135
+msgid "Put widget Here! "
+msgstr "ضع القطعة هنا!"
+
+#: functions.php:111
+msgid "Footer Position 2"
+msgstr "موقف تذييل الصفحة 2"
+
+#: functions.php:122
+msgid "Footer Position 3"
+msgstr "موقف تذييل الصفحة 3"
+
+#: functions.php:133
+msgid "Footer Position 4"
+msgstr "موقف تذييل الصفحة 4"
+
+#: functions.php:155
+msgid "Use WordPress Menu builder OR Customizer to Manage Menus"
+msgstr "استخدام منشئ قائمة ووردبرس"
+
+#: functions.php:173
+msgid " Continue Reading &raquo;"
+msgstr "مواصلة القراءة»"
+
+#: functions.php:195
+msgid ", "
+msgstr "،"
+
+#: functions.php:237 inc/options/slider.php:46
+msgid "Read More"
+msgstr "إقرا المزيد"
+
+#: functions.php:253
+msgid "Newer News"
+msgstr "أخبار أحدث"
+
+#: functions.php:254
+msgid "Older News"
+msgstr "أقدم الأخبار"
+
+#: functions.php:275
+msgid "Next page"
+msgstr "الصفحة التالية"
+
+#: functions.php:276
+msgid "Previous page"
+msgstr "الصفحة السابقة"
+
+#: functions.php:374
+msgid "0"
+msgstr "0"
+
+#: functions.php:378
+msgid "reply"
+msgstr "رد"
+
+#: functions.php:382 functions.php:414
+msgid "Closed"
+msgstr "مغلق"
+
+#: functions.php:404
+msgid "Be First!"
+msgstr "كن أول من يعليق"
+
+#: functions.php:467
+msgid "Navigation"
+msgstr "التصفح"
+
+#: header.php:15
+msgid "Skip to Content"
+msgstr "اذهب الى المحتوى"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:14
+msgid "Get a whole new look for your website"
+msgstr "الحصول على نظرة جديدة كاملة لموقع الويب الخاص بك"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:16
+msgid ""
+"Below you will find a selection of highest downloaded themes that will "
+"totally transform the experience of your website to high level."
+msgstr ""
+"أدناه سوف تجد مجموعة قوالب التي ستحول تماما التجربة مع موقع الويب الخاص بك "
+"إلى مستوى عال."
+
+#: inc/admin/welcome-screen/sections/child-themes.php:26
+msgid "Avada Wordpress Theme"
+msgstr "قالب ووردبريس أفادا"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:28
+msgid "Avada"
+msgstr "قالب ووردبريس أفادا"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:35
+msgid "Get now"
+msgstr "احصل الآن"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:41
+msgid "Zblackbeard - Current theme"
+msgstr "Zblackbeard - Current theme"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:42
+#: inc/admin/welcome-screen/sections/child-themes.php:69
+#: inc/admin/welcome-screen/sections/child-themes.php:96
+#: inc/admin/welcome-screen/sections/child-themes.php:125
+#: inc/admin/welcome-screen/sections/child-themes.php:152
+msgid "Customize"
+msgstr "تعديل"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:53
+msgid "Madar Pro Retina Theme"
+msgstr "مدار الإحترافي"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:55
+msgid "Madar Pro"
+msgstr "مدار الإحترافي"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:62
+#: inc/admin/welcome-screen/sections/child-themes.php:89
+#: inc/admin/welcome-screen/sections/child-themes.php:145
+#, php-format
+msgid "Install %s now"
+msgstr "ثبّت الآن"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:63
+#: inc/admin/welcome-screen/sections/child-themes.php:90
+#: inc/admin/welcome-screen/sections/child-themes.php:119
+#: inc/admin/welcome-screen/sections/child-themes.php:146
+msgid "Live Preview"
+msgstr "معاينة حية"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:68
+msgid "Madar Pro - Current theme"
+msgstr "مدار الإحترافي"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:80
+#: inc/admin/welcome-screen/sections/child-themes.php:82
+msgid "X WordPress Theme"
+msgstr "X WordPress Theme"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:95
+msgid "X WordPress Theme - Current theme"
+msgstr "القالب X"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:109
+#: inc/admin/welcome-screen/sections/child-themes.php:111
+msgid "BeTheme "
+msgstr "BeTheme"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:118
+#, php-format
+msgid "Get %s now"
+msgstr "احصل على %s الآن <br/>"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:124
+msgid "BeTheme  - Current theme"
+msgstr "BeTheme  - Current theme"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:136
+msgid "Jupiter Wordpress Theme"
+msgstr "Jupiter Wordpress Theme"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:138
+msgid "Jupiter"
+msgstr "Jupiter"
+
+#: inc/admin/welcome-screen/sections/child-themes.php:151
+msgid "Jupiter - Current theme"
+msgstr "Jupiter - Current theme"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:19
+msgid "You will love These"
+msgstr "سوف تحب هذه"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:19
+msgid "Free"
+msgstr "مجانًا"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:19
+msgid "Only 35,99 $"
+msgstr "$ فقط 35،99"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:20
+msgid "WordPress Latest Version Ready"
+msgstr "آخر إصدار"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:20
+#: inc/admin/welcome-screen/sections/free_pro.php:21
+#: inc/admin/welcome-screen/sections/free_pro.php:22
+#: inc/admin/welcome-screen/sections/free_pro.php:23
+#: inc/admin/welcome-screen/sections/free_pro.php:24
+#: inc/admin/welcome-screen/sections/free_pro.php:25
+#: inc/admin/welcome-screen/sections/free_pro.php:27
+#: inc/admin/welcome-screen/sections/free_pro.php:28
+#: inc/admin/welcome-screen/sections/free_pro.php:29
+#: inc/admin/welcome-screen/sections/free_pro.php:32
+#: inc/admin/welcome-screen/sections/free_pro.php:33
+#: inc/admin/welcome-screen/sections/free_pro.php:34
+#: inc/admin/welcome-screen/sections/free_pro.php:35
+#: inc/admin/welcome-screen/sections/free_pro.php:36
+#: inc/admin/welcome-screen/sections/free_pro.php:37
+#: inc/admin/welcome-screen/sections/free_pro.php:38
+#: inc/admin/welcome-screen/sections/free_pro.php:39
+#: inc/admin/welcome-screen/sections/free_pro.php:40
+#: inc/admin/welcome-screen/sections/free_pro.php:41
+#: inc/admin/welcome-screen/sections/free_pro.php:42
+#: inc/admin/welcome-screen/sections/free_pro.php:43
+#: inc/admin/welcome-screen/sections/free_pro.php:44
+#: inc/admin/welcome-screen/sections/free_pro.php:45
+#: inc/admin/welcome-screen/sections/free_pro.php:46
+#: inc/admin/welcome-screen/sections/free_pro.php:47
+#: inc/admin/welcome-screen/sections/free_pro.php:48
+#: inc/admin/welcome-screen/sections/free_pro.php:49
+#: inc/admin/welcome-screen/sections/free_pro.php:50
+#: inc/admin/welcome-screen/sections/free_pro.php:51
+#: inc/admin/welcome-screen/sections/free_pro.php:52
+#: inc/admin/welcome-screen/sections/free_pro.php:53
+#: inc/admin/welcome-screen/sections/free_pro.php:54
+#: inc/admin/welcome-screen/sections/free_pro.php:55
+#: inc/admin/welcome-screen/sections/free_pro.php:56
+#: inc/admin/welcome-screen/sections/free_pro.php:57
+#: inc/admin/welcome-screen/sections/free_pro.php:58
+#: inc/admin/welcome-screen/sections/free_pro.php:59
+#: inc/admin/welcome-screen/sections/free_pro.php:60
+#: inc/admin/welcome-screen/sections/free_pro.php:61
+#: inc/admin/welcome-screen/sections/free_pro.php:62
+#: inc/admin/welcome-screen/sections/free_pro.php:63
+#: inc/admin/welcome-screen/sections/free_pro.php:64
+#: inc/admin/welcome-screen/sections/free_pro.php:65
+msgid "YES"
+msgstr "نعم"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:21
+msgid "Sophisticated, Lightweight, and Adaptable"
+msgstr "متطورة، خفيفة الوزن، وقابل للتكيف"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:22
+msgid "Widgets Ready, Right Sidebar & Footer Sidebar"
+msgstr "الحاجيات جاهزة، الحق الشريط الجانبي وتذييل الشريط الجانبي"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:23
+msgid "Excellent and Easy Theme Options"
+msgstr "لوحة التحكم ممتازة وسهلة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:23
+#: inc/admin/welcome-screen/sections/free_pro.php:24
+#: inc/admin/welcome-screen/sections/free_pro.php:25
+#: inc/admin/welcome-screen/sections/free_pro.php:27
+#: inc/admin/welcome-screen/sections/free_pro.php:28
+#: inc/admin/welcome-screen/sections/free_pro.php:29
+#: inc/admin/welcome-screen/sections/free_pro.php:33
+#: inc/admin/welcome-screen/sections/free_pro.php:34
+#: inc/admin/welcome-screen/sections/free_pro.php:36
+#: inc/admin/welcome-screen/sections/free_pro.php:37
+#: inc/admin/welcome-screen/sections/free_pro.php:38
+#: inc/admin/welcome-screen/sections/free_pro.php:39
+#: inc/admin/welcome-screen/sections/free_pro.php:42
+#: inc/admin/welcome-screen/sections/free_pro.php:43
+#: inc/admin/welcome-screen/sections/free_pro.php:44
+#: inc/admin/welcome-screen/sections/free_pro.php:45
+#: inc/admin/welcome-screen/sections/free_pro.php:46
+#: inc/admin/welcome-screen/sections/free_pro.php:47
+#: inc/admin/welcome-screen/sections/free_pro.php:48
+#: inc/admin/welcome-screen/sections/free_pro.php:51
+#: inc/admin/welcome-screen/sections/free_pro.php:52
+#: inc/admin/welcome-screen/sections/free_pro.php:53
+#: inc/admin/welcome-screen/sections/free_pro.php:54
+#: inc/admin/welcome-screen/sections/free_pro.php:55
+#: inc/admin/welcome-screen/sections/free_pro.php:56
+#: inc/admin/welcome-screen/sections/free_pro.php:57
+#: inc/admin/welcome-screen/sections/free_pro.php:58
+#: inc/admin/welcome-screen/sections/free_pro.php:59
+#: inc/admin/welcome-screen/sections/free_pro.php:60
+#: inc/admin/welcome-screen/sections/free_pro.php:61
+#: inc/admin/welcome-screen/sections/free_pro.php:62
+#: inc/admin/welcome-screen/sections/free_pro.php:63
+#: inc/admin/welcome-screen/sections/free_pro.php:64
+#: inc/admin/welcome-screen/sections/free_pro.php:65
+msgid "NO"
+msgstr "لا"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:24
+msgid "Customizer Options"
+msgstr "تخصيص الخيارات"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:25
+msgid "Multiple Options to Control the look of Front Page"
+msgstr "خيارات متعددة للسيطرة على مظهر الصفحة الأولى"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:26
+msgid "Multi Layer Slider with Flexible Options"
+msgstr "االسلايدر متعددة مع خيارات مرنة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:26
+msgid "Only 02"
+msgstr "فقط 02"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:26
+#: inc/admin/welcome-screen/sections/free_pro.php:31
+msgid "Unlimited"
+msgstr "عدد لا نهائي"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:27
+msgid "Unlimited Slide Items"
+msgstr "السلايدات غير محدودة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:28
+msgid "Slide Control, Navigation, Slide Number etc."
+msgstr "إزرار التنقل عن تمرير الفأرة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:29
+msgid "More Slider Controlling Options"
+msgstr "االسلايدر متعددة مع خيارات مرنة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:30
+msgid "Slider Animation Type"
+msgstr "نوع الرسوم المتحركة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:31
+msgid "Advertisement Options"
+msgstr "الدعاية والإعلان"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:32
+msgid "Heading, Sub Heading, Special News Controlling"
+msgstr "ترأس وعنوان فرعي، أخبار الخاصة "
+
+#: inc/admin/welcome-screen/sections/free_pro.php:33
+msgid "Heading, Sub Heading, Category News Number can be set"
+msgstr "التوزيع بين الجنسين (نسبة مئوية) وأعداد كل"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:34
+msgid "No News Repetation though a News may have in Multiple Categories"
+msgstr "تفعيل التصنيفات المتعددة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:35
+msgid "Breaking News ticker"
+msgstr "أخبار عاجلة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:36
+msgid "Gallery Box"
+msgstr "معرض ألبوم الصور"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:37
+msgid "Popular News"
+msgstr "الأخبار الأكثر تصفحا"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:38
+msgid "Editor Choice"
+msgstr "محرر اختياري"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:39
+msgid "Maintenance Mode"
+msgstr "وضع الصيانة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:40
+msgid "RESPONSIVE"
+msgstr "استجابة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:41
+msgid "Logo and Favicon Inserter Option"
+msgstr "شعار وفافيكون الخيار"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:42
+msgid "Google Analytics Code, Custom CSS and Scripts Inserter"
+msgstr "جوجل تحليلات المدونة، CSS مخصص ومخطوطات الواضع"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:43
+msgid "Customizable Copyright Notice and SiteMap Option"
+msgstr "تخصيص حقوق النشر محفوظة والخيار خريطة الموقع"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:44
+msgid "Hiding options for Theme Credit to Retina Theme and WordPress"
+msgstr "إخفاء الخيارات لقضاء وقت الفراغ الائتمان إلى الشبكية الموضوع وورد"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:45
+msgid "PSD Files Included"
+msgstr "شملت PSD الملفات"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:46
+msgid "E-Commerce Ready by WooCommerce!"
+msgstr "التجارة الإلكترونية جاهزة بحلول WooCommerce!"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:47
+msgid "Forum Platform Ready by bbpress!"
+msgstr "المنتدى منصة جاهزة من قبل bbpress!"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:48
+msgid "Community platform Ready by buddypress!"
+msgstr "منصة المجتمع جاهزة قبل buddypress!"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:49
+msgid "Easy Color Changing Options"
+msgstr "من السهل تغيير لون الخيارات"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:50
+msgid "Unlimited Color, You can set your own COLORS for your site"
+msgstr "اللون غير محدود، يمكنك ضبط الألوان الخاصة بك لموقعك"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:51
+msgid ""
+"Font Size, Font Face, Font Color Customization Options for Page/Post Title, "
+"Body, Heading etc..."
+msgstr ""
+"حجم الخط، نوع الخط، لون الخط خيارات التخصيص للصفحة / عنوان المقال، الجسم، "
+"مداخل الخ ..."
+
+#: inc/admin/welcome-screen/sections/free_pro.php:52
+msgid "Site-wide Comments Box Disabled Option"
+msgstr "مستوى تعليقات صندوق الموقع  الخيار"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:53
+msgid "Disable Option of Logged In User Admin Bar"
+msgstr "تعطيل الخيار بتسجيل الدخول الاداري"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:54
+msgid "Membership Registration and Log In Panel Available"
+msgstr "تغييرات في عضوية فريق التكنولوجيا والتقييم الاقتصادي"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:55
+msgid "Members rate and put Reviews for posts and articles"
+msgstr "معدل الأعضاء ووضع تعليقات بشأن الوظائف ومقالات"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:56
+msgid "Members react with the content via social media"
+msgstr "يتفاعل الأعضاء مع المحتوى عبر وسائل الاعلام الاجتماعية"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:57
+msgid "SEO boost ready"
+msgstr "الأرشفة القوية"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:58
+msgid "Featured grid slider"
+msgstr "Featured grid slider"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:59
+msgid "Manage hole content Via Panel"
+msgstr "قم بإدارة المحتوى الخاص بك"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:60
+msgid "Insert different Shortcodes"
+msgstr "إدراج الأرقام القصيرة المختلفة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:61
+msgid "Unlimited sidebars"
+msgstr "السلايدات غير محدودة"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:62
+msgid "Full integrated Build in System"
+msgstr "السعي لتحقيق فوائد شاملة من منظور منظومة العمل ككل"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:63
+msgid "Manage and Add Custom images"
+msgstr "إدارة واضافة الصور مخصص"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:64
+msgid "Site Logo and Url can be displayed in Login Page, Own Branding!"
+msgstr ""
+"شعار الموقع ويمكن عرض رابط في صفحة تسجيل الدخول، العلامة التجارية الخاصة!"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:65
+msgid "Social Links including Facebook, Twitter etc."
+msgstr "الروابط الاجتماعية بما في ذلك الفيسبوك وتويتر الخ"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:66
+msgid "Awesome Support with Forum and Dedicated E-Mail"
+msgstr "دعم رهيبة مع المنتدى ومخصصة البريد الإلكتروني"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:66
+msgid "Only Forum"
+msgstr "فقط المنتدى"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:66
+msgid "Forum and E-Mail"
+msgstr "منتدى والبريد الإلكتروني"
+
+#: inc/admin/welcome-screen/sections/free_pro.php:69
+msgid "Get Madar PRO now!"
+msgstr "احصل على مدار الآن!"
+
+#: inc/admin/welcome-screen/sections/getting-started.php:15
+msgid "Our most popular free Multipurpose WordPress theme, Madar Lite!"
+msgstr "لدينا أكثر شعبية حرة متعددة الأغراض وورد موضوع، مدار لايت!"
+
+#: inc/admin/welcome-screen/sections/getting-started.php:16
+msgid ""
+"We want to make sure you have the best experience using Madar Lite and that "
+"is why we gathered here all the necessary informations for you. We hope you "
+"will enjoy using Madar Lite, as much as we enjoy creating great products."
+msgstr ""
+"نحن نريد أن نتأكد من أن يكون لديك أفضل تجربة استخدام المدار لايت وهذا هو "
+"السبب في أننا نجتمع هنا كل المعلومات اللازمة لك. نحن نتمنى أن تستمتعوا "
+"باستخدام المدار لايت، بقدر ما تتمتع خلق منتجات رائعة."
+
+#: inc/admin/welcome-screen/sections/getting-started.php:24
+#: inc/admin/welcome-screen/welcome-screen.php:220
+msgid "Getting started"
+msgstr "الشروع في العمل"
+
+#: inc/admin/welcome-screen/sections/getting-started.php:26
+msgid "Customize everything in a single place."
+msgstr "تخصيص كل شيء في مكان واحد."
+
+#: inc/admin/welcome-screen/sections/getting-started.php:27
+msgid ""
+"Using the WordPress Customizer panel you can easily customize every aspect "
+"of the theme."
+msgstr "باستخدام لوحة وورد مخصص يمكنك بسهولة تخصيص كل جانب من جوانب الموضوع."
+
+#: inc/admin/welcome-screen/sections/getting-started.php:28
+msgid "Go to Customizer"
+msgstr "ذهاب إلى المعدل"
+
+#: inc/admin/welcome-screen/sections/getting-started.php:38
+msgid "View full documentation"
+msgstr "عرض وثائق كاملة"
+
+#: inc/admin/welcome-screen/sections/getting-started.php:39
+msgid ""
+"Need more details? Please check our full documentation for detailed "
+"information on how to start with Madar Lite."
+msgstr ""
+"بحاجة الى مزيد من التفاصيل؟ يرجى التحقق من الوثائق لدينا كامل للحصول على "
+"معلومات مفصلة حول كيفية البدء مع المدار لايت."
+
+#: inc/admin/welcome-screen/sections/getting-started.php:40
+msgid "Read full documentation"
+msgstr "قراءة المقال كاملا"
+
+#: inc/admin/welcome-screen/sections/github.php:9
+msgid "How can I contribute?"
+msgstr "كيف يمكنني المساهمة؟"
+
+#: inc/admin/welcome-screen/sections/github.php:14
+msgid ""
+"Found a bug? Want to contribute with a fix, create a new feature or add an "
+"idea?"
+msgstr "وجدت علة؟ تريد أن تساهم مع الإصلاح، وخلق ميزة جديدة أو إضافة فكرة؟"
+
+#: inc/admin/welcome-screen/sections/github.php:16
+msgid "GitHub is the place to start with!"
+msgstr "ابدأ مجاناً"
+
+#: inc/admin/welcome-screen/sections/github.php:19
+msgid "Madar Lite on GitHub"
+msgstr "Madar Lite on GitHub"
+
+#: inc/admin/welcome-screen/sections/github.php:25
+msgid ""
+"Are you a polyglot? Want to translate Madar Lite into your Home language?"
+msgstr "هل أنت متعدد اللغات؟ تريد أن تترجم مدار لايت في لغتك الرئيسية؟"
+
+#: inc/admin/welcome-screen/sections/github.php:27
+msgid "Get involved at WordPress.org."
+msgstr "في WordPress.org"
+
+#: inc/admin/welcome-screen/sections/github.php:30
+msgid "Translate Madar Lite"
+msgstr "ترجمة مدار لايت"
+
+#: inc/admin/welcome-screen/sections/github.php:36
+msgid "Are you enjoying Madar Lite?"
+msgstr "هل تتمتع بمدار لايت؟"
+
+#: inc/admin/welcome-screen/sections/github.php:38
+#, php-format
+msgid ""
+"We'd really appreciate it!, we do hard work to share a free theme with you, "
+"5 stars from you will be really appreciated,Rate our theme on %sWordPress.org"
+"%s. "
+msgstr ""
+"نحن نقدر ذلك حقا! نفعل العمل الشاق للمشاركة بقالي مجاني معك، 5 نجوم منك "
+"وسيتم تقدير حقوقنا، معدل موضوعنا على٪ sWordPress.org٪ الصورة."
+
+#: inc/admin/welcome-screen/welcome-screen.php:40
+msgid "Help"
+msgstr "المساعدة"
+
+#: inc/admin/welcome-screen/welcome-screen.php:43
+msgid "Need help with Madar Lite? Click here!"
+msgstr "تحتاج إلى مساعدة في مدار لايت؟ انقر هنا!"
+
+#: inc/admin/welcome-screen/welcome-screen.php:76
+#, php-format
+msgid ""
+"Welcome! Thank you for choosing Madar Lite! To fully take advantage of the "
+"best our theme can offer please make sure you visit our %swelcome page%s."
+msgstr ""
+"أهلا بك! شكرا لكم لاختيار مدار لايت! لاستفادة الكاملة من القالب يمكن أن تقدم "
+"من فضلك تأكد من زيارة موقعنا٪ swelcome الصفحة٪ الصورة."
+
+#: inc/admin/welcome-screen/welcome-screen.php:77
+msgid "Get started with Madar Lite"
+msgstr "إبدأ مع مدار لايت"
+
+#: inc/admin/welcome-screen/welcome-screen.php:115
+msgid "Hooray! There are no required actions for you right now."
+msgstr "هووولا! لا توجد إجراءات مطلوبة بالنسبة لك الآن."
+
+#: inc/admin/welcome-screen/welcome-screen.php:152
+msgid "View Theme Info"
+msgstr "معلومات القالب"
+
+#: inc/admin/welcome-screen/welcome-screen.php:221
+msgid "Premium themes"
+msgstr "قوال البريميوم"
+
+#: inc/admin/welcome-screen/welcome-screen.php:222
+msgid "Contribute"
+msgstr "المساهمة"
+
+#: inc/admin/welcome-screen/welcome-screen.php:223
+msgid "Free VS PRO"
+msgstr "المجاني VS الإحترافي"
+
+#: inc/customizer.php:18
+msgid "Site title/tagline"
+msgstr "عنوان الموقع / الشعار"
+
+#: inc/customizer.php:25
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; إختر &mdash;"
+
+#: inc/customizer.php:64
+msgid "Primary color"
+msgstr "لون أولي"
+
+#: inc/customizer.php:74
+msgid "Layout Settings"
+msgstr "إعدادات شكل الموقع"
+
+#: inc/customizer.php:91
+msgid "Homepage layout"
+msgstr "شكل الصفحة الرئيسية"
+
+#: inc/customizer.php:95
+msgid "Boxed Page"
+msgstr "صفحة محاصرة"
+
+#: inc/customizer.php:96
+msgid "Full Page"
+msgstr "صفحة كاملة"
+
+#: inc/customizer.php:104
+msgid "Header Settings"
+msgstr "إعدادات الهيدر"
+
+#: inc/customizer.php:123
+msgid "Upload your Logo"
+msgstr "رفع شعارك ."
+
+#: inc/customizer.php:126
+msgid "Displayed instead of the site Title and Description"
+msgstr "عرض بدلا من عنوان الموقع  والوصف"
+
+#: inc/customizer.php:143
+msgid "To Enable Top Header Menu"
+msgstr "لتمكين قائمة أعلى الرأس"
+
+#: inc/customizer.php:161
+msgid "Check this box to enable Top Advertisement (728x90)"
+msgstr "حدد هذا المربع لتفعيل الإعلان "
+
+#: inc/customizer.php:174
+msgid "Top Advertisement Image"
+msgstr "صوره الإعلان"
+
+#: inc/customizer.php:177
+msgid "Upload/Select an Advertisement Image. Recommended Size(728x90)"
+msgstr "تحميل / حدد صورة إعلان. وأوصى الحجم (مقاس 728x90)"
+
+#: inc/customizer.php:191
+msgid "Enter the Top Advertisement URL"
+msgstr "أدخل عنوان URL إعلان"
+
+#: inc/customizer.php:209
+msgid "To Enable Breaking news ticker"
+msgstr "تمكين أخبار عاجله"
+
+#: inc/customizer.php:226
+msgid "Show Recent Post Carousel"
+msgstr "اظهار كاروسيل"
+
+#: inc/customizer.php:232
+msgid "Social Settings"
+msgstr "الاعدادات الاجتماعية"
+
+#: inc/customizer.php:233
+msgid "More social icon available in Madar PRO Version."
+msgstr "الإصدار المحترف من مدار يحوي الكثير من الايقونات:"
+
+#: inc/customizer.php:243
+msgid "Add facebook link here"
+msgstr "إضافة رابط الفيسبوك هنا"
+
+#: inc/customizer.php:253
+msgid "Add Feed RSS link here"
+msgstr "إضافة رابط تغذيه هنا"
+
+#: inc/customizer.php:263
+msgid "Add Pinterest link here"
+msgstr "إضافة رابط موقع Pinterest هنا"
+
+#: inc/customizer.php:273
+msgid "Add twitter link here"
+msgstr "رابط صفحة تويتر"
+
+#: inc/customizer.php:282
+msgid "Add google plus link here"
+msgstr "إضافة جوجل بلس رابط هنا"
+
+#: inc/customizer.php:291
+msgid "Add Youtube link here"
+msgstr "إضافة رابط يوتيوب هنا"
+
+#: inc/customizer.php:300
+msgid "Footer"
+msgstr "الفوتر"
+
+#: inc/customizer.php:316
+msgid "To Enable Go Top button"
+msgstr "تمكين زر انتقل للأعلى"
+
+#: inc/customizer.php:326
+msgid "Flexy Slider"
+msgstr "سلايدر"
+
+#: inc/customizer.php:342
+msgid "Show Flexy Slider"
+msgstr "اظهار السلايدر"
+
+#: inc/customizer.php:354
+msgid "Select which category to show in Flexslider"
+msgstr "حدد الفئة التي تظهر في Flexslider"
+
+#: inc/customizer.php:371
+msgid "Enter the number of posts you want to show"
+msgstr "أدخل عدد المقالات التي تريد عرضها"
+
+#: inc/customizer.php:412
+msgid "One"
+msgstr "واحد"
+
+#: inc/customizer.php:413
+msgid "Two"
+msgstr "اثنين"
+
+#: inc/customizer.php:414
+msgid "Three"
+msgstr "ثلاثة"
+
+#: inc/customizer.php:415
+msgid "Four"
+msgstr "أربعة"
+
+#: inc/customizer.php:427
+msgid "Classic"
+msgstr "كلاسيكي"
+
+#: inc/customizer.php:428
+msgid "Full width (no sidebar)"
+msgstr "العرض الكامل (بدون أي شريط جانبي)"
+
+#: inc/customizer.php:442
+msgid "box homepage"
+msgstr "homepage"
+
+#: inc/customizer.php:443
+msgid "blog home page width "
+msgstr "بلوق عرض الصفحة الرئيسية"
+
+#: inc/options/breadcrumbs.php:7
+msgid "Home"
+msgstr " الرئيسية"
+
+#: inc/options/breadcrumbs.php:8
+#, php-format
+msgid "Archive by Category \"%s\""
+msgstr "أرشيف حسب التصنيف “%s”"
+
+#: inc/options/breadcrumbs.php:9
+#, php-format
+msgid "Search Results for \"%s\" Query"
+msgstr "نتائج البحث لـ « %s »"
+
+#: inc/options/breadcrumbs.php:10
+#, php-format
+msgid "Posts Tagged \"%s\""
+msgstr "المقالات الموسومة بـ « %s »"
+
+#: inc/options/breadcrumbs.php:11
+#, php-format
+msgid "Articles Posted by %s"
+msgstr "المقالات التي نشرت بواسطة %s"
+
+#: inc/options/breadcrumbs.php:12
+msgid "Error 404"
+msgstr "خطاء 404"
+
+#: inc/options/breadcrumbs.php:117
+msgid "Page"
+msgstr "الصفحة"
+
+#: inc/options/breaking.php:12
+msgid "Breaking News"
+msgstr "اخر الاخبار"
+
+#: inc/options/post-nav.php:6
+msgid "Previous"
+msgstr "السابق"
+
+#: inc/options/post-nav.php:7
+msgid "Next"
+msgstr "التالى"
+
+#: inc/options/related.php:17
+msgid "Related Posts"
+msgstr "مقالات ذات صلة"
+
+#: inc/options/related.php:36
+msgid "There are no Related Post in Query"
+msgstr "لا توجد مقالات صلة."
+
+#: inc/options/slider.php:42
+msgid "Written by"
+msgstr "بواسطة"
+
+#: inc/options/slider.php:43
+msgid "on"
+msgstr "في"
+
+#: inc/options/wp_list_comments.php:9
+#, php-format
+msgid "%s "
+msgstr "%s"
+
+#: inc/options/wp_list_comments.php:10
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s الي %2$s"
+
+#: inc/options/wp_list_comments.php:10 inc/options/wp_list_comments.php:30
+msgid "(Edit)"
+msgstr "(تحرير)"
+
+#: inc/options/wp_list_comments.php:15
+msgid "Your comment is awaiting moderation."
+msgstr "تعليقك ينتظر الموافقة من الإدارة."
+
+#: inc/options/wp_list_comments.php:30
+msgid "Pingback:"
+msgstr "التعقيبات"
+
+#: inc/theme-about.php:11
+msgid "About"
+msgstr "بشأن"
+
+#. Theme Name of the plugin/theme
+#: inc/theme-about.php:11
+msgid "Madar Lite"
+msgstr "مدار لايت"
+
+#: inc/theme-about.php:14
+msgid ""
+"Madar Lite is an effort of many sleepless nights of the Developers.  If you "
+"like this FREEE Theme You can consider for a 5 star rating and honest "
+"review. Your review will inspire us."
+msgstr ""
+"مدار لايت هو مجهود مطورين افتقدوا للذة النوم من أجل توفيل أفضل قالب مجاني، "
+"إدعم مجهوداتنا فقط بضع 5 نجوم لقالبنا. و نحن ممتنون للعمل معك."
+
+#: inc/theme-about.php:14
+msgid "Give Madar Lite 5 STARS"
+msgstr "إعطاء مدار لايت 5 نجوم"
+
+#: inc/theme-about.php:14
+msgid " will be appreciated. :)"
+msgstr "نحن نقدر ذلك حقا! "
+
+#: inc/theme-about.php:14
+msgid ""
+"Need Logo Inserter, Multilayer Slider, Unlimited Slide Items, Links from "
+"Featured Boxes, More Control, More Features and Options? Try Our extended "
+"Version of Madar Lite (Madar Pro)"
+msgstr ""
+"تحتاج شعار الواضع، متعدد الطبقات المتزلج، غير محدود الانزلاق الأصناف، وصلات "
+"من صناديق مميزة، عن السيطرة، المزيد من الميزات والخيارات؟ محاولة لدينا بمد "
+"إصدار المدار لايت (المدار برو)"
+
+#: inc/theme-about.php:14
+msgid ""
+"for Many Exciting Features with Dedicated Support from Retina Theme team. "
+"There will be Promotional Offers. You can avail those promotions from"
+msgstr ""
+"لكثير من الميزات المثيرة مع دعم مخصص من فريق موضوع الشبكية. سيكون هناك عروض "
+"الترويجية. يمكنك الاستفادة من هذه الترقيات من"
+
+#: inc/theme-about.php:14
+msgid "Retina Theme Site"
+msgstr "مدار الإحترافي"
+
+#: inc/theme-about.php:14
+msgid "Live Demo"
+msgstr "عرض التجريبي"
+
+#: inc/theme-about.php:14
+msgid " of Madar Extend"
+msgstr "مدار الإحترافي"
+
+#: inc/theme-about.php:18
+msgid ""
+"Madar is a WordPress theme that features a clean and flexible design which "
+"suitable for wide variety of websites. This theme includes a huge theme "
+"control panel that help user to develop or customize the theme. It also "
+"includes different kind of  homepage style, widget, footer, post type, "
+"shortcode and many others. Madar also Cross-Browser and Responsive theme, "
+"has clean style and well-documented."
+msgstr ""
+"مدار هو قالب يتميز باتصميم الأنيق ومرنا مناسبة لمجموعة واسعة من المواقع. "
+"ويشمل هذا موضوع لوحة التحكم موضوع الضخمة التي تساعد المستخدم على تطوير أو "
+"تخصيص موضوع. ويشمل أيضا نوع مختلف من نمط الصفحة الرئيسية، القطعة، تذييل "
+"الصفحة، اكتب آخر، الرمز القصير وغيرها الكثير. المدار أيضا عبر متصفح وموضوع "
+"الاستجابة، لديها أسلوب نظيفة وموثقة جيدا."
+
+#: inc/theme-about.php:22
+msgid "Madar Lite Demo"
+msgstr "Madar Lite Demo"
+
+#: inc/theme-about.php:23
+msgid "Madar Pro Demo"
+msgstr "مدار الإحترافي"
+
+#: inc/theme-about.php:24
+msgid "Madar Lite Install"
+msgstr "مدار لايت التثبيت"
+
+#: inc/theme-about.php:28
+msgid "* Each Extend Theme is only 34.99$ with Permanent Support"
+msgstr "دعم الثيم"
+
+#: inc/theme-about.php:31
+msgid "Learn More about our Flexible Membership Options"
+msgstr "Learn More about our Flexible Membership Options"
+
+#: inc/theme-about.php:32 inc/theme-about.php:55
+msgid "View Pricing and Features"
+msgstr "View Pricing and Features"
+
+#: inc/theme-about.php:40
+msgid "Madar Pro Responsive and Premium WordPress Themes"
+msgstr "Madar Pro Responsive and Premium WordPress Themes"
+
+#: inc/theme-about.php:41
+msgid ""
+"Are You Ready to take your WordPress site to the Highest level? Give your "
+"CMS a beautiful design to draw in more visitors. Peoples love us because of "
+"the Performance of our Theme Madar Pro. We deliver User Friendly Responsive "
+"and Premium WordPress Theme with Unique and Modern Design. You can Trust our "
+"Madar Pro Theme"
+msgstr ""
+"Are You Ready to take your WordPress site to the Highest level? Give your "
+"CMS a beautiful design to draw in more visitors. Peoples love us because of "
+"the Performance of our Theme Madar Pro. We deliver User Friendly Responsive "
+"and Premium WordPress Theme with Unique and Modern Design. You can Trust our "
+"Madar Pro Theme"
+
+#: inc/theme-about.php:43
+msgid "Visit Our Site"
+msgstr "Visit Our Site"
+
+#: inc/theme-about.php:44
+msgid "Visit Theme Demo"
+msgstr "Visit Theme Demo"
+
+#: inc/theme-about.php:45
+msgid "Become a Happy Member"
+msgstr "Become a Happy Member"
+
+#: inc/theme-about.php:54
+msgid "Madar Pro Theme is only $34.99 with Permanent Support"
+msgstr "Madar Pro Theme is only $34.99 with Permanent Support"
+
+#: search.php:7
+msgid "Search Result for"
+msgstr "نتائج البحث لـ:"
+
+#: searchform.php:2 searchform.php:3
+msgid "Search"
+msgstr "بحث "
+
+#: tag.php:11
+msgid "Tag Archives:"
+msgstr "أرشيف الكلمات المفتاحية:"
+
+#: template-parts/content-none.php:13
+msgid "No Results"
+msgstr "لايوجد نتائج"
+
+#: template-parts/content-none.php:14
+msgid "Please feel free try again!"
+msgstr "رجاءً حاول مرة اخرى"
+
+#: template-parts/content-page.php:17
+#, php-format
+msgid "Permalink to %s"
+msgstr "الرابط الثابت إلى %s"
+
+#: template-parts/content-single.php:21
+msgid "by"
+msgstr "بواسطة "
+
+#: template-parts/recentbox.php:16
+msgid "Recent Posts"
+msgstr "أحدث المقالات"
+
+#: widgets/madar-category.php:41
+msgid ""
+"Enter the slug for your category or leave empty to show posts from all "
+"categories."
+msgstr ""
+"اختر الاقسام الاضافية التي تريد اضافة متجرك اليها، أو تركه فارغا لاستخدام "
+"الأقسام الموجودة اعلاه."
+
+#. Theme URI of the plugin/theme
+msgid "http://retina-theme.com/madar-lite/"
+msgstr "http://retina-theme.com/madar-lite/"
+
+#. Description of the plugin/theme
+msgid ""
+"Madar Lite is a WordPress theme that features a clean and flexible design "
+"which suitable for wide variety of websites, This theme includes a huge "
+"customizer panel that help user to develop or customize the theme. It also "
+"includes different kind of  homepage style, widget, footer, post type,  "
+"Madar Lite also Cross-Browser and Responsive theme, has clean style and well-"
+"documented."
+msgstr ""
+"Madar Lite is a WordPress theme that features a clean and flexible design "
+"which suitable for wide variety of websites, This theme includes a huge "
+"customizer panel that help user to develop or customize the theme. It also "
+"includes different kind of  homepage style, widget, footer, post type,  "
+"Madar Lite also Cross-Browser and Responsive theme, has clean style and well-"
+"documented."
+
+#. Author of the plugin/theme
+msgid "El-Mahdi Abderrezak"
+msgstr "El-Mahdi Abderrezak"
+
+#. Author URI of the plugin/theme
+msgid "http://retina-theme.com"
+msgstr "http://retina-theme.com"

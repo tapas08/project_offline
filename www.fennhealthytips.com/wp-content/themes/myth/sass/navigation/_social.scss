@@ -1,0 +1,261 @@
+.social-menu-wrapper {
+	display: inline;
+
+	.menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	a {
+		display: block;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: $color__background-social-default;
+	}
+	a::before {
+		content: '\f475';
+		speak: none;
+		display: inline-block;
+		color: $color__social-icon;
+		line-height: 16px;
+		font-family: 'Genericons';
+		font-weight: normal;
+		font-size: 16px;
+		margin-top: 2px;
+		transition: transform 0.125s, color 0.125s ease-in-out;
+		vertical-align: middle;
+		text-align: center;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	// WordPress & MichaelVanDenBerg.com.
+	a[href*="wordpress.org"],
+	a[href*="wordpress.com"],
+	a[href*="michaelvandenberg.com"] {
+		background: $color__background-social-wordpress;
+	}
+	a[href*="wordpress.org"]::before,
+	a[href*="wordpress.com"]::before,
+	a[href*="michaelvandenberg.com"]::before {
+		content: '\f205';
+	}
+
+	// Facebook.
+	a[href*="facebook.com"] {
+		background: $color__background-social-facebook;
+	}
+	a[href*="facebook.com"]::before {
+		content: '\f204';
+	}
+
+	// Twitter.
+	a[href*="twitter.com"] {
+		background: $color__background-social-twitter;
+	}
+	a[href*="twitter.com"]::before {
+		content: '\f202';
+	}
+
+	// Dribbble.
+	a[href*="dribbble.com"] {
+		background: $color__background-social-dribbble;
+	}
+	a[href*="dribbble.com"]::before {
+		content: '\f201';
+	}
+
+	// Google+.
+	a[href*="plus.google.com"] {
+		background: $color__background-social-google;
+	}
+	a[href*="plus.google.com"]::before {
+		content: '\f206';
+	}
+
+	// Pinterest
+	a[href*="pinterest.com"] {
+		background: $color__background-social-pinterest;
+	}
+	a[href*="pinterest.com"]::before {
+		content: '\f209';
+	}
+
+	// GitHub.
+	a[href*="github.com"] {
+		background: $color__background-social-github;
+	}
+	a[href*="github.com"]::before {
+		content: '\f200';
+	}
+
+	// Tumblr.
+	a[href*="tumblr.com"] {
+		background: $color__background-social-tumblr;
+	}
+	a[href*="tumblr.com"]::before {
+		content: '\f214';
+	}
+
+	// YouTube.
+	a[href*="youtube.com"] {
+		background: $color__background-social-youtube;
+	}
+	a[href*="youtube.com"]::before {
+		content: '\f213';
+	}
+
+	// FlickR.
+	a[href*="flickr.com"] {
+		background: $color__background-social-flickr;
+	}
+	a[href*="flickr.com"]::before {
+		content: '\f211';
+	}
+
+	// Vimeo.
+	a[href*="vimeo.com"] {
+		background: $color__background-social-vimeo;
+	}
+	a[href*="vimeo.com"]::before {
+		content: '\f212';
+	}
+
+	// Instagram.
+	a[href*="instagram.com"] {
+		background: $color__background-social-instagram;
+	}
+	a[href*="instagram.com"]::before {
+		content: '\f215';
+	}
+
+	// Codepen.
+	a[href*="codepen.io"] {
+		background: $color__background-social-codepen;
+	}
+	a[href*="codepen.io"]::before {
+		content: '\f216';
+	}
+
+	// LinkedIn.
+	a[href*="linkedin.com"] {
+		background: $color__background-social-linkedin;
+	}
+	a[href*="linkedin.com"]::before {
+		content: '\f208';
+	}
+
+	// FourSquare.
+	a[href*="foursquare.com"] {
+		background: $color__background-social-fouresquare;
+	}
+	a[href*="foursquare.com"]::before {
+		content: '\f226';
+	}
+
+	// Reddit.
+	a[href*="reddit.com"] {
+		background: $color__background-social-reddit;
+	}
+	a[href*="reddit.com"]::before {
+		content: '\f222';
+	}
+
+	// Digg.
+	a[href*="digg.com"] {
+		background: $color__background-social-digg;
+	}
+	a[href*="digg.com"]::before {
+		content: '\f221';
+	}
+
+	// StumbleUpon.
+	a[href*="stumbleupon.com"] {
+		background: $color__background-social-stumbleupon;
+	}
+	a[href*="stumbleupon.com"]::before {
+		content: '\f223';
+	}
+
+	// DropBox.
+	a[href*="dropbox.com"] {
+		background: $color__background-social-dropbox;
+	}
+	a[href*="dropbox.com"]::before {
+		content: '\f223';
+	}
+
+	// Spotify.
+	a[href*="spotify.com"] {
+		background: $color__background-social-spotify;
+	}
+	a[href*="spotify.com"]::before {
+		content: '\f223';
+	}
+
+	// Pocket.
+	a[href*="pocket.com"] {
+		background: $color__background-social-pocket;
+	}
+	a[href*="pocket.com"]::before {
+		content: '\f223';
+	}
+
+	a:hover,
+	a:focus {
+		background: $color__link-hover;
+	}
+}
+
+/* Top & bottom social menu. */
+.social-top,
+.social-bottom {
+	li.menu-item {
+		display: inline-block;
+		margin-left: 3px;
+	}
+}
+
+/* Right social menu. */
+.social-right {
+	position: fixed;
+	top: 50%;
+	right: 1.25%;
+	.menu-item {
+		opacity: 0.25;
+		margin-bottom: 6px;
+		transform: translateX(50px);
+		transition: all 0.25s ease-in-out;
+		@for $i from 2 through 15 {
+			&:nth-child(#{$i}) { 
+				transition-delay: 0.025s * $i;
+			}
+		}
+	}
+}
+.social-right.show-social-right {
+	.menu-item {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Hide on mobile. */
+.social-top,
+.social-right {
+	display: none;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	.social-top {
+		display: block;
+	}
+}
+
+@media screen and (min-width: $breakpoint-full) {
+	.social-right {
+		display: block;
+	}
+}
